@@ -11,7 +11,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from src.config import REPORTS_DIR
-from src.dashboard.components import render_kpi_card
+from src.dashboard.components import render_kpi_card, render_chart, render_table
 
 def render_view():
     st.markdown("### 🩺 Data Health & Automated Quality Audit")
@@ -52,7 +52,7 @@ def render_view():
             "Cleaned Rows": f"{fstats.get('clean_rows', 0):,}",
             "Status": "✅ Verified Clean"
         })
-    st.dataframe(pd.DataFrame(file_rows), use_container_width=True)
+    render_table(pd.DataFrame(file_rows))
 
     # 3. Rule Catalog Breakdown
     st.markdown("#### ⚙️ Data Cleaning & Normalization Rules Triggered")
@@ -65,7 +65,7 @@ def render_view():
             template="plotly_dark"
         )
         fig_rules.update_layout(paper_bgcolor="#1E293B", plot_bgcolor="#0F172A")
-        st.plotly_chart(fig_rules, use_container_width=True)
+        render_chart(fig_rules)
 
     # 4. Searchable Row-Level Audit Trail
     st.markdown("#### 🔍 Interactive Row-Level Audit Trail")
@@ -75,8 +75,5 @@ def render_view():
         if rule_filter != "All":
             audit_df = audit_df[audit_df["rule_id"] == rule_filter]
         
-        st.dataframe(
-            audit_df.head(200)[["file", "row_key", "field", "raw_value", "new_value", "rule_id", "reason"]],
-            use_container_width=True
-        )
+        render_table(audit_df.head(200)[["file", "row_key", "field", "raw_value", "new_value", "rule_id", "reason"]])
         st.caption(f"Showing first {min(200, len(audit_df))} of {len(audit_df):,} audit log entries.")

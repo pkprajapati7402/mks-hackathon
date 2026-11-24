@@ -10,7 +10,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from src.config import OUTPUTS_DIR
-from src.dashboard.components import render_kpi_card
+from src.dashboard.components import render_kpi_card, render_chart, render_table
 
 def render_view():
     st.markdown("### 🎯 Forecast Accuracy & Backtest Tournament")
@@ -61,13 +61,13 @@ def render_view():
         }
     )
     fig_wape.update_layout(paper_bgcolor="#1E293B", plot_bgcolor="#0F172A", yaxis_title="WAPE (%)")
-    st.plotly_chart(fig_wape, use_container_width=True)
+    render_chart(fig_wape)
 
     # 3. Model Tournament Table & Bias Metrics
     col_a, col_b = st.columns(2)
     with col_a:
         st.markdown("#### 📊 Comprehensive Backtest Metrics Table")
-        st.dataframe(metrics_df, use_container_width=True)
+        render_table(metrics_df)
 
     with col_b:
         st.markdown("#### ⚖️ Forecast Bias (%) by Model and Origin")
@@ -86,12 +86,11 @@ def render_view():
         )
         fig_bias.add_hline(y=0, line_dash="dash", line_color="#F8FAFC")
         fig_bias.update_layout(paper_bgcolor="#1E293B", plot_bgcolor="#0F172A", yaxis_title="Bias (%)")
-        st.plotly_chart(fig_bias, use_container_width=True)
+        render_chart(fig_bias)
 
     # 4. Per-Family Champion Model Selection
     if not selection_df.empty:
         st.markdown("#### 🥇 Champion Forecasting Model Selection per Product Family")
-        st.dataframe(
-            selection_df[["Product_Family", "Selected_Champion_Model", "Selection_WAPE_Pct", "Holdout_WAPE_Pct", "Seasonal_Naive_WAPE", "LightGBM_P50_WAPE"]],
-            use_container_width=True
+        render_table(
+            selection_df[["Product_Family", "Selected_Champion_Model", "Selection_WAPE_Pct", "Holdout_WAPE_Pct", "Seasonal_Naive_WAPE", "LightGBM_P50_WAPE"]]
         )

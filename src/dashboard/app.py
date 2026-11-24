@@ -19,15 +19,15 @@ st.set_page_config(
 from src.config import (
     CLEANED_DATA_DIR, OUTPUTS_DIR, RAW_TEST, REPORTS_DIR
 )
-from src.dashboard.components import CUSTOM_CSS
+from src.dashboard.components import CUSTOM_CSS, render_html_block
 from src.dashboard.views import (
     executive, data_health, demand_explorer, anomaly_monitor,
     forecast_accuracy, macro_heatmap, what_if, procurement,
     lifecycle, stockouts, exceptions, export_data
 )
 
-# Inject Dark Enterprise CSS Styling
-st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
+# Inject Dark Enterprise CSS Styling safely via st.html / fallback
+render_html_block(CUSTOM_CSS, allow_style=True)
 
 # Cached Data Loader
 @st.cache_data(show_spinner=False)
@@ -78,16 +78,19 @@ def main():
         st.error("Pipeline outputs not detected! Please run `python run_pipeline.py` first to generate cleaned data and forecasts.")
         return
 
-    # Top Brand Header Banner
-    st.markdown("""
-    <div class="control-tower-header">
-        <div class="control-tower-title">🏭 CELERIS AUTOMOBILI INDUSTRIAL</div>
-        <div class="control-tower-subtitle">
-            Enterprise Demand Forecasting & Operational Planning Control Tower<br>
-            Multi-Tier Demand Engine &bull; 601 SKUs &bull; 7 Product Families &bull; 6 Global Commercial Regions
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    # Top Brand Header Banner (rendered cleanly via st.html without CommonMark indentation)
+    header_html = (
+        '<div class="control-tower-header" style="background:linear-gradient(135deg,#1E293B 0%,#0F172A 100%);'
+        'border:1px solid #334155;border-radius:12px;padding:24px 32px;margin-bottom:24px;'
+        'box-shadow:0 4px 20px rgba(0,0,0,0.4);">'
+        '<div class="control-tower-title" style="font-size:28px;font-weight:700;letter-spacing:-0.5px;'
+        'color:#F8FAFC;margin-bottom:6px;">🏭 CELERIS AUTOMOBILI INDUSTRIAL</div>'
+        '<div class="control-tower-subtitle" style="font-size:14px;color:#94A3B8;line-height:1.5;">'
+        'Enterprise Demand Forecasting &amp; Operational Planning Control Tower<br>'
+        'Multi-Tier Demand Engine &bull; 601 SKUs &bull; 7 Product Families &bull; 6 Global Commercial Regions'
+        '</div></div>'
+    )
+    render_html_block(header_html)
 
     # Sidebar Navigation & Global Shared Filters
     with st.sidebar:

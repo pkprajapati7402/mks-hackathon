@@ -9,7 +9,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from src.config import REPORTS_DIR
-from src.dashboard.components import render_kpi_card
+from src.dashboard.components import render_kpi_card, render_chart, render_table
 
 def render_view():
     st.markdown("### 🌡️ Macroeconomic Lead/Lag Analytics & Lag Stability")
@@ -41,7 +41,7 @@ def render_view():
     # 2. Optimal Lead Lags Summary Table
     st.markdown("#### ⏱️ Optimal Lead Time (Months) by Product Family & Macroeconomic Driver")
     summary_table = lead_lag_df[["Product_Family", "Macro_Indicator", "Optimal_Lag_Months", "Max_Correlation", "Relationship"]].copy()
-    st.dataframe(summary_table, use_container_width=True)
+    render_table(summary_table)
 
     # 3. Interactive Lead/Lag Cross-Correlation Heatmap
     st.markdown("#### 🗺️ Cross-Correlation Matrix across Lags (0 to 12 Months)")
@@ -59,10 +59,10 @@ def render_view():
         title=f"Cross-Correlation Profile for {selected_family} (Lags 0-12)"
     )
     fig_heat.update_layout(template="plotly_dark", paper_bgcolor="#1E293B")
-    st.plotly_chart(fig_heat, use_container_width=True)
+    render_chart(fig_heat)
 
     # 4. Temporal Lag Stability Analysis (Pre vs Post 2022)
     if not stability_df.empty:
         st.markdown("#### ⚖️ Temporal Lag Stability Test (Pre-2022 vs Post-2022)")
         st.markdown("Tests whether macroeconomic lead/lag relationships shifted structurally post-COVID / semiconductor shortage.")
-        st.dataframe(stability_df, use_container_width=True)
+        render_table(stability_df)

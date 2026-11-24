@@ -2,7 +2,10 @@
 Reusable UI Components, Plotly Visualizations, and Theme Styling for the Control Tower.
 """
 
-from typing import Dict, Any, List, Optional
+import html as _html
+import inspect
+import textwrap
+from typing import Optional
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
@@ -13,115 +16,155 @@ try:
 except ImportError:
     st = None
 
-# Custom CSS for World-Class Executive Supply Chain Dashboard
-CUSTOM_CSS = """
+# Compact CSS with no blank lines or leading indentation so HTML/Markdown parsers never emit raw text
+CUSTOM_CSS = textwrap.dedent("""
 <style>
-    /* Main Layout & Dark Elegance */
-    .stApp {
-        background-color: #0B0F19;
-        color: #F3F4F6;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-    
-    /* Top Header Banner */
-    .control-tower-header {
-        background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
-        border: 1px solid #334155;
-        border-radius: 12px;
-        padding: 24px 32px;
-        margin-bottom: 24px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    }
-    
-    .control-tower-title {
-        font-size: 28px;
-        font-weight: 700;
-        letter-spacing: -0.5px;
-        color: #F8FAFC;
-        margin-bottom: 6px;
-    }
-    
-    .control-tower-subtitle {
-        font-size: 14px;
-        color: #94A3B8;
-        line-height: 1.5;
-    }
-
-    /* KPI Metric Cards */
-    .kpi-card {
-        background: #1E293B;
-        border: 1px solid #334155;
-        border-radius: 10px;
-        padding: 18px 20px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.25);
-        transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-    .kpi-card:hover {
-        border-color: #00E5FF;
-        transform: translateY(-2px);
-    }
-    .kpi-label {
-        font-size: 12px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.8px;
-        color: #94A3B8;
-        margin-bottom: 6px;
-    }
-    .kpi-value {
-        font-size: 26px;
-        font-weight: 700;
-        color: #F8FAFC;
-        margin-bottom: 4px;
-    }
-    .kpi-subtext {
-        font-size: 12px;
-        color: #64748B;
-    }
-
-    /* Status Badges */
-    .badge-success {
-        background-color: rgba(16, 185, 129, 0.2);
-        color: #34D399;
-        border: 1px solid rgba(16, 185, 129, 0.4);
-        padding: 2px 8px;
-        border-radius: 4px;
-        font-size: 11px;
-        font-weight: 600;
-    }
-    .badge-warning {
-        background-color: rgba(245, 158, 11, 0.2);
-        color: #FBBF24;
-        border: 1px solid rgba(245, 158, 11, 0.4);
-        padding: 2px 8px;
-        border-radius: 4px;
-        font-size: 11px;
-        font-weight: 600;
-    }
-    .badge-info {
-        background-color: rgba(0, 229, 255, 0.15);
-        color: #00E5FF;
-        border: 1px solid rgba(0, 229, 255, 0.3);
-        padding: 2px 8px;
-        border-radius: 4px;
-        font-size: 11px;
-        font-weight: 600;
-    }
+.stApp {
+    background-color: #0B0F19;
+    color: #F3F4F6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+.control-tower-header {
+    background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 24px 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+.control-tower-title {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #F8FAFC;
+    margin-bottom: 6px;
+}
+.control-tower-subtitle {
+    font-size: 14px;
+    color: #94A3B8;
+    line-height: 1.5;
+}
+.kpi-card {
+    background: #1E293B;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 18px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.kpi-card:hover {
+    border-color: #00E5FF;
+    transform: translateY(-2px);
+}
+.kpi-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #94A3B8;
+    margin-bottom: 6px;
+}
+.kpi-value {
+    font-size: 26px;
+    font-weight: 700;
+    color: #F8FAFC;
+    margin-bottom: 4px;
+}
+.kpi-subtext {
+    font-size: 12px;
+    color: #64748B;
+}
+.badge-success {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: #34D399;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+}
+.badge-warning {
+    background-color: rgba(245, 158, 11, 0.2);
+    color: #FBBF24;
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+}
+.badge-info {
+    background-color: rgba(0, 229, 255, 0.15);
+    color: #00E5FF;
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+}
 </style>
-"""
+""").strip()
+
+
+def render_html_block(html_body: str, allow_style: bool = False) -> None:
+    """
+    Renders styled HTML/CSS without relying on Markdown rehype-raw dynamic chunks.
+    Uses st.html() natively when available, falling back to zero-indent st.markdown().
+    """
+    compact = "\n".join(line.strip() for line in html_body.strip().splitlines() if line.strip())
+    if st is None:
+        return
+    if hasattr(st, "html"):
+        if allow_style and "unsafe_allow_javascript" in inspect.signature(st.html).parameters:
+            st.html(compact, unsafe_allow_javascript=True)
+            return
+        if not allow_style:
+            st.html(compact)
+            return
+    st.markdown(compact, unsafe_allow_html=True)
+
+
+def render_chart(fig: go.Figure) -> None:
+    """Renders a Plotly chart across Streamlit versions without deprecation warnings."""
+    if st is None:
+        return
+    params = inspect.signature(st.plotly_chart).parameters
+    if "width" in params:
+        st.plotly_chart(fig, width="stretch")
+    else:
+        st.plotly_chart(fig, use_container_width=True)
+
+
+def render_table(df: pd.DataFrame) -> None:
+    """Renders a DataFrame across Streamlit versions without deprecation warnings."""
+    if st is None:
+        return
+    params = inspect.signature(st.dataframe).parameters
+    if "width" in params:
+        st.dataframe(df, width="stretch")
+    else:
+        st.dataframe(df, use_container_width=True)
+
 
 def render_kpi_card(label: str, value: str, subtext: str = ""):
-    """Renders a polished dark-theme KPI metric card."""
+    """Renders a dark-theme KPI metric card cleanly via st.html without CommonMark indentation issues."""
     if st is not None:
-        st.markdown(f"""
-        <div class="kpi-card">
-            <div class="kpi-label">{label}</div>
-            <div class="kpi-value">{value}</div>
-            <div class="kpi-subtext">{subtext}</div>
-        </div>
-        """, unsafe_allow_html=True)
+        safe_label = _html.escape(str(label))
+        safe_value = _html.escape(str(value))
+        safe_subtext = _html.escape(str(subtext))
+        card_html = (
+            '<div class="kpi-card" style="background:#1E293B;border:1px solid #334155;'
+            'border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.25);">'
+            f'<div class="kpi-label" style="font-size:12px;font-weight:600;text-transform:uppercase;'
+            f'letter-spacing:0.8px;color:#94A3B8;margin-bottom:6px;">{safe_label}</div>'
+            f'<div class="kpi-value" style="font-size:26px;font-weight:700;color:#F8FAFC;'
+            f'margin-bottom:4px;">{safe_value}</div>'
+            f'<div class="kpi-subtext" style="font-size:12px;color:#64748B;">{safe_subtext}</div>'
+            "</div>"
+        )
+        render_html_block(card_html)
     else:
         print(f"[{label}] {value} ({subtext})")
+
 
 def plot_continuous_timeline(
     history_df: pd.DataFrame,
@@ -189,7 +232,7 @@ def plot_continuous_timeline(
         hovertemplate="<b>%{x}</b><br>Forecast: %{y:,.0f} units<extra></extra>"
     ))
 
-    # 5. Add Cutoff Line separating History from Forecast (shape+annotation works across Plotly 5.x-7.x)
+    # 5. Cutoff line separating History from Forecast (shape+annotation works across Plotly 5.x-7.x)
     fig.add_shape(
         type="line",
         x0="2026-10",

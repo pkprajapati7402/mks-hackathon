@@ -9,7 +9,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
-from src.dashboard.components import render_kpi_card, plot_continuous_timeline
+from src.dashboard.components import render_kpi_card, plot_continuous_timeline, render_chart
 
 def render_view(train_df: pd.DataFrame, forecast_df: pd.DataFrame, test_raw: pd.DataFrame):
     st.markdown("### 🏛️ Executive Overview & Continuous Demand Horizon")
@@ -58,7 +58,7 @@ def render_view(train_df: pd.DataFrame, forecast_df: pd.DataFrame, test_raw: pd.
         fcst_monthly,
         title="Global Portfolio Units: Historical Actuals, Unconstrained Demand & 19-Month Forecast Intervals"
     )
-    st.plotly_chart(fig_timeline, use_container_width=True)
+    render_chart(fig_timeline)
 
     # 3. Portfolio Mix Breakdowns
     st.markdown("#### 📊 Forward Demand Mix Breakdown (Nov 2026 – May 2028)")
@@ -73,7 +73,7 @@ def render_view(train_df: pd.DataFrame, forecast_df: pd.DataFrame, test_raw: pd.
             color_discrete_sequence=px.colors.qualitative.Prism
         )
         fig_fam.update_layout(template="plotly_dark", paper_bgcolor="#1E293B")
-        st.plotly_chart(fig_fam, use_container_width=True)
+        render_chart(fig_fam)
 
     with col_b:
         reg_mix = forecast_df.groupby("Region")["Units_Sold_Forecast"].sum().reset_index()
@@ -85,7 +85,7 @@ def render_view(train_df: pd.DataFrame, forecast_df: pd.DataFrame, test_raw: pd.
             color_continuous_scale="Teal"
         )
         fig_reg.update_layout(template="plotly_dark", paper_bgcolor="#1E293B", coloraxis_showscale=False)
-        st.plotly_chart(fig_reg, use_container_width=True)
+        render_chart(fig_reg)
 
     with col_c:
         chan_mix = test_raw.merge(forecast_df[["Date", "SKU_ID", "Region", "Units_Sold_Forecast"]], on=["Date", "SKU_ID", "Region"])
@@ -97,4 +97,4 @@ def render_view(train_df: pd.DataFrame, forecast_df: pd.DataFrame, test_raw: pd.
             color_discrete_sequence=px.colors.qualitative.Pastel
         )
         fig_chan.update_layout(template="plotly_dark", paper_bgcolor="#1E293B")
-        st.plotly_chart(fig_chan, use_container_width=True)
+        render_chart(fig_chan)

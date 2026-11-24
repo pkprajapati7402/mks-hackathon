@@ -9,7 +9,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
-from src.dashboard.components import render_kpi_card
+from src.dashboard.components import render_kpi_card, render_chart, render_table
 
 def render_view(forecast_df: pd.DataFrame):
     st.markdown("### 📦 Procurement Schedule & Safety Stock Planning (P90)")
@@ -68,7 +68,7 @@ def render_view(forecast_df: pd.DataFrame):
         plot_bgcolor="#0F172A",
         yaxis_title="Recommended Purchase Order Units"
     )
-    st.plotly_chart(fig_proc, use_container_width=True)
+    render_chart(fig_proc)
 
     # 3. High Uncertainty SKUs (Procurement Risk Ranking)
     st.markdown("#### ⚠️ High Uncertainty SKUs Requiring Buffer Allocation Priority")
@@ -80,4 +80,4 @@ def render_view(forecast_df: pd.DataFrame):
     sku_proc["Uncertainty_Ratio"] = (sku_proc["P90"] / np.maximum(sku_proc["P50"], 1.0)).round(2)
     
     high_risk_skus = sku_proc[sku_proc["P50"] > 500].sort_values("Uncertainty_Ratio", ascending=False).head(20)
-    st.dataframe(high_risk_skus, use_container_width=True)
+    render_table(high_risk_skus)

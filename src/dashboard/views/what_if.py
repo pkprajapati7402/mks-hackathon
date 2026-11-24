@@ -8,7 +8,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
-from src.dashboard.components import render_kpi_card
+from src.dashboard.components import render_kpi_card, render_chart
 
 def render_view(forecast_df: pd.DataFrame):
     st.markdown("### 🎛️ What-If Macroeconomic Scenario Simulator")
@@ -95,4 +95,4 @@ def render_view(forecast_df: pd.DataFrame):
         plot_bgcolor="#0F172A",
         yaxis_title="Monthly Units Demand"
     )
-    st.plotly_chart(fig_sim, use_container_width=True)
+    render_chart(fig_sim)

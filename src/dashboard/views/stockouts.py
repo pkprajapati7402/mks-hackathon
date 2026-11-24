@@ -11,7 +11,7 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 from src.config import CLEANED_DATA_DIR
-from src.dashboard.components import render_kpi_card
+from src.dashboard.components import render_kpi_card, render_chart, render_table
 
 def render_view():
     st.markdown("### ⚠️ Historical Stockouts & Lost Sales Register")
@@ -58,26 +58,23 @@ def render_view():
             title="Lost Demand Volume by Region"
         )
         fig_reg.update_layout(paper_bgcolor="#1E293B", plot_bgcolor="#0F172A", coloraxis_showscale=False)
-        st.plotly_chart(fig_reg, use_container_width=True)
+        render_chart(fig_reg)
 
     with col_b:
         st.markdown("#### 🔍 Root-Cause Shortage Breakdown")
-        reason_counts = stock_df["Reason"].value_counts().reset_index()
+        reason_counts = stock_df["Reason"].value_counts().rename_axis("Reason").reset_index(name="count")
         fig_reason = px.pie(
             reason_counts, names="Reason", values="count",
             hole=0.45, template="plotly_dark",
             color_discrete_sequence=px.colors.qualitative.Antique
         )
         fig_reason.update_layout(paper_bgcolor="#1E293B")
-        st.plotly_chart(fig_reason, use_container_width=True)
+        render_chart(fig_reason)
 
     # 3. Searchable Stockouts Register Table
     st.markdown("#### 📋 Detailed Stockout & Allocation Register")
     reg_filter = st.selectbox("Filter by Region:", ["All"] + sorted(stock_df["Region"].unique().tolist()))
     display_df = stock_df if reg_filter == "All" else stock_df[stock_df["Region"] == reg_filter]
 
-    st.dataframe(
-        display_df[["Date", "SKU_ID", "Region", "Requested_Units", "Shipped_Units", "Lost_Units", "Fill_Rate_Pct", "Stockout_Days", "Reason"]].head(250),
-        use_container_width=True
-    )
+    render_table(display_df[["Date", "SKU_ID", "Region", "Requested_Units", "Shipped_Units", "Lost_Units", "Fill_Rate_Pct", "Stockout_Days", "Reason"]].head(250))
     st.caption(f"Showing first {min(250, len(display_df))} of {len(display_df):,} stockout records.")

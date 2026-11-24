@@ -9,7 +9,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
-from src.dashboard.components import render_kpi_card
+from src.dashboard.components import render_kpi_card, render_chart, render_table
 
 def render_view(sku_master: pd.DataFrame, train_df: pd.DataFrame, forecast_df: pd.DataFrame):
     st.markdown("### 🔄 Catalog Lifecycle & Transition Management")
@@ -38,25 +38,25 @@ def render_view(sku_master: pd.DataFrame, train_df: pd.DataFrame, forecast_df: p
     col_a, col_b = st.columns(2)
     with col_a:
         st.markdown("#### 📊 SKUs by Lifecycle Status")
-        status_counts = sku_master["Lifecycle_Status"].value_counts().reset_index()
+        status_counts = sku_master["Lifecycle_Status"].value_counts().rename_axis("Lifecycle_Status").reset_index(name="count")
         fig_stat = px.pie(
             status_counts, names="Lifecycle_Status", values="count",
             hole=0.45, template="plotly_dark",
             color_discrete_sequence=px.colors.qualitative.Bold
         )
         fig_stat.update_layout(paper_bgcolor="#1E293B")
-        st.plotly_chart(fig_stat, use_container_width=True)
+        render_chart(fig_stat)
 
     with col_b:
         st.markdown("#### ⚡ Powertrain Application Distribution")
-        pt_counts = sku_master["Powertrain_Application"].value_counts().reset_index()
+        pt_counts = sku_master["Powertrain_Application"].value_counts().rename_axis("Powertrain_Application").reset_index(name="count")
         fig_pt = px.bar(
             pt_counts, x="Powertrain_Application", y="count",
             color="Powertrain_Application", template="plotly_dark",
             color_discrete_map={"ICE": "#F59E0B", "EV": "#00E5FF", "Universal": "#10B981"}
         )
         fig_pt.update_layout(paper_bgcolor="#1E293B", plot_bgcolor="#0F172A", coloraxis_showscale=False)
-        st.plotly_chart(fig_pt, use_container_width=True)
+        render_chart(fig_pt)
 
     # 3. Successor Mapping Table (Replaces_SKU)
     st.markdown("#### 🔗 Predecessor-Successor Transition Register")
@@ -64,11 +64,11 @@ def render_view(sku_master: pd.DataFrame, train_df: pd.DataFrame, forecast_df: p
         ["SKU_ID", "Product_Family", "SKU_Description", "Launch_Date", "Replaces_SKU", "Lifecycle_Status"]
     ].copy()
     replacements.rename(columns={"SKU_ID": "New_Successor_SKU", "Replaces_SKU": "Predecessor_SKU"}, inplace=True)
-    st.dataframe(replacements, use_container_width=True)
+    render_table(replacements)
 
     # 4. Imminent EOL Cutoffs
     st.markdown("#### ⏳ SKUs Approaching End-of-Life (EOL Cutoff Enforcement)")
     eol_skus = sku_master[sku_master["EOL_Date"].notna()][
         ["SKU_ID", "Product_Family", "SKU_Description", "Launch_Date", "EOL_Date", "Lifecycle_Status"]
     ].sort_values("EOL_Date")
-    st.dataframe(eol_skus, use_container_width=True)
+    render_table(eol_skus)

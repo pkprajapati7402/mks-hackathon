@@ -9,7 +9,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
-from src.dashboard.components import render_kpi_card
+from src.dashboard.components import render_kpi_card, render_chart, render_table
 
 def render_view(train_df: pd.DataFrame, sku_master: pd.DataFrame):
     st.markdown("### 🔍 Demand Explorer & Granular Profile Analysis")
@@ -27,7 +27,7 @@ def render_view(train_df: pd.DataFrame, sku_master: pd.DataFrame):
         title="Interactive Portfolio Hierarchy: BU ➔ Family ➔ Region"
     )
     fig_sun.update_layout(template="plotly_dark", paper_bgcolor="#1E293B")
-    st.plotly_chart(fig_sun, use_container_width=True)
+    render_chart(fig_sun)
 
     # 2. Seasonality Heatmap & Zero-Demand Streaks
     col_a, col_b = st.columns(2)
@@ -42,7 +42,7 @@ def render_view(train_df: pd.DataFrame, sku_master: pd.DataFrame):
             title="Portfolio Demand by Month & Year"
         )
         fig_heat.update_layout(template="plotly_dark", paper_bgcolor="#1E293B")
-        st.plotly_chart(fig_heat, use_container_width=True)
+        render_chart(fig_heat)
 
     with col_b:
         st.markdown("#### 🎯 Syntetos-Boylan Intermittency Quadrants")
@@ -82,7 +82,7 @@ def render_view(train_df: pd.DataFrame, sku_master: pd.DataFrame):
         fig_quad.add_vline(x=1.32, line_dash="dash", line_color="#94A3B8")
         fig_quad.add_hline(y=0.49, line_dash="dash", line_color="#94A3B8")
         fig_quad.update_layout(paper_bgcolor="#1E293B", plot_bgcolor="#0F172A")
-        st.plotly_chart(fig_quad, use_container_width=True)
+        render_chart(fig_quad)
 
     # 3. Top SKUs & Catalog Lifecycles
     st.markdown("#### 🏆 Top Demand Generating SKUs & Active Status")
@@ -91,4 +91,4 @@ def render_view(train_df: pd.DataFrame, sku_master: pd.DataFrame):
     
     sku_status = dict(zip(sku_master["SKU_ID"], sku_master.get("Lifecycle_Status", ["Active"]*len(sku_master))))
     top_skus["Lifecycle_Status"] = top_skus["SKU_ID"].map(sku_status)
-    st.dataframe(top_skus, use_container_width=True)
+    render_table(top_skus)

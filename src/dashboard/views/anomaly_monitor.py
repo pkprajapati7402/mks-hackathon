@@ -10,7 +10,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from src.config import REPORTS_DIR
-from src.dashboard.components import render_kpi_card
+from src.dashboard.components import render_kpi_card, render_chart, render_table
 
 def render_view(train_df: pd.DataFrame):
     st.markdown("### 🚨 Anomaly Monitor & Anomaly Register")
@@ -93,7 +93,7 @@ def render_view(train_df: pd.DataFrame):
         plot_bgcolor="#0F172A",
         margin=dict(l=40, r=40, t=50, b=40)
     )
-    st.plotly_chart(fig_anom, use_container_width=True)
+    render_chart(fig_anom)
 
     # 3. Categorization Bar Chart & Searchable Register Table
     st.markdown("#### 📋 Searchable Anomaly Register")
@@ -101,8 +101,5 @@ def render_view(train_df: pd.DataFrame):
     display_df = anom_df if type_filter == "All" else anom_df[anom_df["Anomaly_Type"] == type_filter]
 
     avail_cols = [c for c in ["Date", "SKU_ID", "Region", "Customer_Name", "Anomaly_Type", "Units_Sold", "Units_Sold_Unconstrained", "Lost_Units", "Reason", "Action_Taken"] if c in display_df.columns]
-    st.dataframe(
-        display_df[avail_cols].head(250),
-        use_container_width=True
-    )
+    render_table(display_df[avail_cols].head(250))
     st.caption(f"Displaying {min(250, len(display_df))} of {len(display_df):,} flagged records.")

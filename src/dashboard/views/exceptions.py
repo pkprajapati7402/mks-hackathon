@@ -9,7 +9,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from src.config import REPORTS_DIR
-from src.dashboard.components import render_kpi_card
+from src.dashboard.components import render_kpi_card, render_table
 
 def render_view(forecast_df: pd.DataFrame, sku_master: pd.DataFrame):
     st.markdown("### 📋 Planner Exception Center & Operational Alerts")
@@ -105,4 +105,4 @@ def render_view(forecast_df: pd.DataFrame, sku_master: pd.DataFrame):
     if cat_filter != "All":
         filtered_ex = filtered_ex[filtered_ex["Category"] == cat_filter]
 
-    st.dataframe(filtered_ex, use_container_width=True)
+    render_table(filtered_ex)
