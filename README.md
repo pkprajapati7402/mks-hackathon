@@ -141,7 +141,7 @@ Built with Streamlit and Plotly, the Control Tower delivers **all 5 Required Vie
 
 ```bash
 # Clone repository
-git clone https://github.com/your-username/mks-hackathon.git
+git clone https://github.com/pkprajapati7402/mks-hackathon.git
 cd mks-hackathon
 
 # Install required dependencies
