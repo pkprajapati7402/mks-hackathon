@@ -73,22 +73,26 @@ def render_view(forecast_df: pd.DataFrame, sku_master: pd.DataFrame):
             "Recommended_Action": "Verify commercial contract status or reclassify SKU to Discontinued"
         })
 
-    ex_df = pd.DataFrame(exceptions)
+    ex_df = pd.DataFrame(exceptions, columns=["Severity", "Category", "Entity", "Details", "Recommended_Action"])
 
     # 2. KPI Summary
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         render_kpi_card("Total Active Exceptions", f"{len(ex_df):,}", "Pending Planner Action")
     with col2:
-        high_sev = (ex_df["Severity"] == "🔴 High").sum()
+        high_sev = (ex_df["Severity"] == "🔴 High").sum() if not ex_df.empty else 0
         render_kpi_card("High Severity Items", f"{high_sev}", "Require Immediate Resolution")
     with col3:
-        med_sev = (ex_df["Severity"] == "🟡 Medium").sum()
+        med_sev = (ex_df["Severity"] == "🟡 Medium").sum() if not ex_df.empty else 0
         render_kpi_card("Medium Severity Items", f"{med_sev}", "Monitoring / Weekly Review")
     with col4:
         render_kpi_card("Resolution Protocol", "Automated Playbooks", "Aligned with S&OP Guidelines")
 
     st.markdown("---")
+
+    if ex_df.empty:
+        st.success("No exceptions flagged for the currently filtered selection.")
+        return
 
     # 3. Searchable Exceptions Table
     st.markdown("#### 🚨 Prioritized Planner Action Items")

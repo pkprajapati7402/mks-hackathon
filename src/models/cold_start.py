@@ -58,8 +58,34 @@ def apply_lifecycle_and_cold_start(
         ], dtype=float)
 
         cold_rep_mask = is_cold & (rep_vals > 0) & (~zero_mask)
-        for c in cols_to_adjust:
-            needs_fill = cold_rep_mask & (out[c] <= 1.0)
-            out.loc[needs_fill, c] = rep_vals[needs_fill]
+
+        # Trigger transfer uniformly off primary median forecast so quantile columns stay consistent
+        for p50_col, p10_col, p90_col in [
+            ("P50", "P10", "P90"),
+            ("Pred_LightGBM_P50", "Pred_LightGBM_P10", "Pred_LightGBM_P90"),
+        ]:
+            if p50_col in out.columns:
+                needs_fill = cold_rep_mask & (out[p50_col] <= 1.0)
+                out.loc[needs_fill, p50_col] = rep_vals[needs_fill]
+                if p10_col in out.columns:
+                    out.loc[needs_fill, p10_col] = np.round(rep_vals[needs_fill] * 0.75)
+                if p90_col in out.columns:
+                    out.loc[needs_fill, p90_col] = np.round(rep_vals[needs_fill] * 1.25)
+
+        if "Units_Sold_Forecast" in out.columns:
+            needs_fcst_fill = cold_rep_mask & (out["Units_Sold_Forecast"] <= 1.0)
+            out.loc[needs_fcst_fill, "Units_Sold_Forecast"] = rep_vals[needs_fcst_fill]
+
+    # Enforce strict quantile monotonicity 0 <= P10 <= P50 <= P90 after all lifecycle adjustments
+    for p50_col, p10_col, p90_col in [
+        ("P50", "P10", "P90"),
+        ("Pred_LightGBM_P50", "Pred_LightGBM_P10", "Pred_LightGBM_P90"),
+    ]:
+        if p50_col in out.columns:
+            out[p50_col] = np.clip(out[p50_col], 0.0, None)
+            if p10_col in out.columns:
+                out[p10_col] = np.clip(np.minimum(out[p10_col], out[p50_col]), 0.0, None)
+            if p90_col in out.columns:
+                out[p90_col] = np.maximum(out[p90_col], out[p50_col])
 
     return out

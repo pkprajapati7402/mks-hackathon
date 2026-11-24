@@ -15,6 +15,10 @@ def render_view(train_df: pd.DataFrame, forecast_df: pd.DataFrame, test_raw: pd.
     st.markdown("### 🏛️ Executive Overview & Continuous Demand Horizon")
     st.markdown("Seamless transition from historical unconstrained demand (2019-01 to 2026-10) into the 19-month forward forecast (2026-11 to 2028-05).")
 
+    if train_df.empty or forecast_df.empty:
+        st.warning("No matching demand records for the selected sidebar filter combination.")
+        return
+
     # 1. Headline KPIs
     tot_fcst = forecast_df["Units_Sold_Forecast"].sum() if "Units_Sold_Forecast" in forecast_df.columns else forecast_df["P50"].sum()
     p10_sum = forecast_df["P10"].sum() if "P10" in forecast_df.columns else tot_fcst * 0.85

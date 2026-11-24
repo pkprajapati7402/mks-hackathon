@@ -34,7 +34,7 @@ def test_unconstrained_reconstruction():
         "Reason": ["Semiconductor shortage"]
     })
 
-    result = reconstruct_unconstrained_demand(train_sample, stockouts_sample)
+    result = reconstruct_unconstrained_demand(train_sample, stockouts_sample, save_output=False)
 
     # PTC-001 total unconstrained should be 200 (Cust A = 80, Cust B = 120)
     ptc1 = result[result["SKU_ID"] == "PTC-001"]

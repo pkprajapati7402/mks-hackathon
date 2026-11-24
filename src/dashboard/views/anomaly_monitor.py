@@ -100,8 +100,9 @@ def render_view(train_df: pd.DataFrame):
     type_filter = st.selectbox("Filter Anomaly Category:", ["All"] + sorted(anom_df["Anomaly_Type"].unique().tolist()))
     display_df = anom_df if type_filter == "All" else anom_df[anom_df["Anomaly_Type"] == type_filter]
 
+    avail_cols = [c for c in ["Date", "SKU_ID", "Region", "Customer_Name", "Anomaly_Type", "Units_Sold", "Units_Sold_Unconstrained", "Lost_Units", "Reason", "Action_Taken"] if c in display_df.columns]
     st.dataframe(
-        display_df[["Date", "SKU_ID", "Region", "Customer_Name", "Anomaly_Type", "Units_Sold", "Unconstrained_Units", "Lost_Units", "Reason", "Action_Taken"]].head(250),
+        display_df[avail_cols].head(250),
         use_container_width=True
     )
     st.caption(f"Displaying {min(250, len(display_df))} of {len(display_df):,} flagged records.")

@@ -8,6 +8,14 @@ from typing import Dict, Any
 import pandas as pd
 from src.config import REPORTS_DIR
 
+
+def _df_to_markdown(df: pd.DataFrame) -> str:
+    """Render DataFrame as Markdown table with fallback if tabulate is absent."""
+    try:
+        return df.to_markdown(index=False)
+    except ImportError:
+        return f"```text\n{df.to_string(index=False)}\n```"
+
 def generate_model_card(
     backtest_metrics: pd.DataFrame,
     family_selection: pd.DataFrame,
@@ -34,14 +42,14 @@ def generate_model_card(
 
         f.write("## 3. Backtest Performance Summary\n\n")
         if not backtest_metrics.empty:
-            f.write(backtest_metrics.to_markdown(index=False))
+            f.write(_df_to_markdown(backtest_metrics))
             f.write("\n\n")
         else:
             f.write("Backtest evaluation in progress.\n\n")
 
         f.write("## 4. Per-Family Champion Model Selection\n\n")
         if not family_selection.empty:
-            f.write(family_selection[["Product_Family", "Selected_Champion_Model", "Selection_WAPE_Pct", "Holdout_WAPE_Pct"]].to_markdown(index=False))
+            f.write(_df_to_markdown(family_selection[["Product_Family", "Selected_Champion_Model", "Selection_WAPE_Pct", "Holdout_WAPE_Pct"]]))
             f.write("\n\n")
 
         f.write("## 5. Top Predictive Drivers (LightGBM Feature Importance)\n\n")

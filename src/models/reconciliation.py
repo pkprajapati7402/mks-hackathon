@@ -54,13 +54,17 @@ def reconcile_and_generate_submission(
     recon_check["Discrepancy"] = recon_check["Total_By_BU"] - recon_check["Total_By_Region"]
     recon_check.to_csv(output_dir / "hierarchical_reconciliation.csv", index=False)
 
-    # 2. Map predictions to exact test.csv rows
+    # 2. Map predictions to exact test.csv rows with hierarchy & powertrain context for dashboarding
     # test.csv has 58,219 rows with keys (Date, SKU_ID, Region, Customer_Name, Sales_Channel)
-    merged_sub = test_raw[["Date", "SKU_ID", "Region"]].merge(
+    meta_cols = [c for c in ["Date", "SKU_ID", "Region", "Product_Family", "Business_Unit", "Customer_Name", "Sales_Channel"] if c in test_raw.columns]
+    merged_sub = test_raw[meta_cols].merge(
         out_forecast[["Date", "SKU_ID", "Region", "Units_Sold_Forecast", "P10", "P50", "P90"]],
         on=["Date", "SKU_ID", "Region"],
         how="left"
     )
+    if sku_master is not None and not sku_master.empty and "Powertrain_Application" in sku_master.columns:
+        sku_to_pt = dict(zip(sku_master["SKU_ID"], sku_master["Powertrain_Application"]))
+        merged_sub["Powertrain_Application"] = merged_sub["SKU_ID"].map(sku_to_pt).fillna("Universal")
 
     # Ensure no blanks or negatives
     merged_sub["Units_Sold_Forecast"] = merged_sub["Units_Sold_Forecast"].fillna(0).round().clip(lower=0).astype(int)

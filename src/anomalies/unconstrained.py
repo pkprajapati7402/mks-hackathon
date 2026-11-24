@@ -12,7 +12,8 @@ from src.audit import audit
 
 def reconstruct_unconstrained_demand(
     train_df: pd.DataFrame,
-    stockouts_df: pd.DataFrame
+    stockouts_df: pd.DataFrame,
+    save_output: bool = True
 ) -> pd.DataFrame:
     """
     Reconciles shipped sales with inventory stockout records to calculate true customer demand.
@@ -73,6 +74,7 @@ def reconstruct_unconstrained_demand(
     result = merged[[c for c in out_cols if c in merged.columns]].copy()
     
     # Save output
-    output_path = CLEANED_DATA_DIR / "unconstrained_demand.parquet"
-    result.to_parquet(output_path, index=False)
+    if save_output:
+        output_path = CLEANED_DATA_DIR / "unconstrained_demand.parquet"
+        result.to_parquet(output_path, index=False)
     return result

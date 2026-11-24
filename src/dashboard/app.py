@@ -54,6 +54,20 @@ def load_control_tower_data():
 
     test_raw = pd.read_csv(RAW_TEST, low_memory=False) if RAW_TEST.exists() else pd.DataFrame()
 
+    # Defensively enrich forecast_df with hierarchy, customer/channel, and powertrain columns if missing
+    if not forecast_df.empty and not test_raw.empty:
+        enrich_cols = [c for c in ["Product_Family", "Business_Unit", "Customer_Name", "Sales_Channel"]
+                       if c in test_raw.columns and c not in forecast_df.columns]
+        if enrich_cols:
+            forecast_df = forecast_df.merge(
+                test_raw[["Date", "SKU_ID", "Region"] + enrich_cols].drop_duplicates(subset=["Date", "SKU_ID", "Region"]),
+                on=["Date", "SKU_ID", "Region"],
+                how="left"
+            )
+    if not forecast_df.empty and not sku_master.empty and "Powertrain_Application" not in forecast_df.columns:
+        sku_to_pt = dict(zip(sku_master["SKU_ID"], sku_master["Powertrain_Application"]))
+        forecast_df["Powertrain_Application"] = forecast_df["SKU_ID"].map(sku_to_pt).fillna("Universal")
+
     return train_df, forecast_df, sku_master, test_raw
 
 def main():
@@ -134,9 +148,13 @@ def main():
 
     if selected_channel != "All":
         filtered_train = filtered_train[filtered_train["Sales_Channel"] == selected_channel]
+        if "Sales_Channel" in filtered_forecast.columns:
+            filtered_forecast = filtered_forecast[filtered_forecast["Sales_Channel"] == selected_channel]
 
     if selected_customer != "All":
         filtered_train = filtered_train[filtered_train["Customer_Name"] == selected_customer]
+        if "Customer_Name" in filtered_forecast.columns:
+            filtered_forecast = filtered_forecast[filtered_forecast["Customer_Name"] == selected_customer]
 
     # Route to Selected View
     if selected_view == "🏛️ Executive Overview":

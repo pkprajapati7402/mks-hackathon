@@ -37,3 +37,18 @@ def test_submission_format_and_integrity():
     if recon_path.exists():
         recon_df = pd.read_csv(recon_path)
         assert (recon_df["Discrepancy"] == 0).all(), "Hierarchical reconciliation must have 0 discrepancy!"
+
+    # 6. Check production parquets retain full dataset integrity and schema
+    unconstrained_path = PROJECT_ROOT / "data" / "cleaned" / "unconstrained_demand.parquet"
+    if unconstrained_path.exists():
+        unc_df = pd.read_parquet(unconstrained_path)
+        assert len(unc_df) > 200000, f"unconstrained_demand.parquet corrupted/truncated: {len(unc_df)} rows"
+        assert "Product_Family" in unc_df.columns
+
+    intervals_path = OUTPUTS_DIR / "forecast_intervals.parquet"
+    if intervals_path.exists():
+        fcst_df = pd.read_parquet(intervals_path)
+        assert len(fcst_df) == 58219
+        for col in ["Product_Family", "Business_Unit", "Sales_Channel", "Customer_Name", "Powertrain_Application", "P10", "P50", "P90"]:
+            assert col in fcst_df.columns, f"Missing column {col} in forecast_intervals.parquet"
+        assert (fcst_df["P10"] <= fcst_df["P50"]).all() and (fcst_df["P50"] <= fcst_df["P90"]).all()

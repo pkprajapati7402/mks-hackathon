@@ -81,7 +81,7 @@ def detect_anomalies(df: pd.DataFrame) -> pd.DataFrame:
     else:
         register_df = pd.DataFrame(columns=[
             "Date", "SKU_ID", "Region", "Customer_Name", "Anomaly_Type",
-            "Units_Sold", "Unconstrained_Units", "Lost_Units", "Reason", "Action_Taken"
+            "Units_Sold", "Units_Sold_Unconstrained", "Lost_Units", "Reason", "Action_Taken"
         ])
 
     register_df.drop_duplicates(subset=["Date", "SKU_ID", "Region", "Customer_Name", "Anomaly_Type"], inplace=True)

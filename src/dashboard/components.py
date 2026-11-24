@@ -189,15 +189,25 @@ def plot_continuous_timeline(
         hovertemplate="<b>%{x}</b><br>Forecast: %{y:,.0f} units<extra></extra>"
     ))
 
-    # 5. Add Cutoff Line separating History from Forecast
-    fig.add_vline(
+    # 5. Add Cutoff Line separating History from Forecast (shape+annotation works across Plotly 5.x-7.x)
+    fig.add_shape(
+        type="line",
+        x0="2026-10",
+        x1="2026-10",
+        y0=0,
+        y1=1,
+        yref="paper",
+        line=dict(color="#94A3B8", width=2, dash="dash")
+    )
+    fig.add_annotation(
         x="2026-10",
-        line_width=2,
-        line_dash="dash",
-        line_color="#94A3B8",
-        annotation_text="Forecast Window (Nov 2026)",
-        annotation_position="top right",
-        annotation_font=dict(color="#F8FAFC", size=11)
+        y=1.0,
+        yref="paper",
+        text="Forecast Window (Nov 2026)",
+        showarrow=False,
+        xanchor="left",
+        yanchor="top",
+        font=dict(color="#F8FAFC", size=11)
     )
 
     fig.update_layout(
