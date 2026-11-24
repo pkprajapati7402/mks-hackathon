@@ -1,0 +1,17 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pytest
+.pytest_cache/
+
+# Streamlit
+.streamlit/
+
+# Large generated backtest predictions (>95MB exceeds github limits)
+outputs/backtest_predictions.csv
+
+# Temporary data files (if any)
+*.tmp
+*.log

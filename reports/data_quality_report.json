@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "title": "Celeris Automobili Demand Forecasting Data Quality & Audit Report",
+    "version": "1.0.0",
+    "executive_summary": "Complete ERP data cleaning and audit trail covering 2019-01 to 2026-10 history."
+  },
+  "file_summaries": {
+    "train.csv": {
+      "raw_rows": 248248,
+      "clean_rows": 244490,
+      "duplicates_removed": 3758,
+      "dates_parsed": 9967,
+      "year_2062_typos_fixed": 30,
+      "skus_normalized": 3683,
+      "customers_normalized": 2221,
+      "channels_normalized": 3683,
+      "blank_regions_recovered": 942,
+      "negative_units_reversals": 491,
+      "blank_units_filled": 90,
+      "entry_errors_corrected": 107,
+      "prices_repaired": 37351,
+      "revenue_reconciled": 4822,
+      "lifecycle_violations_zeroed": 15
+    },
+    "sku_master.csv": {
+      "raw_rows": 601,
+      "clean_rows": 601,
+      "bu_conflicts_repaired": 1,
+      "missing_replaces_sku_references": 0
+    },
+    "macro_indicators.csv": {
+      "raw_rows": 114,
+      "clean_rows": 113,
+      "duplicate_months_resolved": 1,
+      "fraction_pct_fixed": 12,
+      "pmi_decimal_shifts_fixed": 1
+    },
+    "events_calendar.csv": {
+      "raw_rows": 68,
+      "clean_rows": 68
+    },
+    "inventory_stockouts.csv": {
+      "raw_rows": 5830,
+      "clean_rows": 5830,
+      "lost_units_reconciled": 0
+    }
+  },
+  "audit_rule_summary": [
+    {
+      "file": "macro_indicators.csv",
+      "rule_id": "M1",
+      "field": "Row_Deduplication",
+      "modification_count": 1
+    },
+    {
+      "file": "macro_indicators.csv",
+      "rule_id": "M2",
+      "field": "Auto_Production_YoY_Pct",
+      "modification_count": 12
+    },
+    {
+      "file": "macro_indicators.csv",
+      "rule_id": "M3",
+      "field": "ISM_Manufacturing_PMI",
+      "modification_count": 1
+    },
+    {
+      "file": "macro_indicators.csv",
+      "rule_id": "M4",
+      "field": "Missing_Values",
+      "modification_count": 5
+    },
+    {
+      "file": "sku_master.csv",
+      "rule_id": "S1",
+      "field": "Business_Unit",
+      "modification_count": 1
+    },
+    {
+      "file": "train.csv",
+      "rule_id": "A2",
+      "field": "Units_Sold",
+      "modification_count": 90
+    },
+    {
+      "file": "train.csv",
+      "rule_id": "A3",
+      "field": "Units_Sold",
+      "modification_count": 107
+    },
+    {
+      "file": "train.csv",
+      "rule_id": "R5",
+      "field": "Units_Sold",
+      "modification_count": 15
+    },
+    {
+      "file": "train.csv",
+      "rule_id": "T12",
+      "field": "Unit_Price_USD",
+      "modification_count": 100
+    },
+    {
+      "file": "train.csv",
+      "rule_id": "T3",
+      "field": "Date",
+      "modification_count": 30
+    },
+    {
+      "file": "train.csv",
+      "rule_id": "T5",
+      "field": "Region",
+      "modification_count": 942
+    }
+  ]
+}

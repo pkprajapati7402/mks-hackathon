@@ -1,0 +1,8 @@
+Product_Family,Selected_Champion_Model,Selection_WAPE_Pct,Holdout_WAPE_Pct,Seasonal_Naive_WAPE,Moving_Average_WAPE,Intermittent_SBA_WAPE,LightGBM_P50_WAPE
+Brake & Safety Systems,LightGBM P50,33.31,32.57,40.17,50.53,50.06,33.31
+Chassis & Structural,LightGBM P50,33.99,34.0,40.74,50.68,50.37,33.99
+Electrical Assemblies,LightGBM P50,36.51,35.61,44.44,54.7,54.75,36.51
+Hydraulic Systems,LightGBM P50,36.76,36.58,44.31,57.7,59.84,36.76
+Precision Machined Parts,LightGBM P50,36.61,36.65,41.71,53.11,52.94,36.61
+Powertrain Components,LightGBM P50,35.67,35.66,40.58,52.26,52.42,35.67
+Thermal Management,LightGBM P50,35.77,33.86,41.57,53.92,53.71,35.77

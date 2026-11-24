@@ -1,0 +1,6 @@
+Product_Family,Macro_Indicator,Lag_Months,Corr_Pre_2022,Corr_Post_2022,Drift_Magnitude,Stability_Assessment
+Powertrain Components,New_Vehicle_Orders_Index,3,0.751,0.427,0.323,Structural Regime Shift
+Hydraulic Systems,Industrial_Util_Rate_Pct,1,0.578,0.523,0.055,Stable
+Electrical Assemblies,EV_Adoption_Index,0,0.504,0.759,0.255,Structural Regime Shift
+Brake & Safety Systems,Auto_Production_YoY_Pct,1,0.796,0.294,0.501,Structural Regime Shift
+Chassis & Structural,ISM_Manufacturing_PMI,2,0.633,-0.187,0.82,Structural Regime Shift
