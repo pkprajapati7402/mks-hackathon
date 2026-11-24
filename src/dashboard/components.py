@@ -7,7 +7,11 @@ import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
-import streamlit as st
+
+try:
+    import streamlit as st
+except ImportError:
+    st = None
 
 # Custom CSS for World-Class Executive Supply Chain Dashboard
 CUSTOM_CSS = """
@@ -108,13 +112,16 @@ CUSTOM_CSS = """
 
 def render_kpi_card(label: str, value: str, subtext: str = ""):
     """Renders a polished dark-theme KPI metric card."""
-    st.markdown(f"""
-    <div class="kpi-card">
-        <div class="kpi-label">{label}</div>
-        <div class="kpi-value">{value}</div>
-        <div class="kpi-subtext">{subtext}</div>
-    </div>
-    """, unsafe_allow_html=True)
+    if st is not None:
+        st.markdown(f"""
+        <div class="kpi-card">
+            <div class="kpi-label">{label}</div>
+            <div class="kpi-value">{value}</div>
+            <div class="kpi-subtext">{subtext}</div>
+        </div>
+        """, unsafe_allow_html=True)
+    else:
+        print(f"[{label}] {value} ({subtext})")
 
 def plot_continuous_timeline(
     history_df: pd.DataFrame,
