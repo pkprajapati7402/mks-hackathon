@@ -18,7 +18,10 @@ def select_best_model_per_family(backtest_preds: pd.DataFrame) -> pd.DataFrame:
         ("Seasonal Naive", "Pred_Seasonal_Naive"),
         ("Moving Average", "Pred_Moving_Average"),
         ("Intermittent SBA", "Pred_Intermittent_SBA"),
-        ("LightGBM P50", "Pred_LightGBM_P50"),
+        ("HistGB Poisson", "Pred_HistGB"),
+        ("PyTorch Entity-ResNet", "Pred_PyTorch"),
+        ("Hurdle Two-Stage", "Pred_Hurdle"),
+        ("Grandmaster Ensemble P50", "Pred_LightGBM_P50"),
     ]
 
     selection_df = backtest_preds[backtest_preds["Backtest_Origin"].isin(["2023-10", "2024-10"])].copy()
@@ -57,7 +60,11 @@ def select_best_model_per_family(backtest_preds: pd.DataFrame) -> pd.DataFrame:
             "Seasonal_Naive_WAPE": scores.get("Seasonal Naive", 0.0),
             "Moving_Average_WAPE": scores.get("Moving Average", 0.0),
             "Intermittent_SBA_WAPE": scores.get("Intermittent SBA", 0.0),
-            "LightGBM_P50_WAPE": scores.get("LightGBM P50", 0.0),
+            "HistGB_WAPE": scores.get("HistGB Poisson", 0.0),
+            "PyTorch_ResNet_WAPE": scores.get("PyTorch Entity-ResNet", 0.0),
+            "Hurdle_WAPE": scores.get("Hurdle Two-Stage", 0.0),
+            "Ensemble_P50_WAPE": scores.get("Grandmaster Ensemble P50", 0.0),
+            "LightGBM_P50_WAPE": scores.get("Grandmaster Ensemble P50", 0.0),
         })
 
     selection_report = pd.DataFrame(results)

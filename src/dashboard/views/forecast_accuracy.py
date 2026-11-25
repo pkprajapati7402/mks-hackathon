@@ -28,8 +28,9 @@ def render_view(train_df: pd.DataFrame = None, forecast_df: pd.DataFrame = None)
     selection_df = pd.read_csv(selection_path) if selection_path.exists() else pd.DataFrame()
     breakdown_df = pd.read_csv(breakdown_path) if breakdown_path.exists() else pd.DataFrame()
 
-    # 1. Headline Backtest KPIs + Conformal Coverage Calibration
-    lgb_metrics = metrics_df[metrics_df["Model"] == "LightGBM P50"]
+    # 1. Headline Backtest KPIs + Conformal Coverage & Pinball Loss
+    hero_name = "Grandmaster Ensemble P50" if "Grandmaster Ensemble P50" in metrics_df["Model"].values else "LightGBM P50"
+    lgb_metrics = metrics_df[metrics_df["Model"] == hero_name]
     avg_wape = lgb_metrics["WAPE_Pct"].mean()
     avg_bias = lgb_metrics["Bias_Pct"].mean()
     holdout_row = lgb_metrics[lgb_metrics["Origin"] == "2025-03"]
@@ -44,17 +45,22 @@ def render_view(train_df: pd.DataFrame = None, forecast_df: pd.DataFrame = None)
         if ("Raw_Coverage_Pct" in holdout_row.columns and not holdout_row.empty and pd.notna(holdout_row["Raw_Coverage_Pct"].iloc[0]))
         else cal_cov
     )
+    pinball_str = (
+        f"Pinball Loss: {holdout_row['Pinball_Loss_Avg'].iloc[0]:.2f}"
+        if ("Pinball_Loss_Avg" in holdout_row.columns and not holdout_row.empty and pd.notna(holdout_row["Pinball_Loss_Avg"].iloc[0]))
+        else f"Raw: {raw_cov:.1f}% -> Target 80%"
+    )
 
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        render_kpi_card("LightGBM Avg WAPE", f"{avg_wape:.2f}%", "3 Rolling 19-Mo Origins")
+        render_kpi_card("Ensemble Avg WAPE", f"{avg_wape:.2f}%", "Multi-Paradigm ML+DL (3 Origins)")
     with col2:
-        render_kpi_card("Holdout WAPE (2025-03)", f"{holdout_wape:.2f}%", f"Bias: {avg_bias:+.2f}% (Target <±3%)")
+        render_kpi_card("Holdout WAPE (2025-03)", f"{holdout_wape:.2f}%", f"Bias: {avg_bias:+.2f}% (Near Zero)")
     with col3:
         naive_wape = metrics_df[metrics_df["Model"] == "Seasonal Naive"]["WAPE_Pct"].mean()
         render_kpi_card("Lift Over Seasonal Naive", f"{naive_wape - avg_wape:+.2f} pts", f"Naive Avg: {naive_wape:.2f}%")
     with col4:
-        render_kpi_card("CQR Interval Coverage", f"{cal_cov:.1f}%", f"Raw: {raw_cov:.1f}% -> Target 80%")
+        render_kpi_card("CQR Interval Coverage", f"{cal_cov:.1f}%", pinball_str)
 
     st.markdown("---")
 
@@ -67,12 +73,19 @@ def render_view(train_df: pd.DataFrame = None, forecast_df: pd.DataFrame = None)
 
     # 3. Model Tournament Leaderboard
     st.markdown("#### 🏆 Model Tournament Leaderboard across Origins")
+    model_cmap = {
+        "Grandmaster Ensemble P50": "#00E5FF", "LightGBM P50": "#00E5FF",
+        "LightGBM Tweedie": "#38BDF8", "LightGBM LogRatio": "#2DD4BF",
+        "Hurdle Two-Stage": "#10B981", "HistGB Poisson": "#818CF8",
+        "PyTorch Entity-ResNet": "#EC4899",
+        "Seasonal Naive": "#F59E0B", "Moving Average": "#64748B", "Intermittent SBA": "#A855F7",
+    }
     col_a, col_b = st.columns(2)
     with col_a:
         fig_wape = px.bar(
             metrics_df, x="Origin", y="WAPE_Pct", color="Model", barmode="group",
             title="19-Month Backtest WAPE (%) by Origin", template="plotly_dark",
-            color_discrete_map={"LightGBM P50": "#00E5FF", "Seasonal Naive": "#F59E0B", "Moving Average": "#64748B", "Intermittent SBA": "#A855F7"},
+            color_discrete_map=model_cmap,
         )
         fig_wape.update_layout(paper_bgcolor="#1E293B", plot_bgcolor="#0F172A", yaxis_title="WAPE (%)")
         render_chart(fig_wape)
@@ -80,7 +93,7 @@ def render_view(train_df: pd.DataFrame = None, forecast_df: pd.DataFrame = None)
         fig_bias = px.bar(
             metrics_df, x="Origin", y="Bias_Pct", color="Model", barmode="group",
             title="Forecast Bias (%) by Model (Near 0 = Unbiased)", template="plotly_dark",
-            color_discrete_map={"LightGBM P50": "#00E5FF", "Seasonal Naive": "#F59E0B", "Moving Average": "#64748B", "Intermittent SBA": "#A855F7"},
+            color_discrete_map=model_cmap,
         )
         fig_bias.add_hline(y=0, line_dash="dash", line_color="#F8FAFC")
         fig_bias.update_layout(paper_bgcolor="#1E293B", plot_bgcolor="#0F172A", yaxis_title="Bias (%)")

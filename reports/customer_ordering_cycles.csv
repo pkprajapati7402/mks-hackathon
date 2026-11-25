@@ -1,19 +1,4 @@
 Customer_Name,SKU_ID,Region,Order_Count,First_Date,Last_Date,Mean_Interval_Months,Cadence
-Aex Tier One,BSS-045,Latin America,1,2023-02,2023-02,0.0,Ad-hoc / Single Order
-Aex Tier One,BSS-066,Latin America,1,2020-02,2020-02,0.0,Ad-hoc / Single Order
-Aex Tier One,HYD-047,Europe,1,2025-01,2025-01,0.0,Ad-hoc / Single Order
-Aex Tier One,HYD-048,Europe,1,2023-07,2023-07,0.0,Ad-hoc / Single Order
-Aex Tier One,PMP-002,Europe,2,2025-11,2026-04,6.0,Semi-Annual
-Aex Tier One,PMP-079,North America,1,2020-07,2020-07,0.0,Ad-hoc / Single Order
-Aex Tier One,THM-028,Asia Pacific,1,2023-10,2023-10,0.0,Ad-hoc / Single Order
-Aex Tier One,THM-046,Europe,1,2025-01,2025-01,0.0,Ad-hoc / Single Order
-Ape Tier One,CSS-030,India,1,2021-07,2021-07,0.0,Ad-hoc / Single Order
-Ape Tier One,CSS-033,North America,1,2026-06,2026-06,0.0,Ad-hoc / Single Order
-Ape Tier One,CSS-048,North America,1,2019-06,2019-06,0.0,Ad-hoc / Single Order
-Ape Tier One,CSS-086,Asia Pacific,1,2021-12,2021-12,0.0,Ad-hoc / Single Order
-Ape Tier One,ELA-044,North America,1,2025-05,2025-05,0.0,Ad-hoc / Single Order
-Ape Tier One,ELA-081,India,1,2022-04,2022-04,0.0,Ad-hoc / Single Order
-Ape Tier One,PMP-081,North America,1,2022-03,2022-03,0.0,Ad-hoc / Single Order
 Apex Tier One,BSS-002,Asia Pacific,1,2022-02,2022-02,0.0,Ad-hoc / Single Order
 Apex Tier One,BSS-002,Europe,85,2019-01,2026-10,1.12,Monthly
 Apex Tier One,BSS-003,Europe,89,2019-01,2026-10,1.07,Monthly
@@ -40,14 +25,14 @@ Apex Tier One,BSS-032,India,84,2019-02,2026-10,1.12,Monthly
 Apex Tier One,BSS-039,Europe,91,2019-01,2026-10,1.04,Monthly
 Apex Tier One,BSS-044,Asia Pacific,31,2019-03,2026-09,3.03,Quarterly
 Apex Tier One,BSS-044,Europe,83,2019-01,2026-10,1.15,Monthly
-Apex Tier One,BSS-045,Latin America,85,2019-01,2026-10,1.12,Monthly
+Apex Tier One,BSS-045,Latin America,86,2019-01,2026-10,1.11,Monthly
 Apex Tier One,BSS-046,Asia Pacific,1,2019-01,2019-01,0.0,Ad-hoc / Single Order
 Apex Tier One,BSS-046,North America,46,2019-03,2026-09,2.02,Bi-Monthly
 Apex Tier One,BSS-055,Asia Pacific,59,2021-07,2026-10,1.1,Monthly
 Apex Tier One,BSS-058,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Apex Tier One,BSS-058,North America,91,2019-01,2026-10,1.04,Monthly
 Apex Tier One,BSS-065,Europe,92,2019-01,2026-10,1.03,Monthly
-Apex Tier One,BSS-066,Latin America,91,2019-01,2026-10,1.04,Monthly
+Apex Tier One,BSS-066,Latin America,92,2019-01,2026-10,1.03,Monthly
 Apex Tier One,BSS-067,Latin America,91,2019-01,2026-10,1.04,Monthly
 Apex Tier One,BSS-068,India,66,2021-04,2026-10,1.03,Monthly
 Apex Tier One,BSS-073,Latin America,47,2019-02,2026-10,2.02,Bi-Monthly
@@ -64,10 +49,10 @@ Apex Tier One,CSS-015,India,92,2019-01,2026-10,1.03,Monthly
 Apex Tier One,CSS-018,India,93,2019-01,2026-10,1.02,Monthly
 Apex Tier One,CSS-020,Latin America,92,2019-01,2026-10,1.03,Monthly
 Apex Tier One,CSS-026,India,45,2019-01,2026-09,2.11,Bi-Monthly
-Apex Tier One,CSS-030,India,84,2019-02,2026-10,1.12,Monthly
+Apex Tier One,CSS-030,India,85,2019-02,2026-10,1.11,Monthly
 Apex Tier One,CSS-032,Asia Pacific,23,2021-04,2026-10,3.05,Quarterly
 Apex Tier One,CSS-032,Latin America,64,2021-04,2026-09,1.05,Monthly
-Apex Tier One,CSS-033,North America,11,2023-12,2026-09,3.4,Quarterly
+Apex Tier One,CSS-033,North America,12,2023-12,2026-09,3.09,Quarterly
 Apex Tier One,CSS-035,Asia Pacific,84,2019-01,2026-10,1.13,Monthly
 Apex Tier One,CSS-036,India,93,2019-01,2026-10,1.02,Monthly
 Apex Tier One,CSS-037,Europe,20,2025-01,2026-10,1.16,Monthly
@@ -79,7 +64,7 @@ Apex Tier One,CSS-044,Europe,32,2019-01,2026-10,3.03,Quarterly
 Apex Tier One,CSS-045,Asia Pacific,46,2019-01,2026-09,2.07,Bi-Monthly
 Apex Tier One,CSS-047,North America,94,2019-01,2026-10,1.01,Monthly
 Apex Tier One,CSS-048,India,92,2019-01,2026-10,1.03,Monthly
-Apex Tier One,CSS-048,North America,45,2019-02,2026-10,2.11,Bi-Monthly
+Apex Tier One,CSS-048,North America,46,2019-02,2026-10,2.07,Bi-Monthly
 Apex Tier One,CSS-056,Asia Pacific,63,2019-01,2026-10,1.52,Bi-Monthly
 Apex Tier One,CSS-056,Europe,92,2019-01,2026-10,1.03,Monthly
 Apex Tier One,CSS-060,India,69,2020-07,2026-10,1.12,Monthly
@@ -103,7 +88,7 @@ Apex Tier One,CSS-083,Asia Pacific,1,2024-06,2024-06,0.0,Ad-hoc / Single Order
 Apex Tier One,CSS-083,Latin America,82,2019-01,2026-10,1.16,Monthly
 Apex Tier One,CSS-085,Asia Pacific,1,2023-07,2023-07,0.0,Ad-hoc / Single Order
 Apex Tier One,CSS-085,Europe,81,2019-01,2025-11,1.04,Monthly
-Apex Tier One,CSS-086,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
+Apex Tier One,CSS-086,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Apex Tier One,ELA-003,Asia Pacific,2,2020-11,2023-08,34.0,Irregular
 Apex Tier One,ELA-003,North America,90,2019-01,2026-10,1.06,Monthly
 Apex Tier One,ELA-005,India,30,2021-07,2026-07,2.1,Bi-Monthly
@@ -132,11 +117,11 @@ Apex Tier One,ELA-041,India,93,2019-01,2026-10,1.02,Monthly
 Apex Tier One,ELA-042,North America,31,2019-01,2026-10,3.13,Quarterly
 Apex Tier One,ELA-044,Asia Pacific,1,2026-08,2026-08,0.0,Ad-hoc / Single Order
 Apex Tier One,ELA-044,Latin America,29,2019-03,2026-09,3.25,Quarterly
-Apex Tier One,ELA-044,North America,58,2019-02,2026-09,1.61,Bi-Monthly
+Apex Tier One,ELA-044,North America,59,2019-02,2026-09,1.59,Bi-Monthly
 Apex Tier One,ELA-045,Latin America,92,2019-01,2026-10,1.03,Monthly
 Apex Tier One,ELA-045,North America,91,2019-01,2026-10,1.04,Monthly
 Apex Tier One,ELA-046,Asia Pacific,1,2022-09,2022-09,0.0,Ad-hoc / Single Order
-Apex Tier One,ELA-046,Latin America,84,2019-01,2026-10,1.13,Monthly
+Apex Tier One,ELA-046,Latin America,85,2019-01,2026-10,1.12,Monthly
 Apex Tier One,ELA-052,India,29,2019-02,2026-08,3.25,Quarterly
 Apex Tier One,ELA-053,Europe,70,2020-12,2026-10,1.03,Monthly
 Apex Tier One,ELA-057,North America,54,2021-12,2026-10,1.11,Monthly
@@ -153,15 +138,15 @@ Apex Tier One,ELA-072,Asia Pacific,2,2021-10,2023-10,25.0,Irregular
 Apex Tier One,ELA-072,Europe,34,2020-12,2026-10,2.15,Bi-Monthly
 Apex Tier One,ELA-080,Europe,49,2022-10,2026-10,1.02,Monthly
 Apex Tier One,ELA-081,Europe,94,2019-01,2026-10,1.01,Monthly
-Apex Tier One,ELA-081,India,92,2019-01,2026-10,1.03,Monthly
-Apex Tier One,ELA-083,India,67,2021-01,2026-10,1.06,Monthly
+Apex Tier One,ELA-081,India,93,2019-01,2026-10,1.02,Monthly
+Apex Tier One,ELA-083,India,68,2021-01,2026-10,1.04,Monthly
 Apex Tier One,ELA-084,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
-Apex Tier One,HYD-002,Latin America,90,2019-01,2026-10,1.06,Monthly
+Apex Tier One,HYD-002,Latin America,91,2019-01,2026-10,1.04,Monthly
 Apex Tier One,HYD-003,Latin America,87,2019-01,2026-10,1.09,Monthly
 Apex Tier One,HYD-009,Europe,26,2024-05,2026-10,1.2,Monthly
 Apex Tier One,HYD-010,Asia Pacific,1,2025-10,2025-10,0.0,Ad-hoc / Single Order
 Apex Tier One,HYD-010,India,87,2019-01,2026-10,1.09,Monthly
-Apex Tier One,HYD-010,North America,88,2019-02,2026-10,1.07,Monthly
+Apex Tier One,HYD-010,North America,89,2019-02,2026-10,1.06,Monthly
 Apex Tier One,HYD-012,Asia Pacific,1,2022-08,2022-08,0.0,Ad-hoc / Single Order
 Apex Tier One,HYD-012,Latin America,60,2019-02,2026-09,1.56,Bi-Monthly
 Apex Tier One,HYD-012,North America,63,2019-01,2026-10,1.52,Bi-Monthly
@@ -179,8 +164,8 @@ Apex Tier One,HYD-038,Europe,87,2019-01,2026-10,1.09,Monthly
 Apex Tier One,HYD-039,Asia Pacific,85,2019-01,2026-10,1.12,Monthly
 Apex Tier One,HYD-042,Latin America,92,2019-01,2026-10,1.03,Monthly
 Apex Tier One,HYD-047,Asia Pacific,94,2019-01,2026-10,1.01,Monthly
-Apex Tier One,HYD-047,Europe,90,2019-01,2026-10,1.06,Monthly
-Apex Tier One,HYD-048,Europe,72,2020-09,2026-10,1.04,Monthly
+Apex Tier One,HYD-047,Europe,91,2019-01,2026-10,1.04,Monthly
+Apex Tier One,HYD-048,Europe,73,2020-09,2026-10,1.03,Monthly
 Apex Tier One,HYD-049,North America,94,2019-01,2026-10,1.01,Monthly
 Apex Tier One,HYD-050,North America,13,2024-10,2026-10,2.08,Bi-Monthly
 Apex Tier One,HYD-051,Asia Pacific,1,2023-09,2023-09,0.0,Ad-hoc / Single Order
@@ -206,7 +191,7 @@ Apex Tier One,HYD-076,India,48,2019-02,2026-10,1.98,Bi-Monthly
 Apex Tier One,PMP-001,Asia Pacific,2,2025-05,2026-06,14.0,Irregular
 Apex Tier One,PMP-001,India,59,2019-02,2026-09,1.59,Bi-Monthly
 Apex Tier One,PMP-001,Latin America,46,2019-01,2026-09,2.07,Bi-Monthly
-Apex Tier One,PMP-002,Europe,83,2019-01,2026-10,1.15,Monthly
+Apex Tier One,PMP-002,Europe,85,2019-01,2026-10,1.12,Monthly
 Apex Tier One,PMP-005,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
 Apex Tier One,PMP-009,Asia Pacific,1,2020-03,2020-03,0.0,Ad-hoc / Single Order
 Apex Tier One,PMP-009,North America,85,2019-01,2026-10,1.12,Monthly
@@ -235,9 +220,9 @@ Apex Tier One,PMP-070,India,25,2022-07,2026-09,2.12,Bi-Monthly
 Apex Tier One,PMP-074,Asia Pacific,84,2019-01,2026-10,1.13,Monthly
 Apex Tier One,PMP-074,Latin America,12,2024-01,2026-10,3.09,Quarterly
 Apex Tier One,PMP-075,Latin America,92,2019-01,2026-10,1.03,Monthly
-Apex Tier One,PMP-079,North America,92,2019-01,2026-10,1.03,Monthly
+Apex Tier One,PMP-079,North America,93,2019-01,2026-10,1.02,Monthly
 Apex Tier One,PMP-081,Asia Pacific,1,2019-08,2019-08,0.0,Ad-hoc / Single Order
-Apex Tier One,PMP-081,North America,91,2019-01,2026-10,1.04,Monthly
+Apex Tier One,PMP-081,North America,92,2019-01,2026-10,1.03,Monthly
 Apex Tier One,PMP-082,Asia Pacific,91,2019-01,2026-10,1.04,Monthly
 Apex Tier One,PMP-082,India,84,2019-01,2026-10,1.13,Monthly
 Apex Tier One,PMP-083,Asia Pacific,2,2024-05,2026-04,24.0,Irregular
@@ -301,7 +286,7 @@ Apex Tier One,THM-025,India,32,2019-02,2026-08,2.94,Quarterly
 Apex Tier One,THM-025,Latin America,86,2019-02,2026-10,1.09,Monthly
 Apex Tier One,THM-026,Asia Pacific,83,2019-01,2026-10,1.15,Monthly
 Apex Tier One,THM-027,Latin America,89,2019-01,2026-10,1.07,Monthly
-Apex Tier One,THM-028,Asia Pacific,31,2019-01,2026-10,3.13,Quarterly
+Apex Tier One,THM-028,Asia Pacific,32,2019-01,2026-10,3.03,Quarterly
 Apex Tier One,THM-029,Asia Pacific,2,2022-06,2022-07,2.0,Bi-Monthly
 Apex Tier One,THM-029,India,31,2019-02,2026-08,3.03,Quarterly
 Apex Tier One,THM-029,North America,90,2019-01,2026-10,1.06,Monthly
@@ -314,7 +299,7 @@ Apex Tier One,THM-040,Latin America,92,2019-01,2026-10,1.03,Monthly
 Apex Tier One,THM-041,Latin America,93,2019-01,2026-10,1.02,Monthly
 Apex Tier One,THM-043,Asia Pacific,91,2019-01,2026-10,1.04,Monthly
 Apex Tier One,THM-043,North America,29,2019-03,2026-09,3.25,Quarterly
-Apex Tier One,THM-046,Europe,61,2019-01,2026-10,1.57,Bi-Monthly
+Apex Tier One,THM-046,Europe,62,2019-01,2026-10,1.54,Bi-Monthly
 Apex Tier One,THM-047,India,34,2019-01,2024-11,2.15,Bi-Monthly
 Apex Tier One,THM-052,India,85,2019-02,2026-10,1.11,Monthly
 Apex Tier One,THM-054,North America,83,2019-01,2026-10,1.15,Monthly
@@ -332,10 +317,6 @@ Apex Tier One,THM-071,India,31,2019-01,2026-10,3.13,Quarterly
 Apex Tier One,THM-075,Europe,59,2019-02,2026-09,1.59,Bi-Monthly
 Apex Tier One,THM-078,Latin America,40,2023-06,2026-10,1.05,Monthly
 Apex Tier One,THM-080,North America,24,2022-11,2026-09,2.04,Bi-Monthly
-Apx Tier One,ELA-046,Latin America,1,2020-06,2020-06,0.0,Ad-hoc / Single Order
-Apx Tier One,ELA-083,India,1,2026-05,2026-05,0.0,Ad-hoc / Single Order
-Apx Tier One,HYD-002,Latin America,1,2025-01,2025-01,0.0,Ad-hoc / Single Order
-Apx Tier One,HYD-010,North America,1,2025-09,2025-09,0.0,Ad-hoc / Single Order
 Atlas Mideast Components,BSS-001,Middle East & Africa,52,2022-01,2026-10,1.14,Monthly
 Atlas Mideast Components,BSS-003,Middle East & Africa,54,2022-01,2026-10,1.09,Monthly
 Atlas Mideast Components,BSS-004,Middle East & Africa,58,2022-01,2026-10,1.02,Monthly
@@ -516,16 +497,6 @@ Atlas Mideast Components,THM-075,Middle East & Africa,58,2022-01,2026-10,1.02,Mo
 Atlas Mideast Components,THM-076,Middle East & Africa,53,2022-01,2026-10,1.12,Monthly
 Atlas Mideast Components,THM-078,Middle East & Africa,21,2023-05,2026-09,2.05,Bi-Monthly
 Atlas Mideast Components,THM-080,Middle East & Africa,48,2022-09,2026-10,1.06,Monthly
-Cresline Manufacturing,ELA-071,Latin America,1,2024-09,2024-09,0.0,Ad-hoc / Single Order
-Cresline Manufacturing,PMP-036,India,1,2026-02,2026-02,0.0,Ad-hoc / Single Order
-Crestlie Manufacturing,ELA-018,North America,1,2024-09,2024-09,0.0,Ad-hoc / Single Order
-Crestlie Manufacturing,ELA-024,Asia Pacific,1,2023-08,2023-08,0.0,Ad-hoc / Single Order
-Crestlie Manufacturing,HYD-007,Latin America,1,2023-09,2023-09,0.0,Ad-hoc / Single Order
-Crestlie Manufacturing,PMP-002,North America,1,2023-01,2023-01,0.0,Ad-hoc / Single Order
-Crestlie Manufacturing,THM-038,Europe,1,2020-05,2020-05,0.0,Ad-hoc / Single Order
-Crestlie Manufacturing,THM-069,Europe,1,2021-11,2021-11,0.0,Ad-hoc / Single Order
-Crestlin Manufacturing,PMP-066,North America,1,2025-09,2025-09,0.0,Ad-hoc / Single Order
-Crestlin Manufacturing,THM-037,Asia Pacific,1,2022-03,2022-03,0.0,Ad-hoc / Single Order
 Crestline Manufacturing,BSS-001,Asia Pacific,44,2022-09,2026-10,1.16,Monthly
 Crestline Manufacturing,BSS-002,India,87,2019-01,2026-10,1.09,Monthly
 Crestline Manufacturing,BSS-004,Europe,82,2019-01,2026-10,1.16,Monthly
@@ -540,7 +511,7 @@ Crestline Manufacturing,BSS-043,Europe,44,2023-01,2026-10,1.07,Monthly
 Crestline Manufacturing,BSS-043,Latin America,1,2024-02,2024-02,0.0,Ad-hoc / Single Order
 Crestline Manufacturing,BSS-047,Latin America,32,2019-01,2026-10,3.03,Quarterly
 Crestline Manufacturing,BSS-047,North America,93,2019-01,2026-10,1.02,Monthly
-Crestline Manufacturing,BSS-054,Latin America,57,2021-08,2026-10,1.12,Monthly
+Crestline Manufacturing,BSS-054,Latin America,58,2021-08,2026-10,1.11,Monthly
 Crestline Manufacturing,BSS-060,Latin America,20,2023-10,2026-10,1.95,Bi-Monthly
 Crestline Manufacturing,BSS-065,Latin America,31,2019-01,2026-10,3.13,Quarterly
 Crestline Manufacturing,BSS-067,Asia Pacific,85,2019-01,2026-10,1.12,Monthly
@@ -563,7 +534,7 @@ Crestline Manufacturing,CSS-007,Asia Pacific,82,2019-01,2026-10,1.16,Monthly
 Crestline Manufacturing,CSS-009,Asia Pacific,62,2019-01,2026-10,1.54,Bi-Monthly
 Crestline Manufacturing,CSS-010,Latin America,13,2025-04,2026-10,1.58,Bi-Monthly
 Crestline Manufacturing,CSS-011,India,24,2020-09,2026-09,3.17,Quarterly
-Crestline Manufacturing,CSS-011,Latin America,72,2020-10,2026-10,1.03,Monthly
+Crestline Manufacturing,CSS-011,Latin America,73,2020-10,2026-10,1.01,Monthly
 Crestline Manufacturing,CSS-013,Latin America,74,2020-06,2026-10,1.05,Monthly
 Crestline Manufacturing,CSS-014,Latin America,53,2022-01,2026-10,1.12,Monthly
 Crestline Manufacturing,CSS-016,North America,91,2019-01,2026-09,1.03,Monthly
@@ -590,7 +561,7 @@ Crestline Manufacturing,CSS-076,Europe,60,2019-02,2026-09,1.56,Bi-Monthly
 Crestline Manufacturing,CSS-076,India,45,2019-02,2026-10,2.11,Bi-Monthly
 Crestline Manufacturing,CSS-078,India,94,2019-01,2026-10,1.01,Monthly
 Crestline Manufacturing,CSS-079,Latin America,93,2019-01,2026-10,1.02,Monthly
-Crestline Manufacturing,CSS-081,Asia Pacific,91,2019-01,2026-10,1.04,Monthly
+Crestline Manufacturing,CSS-081,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
 Crestline Manufacturing,CSS-085,India,37,2019-02,2022-06,1.14,Monthly
 Crestline Manufacturing,CSS-085,North America,91,2019-01,2026-10,1.04,Monthly
 Crestline Manufacturing,CSS-086,North America,92,2019-01,2026-10,1.03,Monthly
@@ -608,7 +579,7 @@ Crestline Manufacturing,ELA-012,North America,86,2019-01,2026-10,1.11,Monthly
 Crestline Manufacturing,ELA-013,Asia Pacific,68,2020-09,2026-10,1.1,Monthly
 Crestline Manufacturing,ELA-016,Asia Pacific,30,2024-02,2026-10,1.14,Monthly
 Crestline Manufacturing,ELA-017,Asia Pacific,7,2026-04,2026-10,1.17,Monthly
-Crestline Manufacturing,ELA-018,North America,93,2019-01,2026-10,1.02,Monthly
+Crestline Manufacturing,ELA-018,North America,94,2019-01,2026-10,1.01,Monthly
 Crestline Manufacturing,ELA-019,India,91,2019-01,2026-10,1.04,Monthly
 Crestline Manufacturing,ELA-020,Europe,33,2019-01,2026-10,2.94,Quarterly
 Crestline Manufacturing,ELA-020,Latin America,1,2019-10,2019-10,0.0,Ad-hoc / Single Order
@@ -617,7 +588,7 @@ Crestline Manufacturing,ELA-021,Asia Pacific,94,2019-01,2026-10,1.01,Monthly
 Crestline Manufacturing,ELA-023,Asia Pacific,91,2019-01,2026-10,1.04,Monthly
 Crestline Manufacturing,ELA-023,Latin America,1,2021-05,2021-05,0.0,Ad-hoc / Single Order
 Crestline Manufacturing,ELA-023,North America,86,2019-01,2026-10,1.11,Monthly
-Crestline Manufacturing,ELA-024,Asia Pacific,46,2019-02,2026-10,2.07,Bi-Monthly
+Crestline Manufacturing,ELA-024,Asia Pacific,47,2019-02,2026-10,2.02,Bi-Monthly
 Crestline Manufacturing,ELA-024,Latin America,1,2022-08,2022-08,0.0,Ad-hoc / Single Order
 Crestline Manufacturing,ELA-026,Europe,67,2021-02,2026-10,1.05,Monthly
 Crestline Manufacturing,ELA-026,Latin America,1,2025-11,2025-11,0.0,Ad-hoc / Single Order
@@ -643,7 +614,7 @@ Crestline Manufacturing,ELA-059,Latin America,82,2019-02,2026-10,1.15,Monthly
 Crestline Manufacturing,ELA-063,Europe,34,2021-04,2026-10,2.03,Bi-Monthly
 Crestline Manufacturing,ELA-069,Latin America,1,2024-03,2024-03,0.0,Ad-hoc / Single Order
 Crestline Manufacturing,ELA-069,North America,76,2020-02,2026-10,1.08,Monthly
-Crestline Manufacturing,ELA-071,Latin America,55,2022-01,2026-10,1.07,Monthly
+Crestline Manufacturing,ELA-071,Latin America,56,2022-01,2026-10,1.05,Monthly
 Crestline Manufacturing,ELA-072,Latin America,68,2020-12,2026-10,1.06,Monthly
 Crestline Manufacturing,ELA-073,Europe,37,2023-08,2026-09,1.06,Monthly
 Crestline Manufacturing,ELA-075,Latin America,72,2020-03,2026-10,1.13,Monthly
@@ -658,7 +629,7 @@ Crestline Manufacturing,HYD-001,Latin America,1,2021-01,2021-01,0.0,Ad-hoc / Sin
 Crestline Manufacturing,HYD-001,North America,45,2019-01,2026-09,2.11,Bi-Monthly
 Crestline Manufacturing,HYD-006,India,83,2019-01,2026-10,1.15,Monthly
 Crestline Manufacturing,HYD-006,Latin America,85,2019-01,2026-10,1.12,Monthly
-Crestline Manufacturing,HYD-007,Latin America,29,2019-03,2026-09,3.25,Quarterly
+Crestline Manufacturing,HYD-007,Latin America,30,2019-03,2026-09,3.14,Quarterly
 Crestline Manufacturing,HYD-010,Asia Pacific,91,2019-01,2026-10,1.04,Monthly
 Crestline Manufacturing,HYD-010,Latin America,1,2019-03,2019-03,0.0,Ad-hoc / Single Order
 Crestline Manufacturing,HYD-013,North America,43,2022-10,2026-10,1.17,Monthly
@@ -688,14 +659,14 @@ Crestline Manufacturing,HYD-059,India,67,2019-01,2024-09,1.05,Monthly
 Crestline Manufacturing,HYD-062,India,39,2023-08,2026-10,1.03,Monthly
 Crestline Manufacturing,HYD-063,Asia Pacific,11,2025-03,2026-09,1.9,Bi-Monthly
 Crestline Manufacturing,HYD-064,India,91,2019-01,2026-10,1.04,Monthly
-Crestline Manufacturing,HYD-072,Asia Pacific,90,2019-01,2026-10,1.06,Monthly
+Crestline Manufacturing,HYD-072,Asia Pacific,91,2019-01,2026-10,1.04,Monthly
 Crestline Manufacturing,HYD-073,Europe,92,2019-01,2026-10,1.03,Monthly
 Crestline Manufacturing,HYD-073,Latin America,1,2022-08,2022-08,0.0,Ad-hoc / Single Order
 Crestline Manufacturing,HYD-075,Latin America,85,2019-02,2026-10,1.11,Monthly
 Crestline Manufacturing,HYD-077,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Crestline Manufacturing,HYD-082,Asia Pacific,45,2019-02,2026-10,2.11,Bi-Monthly
 Crestline Manufacturing,HYD-082,Latin America,1,2025-04,2025-04,0.0,Ad-hoc / Single Order
-Crestline Manufacturing,PMP-002,North America,93,2019-01,2026-10,1.02,Monthly
+Crestline Manufacturing,PMP-002,North America,94,2019-01,2026-10,1.01,Monthly
 Crestline Manufacturing,PMP-003,India,86,2019-01,2026-10,1.11,Monthly
 Crestline Manufacturing,PMP-003,Latin America,1,2022-02,2022-02,0.0,Ad-hoc / Single Order
 Crestline Manufacturing,PMP-004,Europe,83,2019-01,2026-10,1.15,Monthly
@@ -721,10 +692,10 @@ Crestline Manufacturing,PMP-024,North America,86,2019-01,2026-10,1.11,Monthly
 Crestline Manufacturing,PMP-028,Europe,90,2019-01,2026-10,1.06,Monthly
 Crestline Manufacturing,PMP-032,Latin America,86,2019-01,2026-10,1.11,Monthly
 Crestline Manufacturing,PMP-035,India,84,2019-02,2026-10,1.12,Monthly
-Crestline Manufacturing,PMP-036,India,92,2019-01,2026-10,1.03,Monthly
+Crestline Manufacturing,PMP-036,India,93,2019-01,2026-10,1.02,Monthly
 Crestline Manufacturing,PMP-040,Europe,83,2019-01,2026-10,1.15,Monthly
 Crestline Manufacturing,PMP-040,Latin America,1,2021-09,2021-09,0.0,Ad-hoc / Single Order
-Crestline Manufacturing,PMP-044,Latin America,87,2019-01,2026-10,1.09,Monthly
+Crestline Manufacturing,PMP-044,Latin America,88,2019-01,2026-10,1.08,Monthly
 Crestline Manufacturing,PMP-052,Latin America,1,2024-02,2024-02,0.0,Ad-hoc / Single Order
 Crestline Manufacturing,PMP-052,North America,87,2019-01,2026-10,1.09,Monthly
 Crestline Manufacturing,PMP-053,North America,31,2019-01,2026-10,3.13,Quarterly
@@ -735,7 +706,7 @@ Crestline Manufacturing,PMP-062,India,31,2021-10,2026-10,2.03,Bi-Monthly
 Crestline Manufacturing,PMP-062,Latin America,1,2021-08,2021-08,0.0,Ad-hoc / Single Order
 Crestline Manufacturing,PMP-064,India,85,2019-02,2026-10,1.11,Monthly
 Crestline Manufacturing,PMP-066,Latin America,2,2019-06,2024-02,57.0,Irregular
-Crestline Manufacturing,PMP-066,North America,91,2019-01,2026-10,1.04,Monthly
+Crestline Manufacturing,PMP-066,North America,92,2019-01,2026-10,1.03,Monthly
 Crestline Manufacturing,PMP-071,North America,63,2021-07,2026-10,1.03,Monthly
 Crestline Manufacturing,PMP-077,Asia Pacific,85,2019-01,2026-10,1.12,Monthly
 Crestline Manufacturing,PMP-078,Europe,32,2019-02,2026-08,2.94,Quarterly
@@ -797,9 +768,9 @@ Crestline Manufacturing,THM-027,Latin America,1,2021-02,2021-02,0.0,Ad-hoc / Sin
 Crestline Manufacturing,THM-032,Europe,85,2019-01,2026-09,1.11,Monthly
 Crestline Manufacturing,THM-033,Europe,94,2019-01,2026-10,1.01,Monthly
 Crestline Manufacturing,THM-034,Latin America,32,2019-01,2026-10,3.03,Quarterly
-Crestline Manufacturing,THM-037,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
+Crestline Manufacturing,THM-037,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Crestline Manufacturing,THM-038,Asia Pacific,87,2019-01,2026-10,1.09,Monthly
-Crestline Manufacturing,THM-038,Europe,92,2019-01,2026-10,1.03,Monthly
+Crestline Manufacturing,THM-038,Europe,93,2019-01,2026-10,1.02,Monthly
 Crestline Manufacturing,THM-038,Latin America,93,2019-01,2026-10,1.02,Monthly
 Crestline Manufacturing,THM-039,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Crestline Manufacturing,THM-040,Latin America,3,2020-09,2024-11,25.5,Irregular
@@ -827,7 +798,7 @@ Crestline Manufacturing,THM-064,Europe,51,2020-06,2026-09,1.52,Bi-Monthly
 Crestline Manufacturing,THM-067,Europe,92,2019-01,2026-10,1.03,Monthly
 Crestline Manufacturing,THM-068,India,92,2019-01,2026-10,1.03,Monthly
 Crestline Manufacturing,THM-068,Latin America,1,2023-08,2023-08,0.0,Ad-hoc / Single Order
-Crestline Manufacturing,THM-069,Europe,72,2020-03,2026-10,1.13,Monthly
+Crestline Manufacturing,THM-069,Europe,73,2020-03,2026-10,1.11,Monthly
 Crestline Manufacturing,THM-069,India,80,2020-03,2026-10,1.01,Monthly
 Crestline Manufacturing,THM-071,Asia Pacific,62,2019-01,2026-10,1.54,Bi-Monthly
 Crestline Manufacturing,THM-071,Europe,91,2019-01,2026-10,1.04,Monthly
@@ -838,28 +809,15 @@ Crestline Manufacturing,THM-076,Latin America,90,2019-01,2026-10,1.06,Monthly
 Crestline Manufacturing,THM-077,Latin America,92,2019-01,2026-10,1.03,Monthly
 Crestline Manufacturing,THM-078,Asia Pacific,13,2023-05,2026-08,3.33,Quarterly
 Crestline Manufacturing,THM-079,Latin America,77,2019-12,2026-10,1.09,Monthly
-Crestlne Manufacturing,BSS-054,Latin America,1,2026-06,2026-06,0.0,Ad-hoc / Single Order
-Crestlne Manufacturing,CSS-081,Asia Pacific,1,2020-02,2020-02,0.0,Ad-hoc / Single Order
-Cretline Manufacturing,PMP-044,Latin America,1,2020-11,2020-11,0.0,Ad-hoc / Single Order
-Crstline Manufacturing,CSS-011,Latin America,1,2025-09,2025-09,0.0,Ad-hoc / Single Order
-Crstline Manufacturing,HYD-072,Asia Pacific,1,2026-01,2026-01,0.0,Ad-hoc / Single Order
-Facon Gulf Motors,BSS-033,Middle East & Africa,1,2023-03,2023-03,0.0,Ad-hoc / Single Order
-Facon Gulf Motors,CSS-053,Middle East & Africa,1,2025-09,2025-09,0.0,Ad-hoc / Single Order
-Falcn Gulf Motors,BSS-040,Middle East & Africa,1,2024-07,2024-07,0.0,Ad-hoc / Single Order
-Falcn Gulf Motors,CSS-016,Middle East & Africa,1,2025-06,2025-06,0.0,Ad-hoc / Single Order
-Falcn Gulf Motors,ELA-039,Middle East & Africa,1,2026-03,2026-03,0.0,Ad-hoc / Single Order
-Falcn Gulf Motors,THM-035,Middle East & Africa,1,2023-11,2023-11,0.0,Ad-hoc / Single Order
-Falco Gulf Motors,CSS-022,Middle East & Africa,1,2022-11,2022-11,0.0,Ad-hoc / Single Order
-Falco Gulf Motors,THM-066,Middle East & Africa,1,2023-02,2023-02,0.0,Ad-hoc / Single Order
 Falcon Gulf Motors,BSS-002,Middle East & Africa,57,2022-01,2026-10,1.04,Monthly
 Falcon Gulf Motors,BSS-008,Middle East & Africa,56,2022-01,2026-10,1.05,Monthly
 Falcon Gulf Motors,BSS-015,Middle East & Africa,50,2022-01,2026-10,1.18,Monthly
 Falcon Gulf Motors,BSS-017,Middle East & Africa,19,2022-03,2026-09,3.06,Quarterly
 Falcon Gulf Motors,BSS-024,Middle East & Africa,58,2022-01,2026-10,1.02,Monthly
 Falcon Gulf Motors,BSS-031,Middle East & Africa,58,2022-01,2026-10,1.02,Monthly
-Falcon Gulf Motors,BSS-033,Middle East & Africa,56,2022-01,2026-10,1.05,Monthly
+Falcon Gulf Motors,BSS-033,Middle East & Africa,57,2022-01,2026-10,1.04,Monthly
 Falcon Gulf Motors,BSS-038,Middle East & Africa,58,2022-01,2026-10,1.02,Monthly
-Falcon Gulf Motors,BSS-040,Middle East & Africa,50,2022-02,2026-10,1.16,Monthly
+Falcon Gulf Motors,BSS-040,Middle East & Africa,51,2022-02,2026-10,1.14,Monthly
 Falcon Gulf Motors,BSS-042,Middle East & Africa,38,2022-01,2026-10,1.57,Bi-Monthly
 Falcon Gulf Motors,BSS-043,Middle East & Africa,46,2023-01,2026-10,1.02,Monthly
 Falcon Gulf Motors,BSS-048,Middle East & Africa,19,2022-03,2026-09,3.06,Quarterly
@@ -872,19 +830,19 @@ Falcon Gulf Motors,BSS-061,Middle East & Africa,57,2022-01,2026-10,1.04,Monthly
 Falcon Gulf Motors,BSS-063,Middle East & Africa,54,2022-01,2026-10,1.09,Monthly
 Falcon Gulf Motors,BSS-075,Middle East & Africa,56,2022-01,2026-09,1.04,Monthly
 Falcon Gulf Motors,BSS-078,Middle East & Africa,57,2022-01,2026-10,1.04,Monthly
-Falcon Gulf Motors,BSS-083,Middle East & Africa,57,2022-01,2026-10,1.04,Monthly
+Falcon Gulf Motors,BSS-083,Middle East & Africa,58,2022-01,2026-10,1.02,Monthly
 Falcon Gulf Motors,CSS-005,Middle East & Africa,55,2022-01,2026-10,1.07,Monthly
 Falcon Gulf Motors,CSS-006,Middle East & Africa,51,2022-02,2026-10,1.14,Monthly
 Falcon Gulf Motors,CSS-009,Middle East & Africa,56,2022-02,2026-10,1.04,Monthly
 Falcon Gulf Motors,CSS-013,Middle East & Africa,18,2022-03,2026-09,3.24,Quarterly
-Falcon Gulf Motors,CSS-016,Middle East & Africa,30,2022-02,2026-10,1.97,Bi-Monthly
-Falcon Gulf Motors,CSS-022,Middle East & Africa,28,2022-01,2026-09,2.11,Bi-Monthly
+Falcon Gulf Motors,CSS-016,Middle East & Africa,31,2022-02,2026-10,1.9,Bi-Monthly
+Falcon Gulf Motors,CSS-022,Middle East & Africa,29,2022-01,2026-09,2.04,Bi-Monthly
 Falcon Gulf Motors,CSS-032,Middle East & Africa,57,2022-02,2026-10,1.02,Monthly
 Falcon Gulf Motors,CSS-034,Middle East & Africa,58,2022-01,2026-10,1.02,Monthly
 Falcon Gulf Motors,CSS-037,Middle East & Africa,19,2025-02,2026-10,1.17,Monthly
 Falcon Gulf Motors,CSS-038,Middle East & Africa,56,2022-01,2026-10,1.05,Monthly
 Falcon Gulf Motors,CSS-048,Middle East & Africa,56,2022-01,2026-10,1.05,Monthly
-Falcon Gulf Motors,CSS-053,Middle East & Africa,51,2022-02,2026-10,1.14,Monthly
+Falcon Gulf Motors,CSS-053,Middle East & Africa,52,2022-02,2026-10,1.12,Monthly
 Falcon Gulf Motors,CSS-055,Middle East & Africa,56,2022-01,2026-10,1.05,Monthly
 Falcon Gulf Motors,CSS-058,Middle East & Africa,57,2022-01,2026-10,1.04,Monthly
 Falcon Gulf Motors,CSS-062,Middle East & Africa,57,2022-01,2026-10,1.04,Monthly
@@ -907,7 +865,7 @@ Falcon Gulf Motors,ELA-026,Middle East & Africa,52,2022-02,2026-10,1.12,Monthly
 Falcon Gulf Motors,ELA-027,Middle East & Africa,52,2022-02,2026-10,1.12,Monthly
 Falcon Gulf Motors,ELA-031,Middle East & Africa,55,2022-01,2026-10,1.07,Monthly
 Falcon Gulf Motors,ELA-033,Middle East & Africa,39,2022-01,2026-10,1.53,Bi-Monthly
-Falcon Gulf Motors,ELA-039,Middle East & Africa,38,2022-01,2026-10,1.57,Bi-Monthly
+Falcon Gulf Motors,ELA-039,Middle East & Africa,39,2022-01,2026-10,1.53,Bi-Monthly
 Falcon Gulf Motors,ELA-046,Middle East & Africa,29,2022-01,2026-09,2.04,Bi-Monthly
 Falcon Gulf Motors,ELA-047,Middle East & Africa,57,2022-01,2026-10,1.04,Monthly
 Falcon Gulf Motors,ELA-050,Middle East & Africa,34,2023-12,2026-10,1.06,Monthly
@@ -918,7 +876,7 @@ Falcon Gulf Motors,ELA-054,Middle East & Africa,58,2022-01,2026-10,1.02,Monthly
 Falcon Gulf Motors,ELA-056,Middle East & Africa,29,2022-03,2026-09,1.96,Bi-Monthly
 Falcon Gulf Motors,ELA-057,Middle East & Africa,54,2022-02,2026-10,1.08,Monthly
 Falcon Gulf Motors,ELA-058,Middle East & Africa,20,2022-01,2026-10,3.05,Quarterly
-Falcon Gulf Motors,ELA-059,Middle East & Africa,36,2022-03,2026-10,1.6,Bi-Monthly
+Falcon Gulf Motors,ELA-059,Middle East & Africa,37,2022-03,2026-10,1.56,Bi-Monthly
 Falcon Gulf Motors,ELA-061,Middle East & Africa,17,2025-06,2026-10,1.06,Monthly
 Falcon Gulf Motors,ELA-062,Middle East & Africa,56,2022-01,2026-10,1.05,Monthly
 Falcon Gulf Motors,ELA-066,Middle East & Africa,58,2022-01,2026-10,1.02,Monthly
@@ -1015,7 +973,7 @@ Falcon Gulf Motors,THM-019,Middle East & Africa,53,2022-01,2026-10,1.12,Monthly
 Falcon Gulf Motors,THM-021,Middle East & Africa,58,2022-01,2026-10,1.02,Monthly
 Falcon Gulf Motors,THM-024,Middle East & Africa,28,2022-01,2026-09,2.11,Bi-Monthly
 Falcon Gulf Motors,THM-028,Middle East & Africa,53,2022-01,2026-10,1.12,Monthly
-Falcon Gulf Motors,THM-035,Middle East & Africa,55,2022-01,2026-10,1.07,Monthly
+Falcon Gulf Motors,THM-035,Middle East & Africa,56,2022-01,2026-10,1.05,Monthly
 Falcon Gulf Motors,THM-036,Middle East & Africa,29,2022-01,2026-09,2.04,Bi-Monthly
 Falcon Gulf Motors,THM-037,Middle East & Africa,53,2022-02,2026-10,1.1,Monthly
 Falcon Gulf Motors,THM-039,Middle East & Africa,55,2022-02,2026-10,1.06,Monthly
@@ -1023,18 +981,12 @@ Falcon Gulf Motors,THM-040,Middle East & Africa,58,2022-01,2026-10,1.02,Monthly
 Falcon Gulf Motors,THM-049,Middle East & Africa,52,2022-01,2026-10,1.14,Monthly
 Falcon Gulf Motors,THM-055,Middle East & Africa,13,2024-09,2026-09,2.08,Bi-Monthly
 Falcon Gulf Motors,THM-062,Middle East & Africa,25,2022-10,2026-10,2.04,Bi-Monthly
-Falcon Gulf Motors,THM-066,Middle East & Africa,57,2022-01,2026-10,1.04,Monthly
+Falcon Gulf Motors,THM-066,Middle East & Africa,58,2022-01,2026-10,1.02,Monthly
 Falcon Gulf Motors,THM-073,Middle East & Africa,40,2023-07,2026-10,1.03,Monthly
-Falon Gulf Motors,ELA-059,Middle East & Africa,1,2025-10,2025-10,0.0,Ad-hoc / Single Order
-Flcon Gulf Motors,BSS-083,Middle East & Africa,1,2025-04,2025-04,0.0,Ad-hoc / Single Order
-Heios Auto Parts,BSS-061,India,1,2025-07,2025-07,0.0,Ad-hoc / Single Order
-Heios Auto Parts,HYD-002,India,1,2024-01,2024-01,0.0,Ad-hoc / Single Order
-Heios Auto Parts,HYD-015,North America,1,2023-02,2023-02,0.0,Ad-hoc / Single Order
-Heios Auto Parts,THM-002,North America,1,2025-02,2025-02,0.0,Ad-hoc / Single Order
 Helios Auto Parts,BSS-001,Asia Pacific,39,2019-01,2022-08,1.16,Monthly
 Helios Auto Parts,BSS-001,India,93,2019-01,2026-10,1.02,Monthly
 Helios Auto Parts,BSS-007,Asia Pacific,84,2019-01,2026-10,1.13,Monthly
-Helios Auto Parts,BSS-009,India,45,2019-01,2026-09,2.11,Bi-Monthly
+Helios Auto Parts,BSS-009,India,46,2019-01,2026-09,2.07,Bi-Monthly
 Helios Auto Parts,BSS-012,North America,4,2026-07,2026-10,1.33,Monthly
 Helios Auto Parts,BSS-014,Europe,64,2019-01,2026-10,1.49,Bi-Monthly
 Helios Auto Parts,BSS-015,North America,92,2019-01,2026-10,1.03,Monthly
@@ -1061,7 +1013,7 @@ Helios Auto Parts,BSS-055,Europe,58,2021-06,2026-10,1.14,Monthly
 Helios Auto Parts,BSS-056,Asia Pacific,1,2025-07,2025-07,0.0,Ad-hoc / Single Order
 Helios Auto Parts,BSS-056,Latin America,93,2019-01,2026-10,1.02,Monthly
 Helios Auto Parts,BSS-058,India,91,2019-01,2026-10,1.04,Monthly
-Helios Auto Parts,BSS-061,India,89,2019-01,2026-10,1.07,Monthly
+Helios Auto Parts,BSS-061,India,90,2019-01,2026-10,1.06,Monthly
 Helios Auto Parts,BSS-063,Asia Pacific,63,2021-08,2026-10,1.02,Monthly
 Helios Auto Parts,BSS-069,India,76,2020-05,2026-10,1.04,Monthly
 Helios Auto Parts,BSS-070,Asia Pacific,2,2021-01,2024-04,40.0,Irregular
@@ -1091,9 +1043,9 @@ Helios Auto Parts,CSS-023,India,61,2019-01,2026-10,1.57,Bi-Monthly
 Helios Auto Parts,CSS-023,North America,93,2019-01,2026-10,1.02,Monthly
 Helios Auto Parts,CSS-025,North America,45,2019-01,2026-09,2.11,Bi-Monthly
 Helios Auto Parts,CSS-028,Asia Pacific,29,2019-02,2026-08,3.25,Quarterly
-Helios Auto Parts,CSS-034,India,93,2019-01,2026-10,1.02,Monthly
+Helios Auto Parts,CSS-034,India,94,2019-01,2026-10,1.01,Monthly
 Helios Auto Parts,CSS-035,Latin America,94,2019-01,2026-10,1.01,Monthly
-Helios Auto Parts,CSS-036,Europe,63,2019-01,2026-10,1.52,Bi-Monthly
+Helios Auto Parts,CSS-036,Europe,64,2019-01,2026-10,1.49,Bi-Monthly
 Helios Auto Parts,CSS-038,Asia Pacific,69,2020-12,2026-10,1.04,Monthly
 Helios Auto Parts,CSS-039,Asia Pacific,1,2019-03,2019-03,0.0,Ad-hoc / Single Order
 Helios Auto Parts,CSS-039,North America,91,2019-01,2026-10,1.04,Monthly
@@ -1113,7 +1065,7 @@ Helios Auto Parts,CSS-062,North America,91,2019-01,2026-10,1.04,Monthly
 Helios Auto Parts,CSS-063,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Helios Auto Parts,CSS-066,Latin America,34,2019-02,2024-10,2.09,Bi-Monthly
 Helios Auto Parts,CSS-067,Asia Pacific,90,2019-01,2026-10,1.06,Monthly
-Helios Auto Parts,CSS-068,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
+Helios Auto Parts,CSS-068,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Helios Auto Parts,CSS-068,India,89,2019-01,2026-10,1.07,Monthly
 Helios Auto Parts,CSS-068,Latin America,61,2019-01,2026-10,1.57,Bi-Monthly
 Helios Auto Parts,CSS-073,Asia Pacific,27,2023-07,2026-10,1.54,Bi-Monthly
@@ -1127,7 +1079,7 @@ Helios Auto Parts,CSS-085,India,47,2022-07,2026-10,1.13,Monthly
 Helios Auto Parts,ELA-002,Europe,32,2019-01,2026-10,3.03,Quarterly
 Helios Auto Parts,ELA-003,Latin America,85,2019-01,2026-10,1.12,Monthly
 Helios Auto Parts,ELA-004,India,86,2019-01,2026-10,1.11,Monthly
-Helios Auto Parts,ELA-005,North America,41,2021-08,2026-09,1.55,Bi-Monthly
+Helios Auto Parts,ELA-005,North America,42,2021-08,2026-09,1.51,Bi-Monthly
 Helios Auto Parts,ELA-006,Latin America,93,2019-01,2026-10,1.02,Monthly
 Helios Auto Parts,ELA-007,India,81,2019-11,2026-10,1.05,Monthly
 Helios Auto Parts,ELA-007,Latin America,81,2019-10,2026-10,1.06,Monthly
@@ -1135,7 +1087,7 @@ Helios Auto Parts,ELA-008,Asia Pacific,1,2021-06,2021-06,0.0,Ad-hoc / Single Ord
 Helios Auto Parts,ELA-008,Latin America,84,2019-01,2026-09,1.12,Monthly
 Helios Auto Parts,ELA-009,India,47,2019-01,2026-09,2.02,Bi-Monthly
 Helios Auto Parts,ELA-010,Asia Pacific,1,2024-03,2024-03,0.0,Ad-hoc / Single Order
-Helios Auto Parts,ELA-010,Latin America,90,2019-01,2026-10,1.06,Monthly
+Helios Auto Parts,ELA-010,Latin America,91,2019-01,2026-10,1.04,Monthly
 Helios Auto Parts,ELA-012,Asia Pacific,82,2019-01,2026-10,1.16,Monthly
 Helios Auto Parts,ELA-013,Asia Pacific,1,2025-06,2025-06,0.0,Ad-hoc / Single Order
 Helios Auto Parts,ELA-013,Latin America,64,2020-11,2026-10,1.14,Monthly
@@ -1143,7 +1095,7 @@ Helios Auto Parts,ELA-019,Europe,45,2019-04,2026-10,2.07,Bi-Monthly
 Helios Auto Parts,ELA-019,Latin America,48,2019-01,2026-09,1.98,Bi-Monthly
 Helios Auto Parts,ELA-021,Asia Pacific,1,2021-08,2021-08,0.0,Ad-hoc / Single Order
 Helios Auto Parts,ELA-021,North America,84,2019-01,2026-10,1.13,Monthly
-Helios Auto Parts,ELA-022,Asia Pacific,91,2019-01,2026-10,1.04,Monthly
+Helios Auto Parts,ELA-022,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
 Helios Auto Parts,ELA-024,Europe,92,2019-01,2026-10,1.03,Monthly
 Helios Auto Parts,ELA-027,Asia Pacific,72,2020-10,2026-10,1.03,Monthly
 Helios Auto Parts,ELA-028,North America,37,2023-10,2026-10,1.03,Monthly
@@ -1170,12 +1122,12 @@ Helios Auto Parts,ELA-068,Latin America,64,2020-12,2026-10,1.13,Monthly
 Helios Auto Parts,ELA-071,North America,57,2022-01,2026-10,1.04,Monthly
 Helios Auto Parts,ELA-072,Asia Pacific,71,2020-12,2026-10,1.01,Monthly
 Helios Auto Parts,ELA-073,Asia Pacific,13,2023-10,2026-10,3.08,Quarterly
-Helios Auto Parts,ELA-075,Asia Pacific,39,2020-03,2026-09,2.08,Bi-Monthly
+Helios Auto Parts,ELA-075,Asia Pacific,40,2020-03,2026-09,2.03,Bi-Monthly
 Helios Auto Parts,ELA-075,Europe,26,2020-05,2026-08,3.04,Quarterly
-Helios Auto Parts,ELA-078,Asia Pacific,85,2019-01,2026-10,1.12,Monthly
+Helios Auto Parts,ELA-078,Asia Pacific,86,2019-01,2026-10,1.11,Monthly
 Helios Auto Parts,ELA-079,Asia Pacific,91,2019-01,2026-10,1.04,Monthly
 Helios Auto Parts,ELA-082,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
-Helios Auto Parts,HYD-002,India,83,2019-01,2026-10,1.15,Monthly
+Helios Auto Parts,HYD-002,India,84,2019-01,2026-10,1.13,Monthly
 Helios Auto Parts,HYD-002,North America,48,2019-02,2026-10,1.98,Bi-Monthly
 Helios Auto Parts,HYD-006,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Helios Auto Parts,HYD-007,Asia Pacific,1,2026-05,2026-05,0.0,Ad-hoc / Single Order
@@ -1184,7 +1136,7 @@ Helios Auto Parts,HYD-010,Europe,46,2019-01,2026-09,2.07,Bi-Monthly
 Helios Auto Parts,HYD-010,Latin America,45,2019-01,2026-09,2.11,Bi-Monthly
 Helios Auto Parts,HYD-012,Asia Pacific,85,2019-01,2026-10,1.12,Monthly
 Helios Auto Parts,HYD-013,India,47,2019-02,2026-10,2.02,Bi-Monthly
-Helios Auto Parts,HYD-015,North America,85,2019-01,2026-10,1.12,Monthly
+Helios Auto Parts,HYD-015,North America,86,2019-01,2026-10,1.11,Monthly
 Helios Auto Parts,HYD-018,Asia Pacific,85,2019-01,2026-10,1.12,Monthly
 Helios Auto Parts,HYD-018,North America,45,2019-01,2026-09,2.11,Bi-Monthly
 Helios Auto Parts,HYD-019,North America,44,2019-01,2026-07,2.12,Bi-Monthly
@@ -1231,7 +1183,7 @@ Helios Auto Parts,HYD-087,Asia Pacific,46,2019-02,2026-10,2.07,Bi-Monthly
 Helios Auto Parts,HYD-089,Europe,23,2024-12,2026-10,1.05,Monthly
 Helios Auto Parts,PMP-002,Asia Pacific,1,2022-03,2022-03,0.0,Ad-hoc / Single Order
 Helios Auto Parts,PMP-002,India,83,2019-01,2026-10,1.15,Monthly
-Helios Auto Parts,PMP-005,Europe,85,2019-01,2026-10,1.12,Monthly
+Helios Auto Parts,PMP-005,Europe,86,2019-01,2026-10,1.11,Monthly
 Helios Auto Parts,PMP-005,North America,46,2019-02,2026-10,2.07,Bi-Monthly
 Helios Auto Parts,PMP-006,Asia Pacific,72,2020-04,2026-10,1.11,Monthly
 Helios Auto Parts,PMP-008,Asia Pacific,1,2021-06,2021-06,0.0,Ad-hoc / Single Order
@@ -1319,7 +1271,7 @@ Helios Auto Parts,PTC-050,Europe,69,2019-01,2025-04,1.12,Monthly
 Helios Auto Parts,PTC-052,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
 Helios Auto Parts,PTC-053,Asia Pacific,2,2021-05,2026-02,58.0,Irregular
 Helios Auto Parts,PTC-053,North America,91,2019-01,2026-10,1.04,Monthly
-Helios Auto Parts,PTC-057,India,92,2019-01,2026-10,1.03,Monthly
+Helios Auto Parts,PTC-057,India,93,2019-01,2026-10,1.02,Monthly
 Helios Auto Parts,PTC-057,Latin America,85,2019-02,2026-10,1.11,Monthly
 Helios Auto Parts,PTC-059,India,84,2019-02,2026-10,1.12,Monthly
 Helios Auto Parts,PTC-064,North America,91,2019-01,2026-10,1.04,Monthly
@@ -1336,7 +1288,7 @@ Helios Auto Parts,PTC-085,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Helios Auto Parts,PTC-085,India,62,2019-01,2026-10,1.54,Bi-Monthly
 Helios Auto Parts,PTC-087,Latin America,32,2024-01,2026-10,1.1,Monthly
 Helios Auto Parts,THM-002,Europe,90,2019-01,2026-09,1.04,Monthly
-Helios Auto Parts,THM-002,North America,83,2019-01,2026-10,1.15,Monthly
+Helios Auto Parts,THM-002,North America,84,2019-01,2026-10,1.13,Monthly
 Helios Auto Parts,THM-003,Asia Pacific,1,2019-10,2019-10,0.0,Ad-hoc / Single Order
 Helios Auto Parts,THM-003,Europe,83,2019-01,2026-10,1.15,Monthly
 Helios Auto Parts,THM-004,Asia Pacific,86,2019-01,2026-10,1.11,Monthly
@@ -1381,7 +1333,7 @@ Helios Auto Parts,THM-068,Asia Pacific,86,2019-01,2026-10,1.11,Monthly
 Helios Auto Parts,THM-068,Europe,47,2019-02,2026-10,2.02,Bi-Monthly
 Helios Auto Parts,THM-068,North America,92,2019-01,2026-10,1.03,Monthly
 Helios Auto Parts,THM-070,North America,84,2019-01,2026-10,1.13,Monthly
-Helios Auto Parts,THM-074,Europe,90,2019-01,2026-10,1.06,Monthly
+Helios Auto Parts,THM-074,Europe,91,2019-01,2026-10,1.04,Monthly
 Helios Auto Parts,THM-075,Asia Pacific,61,2019-01,2026-10,1.57,Bi-Monthly
 Helios Auto Parts,THM-075,India,47,2019-01,2026-09,2.02,Bi-Monthly
 Helios Auto Parts,THM-075,North America,92,2019-01,2026-10,1.03,Monthly
@@ -1389,23 +1341,7 @@ Helios Auto Parts,THM-077,Asia Pacific,1,2025-12,2025-12,0.0,Ad-hoc / Single Ord
 Helios Auto Parts,THM-077,Europe,30,2019-03,2026-09,3.14,Quarterly
 Helios Auto Parts,THM-077,North America,84,2019-01,2026-10,1.13,Monthly
 Helios Auto Parts,THM-078,India,13,2023-06,2026-09,3.33,Quarterly
-Helis Auto Parts,BSS-009,India,1,2020-01,2020-01,0.0,Ad-hoc / Single Order
-Helis Auto Parts,CSS-034,India,1,2022-06,2022-06,0.0,Ad-hoc / Single Order
-Helis Auto Parts,CSS-036,Europe,1,2025-05,2025-05,0.0,Ad-hoc / Single Order
-Helis Auto Parts,ELA-075,Asia Pacific,1,2023-09,2023-09,0.0,Ad-hoc / Single Order
-Helis Auto Parts,PMP-005,Europe,1,2023-05,2023-05,0.0,Ad-hoc / Single Order
-Helis Auto Parts,PTC-057,India,1,2019-06,2019-06,0.0,Ad-hoc / Single Order
-Helis Auto Parts,THM-074,Europe,1,2024-11,2024-11,0.0,Ad-hoc / Single Order
-Helos Auto Parts,CSS-068,Asia Pacific,1,2026-03,2026-03,0.0,Ad-hoc / Single Order
-Helos Auto Parts,ELA-010,Latin America,1,2020-07,2020-07,0.0,Ad-hoc / Single Order
-Hlios Auto Parts,ELA-005,North America,1,2026-05,2026-05,0.0,Ad-hoc / Single Order
-Hlios Auto Parts,ELA-022,Asia Pacific,1,2019-12,2019-12,0.0,Ad-hoc / Single Order
-Hlios Auto Parts,ELA-078,Asia Pacific,1,2023-01,2023-01,0.0,Ad-hoc / Single Order
-Kesrel Mobility,BSS-006,Middle East & Africa,1,2026-09,2026-09,0.0,Ad-hoc / Single Order
-Kestel Mobility,ELA-070,Middle East & Africa,1,2024-10,2024-10,0.0,Ad-hoc / Single Order
-Kestre Mobility,CSS-060,Middle East & Africa,1,2024-05,2024-05,0.0,Ad-hoc / Single Order
-Kestre Mobility,ELA-070,Middle East & Africa,1,2024-07,2024-07,0.0,Ad-hoc / Single Order
-Kestrel Mobility,BSS-006,Middle East & Africa,57,2022-01,2026-10,1.04,Monthly
+Kestrel Mobility,BSS-006,Middle East & Africa,58,2022-01,2026-10,1.02,Monthly
 Kestrel Mobility,BSS-009,Middle East & Africa,57,2022-01,2026-10,1.04,Monthly
 Kestrel Mobility,BSS-011,Middle East & Africa,56,2022-01,2026-10,1.05,Monthly
 Kestrel Mobility,BSS-013,Middle East & Africa,20,2022-01,2026-10,3.05,Quarterly
@@ -1446,7 +1382,7 @@ Kestrel Mobility,CSS-046,Middle East & Africa,51,2022-02,2026-10,1.14,Monthly
 Kestrel Mobility,CSS-050,Middle East & Africa,57,2022-01,2026-10,1.04,Monthly
 Kestrel Mobility,CSS-056,Middle East & Africa,57,2022-02,2026-10,1.02,Monthly
 Kestrel Mobility,CSS-057,Middle East & Africa,21,2025-02,2026-10,1.05,Monthly
-Kestrel Mobility,CSS-060,Middle East & Africa,54,2022-01,2026-10,1.09,Monthly
+Kestrel Mobility,CSS-060,Middle East & Africa,55,2022-01,2026-10,1.07,Monthly
 Kestrel Mobility,CSS-070,Middle East & Africa,28,2022-03,2026-09,2.04,Bi-Monthly
 Kestrel Mobility,CSS-071,Middle East & Africa,53,2022-02,2026-10,1.1,Monthly
 Kestrel Mobility,CSS-079,Middle East & Africa,55,2022-01,2026-10,1.07,Monthly
@@ -1454,7 +1390,7 @@ Kestrel Mobility,CSS-081,Middle East & Africa,58,2022-01,2026-10,1.02,Monthly
 Kestrel Mobility,CSS-082,Middle East & Africa,57,2022-01,2026-10,1.04,Monthly
 Kestrel Mobility,CSS-086,Middle East & Africa,53,2022-01,2026-10,1.12,Monthly
 Kestrel Mobility,CSS-087,Middle East & Africa,56,2022-01,2026-10,1.05,Monthly
-Kestrel Mobility,ELA-001,Middle East & Africa,54,2022-02,2026-10,1.08,Monthly
+Kestrel Mobility,ELA-001,Middle East & Africa,55,2022-02,2026-10,1.06,Monthly
 Kestrel Mobility,ELA-003,Middle East & Africa,39,2022-01,2026-10,1.53,Bi-Monthly
 Kestrel Mobility,ELA-009,Middle East & Africa,54,2022-01,2026-10,1.09,Monthly
 Kestrel Mobility,ELA-010,Middle East & Africa,58,2022-01,2026-10,1.02,Monthly
@@ -1469,12 +1405,12 @@ Kestrel Mobility,ELA-038,Middle East & Africa,51,2022-01,2026-10,1.16,Monthly
 Kestrel Mobility,ELA-040,Middle East & Africa,58,2022-01,2026-10,1.02,Monthly
 Kestrel Mobility,ELA-042,Middle East & Africa,51,2022-03,2026-10,1.12,Monthly
 Kestrel Mobility,ELA-044,Middle East & Africa,53,2022-01,2026-10,1.12,Monthly
-Kestrel Mobility,ELA-045,Middle East & Africa,37,2022-03,2026-10,1.56,Bi-Monthly
+Kestrel Mobility,ELA-045,Middle East & Africa,38,2022-03,2026-10,1.51,Bi-Monthly
 Kestrel Mobility,ELA-049,Middle East & Africa,51,2022-03,2026-10,1.12,Monthly
 Kestrel Mobility,ELA-063,Middle East & Africa,57,2022-01,2026-10,1.04,Monthly
-Kestrel Mobility,ELA-065,Middle East & Africa,50,2022-06,2026-10,1.08,Monthly
+Kestrel Mobility,ELA-065,Middle East & Africa,51,2022-06,2026-10,1.06,Monthly
 Kestrel Mobility,ELA-067,Middle East & Africa,54,2022-04,2026-10,1.04,Monthly
-Kestrel Mobility,ELA-070,Middle East & Africa,39,2023-03,2026-10,1.16,Monthly
+Kestrel Mobility,ELA-070,Middle East & Africa,41,2023-03,2026-10,1.1,Monthly
 Kestrel Mobility,ELA-073,Middle East & Africa,39,2023-08,2026-10,1.03,Monthly
 Kestrel Mobility,ELA-080,Middle East & Africa,23,2022-11,2026-09,2.14,Bi-Monthly
 Kestrel Mobility,ELA-087,Middle East & Africa,52,2022-01,2026-10,1.14,Monthly
@@ -1520,18 +1456,18 @@ Kestrel Mobility,PMP-057,Middle East & Africa,51,2022-02,2026-10,1.14,Monthly
 Kestrel Mobility,PMP-063,Middle East & Africa,39,2022-01,2026-10,1.53,Bi-Monthly
 Kestrel Mobility,PMP-066,Middle East & Africa,57,2022-01,2026-10,1.04,Monthly
 Kestrel Mobility,PMP-067,Middle East & Africa,52,2022-02,2026-10,1.12,Monthly
-Kestrel Mobility,PMP-069,Middle East & Africa,54,2022-02,2026-10,1.08,Monthly
+Kestrel Mobility,PMP-069,Middle East & Africa,55,2022-02,2026-10,1.06,Monthly
 Kestrel Mobility,PMP-071,Middle East & Africa,20,2022-01,2026-10,3.05,Quarterly
 Kestrel Mobility,PMP-087,Middle East & Africa,57,2022-01,2026-10,1.04,Monthly
 Kestrel Mobility,PTC-003,Middle East & Africa,58,2022-01,2026-10,1.02,Monthly
 Kestrel Mobility,PTC-004,Middle East & Africa,53,2022-02,2026-10,1.1,Monthly
-Kestrel Mobility,PTC-006,Middle East & Africa,29,2022-01,2026-09,2.04,Bi-Monthly
+Kestrel Mobility,PTC-006,Middle East & Africa,30,2022-01,2026-09,1.97,Bi-Monthly
 Kestrel Mobility,PTC-007,Middle East & Africa,53,2022-01,2026-10,1.12,Monthly
 Kestrel Mobility,PTC-012,Middle East & Africa,58,2022-01,2026-10,1.02,Monthly
 Kestrel Mobility,PTC-019,Middle East & Africa,39,2022-02,2026-09,1.47,Bi-Monthly
 Kestrel Mobility,PTC-021,Middle East & Africa,58,2022-01,2026-10,1.02,Monthly
 Kestrel Mobility,PTC-026,Middle East & Africa,26,2022-01,2024-03,1.08,Monthly
-Kestrel Mobility,PTC-027,Middle East & Africa,56,2022-01,2026-10,1.05,Monthly
+Kestrel Mobility,PTC-027,Middle East & Africa,57,2022-01,2026-10,1.04,Monthly
 Kestrel Mobility,PTC-028,Middle East & Africa,35,2023-12,2026-10,1.03,Monthly
 Kestrel Mobility,PTC-031,Middle East & Africa,53,2022-01,2026-10,1.12,Monthly
 Kestrel Mobility,PTC-033,Middle East & Africa,56,2022-01,2026-10,1.05,Monthly
@@ -1556,13 +1492,13 @@ Kestrel Mobility,THM-008,Middle East & Africa,56,2022-01,2026-10,1.05,Monthly
 Kestrel Mobility,THM-016,Middle East & Africa,19,2022-02,2026-08,3.06,Quarterly
 Kestrel Mobility,THM-038,Middle East & Africa,54,2022-01,2026-10,1.09,Monthly
 Kestrel Mobility,THM-041,Middle East & Africa,51,2022-01,2026-10,1.16,Monthly
-Kestrel Mobility,THM-042,Middle East & Africa,57,2022-01,2026-10,1.04,Monthly
+Kestrel Mobility,THM-042,Middle East & Africa,58,2022-01,2026-10,1.02,Monthly
 Kestrel Mobility,THM-043,Middle East & Africa,56,2022-01,2026-10,1.05,Monthly
 Kestrel Mobility,THM-045,Middle East & Africa,19,2022-03,2026-09,3.06,Quarterly
 Kestrel Mobility,THM-047,Middle East & Africa,58,2022-01,2026-10,1.02,Monthly
-Kestrel Mobility,THM-052,Middle East & Africa,55,2022-01,2026-10,1.07,Monthly
+Kestrel Mobility,THM-052,Middle East & Africa,56,2022-01,2026-10,1.05,Monthly
 Kestrel Mobility,THM-053,Middle East & Africa,58,2022-01,2026-10,1.02,Monthly
-Kestrel Mobility,THM-059,Middle East & Africa,52,2022-01,2026-10,1.14,Monthly
+Kestrel Mobility,THM-059,Middle East & Africa,53,2022-01,2026-10,1.12,Monthly
 Kestrel Mobility,THM-060,Middle East & Africa,16,2022-12,2026-09,3.07,Quarterly
 Kestrel Mobility,THM-061,Middle East & Africa,52,2022-01,2026-10,1.14,Monthly
 Kestrel Mobility,THM-064,Middle East & Africa,57,2022-02,2026-10,1.02,Monthly
@@ -1571,29 +1507,6 @@ Kestrel Mobility,THM-069,Middle East & Africa,56,2022-01,2026-10,1.05,Monthly
 Kestrel Mobility,THM-070,Middle East & Africa,51,2022-01,2026-10,1.16,Monthly
 Kestrel Mobility,THM-077,Middle East & Africa,53,2022-02,2026-10,1.1,Monthly
 Kestrel Mobility,THM-079,Middle East & Africa,28,2022-01,2026-09,2.11,Bi-Monthly
-Kestrl Mobility,PTC-006,Middle East & Africa,1,2023-10,2023-10,0.0,Ad-hoc / Single Order
-Kestrl Mobility,PTC-027,Middle East & Africa,1,2026-04,2026-04,0.0,Ad-hoc / Single Order
-Kestrl Mobility,THM-042,Middle East & Africa,1,2023-12,2023-12,0.0,Ad-hoc / Single Order
-Kestrl Mobility,THM-052,Middle East & Africa,1,2023-01,2023-01,0.0,Ad-hoc / Single Order
-Ketrel Mobility,ELA-001,Middle East & Africa,1,2025-01,2025-01,0.0,Ad-hoc / Single Order
-Ketrel Mobility,THM-059,Middle East & Africa,1,2023-01,2023-01,0.0,Ad-hoc / Single Order
-Kstrel Mobility,ELA-045,Middle East & Africa,1,2026-04,2026-04,0.0,Ad-hoc / Single Order
-Kstrel Mobility,ELA-065,Middle East & Africa,1,2022-07,2022-07,0.0,Ad-hoc / Single Order
-Kstrel Mobility,PMP-069,Middle East & Africa,1,2024-12,2024-12,0.0,Ad-hoc / Single Order
-Meidian Assembly,HYD-011,Europe,1,2026-05,2026-05,0.0,Ad-hoc / Single Order
-Merdian Assembly,CSS-017,Europe,1,2021-03,2021-03,0.0,Ad-hoc / Single Order
-Merdian Assembly,HYD-046,Latin America,1,2022-02,2022-02,0.0,Ad-hoc / Single Order
-Merdian Assembly,HYD-087,Latin America,1,2021-01,2021-01,0.0,Ad-hoc / Single Order
-Meridan Assembly,ELA-064,Latin America,1,2025-07,2025-07,0.0,Ad-hoc / Single Order
-Meridan Assembly,HYD-024,India,1,2026-05,2026-05,0.0,Ad-hoc / Single Order
-Meridan Assembly,HYD-046,Latin America,1,2025-04,2025-04,0.0,Ad-hoc / Single Order
-Meridan Assembly,HYD-080,Europe,1,2025-01,2025-01,0.0,Ad-hoc / Single Order
-Meridan Assembly,PMP-075,Asia Pacific,1,2020-01,2020-01,0.0,Ad-hoc / Single Order
-Meridan Assembly,PTC-048,India,1,2022-03,2022-03,0.0,Ad-hoc / Single Order
-Meridia Assembly,BSS-028,India,1,2025-10,2025-10,0.0,Ad-hoc / Single Order
-Meridia Assembly,CSS-067,North America,1,2021-03,2021-03,0.0,Ad-hoc / Single Order
-Meridia Assembly,HYD-058,North America,1,2019-11,2019-11,0.0,Ad-hoc / Single Order
-Meridia Assembly,HYD-062,Europe,1,2025-07,2025-07,0.0,Ad-hoc / Single Order
 Meridian Assembly,BSS-003,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
 Meridian Assembly,BSS-003,North America,85,2019-01,2026-10,1.12,Monthly
 Meridian Assembly,BSS-006,Asia Pacific,32,2019-01,2026-10,3.03,Quarterly
@@ -1609,8 +1522,8 @@ Meridian Assembly,BSS-024,North America,85,2019-01,2026-10,1.12,Monthly
 Meridian Assembly,BSS-025,Asia Pacific,58,2021-12,2026-10,1.04,Monthly
 Meridian Assembly,BSS-025,Europe,38,2021-12,2026-09,1.57,Bi-Monthly
 Meridian Assembly,BSS-025,North America,58,2021-12,2026-10,1.04,Monthly
-Meridian Assembly,BSS-028,India,61,2019-01,2026-10,1.57,Bi-Monthly
-Meridian Assembly,BSS-032,North America,91,2019-01,2026-09,1.03,Monthly
+Meridian Assembly,BSS-028,India,62,2019-01,2026-10,1.54,Bi-Monthly
+Meridian Assembly,BSS-032,North America,92,2019-01,2026-10,1.03,Monthly
 Meridian Assembly,BSS-033,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
 Meridian Assembly,BSS-035,Asia Pacific,48,2019-02,2026-10,1.98,Bi-Monthly
 Meridian Assembly,BSS-037,India,20,2025-02,2026-10,1.11,Monthly
@@ -1621,7 +1534,7 @@ Meridian Assembly,BSS-043,Asia Pacific,44,2023-01,2026-10,1.07,Monthly
 Meridian Assembly,BSS-043,North America,39,2023-01,2026-10,1.21,Monthly
 Meridian Assembly,BSS-047,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Meridian Assembly,BSS-048,India,32,2019-01,2026-10,3.03,Quarterly
-Meridian Assembly,BSS-048,North America,29,2019-03,2026-09,3.25,Quarterly
+Meridian Assembly,BSS-048,North America,30,2019-03,2026-09,3.14,Quarterly
 Meridian Assembly,BSS-051,Asia Pacific,1,2019-08,2019-08,0.0,Ad-hoc / Single Order
 Meridian Assembly,BSS-051,India,29,2019-02,2026-08,3.25,Quarterly
 Meridian Assembly,BSS-055,India,44,2021-06,2026-10,1.51,Bi-Monthly
@@ -1632,7 +1545,7 @@ Meridian Assembly,BSS-062,Asia Pacific,1,2026-03,2026-03,0.0,Ad-hoc / Single Ord
 Meridian Assembly,BSS-062,Latin America,39,2020-01,2026-09,2.13,Bi-Monthly
 Meridian Assembly,BSS-075,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Meridian Assembly,BSS-076,India,92,2019-02,2026-10,1.02,Monthly
-Meridian Assembly,BSS-081,Europe,30,2019-05,2026-08,3.03,Quarterly
+Meridian Assembly,BSS-081,Europe,31,2019-02,2026-08,3.03,Quarterly
 Meridian Assembly,BSS-082,Europe,94,2019-01,2026-10,1.01,Monthly
 Meridian Assembly,BSS-083,Asia Pacific,1,2020-04,2020-04,0.0,Ad-hoc / Single Order
 Meridian Assembly,BSS-083,India,91,2019-01,2026-10,1.04,Monthly
@@ -1648,11 +1561,11 @@ Meridian Assembly,CSS-012,North America,54,2022-03,2026-10,1.06,Monthly
 Meridian Assembly,CSS-013,India,75,2020-07,2026-10,1.03,Monthly
 Meridian Assembly,CSS-014,North America,57,2021-12,2026-10,1.05,Monthly
 Meridian Assembly,CSS-017,Asia Pacific,63,2019-01,2026-10,1.52,Bi-Monthly
-Meridian Assembly,CSS-017,Europe,60,2019-02,2026-09,1.56,Bi-Monthly
+Meridian Assembly,CSS-017,Europe,61,2019-02,2026-09,1.53,Bi-Monthly
 Meridian Assembly,CSS-020,Asia Pacific,94,2019-01,2026-10,1.01,Monthly
 Meridian Assembly,CSS-022,Asia Pacific,63,2019-01,2026-10,1.52,Bi-Monthly
 Meridian Assembly,CSS-024,Asia Pacific,30,2024-05,2026-10,1.03,Monthly
-Meridian Assembly,CSS-024,North America,26,2024-05,2026-10,1.2,Monthly
+Meridian Assembly,CSS-024,North America,27,2024-05,2026-10,1.15,Monthly
 Meridian Assembly,CSS-027,North America,23,2021-02,2026-08,3.05,Quarterly
 Meridian Assembly,CSS-028,Europe,92,2019-01,2026-10,1.03,Monthly
 Meridian Assembly,CSS-029,North America,10,2024-04,2026-10,3.44,Quarterly
@@ -1681,7 +1594,7 @@ Meridian Assembly,CSS-063,Europe,83,2019-01,2026-10,1.15,Monthly
 Meridian Assembly,CSS-064,Latin America,93,2019-01,2026-10,1.02,Monthly
 Meridian Assembly,CSS-065,Latin America,91,2019-01,2026-10,1.04,Monthly
 Meridian Assembly,CSS-067,Asia Pacific,1,2024-11,2024-11,0.0,Ad-hoc / Single Order
-Meridian Assembly,CSS-067,North America,89,2019-01,2026-10,1.07,Monthly
+Meridian Assembly,CSS-067,North America,91,2019-01,2026-10,1.04,Monthly
 Meridian Assembly,CSS-072,Europe,71,2020-12,2026-10,1.01,Monthly
 Meridian Assembly,CSS-072,Latin America,23,2020-12,2026-09,3.18,Quarterly
 Meridian Assembly,CSS-074,Europe,91,2019-01,2026-10,1.04,Monthly
@@ -1716,7 +1629,7 @@ Meridian Assembly,ELA-053,Asia Pacific,46,2021-01,2026-10,1.56,Bi-Monthly
 Meridian Assembly,ELA-054,Latin America,91,2019-01,2026-10,1.04,Monthly
 Meridian Assembly,ELA-055,Asia Pacific,1,2026-02,2026-02,0.0,Ad-hoc / Single Order
 Meridian Assembly,ELA-055,Europe,29,2019-02,2026-08,3.25,Quarterly
-Meridian Assembly,ELA-064,Latin America,88,2019-01,2026-10,1.08,Monthly
+Meridian Assembly,ELA-064,Latin America,89,2019-01,2026-10,1.07,Monthly
 Meridian Assembly,ELA-065,Asia Pacific,52,2022-07,2026-10,1.02,Monthly
 Meridian Assembly,ELA-066,Asia Pacific,71,2020-11,2026-10,1.03,Monthly
 Meridian Assembly,ELA-068,Asia Pacific,46,2020-12,2026-09,1.56,Bi-Monthly
@@ -1729,7 +1642,7 @@ Meridian Assembly,ELA-074,North America,35,2023-12,2026-10,1.03,Monthly
 Meridian Assembly,ELA-077,Latin America,93,2019-01,2026-10,1.02,Monthly
 Meridian Assembly,ELA-082,Latin America,85,2019-01,2026-10,1.12,Monthly
 Meridian Assembly,ELA-087,India,84,2019-01,2026-10,1.13,Monthly
-Meridian Assembly,HYD-001,Asia Pacific,61,2019-01,2024-04,1.07,Monthly
+Meridian Assembly,HYD-001,Asia Pacific,62,2019-01,2024-04,1.05,Monthly
 Meridian Assembly,HYD-003,Asia Pacific,1,2021-06,2021-06,0.0,Ad-hoc / Single Order
 Meridian Assembly,HYD-003,India,88,2019-01,2026-09,1.07,Monthly
 Meridian Assembly,HYD-005,Asia Pacific,2,2022-10,2024-10,25.0,Irregular
@@ -1739,16 +1652,16 @@ Meridian Assembly,HYD-008,Asia Pacific,1,2019-01,2019-01,0.0,Ad-hoc / Single Ord
 Meridian Assembly,HYD-008,Latin America,92,2019-01,2026-10,1.03,Monthly
 Meridian Assembly,HYD-008,North America,92,2019-02,2026-10,1.02,Monthly
 Meridian Assembly,HYD-009,Latin America,82,2019-01,2026-10,1.16,Monthly
-Meridian Assembly,HYD-011,Europe,85,2019-01,2026-10,1.12,Monthly
+Meridian Assembly,HYD-011,Europe,86,2019-01,2026-10,1.11,Monthly
 Meridian Assembly,HYD-011,India,84,2019-01,2026-10,1.13,Monthly
 Meridian Assembly,HYD-012,Asia Pacific,1,2022-02,2022-02,0.0,Ad-hoc / Single Order
 Meridian Assembly,HYD-012,India,85,2019-01,2026-10,1.12,Monthly
 Meridian Assembly,HYD-021,Asia Pacific,1,2026-08,2026-08,0.0,Ad-hoc / Single Order
 Meridian Assembly,HYD-021,North America,26,2024-06,2026-10,1.16,Monthly
 Meridian Assembly,HYD-024,Asia Pacific,2,2025-11,2026-06,8.0,Irregular
-Meridian Assembly,HYD-024,India,89,2019-01,2026-10,1.07,Monthly
+Meridian Assembly,HYD-024,India,90,2019-01,2026-10,1.06,Monthly
 Meridian Assembly,HYD-024,North America,29,2019-02,2026-08,3.25,Quarterly
-Meridian Assembly,HYD-027,India,92,2019-01,2026-10,1.03,Monthly
+Meridian Assembly,HYD-027,India,93,2019-01,2026-10,1.02,Monthly
 Meridian Assembly,HYD-029,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
 Meridian Assembly,HYD-037,Europe,68,2019-01,2026-09,1.39,Monthly
 Meridian Assembly,HYD-038,India,46,2019-02,2026-10,2.07,Bi-Monthly
@@ -1757,7 +1670,7 @@ Meridian Assembly,HYD-042,Europe,92,2019-01,2026-10,1.03,Monthly
 Meridian Assembly,HYD-045,Asia Pacific,62,2019-01,2026-10,1.54,Bi-Monthly
 Meridian Assembly,HYD-046,Asia Pacific,1,2020-09,2020-09,0.0,Ad-hoc / Single Order
 Meridian Assembly,HYD-046,Europe,48,2019-01,2026-09,1.98,Bi-Monthly
-Meridian Assembly,HYD-046,Latin America,85,2019-01,2026-10,1.12,Monthly
+Meridian Assembly,HYD-046,Latin America,87,2019-01,2026-10,1.09,Monthly
 Meridian Assembly,HYD-046,North America,31,2019-01,2026-10,3.13,Quarterly
 Meridian Assembly,HYD-047,Asia Pacific,2,2023-08,2026-05,34.0,Irregular
 Meridian Assembly,HYD-047,India,57,2019-02,2026-09,1.64,Bi-Monthly
@@ -1766,10 +1679,10 @@ Meridian Assembly,HYD-053,North America,32,2019-01,2026-10,3.03,Quarterly
 Meridian Assembly,HYD-057,Asia Pacific,89,2019-01,2026-09,1.06,Monthly
 Meridian Assembly,HYD-058,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
 Meridian Assembly,HYD-058,Latin America,93,2019-01,2026-10,1.02,Monthly
-Meridian Assembly,HYD-058,North America,91,2019-01,2026-10,1.04,Monthly
+Meridian Assembly,HYD-058,North America,92,2019-01,2026-10,1.03,Monthly
 Meridian Assembly,HYD-059,Asia Pacific,1,2025-08,2025-08,0.0,Ad-hoc / Single Order
 Meridian Assembly,HYD-059,North America,61,2019-02,2026-09,1.53,Bi-Monthly
-Meridian Assembly,HYD-062,Europe,11,2023-10,2026-10,3.7,Irregular
+Meridian Assembly,HYD-062,Europe,12,2023-10,2026-10,3.36,Quarterly
 Meridian Assembly,HYD-063,India,20,2025-03,2026-10,1.05,Monthly
 Meridian Assembly,HYD-067,Asia Pacific,73,2020-08,2026-10,1.04,Monthly
 Meridian Assembly,HYD-069,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
@@ -1782,12 +1695,12 @@ Meridian Assembly,HYD-076,Asia Pacific,94,2019-01,2026-10,1.01,Monthly
 Meridian Assembly,HYD-076,Europe,93,2019-01,2026-10,1.02,Monthly
 Meridian Assembly,HYD-079,Asia Pacific,75,2020-08,2026-10,1.01,Monthly
 Meridian Assembly,HYD-080,Asia Pacific,60,2019-02,2026-09,1.56,Bi-Monthly
-Meridian Assembly,HYD-080,Europe,92,2019-01,2026-10,1.03,Monthly
+Meridian Assembly,HYD-080,Europe,93,2019-01,2026-10,1.02,Monthly
 Meridian Assembly,HYD-082,Latin America,89,2019-01,2026-10,1.07,Monthly
 Meridian Assembly,HYD-083,Europe,82,2019-01,2026-10,1.16,Monthly
 Meridian Assembly,HYD-085,Asia Pacific,45,2019-02,2026-10,2.11,Bi-Monthly
 Meridian Assembly,HYD-087,Asia Pacific,1,2024-03,2024-03,0.0,Ad-hoc / Single Order
-Meridian Assembly,HYD-087,Latin America,43,2019-01,2026-09,2.21,Bi-Monthly
+Meridian Assembly,HYD-087,Latin America,44,2019-01,2026-09,2.16,Bi-Monthly
 Meridian Assembly,HYD-089,Latin America,21,2024-12,2026-10,1.15,Monthly
 Meridian Assembly,PMP-001,Asia Pacific,1,2024-01,2024-01,0.0,Ad-hoc / Single Order
 Meridian Assembly,PMP-001,North America,93,2019-01,2026-10,1.02,Monthly
@@ -1796,7 +1709,7 @@ Meridian Assembly,PMP-003,Latin America,93,2019-01,2026-10,1.02,Monthly
 Meridian Assembly,PMP-006,India,39,2020-04,2026-10,2.08,Bi-Monthly
 Meridian Assembly,PMP-007,Asia Pacific,1,2025-03,2025-03,0.0,Ad-hoc / Single Order
 Meridian Assembly,PMP-007,India,92,2019-01,2026-10,1.03,Monthly
-Meridian Assembly,PMP-008,Asia Pacific,45,2019-02,2026-10,2.11,Bi-Monthly
+Meridian Assembly,PMP-008,Asia Pacific,46,2019-02,2026-10,2.07,Bi-Monthly
 Meridian Assembly,PMP-009,India,94,2019-01,2026-10,1.01,Monthly
 Meridian Assembly,PMP-010,Asia Pacific,82,2019-01,2026-10,1.16,Monthly
 Meridian Assembly,PMP-011,Europe,92,2019-01,2026-10,1.03,Monthly
@@ -1812,7 +1725,7 @@ Meridian Assembly,PMP-019,Europe,2,2026-09,2026-10,2.0,Bi-Monthly
 Meridian Assembly,PMP-023,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Meridian Assembly,PMP-023,Latin America,94,2019-01,2026-10,1.01,Monthly
 Meridian Assembly,PMP-023,North America,93,2019-01,2026-10,1.02,Monthly
-Meridian Assembly,PMP-026,Europe,47,2022-04,2026-10,1.2,Monthly
+Meridian Assembly,PMP-026,Europe,48,2022-04,2026-10,1.17,Monthly
 Meridian Assembly,PMP-029,Latin America,29,2022-11,2026-09,1.68,Bi-Monthly
 Meridian Assembly,PMP-031,Latin America,49,2022-10,2026-10,1.02,Monthly
 Meridian Assembly,PMP-035,Asia Pacific,94,2019-01,2026-10,1.01,Monthly
@@ -1834,9 +1747,9 @@ Meridian Assembly,PMP-070,Asia Pacific,1,2024-04,2024-04,0.0,Ad-hoc / Single Ord
 Meridian Assembly,PMP-070,Latin America,46,2022-08,2026-10,1.13,Monthly
 Meridian Assembly,PMP-072,Asia Pacific,1,2023-09,2023-09,0.0,Ad-hoc / Single Order
 Meridian Assembly,PMP-072,North America,34,2022-07,2026-10,1.58,Bi-Monthly
-Meridian Assembly,PMP-075,Asia Pacific,89,2019-01,2026-10,1.07,Monthly
+Meridian Assembly,PMP-075,Asia Pacific,90,2019-01,2026-10,1.06,Monthly
 Meridian Assembly,PMP-076,Asia Pacific,1,2022-12,2022-12,0.0,Ad-hoc / Single Order
-Meridian Assembly,PMP-076,India,76,2019-01,2025-10,1.09,Monthly
+Meridian Assembly,PMP-076,India,77,2019-01,2025-10,1.08,Monthly
 Meridian Assembly,PMP-083,Asia Pacific,63,2019-02,2026-09,1.48,Bi-Monthly
 Meridian Assembly,PMP-085,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
 Meridian Assembly,PMP-086,Asia Pacific,37,2023-06,2026-10,1.14,Monthly
@@ -1869,7 +1782,7 @@ Meridian Assembly,PTC-046,Asia Pacific,1,2023-07,2023-07,0.0,Ad-hoc / Single Ord
 Meridian Assembly,PTC-046,Europe,85,2019-02,2026-10,1.11,Monthly
 Meridian Assembly,PTC-046,North America,91,2019-01,2026-10,1.04,Monthly
 Meridian Assembly,PTC-048,Asia Pacific,1,2025-12,2025-12,0.0,Ad-hoc / Single Order
-Meridian Assembly,PTC-048,India,57,2021-11,2026-10,1.07,Monthly
+Meridian Assembly,PTC-048,India,58,2021-11,2026-10,1.05,Monthly
 Meridian Assembly,PTC-055,North America,94,2019-01,2026-10,1.01,Monthly
 Meridian Assembly,PTC-056,Latin America,47,2019-02,2026-10,2.02,Bi-Monthly
 Meridian Assembly,PTC-058,India,30,2019-03,2026-09,3.14,Quarterly
@@ -1893,7 +1806,7 @@ Meridian Assembly,PTC-086,Europe,91,2019-01,2026-10,1.04,Monthly
 Meridian Assembly,PTC-086,India,90,2019-01,2026-10,1.06,Monthly
 Meridian Assembly,PTC-087,India,35,2023-12,2026-10,1.03,Monthly
 Meridian Assembly,THM-003,Latin America,62,2019-01,2024-11,1.16,Monthly
-Meridian Assembly,THM-007,Asia Pacific,84,2019-01,2026-10,1.13,Monthly
+Meridian Assembly,THM-007,Asia Pacific,85,2019-01,2026-10,1.12,Monthly
 Meridian Assembly,THM-007,North America,79,2019-01,2026-10,1.21,Monthly
 Meridian Assembly,THM-014,Latin America,89,2019-01,2026-10,1.07,Monthly
 Meridian Assembly,THM-017,Asia Pacific,1,2023-10,2023-10,0.0,Ad-hoc / Single Order
@@ -1907,11 +1820,11 @@ Meridian Assembly,THM-024,India,89,2019-01,2026-10,1.07,Monthly
 Meridian Assembly,THM-025,North America,94,2019-01,2026-10,1.01,Monthly
 Meridian Assembly,THM-027,Asia Pacific,85,2019-02,2026-10,1.11,Monthly
 Meridian Assembly,THM-031,Asia Pacific,4,2021-08,2026-03,18.67,Irregular
-Meridian Assembly,THM-031,Europe,89,2019-01,2026-10,1.07,Monthly
+Meridian Assembly,THM-031,Europe,90,2019-01,2026-10,1.06,Monthly
 Meridian Assembly,THM-031,North America,91,2019-01,2026-10,1.04,Monthly
 Meridian Assembly,THM-032,Latin America,63,2019-01,2026-10,1.52,Bi-Monthly
 Meridian Assembly,THM-035,India,86,2019-01,2026-10,1.11,Monthly
-Meridian Assembly,THM-038,India,90,2019-01,2026-10,1.06,Monthly
+Meridian Assembly,THM-038,India,91,2019-01,2026-10,1.04,Monthly
 Meridian Assembly,THM-039,North America,82,2019-01,2026-10,1.16,Monthly
 Meridian Assembly,THM-044,Europe,90,2019-01,2026-10,1.06,Monthly
 Meridian Assembly,THM-046,Asia Pacific,1,2026-08,2026-08,0.0,Ad-hoc / Single Order
@@ -1927,29 +1840,9 @@ Meridian Assembly,THM-069,Latin America,79,2020-03,2026-10,1.03,Monthly
 Meridian Assembly,THM-071,Asia Pacific,1,2026-04,2026-04,0.0,Ad-hoc / Single Order
 Meridian Assembly,THM-071,North America,84,2019-01,2026-10,1.13,Monthly
 Meridian Assembly,THM-074,Asia Pacific,1,2026-05,2026-05,0.0,Ad-hoc / Single Order
-Meridian Assembly,THM-074,Latin America,85,2019-01,2026-10,1.12,Monthly
+Meridian Assembly,THM-074,Latin America,86,2019-01,2026-10,1.11,Monthly
 Meridian Assembly,THM-076,North America,32,2019-03,2026-09,2.94,Quarterly
 Meridian Assembly,THM-080,Latin America,46,2022-08,2026-10,1.13,Monthly
-Meridin Assembly,CSS-024,North America,1,2024-10,2024-10,0.0,Ad-hoc / Single Order
-Meridin Assembly,CSS-067,North America,1,2025-05,2025-05,0.0,Ad-hoc / Single Order
-Meridin Assembly,PMP-008,Asia Pacific,1,2020-06,2020-06,0.0,Ad-hoc / Single Order
-Meridin Assembly,PMP-026,Europe,1,2023-06,2023-06,0.0,Ad-hoc / Single Order
-Meridin Assembly,PMP-076,India,1,2025-04,2025-04,0.0,Ad-hoc / Single Order
-Meridin Assembly,THM-031,Europe,1,2021-09,2021-09,0.0,Ad-hoc / Single Order
-Meriian Assembly,BSS-081,Europe,1,2019-02,2019-02,0.0,Ad-hoc / Single Order
-Meriian Assembly,THM-007,Asia Pacific,1,2021-05,2021-05,0.0,Ad-hoc / Single Order
-Meriian Assembly,THM-038,India,1,2024-12,2024-12,0.0,Ad-hoc / Single Order
-Mridian Assembly,BSS-032,North America,1,2026-10,2026-10,0.0,Ad-hoc / Single Order
-Mridian Assembly,BSS-048,North America,1,2020-12,2020-12,0.0,Ad-hoc / Single Order
-Mridian Assembly,HYD-001,Asia Pacific,1,2020-12,2020-12,0.0,Ad-hoc / Single Order
-Mridian Assembly,HYD-027,India,1,2023-01,2023-01,0.0,Ad-hoc / Single Order
-Mridian Assembly,THM-074,Latin America,1,2024-06,2024-06,0.0,Ad-hoc / Single Order
-Neon Motor Group,BSS-053,Asia Pacific,1,2022-04,2022-04,0.0,Ad-hoc / Single Order
-Neon Motor Group,BSS-065,India,1,2020-04,2020-04,0.0,Ad-hoc / Single Order
-Neon Motor Group,CSS-086,Europe,1,2026-02,2026-02,0.0,Ad-hoc / Single Order
-Nexn Motor Group,PTC-033,Latin America,1,2026-10,2026-10,0.0,Ad-hoc / Single Order
-Nexo Motor Group,ELA-005,Latin America,1,2025-02,2025-02,0.0,Ad-hoc / Single Order
-Nexo Motor Group,HYD-001,India,1,2021-10,2021-10,0.0,Ad-hoc / Single Order
 Nexon Motor Group,BSS-007,Asia Pacific,1,2025-02,2025-02,0.0,Ad-hoc / Single Order
 Nexon Motor Group,BSS-007,India,83,2019-01,2026-10,1.15,Monthly
 Nexon Motor Group,BSS-008,Latin America,32,2019-01,2026-10,3.03,Quarterly
@@ -1968,20 +1861,20 @@ Nexon Motor Group,BSS-031,Latin America,61,2020-10,2026-10,1.22,Monthly
 Nexon Motor Group,BSS-034,Latin America,93,2019-01,2026-10,1.02,Monthly
 Nexon Motor Group,BSS-036,Europe,91,2019-01,2026-10,1.04,Monthly
 Nexon Motor Group,BSS-038,Asia Pacific,1,2020-07,2020-07,0.0,Ad-hoc / Single Order
-Nexon Motor Group,BSS-038,Latin America,92,2019-01,2026-10,1.03,Monthly
+Nexon Motor Group,BSS-038,Latin America,93,2019-01,2026-10,1.02,Monthly
 Nexon Motor Group,BSS-040,Europe,93,2019-01,2026-10,1.02,Monthly
 Nexon Motor Group,BSS-040,Latin America,90,2019-01,2026-10,1.06,Monthly
 Nexon Motor Group,BSS-045,Europe,86,2019-01,2026-10,1.11,Monthly
 Nexon Motor Group,BSS-048,Asia Pacific,90,2019-01,2026-10,1.06,Monthly
 Nexon Motor Group,BSS-050,India,62,2019-01,2026-10,1.54,Bi-Monthly
-Nexon Motor Group,BSS-053,Asia Pacific,84,2019-02,2026-10,1.12,Monthly
+Nexon Motor Group,BSS-053,Asia Pacific,85,2019-02,2026-10,1.11,Monthly
 Nexon Motor Group,BSS-056,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Nexon Motor Group,BSS-059,Europe,92,2019-01,2026-10,1.03,Monthly
 Nexon Motor Group,BSS-060,North America,38,2023-09,2026-10,1.03,Monthly
 Nexon Motor Group,BSS-062,Asia Pacific,1,2020-05,2020-05,0.0,Ad-hoc / Single Order
 Nexon Motor Group,BSS-062,Europe,26,2020-02,2026-08,3.16,Quarterly
 Nexon Motor Group,BSS-062,North America,81,2020-01,2026-10,1.02,Monthly
-Nexon Motor Group,BSS-065,India,90,2019-01,2026-10,1.06,Monthly
+Nexon Motor Group,BSS-065,India,91,2019-01,2026-10,1.04,Monthly
 Nexon Motor Group,BSS-066,Asia Pacific,1,2020-01,2020-01,0.0,Ad-hoc / Single Order
 Nexon Motor Group,BSS-066,Europe,93,2019-01,2026-10,1.02,Monthly
 Nexon Motor Group,BSS-068,Asia Pacific,59,2021-04,2026-10,1.16,Monthly
@@ -2036,12 +1929,12 @@ Nexon Motor Group,CSS-081,Europe,63,2019-02,2026-09,1.48,Bi-Monthly
 Nexon Motor Group,CSS-082,Europe,93,2019-01,2026-10,1.02,Monthly
 Nexon Motor Group,CSS-085,Asia Pacific,1,2021-08,2021-08,0.0,Ad-hoc / Single Order
 Nexon Motor Group,CSS-085,Latin America,58,2019-02,2026-09,1.61,Bi-Monthly
-Nexon Motor Group,CSS-086,Europe,93,2019-01,2026-10,1.02,Monthly
+Nexon Motor Group,CSS-086,Europe,94,2019-01,2026-10,1.01,Monthly
 Nexon Motor Group,CSS-086,India,92,2019-01,2026-10,1.03,Monthly
 Nexon Motor Group,CSS-087,Latin America,93,2019-01,2026-10,1.02,Monthly
 Nexon Motor Group,ELA-003,Asia Pacific,2,2021-03,2026-10,68.0,Irregular
 Nexon Motor Group,ELA-003,India,85,2019-01,2026-09,1.11,Monthly
-Nexon Motor Group,ELA-005,Latin America,55,2021-09,2026-10,1.15,Monthly
+Nexon Motor Group,ELA-005,Latin America,56,2021-09,2026-10,1.13,Monthly
 Nexon Motor Group,ELA-006,Asia Pacific,1,2020-03,2020-03,0.0,Ad-hoc / Single Order
 Nexon Motor Group,ELA-006,Europe,92,2019-01,2026-10,1.03,Monthly
 Nexon Motor Group,ELA-006,North America,89,2019-01,2026-10,1.07,Monthly
@@ -2076,7 +1969,7 @@ Nexon Motor Group,ELA-054,Asia Pacific,1,2020-08,2020-08,0.0,Ad-hoc / Single Ord
 Nexon Motor Group,ELA-054,India,82,2019-01,2026-10,1.16,Monthly
 Nexon Motor Group,ELA-055,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Nexon Motor Group,ELA-066,Europe,68,2020-10,2026-10,1.09,Monthly
-Nexon Motor Group,ELA-076,Latin America,84,2019-01,2026-10,1.13,Monthly
+Nexon Motor Group,ELA-076,Latin America,85,2019-01,2026-10,1.12,Monthly
 Nexon Motor Group,ELA-077,Asia Pacific,2,2022-03,2024-11,33.0,Irregular
 Nexon Motor Group,ELA-077,India,83,2019-02,2026-10,1.13,Monthly
 Nexon Motor Group,ELA-078,India,84,2019-01,2026-10,1.13,Monthly
@@ -2085,7 +1978,7 @@ Nexon Motor Group,ELA-080,India,24,2022-11,2026-09,2.04,Bi-Monthly
 Nexon Motor Group,ELA-085,India,91,2019-02,2026-10,1.03,Monthly
 Nexon Motor Group,ELA-086,Asia Pacific,1,2022-06,2022-06,0.0,Ad-hoc / Single Order
 Nexon Motor Group,ELA-086,India,92,2019-01,2026-10,1.03,Monthly
-Nexon Motor Group,HYD-001,India,81,2019-01,2026-10,1.18,Monthly
+Nexon Motor Group,HYD-001,India,82,2019-01,2026-10,1.16,Monthly
 Nexon Motor Group,HYD-003,Asia Pacific,84,2019-01,2026-10,1.13,Monthly
 Nexon Motor Group,HYD-003,North America,48,2019-02,2026-10,1.98,Bi-Monthly
 Nexon Motor Group,HYD-005,Europe,63,2019-01,2026-10,1.52,Bi-Monthly
@@ -2186,7 +2079,7 @@ Nexon Motor Group,PTC-024,Latin America,46,2019-01,2026-09,2.07,Bi-Monthly
 Nexon Motor Group,PTC-025,Asia Pacific,27,2019-02,2021-06,1.12,Monthly
 Nexon Motor Group,PTC-026,North America,63,2019-01,2024-03,1.02,Monthly
 Nexon Motor Group,PTC-031,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
-Nexon Motor Group,PTC-033,Latin America,84,2019-02,2026-09,1.11,Monthly
+Nexon Motor Group,PTC-033,Latin America,85,2019-02,2026-10,1.11,Monthly
 Nexon Motor Group,PTC-034,India,48,2020-05,2024-04,1.02,Monthly
 Nexon Motor Group,PTC-036,North America,92,2019-01,2026-10,1.03,Monthly
 Nexon Motor Group,PTC-037,Asia Pacific,1,2019-07,2019-07,0.0,Ad-hoc / Single Order
@@ -2226,7 +2119,7 @@ Nexon Motor Group,THM-006,India,48,2019-01,2026-09,1.98,Bi-Monthly
 Nexon Motor Group,THM-006,Latin America,30,2019-02,2026-08,3.14,Quarterly
 Nexon Motor Group,THM-006,North America,91,2019-01,2026-10,1.04,Monthly
 Nexon Motor Group,THM-009,Asia Pacific,47,2019-01,2022-12,1.04,Monthly
-Nexon Motor Group,THM-009,Latin America,42,2019-02,2022-12,1.15,Monthly
+Nexon Motor Group,THM-009,Latin America,43,2019-02,2022-12,1.12,Monthly
 Nexon Motor Group,THM-010,Asia Pacific,44,2022-10,2026-10,1.14,Monthly
 Nexon Motor Group,THM-010,Latin America,49,2022-09,2026-10,1.04,Monthly
 Nexon Motor Group,THM-013,India,12,2024-09,2026-09,2.27,Bi-Monthly
@@ -2257,22 +2150,12 @@ Nexon Motor Group,THM-073,Europe,26,2023-07,2026-10,1.6,Bi-Monthly
 Nexon Motor Group,THM-076,Europe,92,2019-01,2026-10,1.03,Monthly
 Nexon Motor Group,THM-077,India,93,2019-01,2026-10,1.02,Monthly
 Nexon Motor Group,THM-080,Europe,49,2022-09,2026-10,1.04,Monthly
-Nxon Motor Group,BSS-038,Latin America,1,2023-06,2023-06,0.0,Ad-hoc / Single Order
-Nxon Motor Group,ELA-076,Latin America,1,2019-08,2019-08,0.0,Ad-hoc / Single Order
-Nxon Motor Group,THM-009,Latin America,1,2021-11,2021-11,0.0,Ad-hoc / Single Order
-Oion Driveline,CSS-043,Europe,1,2022-03,2022-03,0.0,Ad-hoc / Single Order
-Oion Driveline,ELA-045,India,1,2020-10,2020-10,0.0,Ad-hoc / Single Order
-Oion Driveline,HYD-049,Asia Pacific,1,2019-04,2019-04,0.0,Ad-hoc / Single Order
-Oion Driveline,PMP-066,Asia Pacific,1,2019-09,2019-09,0.0,Ad-hoc / Single Order
-Orin Driveline,ELA-036,Europe,1,2025-01,2025-01,0.0,Ad-hoc / Single Order
-Orio Driveline,ELA-012,Europe,1,2024-02,2024-02,0.0,Ad-hoc / Single Order
-Orio Driveline,ELA-040,Europe,1,2022-02,2022-02,0.0,Ad-hoc / Single Order
 Orion Driveline,BSS-002,Latin America,87,2019-01,2026-10,1.09,Monthly
 Orion Driveline,BSS-003,Latin America,60,2019-02,2026-09,1.56,Bi-Monthly
 Orion Driveline,BSS-005,North America,86,2019-01,2026-10,1.11,Monthly
 Orion Driveline,BSS-006,India,91,2019-01,2026-10,1.04,Monthly
 Orion Driveline,BSS-009,Asia Pacific,31,2019-01,2026-10,3.13,Quarterly
-Orion Driveline,BSS-010,Europe,81,2019-02,2026-10,1.16,Monthly
+Orion Driveline,BSS-010,Europe,82,2019-02,2026-10,1.15,Monthly
 Orion Driveline,BSS-010,India,2,2023-10,2025-11,26.0,Irregular
 Orion Driveline,BSS-010,North America,84,2019-01,2026-10,1.13,Monthly
 Orion Driveline,BSS-011,India,86,2019-01,2026-10,1.11,Monthly
@@ -2317,7 +2200,7 @@ Orion Driveline,BSS-081,Latin America,89,2019-01,2026-10,1.07,Monthly
 Orion Driveline,BSS-082,Latin America,90,2019-01,2026-10,1.06,Monthly
 Orion Driveline,BSS-083,North America,90,2019-01,2026-10,1.06,Monthly
 Orion Driveline,CSS-001,Europe,84,2019-01,2026-10,1.13,Monthly
-Orion Driveline,CSS-001,India,86,2019-01,2026-10,1.11,Monthly
+Orion Driveline,CSS-001,India,87,2019-01,2026-10,1.09,Monthly
 Orion Driveline,CSS-002,Asia Pacific,85,2019-01,2026-10,1.12,Monthly
 Orion Driveline,CSS-002,India,93,2019-01,2026-10,1.02,Monthly
 Orion Driveline,CSS-004,Asia Pacific,48,2019-01,2026-09,1.98,Bi-Monthly
@@ -2345,7 +2228,7 @@ Orion Driveline,CSS-036,North America,83,2019-01,2026-10,1.15,Monthly
 Orion Driveline,CSS-040,India,90,2019-01,2026-09,1.04,Monthly
 Orion Driveline,CSS-042,Europe,38,2022-01,2026-10,1.57,Bi-Monthly
 Orion Driveline,CSS-042,North America,54,2021-12,2026-10,1.11,Monthly
-Orion Driveline,CSS-043,Europe,88,2019-01,2026-09,1.07,Monthly
+Orion Driveline,CSS-043,Europe,89,2019-01,2026-09,1.06,Monthly
 Orion Driveline,CSS-043,Latin America,47,2019-01,2026-09,2.02,Bi-Monthly
 Orion Driveline,CSS-044,India,91,2019-01,2026-10,1.04,Monthly
 Orion Driveline,CSS-046,India,91,2019-01,2026-10,1.04,Monthly
@@ -2363,12 +2246,12 @@ Orion Driveline,CSS-057,Asia Pacific,7,2025-03,2026-09,3.17,Quarterly
 Orion Driveline,CSS-059,India,62,2019-01,2026-10,1.54,Bi-Monthly
 Orion Driveline,CSS-069,Latin America,56,2021-12,2026-10,1.07,Monthly
 Orion Driveline,CSS-083,Asia Pacific,85,2019-02,2026-10,1.11,Monthly
-Orion Driveline,CSS-084,North America,81,2019-02,2026-10,1.16,Monthly
+Orion Driveline,CSS-084,North America,82,2019-02,2026-10,1.15,Monthly
 Orion Driveline,ELA-001,India,92,2019-01,2026-10,1.03,Monthly
 Orion Driveline,ELA-002,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Orion Driveline,ELA-006,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
 Orion Driveline,ELA-008,Europe,86,2019-01,2026-10,1.11,Monthly
-Orion Driveline,ELA-012,Europe,91,2019-01,2026-09,1.03,Monthly
+Orion Driveline,ELA-012,Europe,92,2019-01,2026-09,1.02,Monthly
 Orion Driveline,ELA-012,India,2,2023-12,2026-10,35.0,Irregular
 Orion Driveline,ELA-012,Latin America,47,2019-02,2026-10,2.02,Bi-Monthly
 Orion Driveline,ELA-013,Europe,73,2020-09,2026-10,1.03,Monthly
@@ -2384,12 +2267,12 @@ Orion Driveline,ELA-031,India,1,2021-12,2021-12,0.0,Ad-hoc / Single Order
 Orion Driveline,ELA-031,North America,59,2019-02,2026-09,1.59,Bi-Monthly
 Orion Driveline,ELA-033,Europe,93,2019-01,2026-10,1.02,Monthly
 Orion Driveline,ELA-033,India,1,2022-02,2022-02,0.0,Ad-hoc / Single Order
-Orion Driveline,ELA-036,Europe,90,2019-01,2026-10,1.06,Monthly
+Orion Driveline,ELA-036,Europe,91,2019-01,2026-10,1.04,Monthly
 Orion Driveline,ELA-039,Europe,91,2019-01,2026-10,1.04,Monthly
-Orion Driveline,ELA-040,Europe,85,2019-01,2026-10,1.12,Monthly
+Orion Driveline,ELA-040,Europe,86,2019-01,2026-10,1.11,Monthly
 Orion Driveline,ELA-040,India,91,2019-01,2026-10,1.04,Monthly
 Orion Driveline,ELA-040,Latin America,84,2019-01,2026-10,1.13,Monthly
-Orion Driveline,ELA-045,India,91,2019-01,2026-10,1.04,Monthly
+Orion Driveline,ELA-045,India,92,2019-01,2026-10,1.03,Monthly
 Orion Driveline,ELA-050,India,30,2023-12,2026-10,1.21,Monthly
 Orion Driveline,ELA-051,India,93,2019-01,2026-10,1.02,Monthly
 Orion Driveline,ELA-052,Asia Pacific,94,2019-01,2026-10,1.01,Monthly
@@ -2444,7 +2327,7 @@ Orion Driveline,HYD-046,Asia Pacific,31,2019-01,2026-10,3.13,Quarterly
 Orion Driveline,HYD-048,Asia Pacific,71,2020-09,2026-10,1.06,Monthly
 Orion Driveline,HYD-048,India,2,2022-02,2025-02,37.0,Irregular
 Orion Driveline,HYD-048,Latin America,49,2020-10,2026-10,1.52,Bi-Monthly
-Orion Driveline,HYD-049,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
+Orion Driveline,HYD-049,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Orion Driveline,HYD-049,India,90,2019-01,2026-10,1.06,Monthly
 Orion Driveline,HYD-052,North America,26,2022-05,2026-09,2.12,Bi-Monthly
 Orion Driveline,HYD-055,Asia Pacific,44,2019-01,2022-08,1.02,Monthly
@@ -2471,7 +2354,7 @@ Orion Driveline,PMP-002,Latin America,85,2019-01,2026-10,1.12,Monthly
 Orion Driveline,PMP-003,India,1,2025-02,2025-02,0.0,Ad-hoc / Single Order
 Orion Driveline,PMP-003,North America,83,2019-01,2026-10,1.15,Monthly
 Orion Driveline,PMP-004,Latin America,86,2019-01,2026-10,1.11,Monthly
-Orion Driveline,PMP-009,Asia Pacific,52,2019-03,2026-10,1.8,Bi-Monthly
+Orion Driveline,PMP-009,Asia Pacific,53,2019-03,2026-10,1.77,Bi-Monthly
 Orion Driveline,PMP-009,India,1,2025-07,2025-07,0.0,Ad-hoc / Single Order
 Orion Driveline,PMP-011,India,93,2019-01,2026-10,1.02,Monthly
 Orion Driveline,PMP-012,India,1,2021-10,2021-10,0.0,Ad-hoc / Single Order
@@ -2510,7 +2393,7 @@ Orion Driveline,PMP-058,North America,31,2019-03,2026-09,3.03,Quarterly
 Orion Driveline,PMP-061,Europe,47,2019-01,2026-09,2.02,Bi-Monthly
 Orion Driveline,PMP-064,Europe,29,2019-03,2026-09,3.25,Quarterly
 Orion Driveline,PMP-064,India,1,2020-06,2020-06,0.0,Ad-hoc / Single Order
-Orion Driveline,PMP-066,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
+Orion Driveline,PMP-066,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Orion Driveline,PMP-068,North America,92,2019-01,2026-10,1.03,Monthly
 Orion Driveline,PMP-074,Latin America,20,2019-01,2023-10,3.05,Quarterly
 Orion Driveline,PMP-081,Latin America,58,2019-02,2026-09,1.61,Bi-Monthly
@@ -2597,7 +2480,7 @@ Orion Driveline,THM-044,Latin America,62,2019-03,2026-10,1.51,Bi-Monthly
 Orion Driveline,THM-046,India,1,2024-10,2024-10,0.0,Ad-hoc / Single Order
 Orion Driveline,THM-046,North America,90,2019-01,2026-10,1.06,Monthly
 Orion Driveline,THM-049,India,3,2021-08,2022-08,6.5,Semi-Annual
-Orion Driveline,THM-049,North America,88,2019-01,2026-10,1.08,Monthly
+Orion Driveline,THM-049,North America,89,2019-01,2026-10,1.07,Monthly
 Orion Driveline,THM-050,North America,93,2019-01,2026-10,1.02,Monthly
 Orion Driveline,THM-051,India,4,2021-04,2025-12,19.0,Irregular
 Orion Driveline,THM-051,Latin America,44,2019-02,2026-10,2.16,Bi-Monthly
@@ -2607,22 +2490,10 @@ Orion Driveline,THM-058,India,71,2020-12,2026-10,1.01,Monthly
 Orion Driveline,THM-059,North America,69,2021-02,2026-10,1.01,Monthly
 Orion Driveline,THM-060,Asia Pacific,46,2022-12,2026-10,1.04,Monthly
 Orion Driveline,THM-063,India,49,2022-10,2026-10,1.02,Monthly
-Orion Driveline,THM-064,India,24,2020-09,2026-09,3.17,Quarterly
+Orion Driveline,THM-064,India,25,2020-09,2026-09,3.04,Quarterly
 Orion Driveline,THM-064,North America,73,2020-06,2026-10,1.07,Monthly
 Orion Driveline,THM-065,North America,31,2019-01,2026-10,3.13,Quarterly
 Orion Driveline,THM-074,North America,46,2019-01,2026-09,2.07,Bi-Monthly
-Oron Driveline,BSS-010,Europe,1,2022-01,2022-01,0.0,Ad-hoc / Single Order
-Oron Driveline,CSS-001,India,1,2019-04,2019-04,0.0,Ad-hoc / Single Order
-Oron Driveline,CSS-084,North America,1,2021-06,2021-06,0.0,Ad-hoc / Single Order
-Oron Driveline,PMP-009,Asia Pacific,1,2022-12,2022-12,0.0,Ad-hoc / Single Order
-Oron Driveline,THM-049,North America,1,2025-08,2025-08,0.0,Ad-hoc / Single Order
-Oron Driveline,THM-064,India,1,2022-03,2022-03,0.0,Ad-hoc / Single Order
-Quantm Drive Systems,BSS-036,Asia Pacific,1,2024-08,2024-08,0.0,Ad-hoc / Single Order
-Quantm Drive Systems,CSS-029,Latin America,1,2026-06,2026-06,0.0,Ad-hoc / Single Order
-Quantm Drive Systems,HYD-043,North America,1,2021-02,2021-02,0.0,Ad-hoc / Single Order
-Quantm Drive Systems,PMP-023,Europe,1,2024-08,2024-08,0.0,Ad-hoc / Single Order
-Quantm Drive Systems,PTC-001,Europe,1,2026-03,2026-03,0.0,Ad-hoc / Single Order
-Quantu Drive Systems,CSS-062,Asia Pacific,1,2022-10,2022-10,0.0,Ad-hoc / Single Order
 Quantum Drive Systems,BSS-001,Europe,85,2019-01,2026-10,1.12,Monthly
 Quantum Drive Systems,BSS-004,India,85,2019-01,2026-10,1.12,Monthly
 Quantum Drive Systems,BSS-004,Latin America,63,2019-01,2026-10,1.52,Bi-Monthly
@@ -2637,11 +2508,11 @@ Quantum Drive Systems,BSS-014,North America,93,2019-01,2026-10,1.02,Monthly
 Quantum Drive Systems,BSS-015,Europe,85,2019-01,2026-10,1.12,Monthly
 Quantum Drive Systems,BSS-016,Asia Pacific,85,2019-01,2026-10,1.12,Monthly
 Quantum Drive Systems,BSS-016,Latin America,92,2019-01,2026-10,1.03,Monthly
-Quantum Drive Systems,BSS-016,North America,89,2019-01,2026-10,1.07,Monthly
+Quantum Drive Systems,BSS-016,North America,90,2019-01,2026-10,1.06,Monthly
 Quantum Drive Systems,BSS-018,North America,17,2025-06,2026-10,1.06,Monthly
 Quantum Drive Systems,BSS-020,Asia Pacific,91,2019-01,2026-10,1.04,Monthly
 Quantum Drive Systems,BSS-021,India,61,2021-07,2026-10,1.07,Monthly
-Quantum Drive Systems,BSS-022,Asia Pacific,91,2019-01,2026-10,1.04,Monthly
+Quantum Drive Systems,BSS-022,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
 Quantum Drive Systems,BSS-023,Latin America,89,2019-01,2026-10,1.07,Monthly
 Quantum Drive Systems,BSS-027,Europe,31,2019-01,2026-10,3.13,Quarterly
 Quantum Drive Systems,BSS-028,Asia Pacific,4,2019-07,2024-06,20.0,Irregular
@@ -2649,8 +2520,8 @@ Quantum Drive Systems,BSS-028,Europe,30,2019-02,2026-08,3.14,Quarterly
 Quantum Drive Systems,BSS-028,North America,90,2019-01,2026-10,1.06,Monthly
 Quantum Drive Systems,BSS-031,Asia Pacific,66,2020-10,2026-10,1.12,Monthly
 Quantum Drive Systems,BSS-031,North America,71,2020-10,2026-10,1.04,Monthly
-Quantum Drive Systems,BSS-032,Asia Pacific,85,2019-02,2026-10,1.11,Monthly
-Quantum Drive Systems,BSS-036,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
+Quantum Drive Systems,BSS-032,Asia Pacific,86,2019-02,2026-10,1.09,Monthly
+Quantum Drive Systems,BSS-036,Asia Pacific,94,2019-01,2026-10,1.01,Monthly
 Quantum Drive Systems,BSS-039,Asia Pacific,1,2019-03,2019-03,0.0,Ad-hoc / Single Order
 Quantum Drive Systems,BSS-039,Latin America,84,2019-01,2026-10,1.13,Monthly
 Quantum Drive Systems,BSS-039,North America,90,2019-01,2026-10,1.06,Monthly
@@ -2682,7 +2553,7 @@ Quantum Drive Systems,CSS-007,Latin America,31,2019-01,2026-10,3.13,Quarterly
 Quantum Drive Systems,CSS-009,North America,90,2019-01,2026-10,1.06,Monthly
 Quantum Drive Systems,CSS-010,Asia Pacific,19,2025-04,2026-10,1.06,Monthly
 Quantum Drive Systems,CSS-019,India,91,2019-01,2026-10,1.04,Monthly
-Quantum Drive Systems,CSS-029,Latin America,30,2024-03,2026-10,1.1,Monthly
+Quantum Drive Systems,CSS-029,Latin America,31,2024-03,2026-10,1.07,Monthly
 Quantum Drive Systems,CSS-030,Europe,59,2019-02,2026-09,1.59,Bi-Monthly
 Quantum Drive Systems,CSS-032,Asia Pacific,1,2025-10,2025-10,0.0,Ad-hoc / Single Order
 Quantum Drive Systems,CSS-032,India,59,2021-04,2026-10,1.16,Monthly
@@ -2699,7 +2570,7 @@ Quantum Drive Systems,CSS-051,Asia Pacific,46,2019-02,2026-10,2.07,Bi-Monthly
 Quantum Drive Systems,CSS-055,North America,63,2019-01,2026-10,1.52,Bi-Monthly
 Quantum Drive Systems,CSS-056,India,93,2019-01,2026-10,1.02,Monthly
 Quantum Drive Systems,CSS-061,North America,93,2019-01,2026-10,1.02,Monthly
-Quantum Drive Systems,CSS-062,Asia Pacific,79,2019-01,2025-09,1.04,Monthly
+Quantum Drive Systems,CSS-062,Asia Pacific,80,2019-01,2025-09,1.03,Monthly
 Quantum Drive Systems,CSS-063,India,85,2019-01,2026-10,1.12,Monthly
 Quantum Drive Systems,CSS-065,Asia Pacific,1,2025-03,2025-03,0.0,Ad-hoc / Single Order
 Quantum Drive Systems,CSS-065,North America,42,2019-01,2026-09,2.27,Bi-Monthly
@@ -2717,7 +2588,7 @@ Quantum Drive Systems,CSS-086,Latin America,85,2019-02,2026-10,1.11,Monthly
 Quantum Drive Systems,ELA-004,Asia Pacific,84,2019-01,2026-10,1.13,Monthly
 Quantum Drive Systems,ELA-004,North America,85,2019-01,2026-10,1.12,Monthly
 Quantum Drive Systems,ELA-009,Asia Pacific,31,2019-01,2026-10,3.13,Quarterly
-Quantum Drive Systems,ELA-009,North America,84,2019-01,2026-10,1.13,Monthly
+Quantum Drive Systems,ELA-009,North America,85,2019-01,2026-10,1.12,Monthly
 Quantum Drive Systems,ELA-013,India,66,2020-09,2026-10,1.14,Monthly
 Quantum Drive Systems,ELA-014,Asia Pacific,53,2019-01,2023-06,1.04,Monthly
 Quantum Drive Systems,ELA-015,Asia Pacific,42,2023-04,2026-10,1.05,Monthly
@@ -2784,7 +2655,7 @@ Quantum Drive Systems,HYD-037,India,46,2019-01,2026-09,2.07,Bi-Monthly
 Quantum Drive Systems,HYD-039,Europe,93,2019-01,2026-10,1.02,Monthly
 Quantum Drive Systems,HYD-041,Asia Pacific,94,2019-01,2026-10,1.01,Monthly
 Quantum Drive Systems,HYD-043,Latin America,91,2019-01,2026-10,1.04,Monthly
-Quantum Drive Systems,HYD-043,North America,90,2019-01,2026-10,1.06,Monthly
+Quantum Drive Systems,HYD-043,North America,91,2019-01,2026-10,1.04,Monthly
 Quantum Drive Systems,HYD-044,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Quantum Drive Systems,HYD-056,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
 Quantum Drive Systems,HYD-056,North America,92,2019-01,2026-10,1.03,Monthly
@@ -2821,7 +2692,7 @@ Quantum Drive Systems,PMP-016,Asia Pacific,62,2019-01,2026-10,1.54,Bi-Monthly
 Quantum Drive Systems,PMP-018,North America,55,2022-01,2026-10,1.07,Monthly
 Quantum Drive Systems,PMP-019,North America,3,2026-08,2026-10,1.5,Bi-Monthly
 Quantum Drive Systems,PMP-023,Asia Pacific,1,2020-10,2020-10,0.0,Ad-hoc / Single Order
-Quantum Drive Systems,PMP-023,Europe,90,2019-01,2026-10,1.06,Monthly
+Quantum Drive Systems,PMP-023,Europe,91,2019-01,2026-10,1.04,Monthly
 Quantum Drive Systems,PMP-025,Europe,84,2019-01,2026-10,1.13,Monthly
 Quantum Drive Systems,PMP-027,India,90,2019-01,2026-10,1.06,Monthly
 Quantum Drive Systems,PMP-029,India,48,2022-10,2026-10,1.04,Monthly
@@ -2853,7 +2724,7 @@ Quantum Drive Systems,PMP-080,Asia Pacific,1,2021-05,2021-05,0.0,Ad-hoc / Single
 Quantum Drive Systems,PMP-080,India,92,2019-01,2026-10,1.03,Monthly
 Quantum Drive Systems,PMP-081,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
 Quantum Drive Systems,PMP-085,North America,31,2019-02,2026-08,3.03,Quarterly
-Quantum Drive Systems,PTC-001,Europe,84,2019-01,2026-10,1.13,Monthly
+Quantum Drive Systems,PTC-001,Europe,85,2019-01,2026-10,1.12,Monthly
 Quantum Drive Systems,PTC-001,North America,85,2019-01,2026-10,1.12,Monthly
 Quantum Drive Systems,PTC-002,North America,39,2019-01,2025-05,2.03,Bi-Monthly
 Quantum Drive Systems,PTC-003,Asia Pacific,85,2019-01,2026-10,1.12,Monthly
@@ -2935,7 +2806,7 @@ Quantum Drive Systems,THM-039,India,92,2019-01,2026-10,1.03,Monthly
 Quantum Drive Systems,THM-039,Latin America,31,2019-02,2026-08,3.03,Quarterly
 Quantum Drive Systems,THM-045,Asia Pacific,1,2026-03,2026-03,0.0,Ad-hoc / Single Order
 Quantum Drive Systems,THM-045,Europe,60,2019-01,2026-10,1.59,Bi-Monthly
-Quantum Drive Systems,THM-047,Latin America,84,2019-01,2026-10,1.13,Monthly
+Quantum Drive Systems,THM-047,Latin America,85,2019-01,2026-10,1.12,Monthly
 Quantum Drive Systems,THM-051,Asia Pacific,33,2019-01,2026-10,2.94,Quarterly
 Quantum Drive Systems,THM-053,India,94,2019-01,2026-10,1.01,Monthly
 Quantum Drive Systems,THM-054,Asia Pacific,1,2025-05,2025-05,0.0,Ad-hoc / Single Order
@@ -2949,32 +2820,6 @@ Quantum Drive Systems,THM-067,North America,93,2019-01,2026-10,1.02,Monthly
 Quantum Drive Systems,THM-074,Asia Pacific,1,2022-07,2022-07,0.0,Ad-hoc / Single Order
 Quantum Drive Systems,THM-074,India,92,2019-01,2026-10,1.03,Monthly
 Quantum Drive Systems,THM-079,India,81,2019-12,2026-10,1.04,Monthly
-Quanum Drive Systems,BSS-016,North America,1,2024-10,2024-10,0.0,Ad-hoc / Single Order
-Quanum Drive Systems,BSS-032,Asia Pacific,1,2022-02,2022-02,0.0,Ad-hoc / Single Order
-Quanum Drive Systems,THM-047,Latin America,1,2024-10,2024-10,0.0,Ad-hoc / Single Order
-Quntum Drive Systems,BSS-022,Asia Pacific,1,2025-03,2025-03,0.0,Ad-hoc / Single Order
-Quntum Drive Systems,ELA-009,North America,1,2020-03,2020-03,0.0,Ad-hoc / Single Order
-Slaris Automotive,BSS-053,Latin America,1,2024-06,2024-06,0.0,Ad-hoc / Single Order
-Slaris Automotive,BSS-079,Asia Pacific,1,2026-08,2026-08,0.0,Ad-hoc / Single Order
-Slaris Automotive,BSS-084,Europe,1,2024-05,2024-05,0.0,Ad-hoc / Single Order
-Slaris Automotive,ELA-062,Asia Pacific,1,2019-08,2019-08,0.0,Ad-hoc / Single Order
-Slaris Automotive,HYD-027,Latin America,1,2023-12,2023-12,0.0,Ad-hoc / Single Order
-Slaris Automotive,HYD-033,Asia Pacific,1,2019-10,2019-10,0.0,Ad-hoc / Single Order
-Slaris Automotive,HYD-040,North America,1,2026-02,2026-02,0.0,Ad-hoc / Single Order
-Slaris Automotive,HYD-060,Europe,1,2025-01,2025-01,0.0,Ad-hoc / Single Order
-Slaris Automotive,PTC-070,Latin America,1,2025-08,2025-08,0.0,Ad-hoc / Single Order
-Soaris Automotive,BSS-034,North America,1,2024-01,2024-01,0.0,Ad-hoc / Single Order
-Soaris Automotive,CSS-045,North America,1,2023-02,2023-02,0.0,Ad-hoc / Single Order
-Soaris Automotive,CSS-068,Europe,1,2021-04,2021-04,0.0,Ad-hoc / Single Order
-Soaris Automotive,PTC-068,Latin America,1,2021-12,2021-12,0.0,Ad-hoc / Single Order
-Soaris Automotive,PTC-069,North America,1,2023-08,2023-08,0.0,Ad-hoc / Single Order
-Solais Automotive,CSS-028,India,1,2020-09,2020-09,0.0,Ad-hoc / Single Order
-Solais Automotive,PMP-046,Asia Pacific,1,2022-04,2022-04,0.0,Ad-hoc / Single Order
-Solais Automotive,PTC-023,North America,1,2024-05,2024-05,0.0,Ad-hoc / Single Order
-Solais Automotive,THM-050,Asia Pacific,1,2019-12,2019-12,0.0,Ad-hoc / Single Order
-Solari Automotive,CSS-068,Europe,1,2020-10,2020-10,0.0,Ad-hoc / Single Order
-Solari Automotive,PMP-021,India,1,2024-01,2024-01,0.0,Ad-hoc / Single Order
-Solari Automotive,PTC-043,Asia Pacific,1,2020-02,2020-02,0.0,Ad-hoc / Single Order
 Solaris Automotive,BSS-001,Latin America,81,2019-01,2026-10,1.18,Monthly
 Solaris Automotive,BSS-001,North America,92,2019-01,2026-10,1.03,Monthly
 Solaris Automotive,BSS-004,Asia Pacific,85,2019-01,2026-10,1.12,Monthly
@@ -2995,7 +2840,7 @@ Solaris Automotive,BSS-022,North America,84,2019-01,2026-10,1.13,Monthly
 Solaris Automotive,BSS-024,Asia Pacific,63,2019-01,2024-03,1.02,Monthly
 Solaris Automotive,BSS-027,India,86,2019-01,2026-10,1.11,Monthly
 Solaris Automotive,BSS-032,Latin America,45,2019-01,2026-09,2.11,Bi-Monthly
-Solaris Automotive,BSS-034,North America,73,2019-01,2025-11,1.15,Monthly
+Solaris Automotive,BSS-034,North America,74,2019-01,2025-11,1.14,Monthly
 Solaris Automotive,BSS-037,Europe,20,2025-02,2026-10,1.11,Monthly
 Solaris Automotive,BSS-038,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Solaris Automotive,BSS-038,Europe,90,2019-01,2026-10,1.06,Monthly
@@ -3010,8 +2855,8 @@ Solaris Automotive,BSS-048,North America,1,2021-09,2021-09,0.0,Ad-hoc / Single O
 Solaris Automotive,BSS-049,India,84,2019-02,2026-10,1.12,Monthly
 Solaris Automotive,BSS-049,North America,1,2025-12,2025-12,0.0,Ad-hoc / Single Order
 Solaris Automotive,BSS-050,North America,67,2019-02,2026-10,1.41,Bi-Monthly
-Solaris Automotive,BSS-053,Latin America,93,2019-01,2026-10,1.02,Monthly
-Solaris Automotive,BSS-053,North America,92,2019-01,2026-10,1.03,Monthly
+Solaris Automotive,BSS-053,Latin America,94,2019-01,2026-10,1.01,Monthly
+Solaris Automotive,BSS-053,North America,94,2019-01,2026-10,1.01,Monthly
 Solaris Automotive,BSS-054,North America,62,2021-08,2026-10,1.03,Monthly
 Solaris Automotive,BSS-057,India,84,2019-02,2026-10,1.12,Monthly
 Solaris Automotive,BSS-059,India,48,2019-02,2026-10,1.98,Bi-Monthly
@@ -3027,8 +2872,8 @@ Solaris Automotive,BSS-074,Europe,91,2019-01,2026-10,1.04,Monthly
 Solaris Automotive,BSS-074,Latin America,79,2019-02,2026-10,1.19,Monthly
 Solaris Automotive,BSS-074,North America,2,2020-06,2025-08,63.0,Irregular
 Solaris Automotive,BSS-076,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
-Solaris Automotive,BSS-079,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
-Solaris Automotive,BSS-084,Europe,91,2019-01,2026-10,1.04,Monthly
+Solaris Automotive,BSS-079,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
+Solaris Automotive,BSS-084,Europe,92,2019-01,2026-10,1.03,Monthly
 Solaris Automotive,BSS-084,Latin America,84,2019-02,2026-10,1.12,Monthly
 Solaris Automotive,CSS-007,India,87,2019-01,2026-10,1.09,Monthly
 Solaris Automotive,CSS-007,North America,92,2019-01,2026-10,1.03,Monthly
@@ -3044,14 +2889,14 @@ Solaris Automotive,CSS-024,Latin America,30,2024-05,2026-10,1.03,Monthly
 Solaris Automotive,CSS-025,Asia Pacific,85,2019-01,2026-10,1.12,Monthly
 Solaris Automotive,CSS-025,India,91,2019-01,2026-10,1.04,Monthly
 Solaris Automotive,CSS-025,North America,1,2021-09,2021-09,0.0,Ad-hoc / Single Order
-Solaris Automotive,CSS-028,India,60,2019-02,2026-09,1.56,Bi-Monthly
+Solaris Automotive,CSS-028,India,62,2019-02,2026-09,1.51,Bi-Monthly
 Solaris Automotive,CSS-030,Asia Pacific,94,2019-01,2026-10,1.01,Monthly
 Solaris Automotive,CSS-031,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
 Solaris Automotive,CSS-031,North America,1,2025-05,2025-05,0.0,Ad-hoc / Single Order
 Solaris Automotive,CSS-033,Latin America,33,2023-11,2026-10,1.12,Monthly
 Solaris Automotive,CSS-035,North America,84,2019-01,2026-10,1.13,Monthly
 Solaris Automotive,CSS-039,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
-Solaris Automotive,CSS-045,North America,92,2019-01,2026-10,1.03,Monthly
+Solaris Automotive,CSS-045,North America,93,2019-01,2026-10,1.02,Monthly
 Solaris Automotive,CSS-047,India,91,2019-01,2026-10,1.04,Monthly
 Solaris Automotive,CSS-047,Latin America,93,2019-01,2026-10,1.02,Monthly
 Solaris Automotive,CSS-047,North America,1,2024-12,2024-12,0.0,Ad-hoc / Single Order
@@ -3067,7 +2912,7 @@ Solaris Automotive,CSS-058,North America,94,2019-01,2026-10,1.01,Monthly
 Solaris Automotive,CSS-061,Europe,83,2019-01,2026-10,1.15,Monthly
 Solaris Automotive,CSS-061,North America,1,2024-04,2024-04,0.0,Ad-hoc / Single Order
 Solaris Automotive,CSS-063,North America,92,2019-01,2026-10,1.03,Monthly
-Solaris Automotive,CSS-068,Europe,83,2019-01,2026-10,1.15,Monthly
+Solaris Automotive,CSS-068,Europe,85,2019-01,2026-10,1.12,Monthly
 Solaris Automotive,CSS-071,Asia Pacific,59,2021-11,2026-10,1.03,Monthly
 Solaris Automotive,CSS-077,India,9,2024-08,2026-08,3.12,Quarterly
 Solaris Automotive,CSS-077,Latin America,26,2024-08,2026-10,1.08,Monthly
@@ -3105,7 +2950,7 @@ Solaris Automotive,ELA-058,Latin America,32,2019-03,2026-10,2.97,Quarterly
 Solaris Automotive,ELA-059,Europe,85,2019-01,2026-10,1.12,Monthly
 Solaris Automotive,ELA-060,India,87,2019-01,2026-10,1.09,Monthly
 Solaris Automotive,ELA-060,North America,91,2019-01,2026-10,1.04,Monthly
-Solaris Automotive,ELA-062,Asia Pacific,91,2019-01,2026-10,1.04,Monthly
+Solaris Automotive,ELA-062,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
 Solaris Automotive,ELA-062,North America,30,2019-06,2026-09,3.03,Quarterly
 Solaris Automotive,ELA-066,North America,67,2020-10,2026-10,1.11,Monthly
 Solaris Automotive,ELA-067,India,64,2021-05,2026-10,1.05,Monthly
@@ -3133,7 +2978,7 @@ Solaris Automotive,HYD-018,India,86,2019-01,2026-10,1.11,Monthly
 Solaris Automotive,HYD-021,India,29,2024-06,2026-10,1.04,Monthly
 Solaris Automotive,HYD-024,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Solaris Automotive,HYD-025,India,29,2019-03,2026-09,3.25,Quarterly
-Solaris Automotive,HYD-027,Latin America,90,2019-01,2026-10,1.06,Monthly
+Solaris Automotive,HYD-027,Latin America,91,2019-01,2026-10,1.04,Monthly
 Solaris Automotive,HYD-027,North America,1,2025-08,2025-08,0.0,Ad-hoc / Single Order
 Solaris Automotive,HYD-028,Europe,46,2019-02,2026-10,2.07,Bi-Monthly
 Solaris Automotive,HYD-028,North America,1,2019-10,2019-10,0.0,Ad-hoc / Single Order
@@ -3142,21 +2987,21 @@ Solaris Automotive,HYD-030,Europe,37,2022-01,2026-10,1.61,Bi-Monthly
 Solaris Automotive,HYD-030,India,52,2021-12,2026-10,1.16,Monthly
 Solaris Automotive,HYD-030,North America,21,2021-12,2026-09,2.9,Quarterly
 Solaris Automotive,HYD-032,Latin America,90,2019-01,2026-10,1.06,Monthly
-Solaris Automotive,HYD-033,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
+Solaris Automotive,HYD-033,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Solaris Automotive,HYD-035,Asia Pacific,92,2019-01,2026-09,1.02,Monthly
 Solaris Automotive,HYD-036,Asia Pacific,94,2019-01,2026-10,1.01,Monthly
 Solaris Automotive,HYD-037,Latin America,60,2019-01,2026-10,1.59,Bi-Monthly
 Solaris Automotive,HYD-039,North America,93,2019-01,2026-10,1.02,Monthly
 Solaris Automotive,HYD-040,India,85,2019-01,2026-10,1.12,Monthly
-Solaris Automotive,HYD-040,North America,91,2019-01,2026-10,1.04,Monthly
+Solaris Automotive,HYD-040,North America,92,2019-01,2026-10,1.03,Monthly
 Solaris Automotive,HYD-044,North America,47,2019-02,2026-10,2.02,Bi-Monthly
 Solaris Automotive,HYD-046,India,85,2019-01,2026-10,1.12,Monthly
 Solaris Automotive,HYD-046,North America,1,2019-09,2019-09,0.0,Ad-hoc / Single Order
 Solaris Automotive,HYD-050,India,23,2024-09,2026-09,1.14,Monthly
 Solaris Automotive,HYD-051,Europe,61,2019-01,2026-10,1.57,Bi-Monthly
 Solaris Automotive,HYD-053,Latin America,93,2019-01,2026-10,1.02,Monthly
-Solaris Automotive,HYD-055,India,91,2019-01,2026-10,1.04,Monthly
-Solaris Automotive,HYD-060,Europe,82,2019-01,2026-10,1.16,Monthly
+Solaris Automotive,HYD-055,India,92,2019-01,2026-10,1.03,Monthly
+Solaris Automotive,HYD-060,Europe,83,2019-01,2026-10,1.15,Monthly
 Solaris Automotive,HYD-063,Europe,20,2025-03,2026-10,1.05,Monthly
 Solaris Automotive,HYD-064,Asia Pacific,85,2019-01,2026-10,1.12,Monthly
 Solaris Automotive,HYD-064,North America,1,2023-04,2023-04,0.0,Ad-hoc / Single Order
@@ -3177,7 +3022,7 @@ Solaris Automotive,PMP-007,North America,3,2019-01,2023-06,27.0,Irregular
 Solaris Automotive,PMP-010,North America,85,2019-01,2026-10,1.12,Monthly
 Solaris Automotive,PMP-012,North America,47,2019-01,2026-09,2.02,Bi-Monthly
 Solaris Automotive,PMP-015,Asia Pacific,31,2019-02,2026-08,3.03,Quarterly
-Solaris Automotive,PMP-021,India,90,2019-01,2026-10,1.06,Monthly
+Solaris Automotive,PMP-021,India,91,2019-01,2026-10,1.04,Monthly
 Solaris Automotive,PMP-025,India,91,2019-01,2026-10,1.04,Monthly
 Solaris Automotive,PMP-025,North America,91,2019-01,2026-10,1.04,Monthly
 Solaris Automotive,PMP-027,Latin America,93,2019-01,2026-10,1.02,Monthly
@@ -3191,7 +3036,7 @@ Solaris Automotive,PMP-038,Europe,39,2020-07,2026-09,1.97,Bi-Monthly
 Solaris Automotive,PMP-039,North America,29,2022-02,2026-10,2.04,Bi-Monthly
 Solaris Automotive,PMP-040,North America,94,2019-01,2026-10,1.01,Monthly
 Solaris Automotive,PMP-043,India,63,2021-07,2026-10,1.03,Monthly
-Solaris Automotive,PMP-046,Asia Pacific,60,2019-01,2026-10,1.59,Bi-Monthly
+Solaris Automotive,PMP-046,Asia Pacific,61,2019-01,2026-10,1.57,Bi-Monthly
 Solaris Automotive,PMP-046,India,61,2019-02,2026-10,1.55,Bi-Monthly
 Solaris Automotive,PMP-046,North America,1,2022-09,2022-09,0.0,Ad-hoc / Single Order
 Solaris Automotive,PMP-047,India,92,2019-01,2026-10,1.03,Monthly
@@ -3225,11 +3070,11 @@ Solaris Automotive,PTC-011,Asia Pacific,94,2019-01,2026-10,1.01,Monthly
 Solaris Automotive,PTC-013,Asia Pacific,83,2019-01,2026-10,1.15,Monthly
 Solaris Automotive,PTC-013,North America,1,2025-05,2025-05,0.0,Ad-hoc / Single Order
 Solaris Automotive,PTC-018,India,92,2019-01,2026-10,1.03,Monthly
-Solaris Automotive,PTC-018,North America,83,2019-01,2026-10,1.15,Monthly
+Solaris Automotive,PTC-018,North America,84,2019-01,2026-10,1.13,Monthly
 Solaris Automotive,PTC-020,Latin America,61,2019-01,2026-10,1.57,Bi-Monthly
 Solaris Automotive,PTC-022,North America,85,2019-01,2026-10,1.12,Monthly
 Solaris Automotive,PTC-023,India,31,2019-03,2026-09,3.03,Quarterly
-Solaris Automotive,PTC-023,North America,84,2019-01,2026-10,1.13,Monthly
+Solaris Automotive,PTC-023,North America,85,2019-01,2026-10,1.12,Monthly
 Solaris Automotive,PTC-024,Asia Pacific,83,2019-01,2026-10,1.15,Monthly
 Solaris Automotive,PTC-030,India,87,2019-02,2026-10,1.08,Monthly
 Solaris Automotive,PTC-030,North America,84,2019-01,2026-10,1.13,Monthly
@@ -3237,7 +3082,7 @@ Solaris Automotive,PTC-031,India,84,2019-01,2026-10,1.13,Monthly
 Solaris Automotive,PTC-031,Latin America,90,2019-01,2026-10,1.06,Monthly
 Solaris Automotive,PTC-031,North America,92,2019-01,2026-10,1.03,Monthly
 Solaris Automotive,PTC-032,India,93,2019-01,2026-10,1.02,Monthly
-Solaris Automotive,PTC-043,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
+Solaris Automotive,PTC-043,Asia Pacific,94,2019-01,2026-10,1.01,Monthly
 Solaris Automotive,PTC-049,India,92,2019-01,2026-10,1.03,Monthly
 Solaris Automotive,PTC-051,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
 Solaris Automotive,PTC-051,North America,84,2019-01,2026-09,1.12,Monthly
@@ -3250,9 +3095,9 @@ Solaris Automotive,PTC-061,North America,1,2024-06,2024-06,0.0,Ad-hoc / Single O
 Solaris Automotive,PTC-062,Latin America,85,2019-01,2026-10,1.12,Monthly
 Solaris Automotive,PTC-064,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
 Solaris Automotive,PTC-067,North America,90,2019-01,2026-10,1.06,Monthly
-Solaris Automotive,PTC-068,Latin America,81,2019-01,2026-10,1.18,Monthly
-Solaris Automotive,PTC-069,North America,37,2023-09,2026-10,1.06,Monthly
-Solaris Automotive,PTC-070,Latin America,38,2023-07,2026-10,1.08,Monthly
+Solaris Automotive,PTC-068,Latin America,82,2019-01,2026-10,1.16,Monthly
+Solaris Automotive,PTC-069,North America,38,2023-08,2026-10,1.05,Monthly
+Solaris Automotive,PTC-070,Latin America,39,2023-07,2026-10,1.05,Monthly
 Solaris Automotive,PTC-076,North America,91,2019-01,2026-10,1.04,Monthly
 Solaris Automotive,PTC-077,North America,89,2019-01,2026-10,1.07,Monthly
 Solaris Automotive,PTC-078,Latin America,31,2019-02,2026-08,3.03,Quarterly
@@ -3272,13 +3117,13 @@ Solaris Automotive,THM-021,India,31,2019-03,2026-09,3.03,Quarterly
 Solaris Automotive,THM-033,Latin America,89,2019-01,2026-10,1.07,Monthly
 Solaris Automotive,THM-037,India,91,2019-01,2026-10,1.04,Monthly
 Solaris Automotive,THM-042,India,90,2019-01,2026-10,1.06,Monthly
-Solaris Automotive,THM-046,Latin America,84,2019-01,2026-10,1.13,Monthly
-Solaris Automotive,THM-050,Asia Pacific,90,2019-02,2026-10,1.04,Monthly
+Solaris Automotive,THM-046,Latin America,85,2019-01,2026-10,1.12,Monthly
+Solaris Automotive,THM-050,Asia Pacific,91,2019-02,2026-10,1.03,Monthly
 Solaris Automotive,THM-050,North America,1,2021-08,2021-08,0.0,Ad-hoc / Single Order
 Solaris Automotive,THM-052,Europe,84,2019-01,2026-10,1.13,Monthly
 Solaris Automotive,THM-059,Latin America,69,2021-02,2026-10,1.01,Monthly
 Solaris Automotive,THM-064,Latin America,38,2020-06,2026-10,2.08,Bi-Monthly
-Solaris Automotive,THM-067,Asia Pacific,84,2019-01,2026-10,1.13,Monthly
+Solaris Automotive,THM-067,Asia Pacific,85,2019-01,2026-10,1.12,Monthly
 Solaris Automotive,THM-067,India,83,2019-01,2026-10,1.15,Monthly
 Solaris Automotive,THM-067,North America,1,2025-03,2025-03,0.0,Ad-hoc / Single Order
 Solaris Automotive,THM-068,Latin America,93,2019-01,2026-10,1.02,Monthly
@@ -3289,35 +3134,12 @@ Solaris Automotive,THM-076,North America,1,2019-12,2019-12,0.0,Ad-hoc / Single O
 Solaris Automotive,THM-077,Asia Pacific,82,2019-01,2026-10,1.16,Monthly
 Solaris Automotive,THM-077,North America,1,2025-09,2025-09,0.0,Ad-hoc / Single Order
 Solaris Automotive,THM-079,North America,74,2019-12,2026-10,1.14,Monthly
-Solars Automotive,BSS-053,North America,2,2021-10,2026-08,59.0,Irregular
-Solars Automotive,CSS-028,India,1,2021-05,2021-05,0.0,Ad-hoc / Single Order
-Solars Automotive,THM-046,Latin America,1,2020-12,2020-12,0.0,Ad-hoc / Single Order
-Solris Automotive,HYD-055,India,1,2025-06,2025-06,0.0,Ad-hoc / Single Order
-Solris Automotive,PTC-018,North America,1,2020-08,2020-08,0.0,Ad-hoc / Single Order
-Solris Automotive,THM-067,Asia Pacific,1,2020-06,2020-06,0.0,Ad-hoc / Single Order
-Vanara Auto,ELA-002,North America,1,2019-08,2019-08,0.0,Ad-hoc / Single Order
-Vanara Auto,ELA-081,Latin America,1,2025-07,2025-07,0.0,Ad-hoc / Single Order
-Vanara Auto,HYD-019,Europe,1,2024-11,2024-11,0.0,Ad-hoc / Single Order
-Vanara Auto,HYD-064,Europe,1,2026-04,2026-04,0.0,Ad-hoc / Single Order
-Vanara Auto,HYD-069,India,1,2024-07,2024-07,0.0,Ad-hoc / Single Order
-Vanara Auto,HYD-083,Latin America,1,2023-08,2023-08,0.0,Ad-hoc / Single Order
-Vanara Auto,PTC-038,North America,1,2021-07,2021-07,0.0,Ad-hoc / Single Order
-Vanara Auto,PTC-075,North America,1,2023-12,2023-12,0.0,Ad-hoc / Single Order
-Vantaa Auto,HYD-078,North America,1,2025-06,2025-06,0.0,Ad-hoc / Single Order
-Vantaa Auto,PTC-006,North America,1,2022-11,2022-11,0.0,Ad-hoc / Single Order
-Vantaa Auto,PTC-014,North America,1,2024-06,2024-06,0.0,Ad-hoc / Single Order
-Vantaa Auto,PTC-041,Europe,1,2026-02,2026-02,0.0,Ad-hoc / Single Order
-Vantaa Auto,PTC-054,India,1,2020-01,2020-01,0.0,Ad-hoc / Single Order
-Vantaa Auto,THM-078,Europe,1,2025-05,2025-05,0.0,Ad-hoc / Single Order
-Vantar Auto,HYD-050,Europe,1,2025-07,2025-07,0.0,Ad-hoc / Single Order
-Vantar Auto,HYD-080,Latin America,1,2026-06,2026-06,0.0,Ad-hoc / Single Order
-Vantar Auto,THM-075,Latin America,1,2026-07,2026-07,0.0,Ad-hoc / Single Order
 Vantara Auto,BSS-002,Asia Pacific,94,2019-01,2026-10,1.01,Monthly
 Vantara Auto,BSS-002,Europe,1,2023-10,2023-10,0.0,Ad-hoc / Single Order
 Vantara Auto,BSS-002,North America,82,2019-01,2026-10,1.16,Monthly
 Vantara Auto,BSS-007,Europe,84,2019-01,2026-10,1.13,Monthly
-Vantara Auto,BSS-008,Europe,83,2019-01,2026-10,1.15,Monthly
-Vantara Auto,BSS-010,Asia Pacific,90,2019-01,2026-10,1.06,Monthly
+Vantara Auto,BSS-008,Europe,84,2019-01,2026-10,1.13,Monthly
+Vantara Auto,BSS-010,Asia Pacific,91,2019-01,2026-10,1.04,Monthly
 Vantara Auto,BSS-010,Europe,1,2021-11,2021-11,0.0,Ad-hoc / Single Order
 Vantara Auto,BSS-011,Asia Pacific,85,2019-01,2026-10,1.12,Monthly
 Vantara Auto,BSS-015,India,84,2019-01,2026-10,1.13,Monthly
@@ -3348,11 +3170,11 @@ Vantara Auto,BSS-052,Europe,2,2020-12,2025-08,57.0,Irregular
 Vantara Auto,BSS-052,Latin America,79,2019-01,2026-09,1.19,Monthly
 Vantara Auto,BSS-056,Europe,30,2019-02,2026-08,3.14,Quarterly
 Vantara Auto,BSS-056,North America,92,2019-01,2026-10,1.03,Monthly
-Vantara Auto,BSS-057,Latin America,28,2019-02,2026-08,3.37,Quarterly
+Vantara Auto,BSS-057,Latin America,29,2019-02,2026-08,3.25,Quarterly
 Vantara Auto,BSS-057,North America,93,2019-01,2026-10,1.02,Monthly
 Vantara Auto,BSS-059,Asia Pacific,43,2019-03,2026-09,2.17,Bi-Monthly
 Vantara Auto,BSS-063,Europe,61,2021-08,2026-10,1.05,Monthly
-Vantara Auto,BSS-063,Latin America,60,2021-08,2026-10,1.07,Monthly
+Vantara Auto,BSS-063,Latin America,61,2021-08,2026-10,1.05,Monthly
 Vantara Auto,BSS-064,Europe,92,2019-01,2026-10,1.03,Monthly
 Vantara Auto,BSS-066,Europe,2,2025-01,2025-02,2.0,Bi-Monthly
 Vantara Auto,BSS-066,North America,81,2019-01,2026-10,1.18,Monthly
@@ -3386,16 +3208,16 @@ Vantara Auto,CSS-027,Europe,24,2021-01,2026-10,3.04,Quarterly
 Vantara Auto,CSS-027,India,70,2020-12,2026-10,1.03,Monthly
 Vantara Auto,CSS-027,Latin America,68,2020-12,2026-10,1.06,Monthly
 Vantara Auto,CSS-031,India,84,2019-02,2026-09,1.11,Monthly
-Vantara Auto,CSS-031,Latin America,29,2019-03,2026-09,3.25,Quarterly
+Vantara Auto,CSS-031,Latin America,30,2019-03,2026-09,3.14,Quarterly
 Vantara Auto,CSS-037,Asia Pacific,19,2025-01,2026-10,1.22,Monthly
 Vantara Auto,CSS-038,India,71,2020-12,2026-10,1.01,Monthly
 Vantara Auto,CSS-039,Europe,31,2019-01,2026-10,3.13,Quarterly
 Vantara Auto,CSS-042,Asia Pacific,31,2021-12,2026-10,1.97,Bi-Monthly
 Vantara Auto,CSS-044,North America,94,2019-01,2026-10,1.01,Monthly
 Vantara Auto,CSS-045,Europe,94,2019-01,2026-10,1.01,Monthly
-Vantara Auto,CSS-045,India,72,2019-02,2025-10,1.14,Monthly
+Vantara Auto,CSS-045,India,73,2019-01,2025-10,1.14,Monthly
 Vantara Auto,CSS-046,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
-Vantara Auto,CSS-059,North America,93,2019-01,2026-10,1.02,Monthly
+Vantara Auto,CSS-059,North America,94,2019-01,2026-10,1.01,Monthly
 Vantara Auto,CSS-061,Asia Pacific,90,2019-01,2026-10,1.06,Monthly
 Vantara Auto,CSS-061,Europe,2,2021-07,2024-05,35.0,Irregular
 Vantara Auto,CSS-062,Europe,86,2019-01,2026-10,1.11,Monthly
@@ -3406,7 +3228,7 @@ Vantara Auto,CSS-064,India,84,2019-01,2026-10,1.13,Monthly
 Vantara Auto,CSS-065,Asia Pacific,89,2019-01,2026-10,1.07,Monthly
 Vantara Auto,CSS-065,Europe,2,2024-06,2025-10,17.0,Irregular
 Vantara Auto,CSS-065,India,92,2019-01,2026-10,1.03,Monthly
-Vantara Auto,CSS-066,Asia Pacific,46,2019-02,2026-10,2.07,Bi-Monthly
+Vantara Auto,CSS-066,Asia Pacific,47,2019-02,2026-10,2.02,Bi-Monthly
 Vantara Auto,CSS-070,North America,69,2021-01,2026-10,1.03,Monthly
 Vantara Auto,CSS-071,Latin America,29,2021-12,2026-10,2.11,Bi-Monthly
 Vantara Auto,CSS-072,Asia Pacific,71,2020-12,2026-10,1.01,Monthly
@@ -3414,12 +3236,12 @@ Vantara Auto,CSS-072,India,71,2020-12,2026-10,1.01,Monthly
 Vantara Auto,CSS-074,Asia Pacific,91,2019-01,2026-10,1.04,Monthly
 Vantara Auto,CSS-075,Latin America,29,2019-05,2026-08,3.14,Quarterly
 Vantara Auto,CSS-075,North America,63,2019-01,2026-10,1.52,Bi-Monthly
-Vantara Auto,CSS-082,Latin America,92,2019-01,2026-10,1.03,Monthly
-Vantara Auto,CSS-084,Europe,90,2019-01,2026-10,1.06,Monthly
+Vantara Auto,CSS-082,Latin America,93,2019-01,2026-10,1.02,Monthly
+Vantara Auto,CSS-084,Europe,91,2019-01,2026-10,1.04,Monthly
 Vantara Auto,ELA-001,Europe,83,2019-01,2026-10,1.15,Monthly
 Vantara Auto,ELA-002,Europe,1,2019-08,2019-08,0.0,Ad-hoc / Single Order
 Vantara Auto,ELA-002,India,92,2019-01,2026-10,1.03,Monthly
-Vantara Auto,ELA-002,North America,84,2019-01,2026-10,1.13,Monthly
+Vantara Auto,ELA-002,North America,85,2019-01,2026-10,1.12,Monthly
 Vantara Auto,ELA-003,Asia Pacific,63,2019-01,2026-10,1.52,Bi-Monthly
 Vantara Auto,ELA-005,Asia Pacific,21,2021-08,2026-08,3.05,Quarterly
 Vantara Auto,ELA-005,Europe,57,2021-07,2026-10,1.14,Monthly
@@ -3427,7 +3249,7 @@ Vantara Auto,ELA-007,Asia Pacific,74,2019-11,2026-10,1.15,Monthly
 Vantara Auto,ELA-007,Europe,1,2019-11,2019-11,0.0,Ad-hoc / Single Order
 Vantara Auto,ELA-007,North America,74,2019-10,2026-10,1.16,Monthly
 Vantara Auto,ELA-016,North America,33,2024-02,2026-10,1.03,Monthly
-Vantara Auto,ELA-020,Latin America,89,2019-01,2026-10,1.07,Monthly
+Vantara Auto,ELA-020,Latin America,90,2019-01,2026-10,1.06,Monthly
 Vantara Auto,ELA-022,North America,33,2019-02,2026-08,2.84,Quarterly
 Vantara Auto,ELA-024,North America,91,2019-01,2026-10,1.04,Monthly
 Vantara Auto,ELA-025,Asia Pacific,36,2023-09,2026-10,1.09,Monthly
@@ -3456,22 +3278,22 @@ Vantara Auto,ELA-074,Asia Pacific,22,2023-12,2026-09,1.62,Bi-Monthly
 Vantara Auto,ELA-075,India,79,2020-03,2026-10,1.03,Monthly
 Vantara Auto,ELA-078,Europe,85,2019-01,2026-10,1.12,Monthly
 Vantara Auto,ELA-079,Latin America,91,2019-01,2026-10,1.04,Monthly
-Vantara Auto,ELA-081,Latin America,84,2019-02,2026-10,1.12,Monthly
+Vantara Auto,ELA-081,Latin America,85,2019-02,2026-10,1.11,Monthly
 Vantara Auto,ELA-083,Europe,69,2021-01,2026-10,1.03,Monthly
 Vantara Auto,ELA-084,India,81,2019-01,2025-10,1.02,Monthly
 Vantara Auto,ELA-085,Latin America,60,2019-01,2026-10,1.59,Bi-Monthly
 Vantara Auto,ELA-086,Europe,1,2024-03,2024-03,0.0,Ad-hoc / Single Order
 Vantara Auto,ELA-086,Latin America,62,2019-03,2026-10,1.51,Bi-Monthly
-Vantara Auto,ELA-087,Latin America,93,2019-01,2026-10,1.02,Monthly
+Vantara Auto,ELA-087,Latin America,94,2019-01,2026-10,1.01,Monthly
 Vantara Auto,HYD-003,Europe,62,2019-01,2026-10,1.54,Bi-Monthly
 Vantara Auto,HYD-005,Asia Pacific,86,2019-01,2026-10,1.11,Monthly
 Vantara Auto,HYD-007,Asia Pacific,86,2019-01,2026-10,1.11,Monthly
 Vantara Auto,HYD-009,Asia Pacific,92,2019-01,2026-10,1.03,Monthly
-Vantara Auto,HYD-017,India,93,2019-01,2026-10,1.02,Monthly
+Vantara Auto,HYD-017,India,94,2019-01,2026-10,1.01,Monthly
 Vantara Auto,HYD-017,Latin America,82,2019-01,2026-10,1.16,Monthly
 Vantara Auto,HYD-018,Latin America,84,2019-01,2026-10,1.13,Monthly
 Vantara Auto,HYD-019,Asia Pacific,84,2019-01,2026-10,1.13,Monthly
-Vantara Auto,HYD-019,Europe,83,2019-01,2026-10,1.15,Monthly
+Vantara Auto,HYD-019,Europe,84,2019-01,2026-10,1.13,Monthly
 Vantara Auto,HYD-019,Latin America,59,2019-02,2026-09,1.59,Bi-Monthly
 Vantara Auto,HYD-022,Latin America,94,2019-01,2026-10,1.01,Monthly
 Vantara Auto,HYD-023,Latin America,10,2025-02,2026-10,2.33,Bi-Monthly
@@ -3482,10 +3304,10 @@ Vantara Auto,HYD-037,Europe,1,2023-11,2023-11,0.0,Ad-hoc / Single Order
 Vantara Auto,HYD-039,India,91,2019-01,2026-10,1.04,Monthly
 Vantara Auto,HYD-045,India,87,2019-01,2026-10,1.09,Monthly
 Vantara Auto,HYD-047,Europe,1,2022-06,2022-06,0.0,Ad-hoc / Single Order
-Vantara Auto,HYD-047,North America,83,2019-01,2026-10,1.15,Monthly
+Vantara Auto,HYD-047,North America,84,2019-01,2026-10,1.13,Monthly
 Vantara Auto,HYD-049,Europe,1,2025-09,2025-09,0.0,Ad-hoc / Single Order
 Vantara Auto,HYD-049,Latin America,92,2019-01,2026-10,1.03,Monthly
-Vantara Auto,HYD-050,Europe,25,2024-09,2026-10,1.08,Monthly
+Vantara Auto,HYD-050,Europe,26,2024-09,2026-10,1.04,Monthly
 Vantara Auto,HYD-051,Asia Pacific,91,2019-01,2026-10,1.04,Monthly
 Vantara Auto,HYD-052,Europe,1,2024-11,2024-11,0.0,Ad-hoc / Single Order
 Vantara Auto,HYD-052,India,54,2022-04,2026-10,1.04,Monthly
@@ -3498,10 +3320,10 @@ Vantara Auto,HYD-055,Latin America,89,2019-01,2026-10,1.07,Monthly
 Vantara Auto,HYD-056,Europe,90,2019-01,2026-10,1.06,Monthly
 Vantara Auto,HYD-058,India,89,2019-01,2026-10,1.07,Monthly
 Vantara Auto,HYD-059,India,22,2024-10,2026-10,1.19,Monthly
-Vantara Auto,HYD-064,Europe,90,2019-01,2026-10,1.06,Monthly
+Vantara Auto,HYD-064,Europe,91,2019-01,2026-10,1.04,Monthly
 Vantara Auto,HYD-066,North America,33,2023-11,2026-10,1.12,Monthly
 Vantara Auto,HYD-067,India,73,2020-08,2026-10,1.04,Monthly
-Vantara Auto,HYD-069,India,90,2019-01,2026-10,1.06,Monthly
+Vantara Auto,HYD-069,India,91,2019-01,2026-10,1.04,Monthly
 Vantara Auto,HYD-069,Latin America,93,2019-01,2026-10,1.02,Monthly
 Vantara Auto,HYD-070,Europe,1,2026-09,2026-09,0.0,Ad-hoc / Single Order
 Vantara Auto,HYD-070,North America,32,2023-10,2026-10,1.19,Monthly
@@ -3514,24 +3336,24 @@ Vantara Auto,HYD-076,North America,92,2019-01,2026-10,1.03,Monthly
 Vantara Auto,HYD-077,Europe,1,2023-02,2023-02,0.0,Ad-hoc / Single Order
 Vantara Auto,HYD-077,North America,84,2019-01,2026-10,1.13,Monthly
 Vantara Auto,HYD-078,Europe,32,2019-01,2026-10,3.03,Quarterly
-Vantara Auto,HYD-078,North America,90,2019-01,2026-10,1.06,Monthly
+Vantara Auto,HYD-078,North America,91,2019-01,2026-10,1.04,Monthly
 Vantara Auto,HYD-079,Latin America,67,2020-08,2026-10,1.14,Monthly
-Vantara Auto,HYD-080,Latin America,62,2019-01,2026-10,1.54,Bi-Monthly
-Vantara Auto,HYD-083,Latin America,90,2019-01,2026-10,1.06,Monthly
+Vantara Auto,HYD-080,Latin America,63,2019-01,2026-10,1.52,Bi-Monthly
+Vantara Auto,HYD-083,Latin America,91,2019-01,2026-10,1.04,Monthly
 Vantara Auto,HYD-084,Europe,85,2019-01,2026-10,1.12,Monthly
-Vantara Auto,HYD-084,India,46,2019-01,2026-09,2.07,Bi-Monthly
+Vantara Auto,HYD-084,India,47,2019-01,2026-09,2.02,Bi-Monthly
 Vantara Auto,HYD-086,Asia Pacific,23,2024-12,2026-10,1.05,Monthly
 Vantara Auto,HYD-087,Europe,94,2019-01,2026-10,1.01,Monthly
 Vantara Auto,HYD-088,India,31,2019-03,2026-09,3.03,Quarterly
 Vantara Auto,PMP-004,Europe,3,2020-02,2026-02,36.5,Irregular
 Vantara Auto,PMP-004,North America,81,2019-01,2026-10,1.18,Monthly
 Vantara Auto,PMP-005,India,93,2019-01,2026-10,1.02,Monthly
-Vantara Auto,PMP-006,Europe,38,2020-03,2026-09,2.14,Bi-Monthly
+Vantara Auto,PMP-006,Europe,39,2020-03,2026-09,2.08,Bi-Monthly
 Vantara Auto,PMP-007,Latin America,85,2019-01,2026-10,1.12,Monthly
 Vantara Auto,PMP-012,Asia Pacific,34,2019-01,2026-10,2.85,Quarterly
 Vantara Auto,PMP-013,Europe,93,2019-01,2026-10,1.02,Monthly
 Vantara Auto,PMP-014,Latin America,63,2021-03,2026-10,1.1,Monthly
-Vantara Auto,PMP-014,North America,58,2021-03,2026-10,1.19,Monthly
+Vantara Auto,PMP-014,North America,59,2021-03,2026-10,1.17,Monthly
 Vantara Auto,PMP-015,Europe,1,2022-03,2022-03,0.0,Ad-hoc / Single Order
 Vantara Auto,PMP-015,North America,81,2019-01,2026-10,1.18,Monthly
 Vantara Auto,PMP-016,Europe,93,2019-01,2026-10,1.02,Monthly
@@ -3549,7 +3371,7 @@ Vantara Auto,PMP-037,India,32,2019-01,2026-10,3.03,Quarterly
 Vantara Auto,PMP-039,Europe,19,2022-04,2026-10,3.06,Quarterly
 Vantara Auto,PMP-040,India,66,2019-02,2026-10,1.43,Bi-Monthly
 Vantara Auto,PMP-043,Asia Pacific,60,2021-07,2026-10,1.08,Monthly
-Vantara Auto,PMP-043,Europe,30,2021-08,2026-10,2.17,Bi-Monthly
+Vantara Auto,PMP-043,Europe,31,2021-08,2026-10,2.1,Bi-Monthly
 Vantara Auto,PMP-044,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Vantara Auto,PMP-047,North America,44,2019-01,2022-12,1.12,Monthly
 Vantara Auto,PMP-048,Europe,85,2019-01,2026-10,1.12,Monthly
@@ -3561,7 +3383,7 @@ Vantara Auto,PMP-052,Europe,1,2021-01,2021-01,0.0,Ad-hoc / Single Order
 Vantara Auto,PMP-052,Latin America,46,2019-01,2026-09,2.07,Bi-Monthly
 Vantara Auto,PMP-053,Europe,47,2019-02,2026-10,2.02,Bi-Monthly
 Vantara Auto,PMP-054,India,94,2019-01,2026-10,1.01,Monthly
-Vantara Auto,PMP-056,North America,58,2019-02,2026-09,1.61,Bi-Monthly
+Vantara Auto,PMP-056,North America,59,2019-02,2026-09,1.59,Bi-Monthly
 Vantara Auto,PMP-058,Europe,94,2019-01,2026-10,1.01,Monthly
 Vantara Auto,PMP-061,Europe,2,2019-08,2025-04,69.0,Irregular
 Vantara Auto,PMP-061,India,88,2019-01,2026-10,1.08,Monthly
@@ -3579,12 +3401,12 @@ Vantara Auto,PMP-076,Latin America,88,2019-02,2026-10,1.07,Monthly
 Vantara Auto,PMP-077,Europe,4,2020-05,2022-06,8.67,Irregular
 Vantara Auto,PMP-077,Latin America,90,2019-01,2026-10,1.06,Monthly
 Vantara Auto,PMP-077,North America,86,2019-01,2026-10,1.11,Monthly
-Vantara Auto,PMP-080,Latin America,93,2019-01,2026-10,1.02,Monthly
+Vantara Auto,PMP-080,Latin America,94,2019-01,2026-10,1.01,Monthly
 Vantara Auto,PMP-087,Europe,93,2019-01,2026-10,1.02,Monthly
 Vantara Auto,PTC-005,Asia Pacific,89,2019-01,2026-10,1.07,Monthly
 Vantara Auto,PTC-005,Europe,86,2019-01,2026-10,1.11,Monthly
 Vantara Auto,PTC-005,North America,86,2019-01,2026-10,1.11,Monthly
-Vantara Auto,PTC-006,North America,93,2019-01,2026-10,1.02,Monthly
+Vantara Auto,PTC-006,North America,94,2019-01,2026-10,1.01,Monthly
 Vantara Auto,PTC-007,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Vantara Auto,PTC-011,Latin America,86,2019-01,2026-10,1.11,Monthly
 Vantara Auto,PTC-012,Asia Pacific,91,2019-01,2026-10,1.04,Monthly
@@ -3592,8 +3414,8 @@ Vantara Auto,PTC-012,Europe,1,2024-09,2024-09,0.0,Ad-hoc / Single Order
 Vantara Auto,PTC-012,India,92,2019-01,2026-10,1.03,Monthly
 Vantara Auto,PTC-012,North America,29,2019-03,2026-09,3.25,Quarterly
 Vantara Auto,PTC-014,Europe,2,2021-12,2026-05,54.0,Irregular
-Vantara Auto,PTC-014,North America,81,2019-01,2026-10,1.18,Monthly
-Vantara Auto,PTC-019,Europe,85,2019-01,2026-10,1.12,Monthly
+Vantara Auto,PTC-014,North America,82,2019-01,2026-10,1.16,Monthly
+Vantara Auto,PTC-019,Europe,86,2019-01,2026-10,1.11,Monthly
 Vantara Auto,PTC-020,North America,61,2019-01,2026-10,1.57,Bi-Monthly
 Vantara Auto,PTC-023,Asia Pacific,84,2019-01,2026-10,1.13,Monthly
 Vantara Auto,PTC-025,North America,14,2019-02,2021-06,2.23,Bi-Monthly
@@ -3602,13 +3424,13 @@ Vantara Auto,PTC-032,Europe,93,2019-01,2026-10,1.02,Monthly
 Vantara Auto,PTC-032,Latin America,91,2019-01,2026-10,1.04,Monthly
 Vantara Auto,PTC-036,India,46,2019-01,2026-09,2.07,Bi-Monthly
 Vantara Auto,PTC-038,India,93,2019-01,2026-10,1.02,Monthly
-Vantara Auto,PTC-038,North America,52,2019-01,2025-10,1.61,Bi-Monthly
-Vantara Auto,PTC-041,Europe,59,2019-02,2026-09,1.59,Bi-Monthly
+Vantara Auto,PTC-038,North America,53,2019-01,2025-10,1.58,Bi-Monthly
+Vantara Auto,PTC-041,Europe,60,2019-02,2026-09,1.56,Bi-Monthly
 Vantara Auto,PTC-048,Europe,59,2021-11,2026-10,1.03,Monthly
 Vantara Auto,PTC-049,Asia Pacific,47,2019-01,2026-09,2.02,Bi-Monthly
 Vantara Auto,PTC-050,Latin America,86,2019-01,2026-10,1.11,Monthly
 Vantara Auto,PTC-052,Europe,84,2019-01,2026-10,1.13,Monthly
-Vantara Auto,PTC-054,India,91,2019-01,2026-10,1.04,Monthly
+Vantara Auto,PTC-054,India,92,2019-01,2026-10,1.03,Monthly
 Vantara Auto,PTC-055,Asia Pacific,47,2019-01,2026-09,2.02,Bi-Monthly
 Vantara Auto,PTC-056,Europe,84,2019-01,2026-10,1.13,Monthly
 Vantara Auto,PTC-056,India,84,2019-01,2026-10,1.13,Monthly
@@ -3619,11 +3441,11 @@ Vantara Auto,PTC-071,Europe,1,2022-05,2022-05,0.0,Ad-hoc / Single Order
 Vantara Auto,PTC-071,North America,23,2020-11,2026-08,3.18,Quarterly
 Vantara Auto,PTC-074,Europe,93,2019-01,2026-10,1.02,Monthly
 Vantara Auto,PTC-074,India,84,2019-01,2026-10,1.13,Monthly
-Vantara Auto,PTC-075,North America,91,2019-01,2026-10,1.04,Monthly
+Vantara Auto,PTC-075,North America,92,2019-01,2026-10,1.03,Monthly
 Vantara Auto,PTC-084,Europe,94,2019-01,2026-10,1.01,Monthly
 Vantara Auto,PTC-086,Asia Pacific,91,2019-01,2026-10,1.04,Monthly
 Vantara Auto,PTC-087,Europe,34,2024-01,2026-10,1.03,Monthly
-Vantara Auto,THM-001,India,85,2019-01,2026-10,1.12,Monthly
+Vantara Auto,THM-001,India,86,2019-01,2026-10,1.11,Monthly
 Vantara Auto,THM-004,North America,86,2019-01,2026-10,1.11,Monthly
 Vantara Auto,THM-006,Asia Pacific,47,2019-01,2026-09,2.02,Bi-Monthly
 Vantara Auto,THM-006,Europe,48,2019-01,2026-09,1.98,Bi-Monthly
@@ -3665,34 +3487,11 @@ Vantara Auto,THM-063,North America,23,2022-11,2026-09,2.14,Bi-Monthly
 Vantara Auto,THM-065,Europe,1,2024-04,2024-04,0.0,Ad-hoc / Single Order
 Vantara Auto,THM-065,India,92,2019-01,2026-10,1.03,Monthly
 Vantara Auto,THM-070,India,47,2019-02,2026-10,2.02,Bi-Monthly
-Vantara Auto,THM-071,Latin America,92,2019-01,2026-10,1.03,Monthly
+Vantara Auto,THM-071,Latin America,93,2019-01,2026-10,1.02,Monthly
 Vantara Auto,THM-072,India,63,2019-01,2026-10,1.52,Bi-Monthly
 Vantara Auto,THM-074,Asia Pacific,93,2019-01,2026-10,1.02,Monthly
 Vantara Auto,THM-075,Europe,1,2020-04,2020-04,0.0,Ad-hoc / Single Order
-Vantara Auto,THM-075,Latin America,81,2019-01,2026-10,1.18,Monthly
+Vantara Auto,THM-075,Latin America,82,2019-01,2026-10,1.16,Monthly
 Vantara Auto,THM-076,Asia Pacific,90,2019-01,2026-10,1.06,Monthly
-Vantara Auto,THM-078,Europe,37,2023-05,2026-10,1.17,Monthly
+Vantara Auto,THM-078,Europe,38,2023-05,2026-10,1.14,Monthly
 Vantara Auto,THM-079,Europe,81,2019-12,2026-10,1.04,Monthly
-Vantra Auto,BSS-057,Latin America,1,2025-08,2025-08,0.0,Ad-hoc / Single Order
-Vantra Auto,BSS-063,Latin America,1,2022-11,2022-11,0.0,Ad-hoc / Single Order
-Vantra Auto,CSS-082,Latin America,1,2022-04,2022-04,0.0,Ad-hoc / Single Order
-Vantra Auto,HYD-017,India,1,2022-04,2022-04,0.0,Ad-hoc / Single Order
-Vantra Auto,PMP-014,North America,1,2025-09,2025-09,0.0,Ad-hoc / Single Order
-Vantra Auto,PTC-019,Europe,1,2024-07,2024-07,0.0,Ad-hoc / Single Order
-Vantra Auto,THM-001,India,1,2023-01,2023-01,0.0,Ad-hoc / Single Order
-Vantra Auto,THM-071,Latin America,1,2021-01,2021-01,0.0,Ad-hoc / Single Order
-Vatara Auto,BSS-008,Europe,1,2022-06,2022-06,0.0,Ad-hoc / Single Order
-Vatara Auto,BSS-010,Asia Pacific,1,2025-05,2025-05,0.0,Ad-hoc / Single Order
-Vatara Auto,CSS-066,Asia Pacific,1,2021-04,2021-04,0.0,Ad-hoc / Single Order
-Vatara Auto,ELA-020,Latin America,1,2025-06,2025-06,0.0,Ad-hoc / Single Order
-Vatara Auto,PMP-043,Europe,1,2021-10,2021-10,0.0,Ad-hoc / Single Order
-Vatara Auto,PMP-056,North America,1,2026-06,2026-06,0.0,Ad-hoc / Single Order
-Vatara Auto,PMP-080,Latin America,1,2026-01,2026-01,0.0,Ad-hoc / Single Order
-Vntara Auto,CSS-031,Latin America,1,2021-09,2021-09,0.0,Ad-hoc / Single Order
-Vntara Auto,CSS-045,India,1,2019-01,2019-01,0.0,Ad-hoc / Single Order
-Vntara Auto,CSS-059,North America,1,2024-05,2024-05,0.0,Ad-hoc / Single Order
-Vntara Auto,CSS-084,Europe,1,2022-12,2022-12,0.0,Ad-hoc / Single Order
-Vntara Auto,ELA-087,Latin America,1,2024-10,2024-10,0.0,Ad-hoc / Single Order
-Vntara Auto,HYD-047,North America,1,2021-01,2021-01,0.0,Ad-hoc / Single Order
-Vntara Auto,HYD-084,India,1,2020-07,2020-07,0.0,Ad-hoc / Single Order
-Vntara Auto,PMP-006,Europe,1,2025-09,2025-09,0.0,Ad-hoc / Single Order

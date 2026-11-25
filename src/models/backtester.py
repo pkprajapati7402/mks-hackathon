@@ -38,6 +38,23 @@ def compute_coverage(actual: np.ndarray, p10: np.ndarray, p90: np.ndarray) -> fl
     return float(np.mean(covered) * 100.0)
 
 
+def compute_pinball_loss(actual: np.ndarray, q_pred: np.ndarray, tau: float) -> float:
+    if len(actual) == 0:
+        return 0.0
+    diff = actual - q_pred
+    loss = np.where(diff >= 0, tau * diff, (tau - 1.0) * diff)
+    return float(np.mean(loss))
+
+
+def compute_winkler_80(actual: np.ndarray, p10: np.ndarray, p90: np.ndarray, alpha: float = 0.20) -> float:
+    if len(actual) == 0:
+        return 0.0
+    width = np.maximum(0.0, p90 - p10)
+    penalty_lo = np.where(actual < p10, (2.0 / alpha) * (p10 - actual), 0.0)
+    penalty_hi = np.where(actual > p90, (2.0 / alpha) * (actual - p90), 0.0)
+    return float(np.mean(width + penalty_lo + penalty_hi))
+
+
 def run_rolling_origin_backtest(
     panel_df: pd.DataFrame,
     sku_master: pd.DataFrame,
@@ -77,32 +94,53 @@ def run_rolling_origin_backtest(
         test_slice["Pred_Moving_Average"] = forecast_moving_average(hist_base, test_slice, window=12, target_col=target_col).values
         test_slice["Pred_Intermittent_SBA"] = forecast_intermittent_sba(hist_base, test_slice, target_col=target_col).values
 
-        # 3. Hybrid LightGBM + CQR Quantiles
-        lgb_preds, lgb_meta = train_and_forecast_lgb(train_snap, test_slice, target_col=target_col, n_estimators=130, compute_shap=False)
+        # 3. Multi-Paradigm Hybrid Ensemble (Hurdle + LightGBM + HistGB + PyTorch ResNet) + CQR
+        lgb_preds, lgb_meta = train_and_forecast_lgb(train_snap, test_slice, target_col=target_col, n_estimators=260, compute_shap=False)
         test_slice["Pred_LightGBM_P10"] = lgb_preds["P10"].values
         test_slice["Pred_LightGBM_P50"] = lgb_preds["P50"].values
         test_slice["Pred_LightGBM_P90"] = lgb_preds["P90"].values
         test_slice["Pred_LightGBM_Raw_P10"] = lgb_preds["Raw_P10"].values
         test_slice["Pred_LightGBM_Raw_P90"] = lgb_preds["Raw_P90"].values
+        for col_src, col_dst in [
+            ("Pred_Hurdle", "Pred_Hurdle"),
+            ("Pred_HistGB", "Pred_HistGB"),
+            ("Pred_PyTorch", "Pred_PyTorch"),
+            ("Pred_Tweedie", "Pred_Tweedie"),
+            ("Pred_LogRatio", "Pred_LogRatio"),
+        ]:
+            if col_src in lgb_preds.columns:
+                test_slice[col_dst] = lgb_preds[col_src].values
 
         # 4. Enforce catalog lifecycle boundaries (strictly <= origin history)
         test_slice = apply_lifecycle_and_cold_start(test_slice, sku_master, hist_base)
         test_slice["Backtest_Origin"] = origin
         all_preds.append(test_slice)
 
-        # 5. Compute overall metrics + calibrated interval coverage
+        # 5. Compute overall metrics + calibrated interval coverage + Pinball / Winkler scores
         y_true = pd.to_numeric(test_slice[target_col], errors="coerce").fillna(0.0).values
         cov_raw = compute_coverage(y_true, test_slice["Pred_LightGBM_Raw_P10"].values, test_slice["Pred_LightGBM_Raw_P90"].values)
         cov_cal = compute_coverage(y_true, test_slice["Pred_LightGBM_P10"].values, test_slice["Pred_LightGBM_P90"].values)
+        pinball_avg = round((
+            compute_pinball_loss(y_true, test_slice["Pred_LightGBM_P10"].values, 0.10)
+            + compute_pinball_loss(y_true, test_slice["Pred_LightGBM_P50"].values, 0.50)
+            + compute_pinball_loss(y_true, test_slice["Pred_LightGBM_P90"].values, 0.90)
+        ) / 3.0, 2)
+        winkler_80 = round(compute_winkler_80(y_true, test_slice["Pred_LightGBM_P10"].values, test_slice["Pred_LightGBM_P90"].values), 2)
 
         models = {
             "Seasonal Naive": test_slice["Pred_Seasonal_Naive"].values,
             "Moving Average": test_slice["Pred_Moving_Average"].values,
             "Intermittent SBA": test_slice["Pred_Intermittent_SBA"].values,
-            "LightGBM P50": test_slice["Pred_LightGBM_P50"].values,
+            "HistGB Poisson": test_slice["Pred_HistGB"].values,
+            "PyTorch Entity-ResNet": test_slice["Pred_PyTorch"].values,
+            "Hurdle Two-Stage": test_slice["Pred_Hurdle"].values,
+            "LightGBM Tweedie": test_slice["Pred_Tweedie"].values,
+            "LightGBM LogRatio": test_slice["Pred_LogRatio"].values,
+            "Grandmaster Ensemble P50": test_slice["Pred_LightGBM_P50"].values,
         }
 
         for model_name, y_pred in models.items():
+            is_hero = model_name == "Grandmaster Ensemble P50"
             all_metrics.append({
                 "Origin": origin,
                 "Model": model_name,
@@ -110,9 +148,15 @@ def run_rolling_origin_backtest(
                 "WAPE_Pct": round(compute_wape(y_true, y_pred), 2),
                 "Bias_Pct": round(compute_bias(y_true, y_pred), 2),
                 "RMSE": round(compute_rmse(y_true, y_pred), 2),
-                "Raw_Coverage_Pct": round(cov_raw, 1) if model_name == "LightGBM P50" else np.nan,
-                "Calibrated_Coverage_Pct": round(cov_cal, 1) if model_name == "LightGBM P50" else np.nan,
+                "Raw_Coverage_Pct": round(cov_raw, 1) if is_hero else np.nan,
+                "Calibrated_Coverage_Pct": round(cov_cal, 1) if is_hero else np.nan,
+                "Pinball_Loss_Avg": pinball_avg if is_hero else round(compute_pinball_loss(y_true, y_pred, 0.50), 2),
+                "Winkler_80_Score": winkler_80 if is_hero else np.nan,
             })
+
+        ens_w = compute_wape(y_true, test_slice["Pred_LightGBM_P50"].values)
+        ens_b = compute_bias(y_true, test_slice["Pred_LightGBM_P50"].values)
+        print(f"    Origin {origin}: Ensemble WAPE={ens_w:.2f}% | Bias={ens_b:+.2f}% | CQR Cov={cov_cal:.1f}% | Pinball={pinball_avg:.2f}", flush=True)
 
         # 6. Granular breakdowns (Family, Region, Horizon) for Dashboard Accuracy View
         for grp_type, grp_col in [("Product_Family", "Product_Family"), ("Region", "Region"), ("Horizon", "horizon_months")]:

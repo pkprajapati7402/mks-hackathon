@@ -1,8 +1,8 @@
-Product_Family,Selected_Champion_Model,Selection_WAPE_Pct,Holdout_WAPE_Pct,Seasonal_Naive_WAPE,Moving_Average_WAPE,Intermittent_SBA_WAPE,LightGBM_P50_WAPE
-Brake & Safety Systems,LightGBM P50,30.51,29.33,38.88,49.55,49.15,30.51
-Chassis & Structural,LightGBM P50,32.32,30.68,39.73,50.11,49.79,32.32
-Electrical Assemblies,LightGBM P50,34.73,36.18,43.03,53.61,53.87,34.73
-Hydraulic Systems,LightGBM P50,34.01,32.49,42.45,56.46,58.95,34.01
-Precision Machined Parts,LightGBM P50,32.06,31.52,40.32,52.0,51.81,32.06
-Powertrain Components,LightGBM P50,30.93,30.69,39.48,51.5,51.81,30.93
-Thermal Management,LightGBM P50,32.08,30.04,39.71,52.87,52.97,32.08
+Product_Family,Selected_Champion_Model,Selection_WAPE_Pct,Holdout_WAPE_Pct,Seasonal_Naive_WAPE,Moving_Average_WAPE,Intermittent_SBA_WAPE,HistGB_WAPE,PyTorch_ResNet_WAPE,Hurdle_WAPE,Ensemble_P50_WAPE,LightGBM_P50_WAPE
+Brake & Safety Systems,Grandmaster Ensemble P50,29.3,27.64,38.88,49.55,49.15,29.91,31.13,30.0,29.3,29.3
+Chassis & Structural,Grandmaster Ensemble P50,30.31,28.65,39.73,50.11,49.79,31.27,30.89,31.39,30.31,30.31
+Electrical Assemblies,Grandmaster Ensemble P50,32.23,34.19,43.03,53.61,53.87,32.7,32.52,33.29,32.23,32.23
+Hydraulic Systems,Grandmaster Ensemble P50,32.62,32.81,42.45,56.46,58.95,33.58,33.11,33.28,32.62,32.62
+Precision Machined Parts,Grandmaster Ensemble P50,30.38,30.39,40.32,52.0,51.81,31.3,30.63,31.0,30.38,30.38
+Powertrain Components,Grandmaster Ensemble P50,29.43,30.11,39.48,51.5,51.81,30.29,29.76,30.38,29.43,29.43
+Thermal Management,Grandmaster Ensemble P50,30.01,28.2,39.71,52.87,52.97,31.04,30.3,31.06,30.01,30.01

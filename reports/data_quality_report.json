@@ -12,7 +12,7 @@
       "dates_parsed": 9967,
       "year_2062_typos_fixed": 30,
       "skus_normalized": 3683,
-      "customers_normalized": 2221,
+      "customers_normalized": 2455,
       "channels_normalized": 3683,
       "blank_regions_recovered": 942,
       "negative_units_reversals": 491,

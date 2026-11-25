@@ -31,6 +31,10 @@ def test_customer_normalization():
     assert normalize_customer_name("VANTARA AUTO") == "Vantara Auto"
     assert normalize_customer_name("Atlas Mideast") == "Atlas Mideast Components"
     assert normalize_customer_name("Falcon Gulf") == "Falcon Gulf Motors"
+    assert normalize_customer_name("Aex Tier One") == "Apex Tier One"
+    assert normalize_customer_name("Vntara Auto") == "Vantara Auto"
+    assert normalize_customer_name("Slaris Automotive") == "Solaris Automotive"
+    assert normalize_customer_name("Neon Motor Group") == "Nexon Motor Group"
 
 def test_region_mapping():
     assert REGION_MAP.get("north america") == "North America"

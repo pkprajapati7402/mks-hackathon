@@ -4,6 +4,7 @@ Fully vectorized for sub-second execution on 250,000+ rows.
 All modifications are logged to src.audit.audit.
 """
 
+import difflib
 import re
 from typing import Tuple, Dict, Any, Optional
 import numpy as np
@@ -64,31 +65,39 @@ def normalize_sku_id(val: Any) -> str:
         return f"{m.group(1).upper()}-{int(m.group(2)):03d}"
     return s.upper()
 
+_CUSTOMER_LOOKUP = {c.lower(): c for c in CANONICAL_CUSTOMERS}
+_CUSTOMER_KEYWORDS = [
+    ("tier one", "Apex Tier One"), ("apex", "Apex Tier One"),
+    ("mideast", "Atlas Mideast Components"), ("atlas", "Atlas Mideast Components"),
+    ("crestline", "Crestline Manufacturing"), ("manufacturing", "Crestline Manufacturing"),
+    ("gulf", "Falcon Gulf Motors"), ("falcon", "Falcon Gulf Motors"),
+    ("auto parts", "Helios Auto Parts"), ("helios", "Helios Auto Parts"),
+    ("mobility", "Kestrel Mobility"), ("kestrel", "Kestrel Mobility"),
+    ("assembly", "Meridian Assembly"), ("meridian", "Meridian Assembly"),
+    ("motor group", "Nexon Motor Group"), ("nexon", "Nexon Motor Group"),
+    ("driveline", "Orion Driveline"), ("orion", "Orion Driveline"),
+    ("drive systems", "Quantum Drive Systems"), ("quantum", "Quantum Drive Systems"),
+    ("automotive", "Solaris Automotive"), ("solaris", "Solaris Automotive"),
+    ("vantara", "Vantara Auto"), ("auto", "Vantara Auto"),
+]
+
+
 def normalize_customer_name(val: Any) -> str:
-    """Map raw customer strings to 12 canonical names."""
+    """Map raw customer strings (including single/multi-char typos) to 12 canonical names."""
     if pd.isna(val) or not str(val).strip():
         return "Unknown"
     s = str(val).strip().lower()
     s = re.sub(r"[^\w\s]", " ", s)
     s = re.sub(r"\s+", " ", s).strip()
-    
-    if "apex" in s: return "Apex Tier One"
-    if "atlas" in s or "mideast" in s: return "Atlas Mideast Components"
-    if "crestline" in s: return "Crestline Manufacturing"
-    if "falcon" in s: return "Falcon Gulf Motors"
-    if "helios" in s: return "Helios Auto Parts"
-    if "kestrel" in s: return "Kestrel Mobility"
-    if "meridian" in s: return "Meridian Assembly"
-    if "nexon" in s: return "Nexon Motor Group"
-    if "orion" in s: return "Orion Driveline"
-    if "quantum" in s: return "Quantum Drive Systems"
-    if "solaris" in s: return "Solaris Automotive"
-    if "vantara" in s: return "Vantara Auto"
-    
-    for canon in CANONICAL_CUSTOMERS:
-        if canon.lower() in s:
+
+    for kw, canon in _CUSTOMER_KEYWORDS:
+        if kw in s:
             return canon
-    return val
+
+    close = difflib.get_close_matches(s, list(_CUSTOMER_LOOKUP.keys()), n=1, cutoff=0.65)
+    if close:
+        return _CUSTOMER_LOOKUP[close[0]]
+    return str(val).strip()
 
 def clean_train_data(
     raw: pd.DataFrame,

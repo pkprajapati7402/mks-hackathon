@@ -141,22 +141,22 @@ def run_pipeline(stage: str = "all"):
     # ---------------------------------------------------------
     # STAGE 5: FINAL MULTI-QUANTILE FORECASTING & RECONCILIATION
     # ---------------------------------------------------------
-    print("\n>>> [STAGE 5/6] Training Final Multi-Quantile Ensemble + CQR + Tree-SHAP...")
+    print("\n>>> [STAGE 5/6] Training Multi-Paradigm Ensemble (Hurdle + LightGBM + HistGB + PyTorch ResNet) + CQR + Tree-SHAP...")
     t0 = time.time()
 
     lgb_preds, lgb_meta = train_and_forecast_lgb(
         train_features, test_features, target_col="Units_Sold_Unconstrained",
-        n_estimators=160, compute_shap=True
+        n_estimators=320, compute_shap=True
     )
 
-    # Respect Family Champion Selection when any baseline strictly beat ML on out-of-sample CV
+    # Respect Family Champion Selection when any standalone model strictly beat Ensemble on out-of-sample CV
     if not family_selection.empty:
         from src.models.baselines import forecast_seasonal_naive, forecast_moving_average
         from src.models.intermittent import forecast_intermittent_sba
         hist_base = full_panel[full_panel["Date"] <= "2026-10"].copy()
         champ_map = dict(zip(family_selection["Product_Family"], family_selection["Selected_Champion_Model"]))
         for fam, champ in champ_map.items():
-            if champ != "LightGBM P50":
+            if champ in ("Seasonal Naive", "Moving Average", "Intermittent SBA"):
                 fam_mask = test_features["Product_Family"] == fam
                 if fam_mask.any():
                     if champ == "Seasonal Naive":

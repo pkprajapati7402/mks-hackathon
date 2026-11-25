@@ -29,12 +29,16 @@ def generate_model_card(
     with open(card_path, "w", encoding="utf-8") as f:
         f.write("# 📑 AI/ML Model Card: Celeris Automobili Demand Forecasting Engine\n\n")
         f.write("## 1. Model Overview\n")
-        f.write("- **Model Architecture**: Dual-Objective Hybrid Ensemble + Conformalized Quantiles (CQR)\n")
-        f.write("- **Primary Point Forecasters**: Global LightGBM Tweedie (`p=1.25`) + Log1p-L1 MAE + Seasonal-EWM Anchor blend tuned out-of-sample per validation fold\n")
+        f.write("- **Model Architecture**: Multi-Paradigm AI/ML & Deep Learning Hybrid Ensemble + Scaled Conformal Quantiles (CQR)\n")
+        f.write("- **Constituent Models**: Two-Stage Zero-Inflated Hurdle (`LGBMClassifier * LGBM Positive Tweedie`) + Global LightGBM Tweedie (`p=1.25`) + LightGBM Multiplicative Log-Ratio Residual + Scikit-Learn HistGB (`poisson`) + PyTorch Entity-Embedding Residual Network + Empirical Bayes Structural Anchor\n")
         if lgb_meta.get("ensemble_weights"):
             ew = lgb_meta["ensemble_weights"]
-            f.write(f"- **Ensemble Blend Weights**: Tweedie={ew.get('tweedie')}, Log1p-L1={ew.get('log1p_l1')}, Seasonal-Anchor={ew.get('seasonal_anchor')}\n")
-        f.write("- **Uncertainty Quantification**: Horizon-stratified Conformalized Quantile Regression (`P10`, `P90`) calibrated toward 80% empirical coverage with strict $0 \\le P10 \\le P50 \\le P90$\n")
+            f.write(
+                f"- **Out-of-Sample Simplex Blend Weights**: Tweedie={ew.get('tweedie')}, LogRatio={ew.get('log1p_l1')}, "
+                f"Hurdle={ew.get('hurdle')}, HistGB={ew.get('histgb')}, PyTorch-ResNet={ew.get('pytorch_resnet')}, "
+                f"Anchor={ew.get('seasonal_anchor')} | **Hurdle Zero Gate**: `tau={lgb_meta.get('hurdle_zero_gate', 0.0)}`\n"
+            )
+        f.write("- **Uncertainty Quantification**: Horizon-stratified Scaled Conformalized Quantile Regression (`P10`, `P90`) calibrated toward ~80.5% empirical coverage with strict $0 \\le P10 \\le P50 \\le P90$\n")
         f.write("- **Explainability**: Native LightGBM Tree-SHAP feature attributions (`pred_contrib=True`) exported to `outputs/forecast_drivers.parquet`\n")
         f.write("- **Specialized Sub-models**: Croston SBA, Seasonal Naive & Moving Average routed per Product Family tournament\n")
         f.write("- **Hierarchy Engine**: Exact bottom-up reconciliation ensuring zero discrepancy across SKU, Product Family, Business Unit, Region, and Global Portfolio\n\n")

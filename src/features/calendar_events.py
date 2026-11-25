@@ -46,9 +46,13 @@ def add_calendar_and_event_features(
     out["Year"] = year
     out["Quarter"] = quarter
 
-    # 2. Cyclical Encodings
+    # 2. Cyclical Encodings (1st, 2nd & 3rd Fourier seasonal harmonics)
     out["month_sin"] = np.sin(2.0 * np.pi * (month - 1) / 12.0).round(4)
     out["month_cos"] = np.cos(2.0 * np.pi * (month - 1) / 12.0).round(4)
+    out["month_sin2"] = np.sin(4.0 * np.pi * (month - 1) / 12.0).round(4)
+    out["month_cos2"] = np.cos(4.0 * np.pi * (month - 1) / 12.0).round(4)
+    out["month_sin3"] = np.sin(6.0 * np.pi * (month - 1) / 12.0).round(4)
+    out["month_cos3"] = np.cos(6.0 * np.pi * (month - 1) / 12.0).round(4)
     out["quarter_sin"] = np.sin(2.0 * np.pi * (quarter - 1) / 4.0).round(4)
     out["quarter_cos"] = np.cos(2.0 * np.pi * (quarter - 1) / 4.0).round(4)
 
