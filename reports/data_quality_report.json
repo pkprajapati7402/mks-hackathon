@@ -17,10 +17,19 @@
       "blank_regions_recovered": 942,
       "negative_units_reversals": 491,
       "blank_units_filled": 90,
-      "entry_errors_corrected": 107,
-      "prices_repaired": 37351,
-      "revenue_reconciled": 4822,
-      "lifecycle_violations_zeroed": 15
+      "entry_errors_corrected": 370,
+      "unit_10x_recovered": 293,
+      "unit_100x_recovered": 75,
+      "prices_repaired": 37849,
+      "cents_100x_fixed": 614,
+      "decimal_10x_fixed": 385,
+      "currency_eur_fixed": 498,
+      "revenue_reconciled": 4883,
+      "family_mismatches_fixed": 1228,
+      "bu_mismatches_fixed": 0,
+      "lifecycle_violations_zeroed": 15,
+      "clean_total_units": 11531608,
+      "clean_total_revenue_usd": 8438015805.15
     },
     "sku_master.csv": {
       "raw_rows": 601,
@@ -86,7 +95,19 @@
       "file": "train.csv",
       "rule_id": "A3",
       "field": "Units_Sold",
-      "modification_count": 107
+      "modification_count": 2
+    },
+    {
+      "file": "train.csv",
+      "rule_id": "A3_100x",
+      "field": "Units_Sold",
+      "modification_count": 32
+    },
+    {
+      "file": "train.csv",
+      "rule_id": "A3_10x",
+      "field": "Units_Sold",
+      "modification_count": 118
     },
     {
       "file": "train.csv",
@@ -98,7 +119,13 @@
       "file": "train.csv",
       "rule_id": "T12",
       "field": "Unit_Price_USD",
-      "modification_count": 100
+      "modification_count": 116
+    },
+    {
+      "file": "train.csv",
+      "rule_id": "T12_CENTS",
+      "field": "Unit_Price_USD",
+      "modification_count": 4
     },
     {
       "file": "train.csv",

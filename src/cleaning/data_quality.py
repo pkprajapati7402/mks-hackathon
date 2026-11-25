@@ -41,9 +41,18 @@ def generate_data_quality_report(
                 "negative_units_reversals": train_dq.get("T11_negative_units_reversals", 0),
                 "blank_units_filled": train_dq.get("T11_blank_units_filled_stockouts", 0),
                 "entry_errors_corrected": train_dq.get("A3_entry_errors_fixed", 0),
+                "unit_10x_recovered": train_dq.get("A3_unit_10x_recovered", 0),
+                "unit_100x_recovered": train_dq.get("A3_unit_100x_recovered", 0),
                 "prices_repaired": train_dq.get("T12_prices_repaired", 0),
+                "cents_100x_fixed": train_dq.get("T12_cents_100x_fixed", 0),
+                "decimal_10x_fixed": train_dq.get("T12_decimal_10x_fixed", 0),
+                "currency_eur_fixed": train_dq.get("T12_currency_eur_fixed", 0),
                 "revenue_reconciled": train_dq.get("T13_revenue_reconciled", 0),
-                "lifecycle_violations_zeroed": train_dq.get("R5_lifecycle_violations_zeroed", 0)
+                "family_mismatches_fixed": train_dq.get("T7_family_mismatches_fixed", 0),
+                "bu_mismatches_fixed": train_dq.get("T7_bu_mismatches_fixed", 0),
+                "lifecycle_violations_zeroed": train_dq.get("R5_lifecycle_violations_zeroed", 0),
+                "clean_total_units": train_dq.get("clean_total_units", 0),
+                "clean_total_revenue_usd": train_dq.get("clean_total_revenue_usd", 0.0)
             },
             "sku_master.csv": {
                 "raw_rows": sku_dq.get("raw_rows", 0),

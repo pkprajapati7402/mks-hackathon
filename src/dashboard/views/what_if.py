@@ -28,14 +28,15 @@ def render_view(forecast_df: pd.DataFrame):
         ev_shock = st.slider("EV Adoption Index Acceleration (%):", min_value=-20.0, max_value=+30.0, value=+15.0, step=5.0,
                              help="e.g. +15% accelerated electric vehicle transition.")
 
+    col_e1, col_e2 = st.columns(2)
+    with col_e1:
+        export_shock = st.checkbox("Simulate Red-Sea-Style Export Logistics Disruption (-25% Q1 Export)", value=False)
+    with col_e2:
+        price_surge = st.checkbox("Simulate Early-Buying Pre-Price-Hike Rush (+15% Nov/Dec)", value=False)
+
     # 2. Dynamic Scenario Demand Recalculation
-    # Elasticity coefficients derived from regression importances:
-    # PMI: ~1.8% demand impact per PMI point
-    # Raw materials: -0.25% demand elasticity
-    # EV shock: +0.65% impact on EV components, -0.4% on ICE components
     baseline_tot = forecast_df["Units_Sold_Forecast"].sum()
 
-    # Compute SKU-level shocked adjustments
     pmi_mult = 1.0 + (pmi_shock * 0.018)
     mat_mult = 1.0 - (raw_mat_shock * 0.0025)
 
@@ -48,6 +49,14 @@ def render_view(forecast_df: pd.DataFrame):
         is_ice = forecast_df["Powertrain_Application"] == "ICE"
         shocked_fcst[is_ev] = shocked_fcst[is_ev] * (1.0 + ev_shock * 0.012)
         shocked_fcst[is_ice] = shocked_fcst[is_ice] * (1.0 - ev_shock * 0.006)
+
+    if export_shock and "Sales_Channel" in forecast_df.columns:
+        q1_exp = (forecast_df["Sales_Channel"] == "Export") & (forecast_df["Date"].str[5:7].isin(["01", "02", "03"]))
+        shocked_fcst[q1_exp] = shocked_fcst[q1_exp] * 0.75
+
+    if price_surge:
+        pre_hike = forecast_df["Date"].str[5:7].isin(["11", "12"])
+        shocked_fcst[pre_hike] = shocked_fcst[pre_hike] * 1.15
 
     shocked_tot = shocked_fcst.sum()
     delta_units = shocked_tot - baseline_tot

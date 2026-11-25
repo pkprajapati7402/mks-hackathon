@@ -7,7 +7,7 @@ This report documents the automated data cleaning and quality audit pipeline exe
 
 | File | Raw Rows | Clean Rows | Key Anomalies Addressed |
 |---|---|---|---|
-| `train.csv` | 248,248 | 244,490 | Deduplicated 3,682 records; fixed 2062 typos (30); repaired 37,351 prices; filled 90 stockouts |
+| `train.csv` | 248,248 | 244,490 | Deduplicated 3,682 records; fixed 2062 typos (30); repaired 37,849 prices; filled 90 stockouts |
 | `sku_master.csv` | 601 | 601 | Repaired 1 Precision Machined Parts BU conflicts |
 | `macro_indicators.csv` | 114 | 113 | Resolved duplicate 2022-06; repaired 12 fraction percentages and 1 PMI shifts |
 | `events_calendar.csv` | 68 | 68 | Cleaned mixed date formats and parsed Customer/Region composite scopes |
@@ -37,9 +37,12 @@ This report documents the automated data cleaning and quality audit pipeline exe
 | macro_indicators.csv | M4        | Missing_Values          |                    5 |
 | sku_master.csv       | S1        | Business_Unit           |                    1 |
 | train.csv            | A2        | Units_Sold              |                   90 |
-| train.csv            | A3        | Units_Sold              |                  107 |
+| train.csv            | A3        | Units_Sold              |                    2 |
+| train.csv            | A3_100x   | Units_Sold              |                   32 |
+| train.csv            | A3_10x    | Units_Sold              |                  118 |
 | train.csv            | R5        | Units_Sold              |                   15 |
-| train.csv            | T12       | Unit_Price_USD          |                  100 |
+| train.csv            | T12       | Unit_Price_USD          |                  116 |
+| train.csv            | T12_CENTS | Unit_Price_USD          |                    4 |
 | train.csv            | T3        | Date                    |                   30 |
 | train.csv            | T5        | Region                  |                  942 |
 

@@ -58,6 +58,28 @@ def render_view(sku_master: pd.DataFrame, train_df: pd.DataFrame, forecast_df: p
         fig_pt.update_layout(paper_bgcolor="#1E293B", plot_bgcolor="#0F172A", coloraxis_showscale=False)
         render_chart(fig_pt)
 
+    # 5. Visual Predecessor-to-Successor Transition Trajectory (2025-2028)
+    st.markdown("#### 📈 Predecessor ➔ Successor Transition Ramp Verification (Planned Launches & EOL)")
+    pairs = [("PTC-005", "PTC-029"), ("PMP-003", "PMP-020"), ("THM-001", "THM-012")]
+    selected_pair = st.selectbox(
+        "Inspect Planned EOL ➔ Replacement Transition Pair:",
+        [f"{old} (EOL) ➔ {new} (Planned Launch)" for old, new in pairs],
+    )
+    old_sku, new_sku = selected_pair.split(" (EOL) ➔ ")[0], selected_pair.split(" (EOL) ➔ ")[1].split(" (")[0]
+    hist_p = train_df[train_df["SKU_ID"].isin([old_sku, new_sku]) & (train_df["Date"] >= "2025-01")].groupby(["Date", "SKU_ID"])["Units_Sold_Unconstrained"].sum().reset_index().rename(columns={"Units_Sold_Unconstrained": "Units"})
+    fcst_p = forecast_df[forecast_df["SKU_ID"].isin([old_sku, new_sku])].groupby(["Date", "SKU_ID"])["Units_Sold_Forecast"].sum().reset_index().rename(columns={"Units_Sold_Forecast": "Units"})
+    comb_p = pd.concat([hist_p, fcst_p], ignore_index=True).sort_values(["Date", "SKU_ID"])
+    if not comb_p.empty:
+        fig_tr = px.line(
+            comb_p, x="Date", y="Units", color="SKU_ID", markers=True,
+            title=f"Lifecycle Handoff: {old_sku} Phase-Out vs {new_sku} Cold-Start Ramp-Up",
+            template="plotly_dark",
+            color_discrete_map={old_sku: "#F59E0B", new_sku: "#00E5FF"},
+        )
+        fig_tr.add_shape(type="line", x0="2026-10", x1="2026-10", y0=0, y1=1, yref="paper", line=dict(color="#94A3B8", width=2, dash="dash"))
+        fig_tr.update_layout(paper_bgcolor="#1E293B", plot_bgcolor="#0F172A", yaxis_title="Monthly Units")
+        render_chart(fig_tr)
+
     # 3. Successor Mapping Table (Replaces_SKU)
     st.markdown("#### 🔗 Predecessor-Successor Transition Register")
     replacements = sku_master[sku_master["Replaces_SKU"].notna() & (sku_master["Replaces_SKU"].str.strip() != "")][

@@ -1,57 +1,57 @@
 Product_Family,Macro_Indicator,Optimal_Lag_Months,Max_Correlation,Relationship,lag_0,lag_1,lag_2,lag_3,lag_4,lag_5,lag_6,lag_7,lag_8,lag_9,lag_10,lag_11,lag_12
-Brake & Safety Systems,ISM_Manufacturing_PMI,12,-0.288,Leading Indicator,0.159,0.158,0.117,0.044,-0.008,-0.066,-0.1,-0.134,-0.142,-0.185,-0.229,-0.274,-0.288
-Brake & Safety Systems,Auto_Production_YoY_Pct,1,0.684,Leading Indicator,0.66,0.684,0.613,0.5,0.398,0.291,0.198,0.136,0.108,0.063,0.017,-0.021,-0.071
-Brake & Safety Systems,Vehicle_Inventory_Days,2,-0.26,Leading Indicator,-0.218,-0.246,-0.26,-0.259,-0.232,-0.209,-0.165,-0.135,-0.117,-0.122,-0.123,-0.124,-0.103
-Brake & Safety Systems,Raw_Material_Cost_Index,0,0.132,Coincident,0.132,0.12,0.094,0.077,0.066,0.07,0.055,0.052,0.036,0.031,0.047,0.063,0.067
-Brake & Safety Systems,New_Vehicle_Orders_Index,0,0.566,Coincident,0.566,0.553,0.463,0.354,0.258,0.174,0.094,0.048,0.026,-0.022,-0.056,-0.08,-0.088
-Brake & Safety Systems,Industrial_Util_Rate_Pct,0,0.519,Coincident,0.519,0.456,0.349,0.245,0.167,0.09,0.046,0.025,0.021,-0.021,-0.029,-0.042,-0.019
-Brake & Safety Systems,Fuel_Price_Index,12,0.307,Leading Indicator,0.238,0.215,0.188,0.17,0.162,0.167,0.187,0.21,0.235,0.259,0.279,0.287,0.307
-Brake & Safety Systems,EV_Adoption_Index,0,0.716,Coincident,0.716,0.707,0.699,0.695,0.692,0.692,0.68,0.674,0.662,0.655,0.651,0.64,0.627
-Chassis & Structural,ISM_Manufacturing_PMI,12,-0.385,Leading Indicator,0.056,0.071,0.036,-0.01,-0.053,-0.099,-0.141,-0.173,-0.208,-0.253,-0.307,-0.356,-0.385
-Chassis & Structural,Auto_Production_YoY_Pct,1,0.649,Leading Indicator,0.596,0.649,0.625,0.553,0.483,0.388,0.286,0.204,0.15,0.091,0.039,-0.016,-0.057
-Chassis & Structural,Vehicle_Inventory_Days,0,0.057,Coincident,0.057,0.029,0.006,-0.01,-0.013,-0.005,0.013,0.019,0.016,0.008,-0.004,-0.004,0.007
-Chassis & Structural,Raw_Material_Cost_Index,8,-0.13,Leading Indicator,-0.01,-0.029,-0.062,-0.084,-0.093,-0.105,-0.124,-0.126,-0.13,-0.128,-0.11,-0.091,-0.051
-Chassis & Structural,New_Vehicle_Orders_Index,1,0.518,Leading Indicator,0.51,0.518,0.451,0.374,0.291,0.203,0.117,0.048,-0.012,-0.071,-0.109,-0.144,-0.146
-Chassis & Structural,Industrial_Util_Rate_Pct,0,0.553,Coincident,0.553,0.495,0.41,0.332,0.256,0.187,0.141,0.111,0.074,0.037,0.031,0.008,0.04
-Chassis & Structural,Fuel_Price_Index,12,0.211,Leading Indicator,0.146,0.145,0.139,0.136,0.126,0.122,0.125,0.125,0.13,0.146,0.161,0.177,0.211
-Chassis & Structural,EV_Adoption_Index,12,0.75,Leading Indicator,0.707,0.704,0.705,0.714,0.725,0.727,0.726,0.729,0.73,0.736,0.744,0.745,0.75
-Electrical Assemblies,ISM_Manufacturing_PMI,12,-0.22,Leading Indicator,0.126,0.162,0.175,0.154,0.125,0.079,0.044,0.006,-0.026,-0.079,-0.13,-0.185,-0.22
-Electrical Assemblies,Auto_Production_YoY_Pct,2,0.559,Leading Indicator,0.499,0.552,0.559,0.526,0.476,0.407,0.325,0.259,0.212,0.17,0.148,0.123,0.103
-Electrical Assemblies,Vehicle_Inventory_Days,4,-0.188,Leading Indicator,-0.137,-0.154,-0.166,-0.183,-0.188,-0.184,-0.165,-0.152,-0.142,-0.145,-0.149,-0.146,-0.136
-Electrical Assemblies,Raw_Material_Cost_Index,1,0.194,Leading Indicator,0.182,0.194,0.187,0.193,0.188,0.179,0.157,0.141,0.109,0.092,0.077,0.07,0.064
-Electrical Assemblies,New_Vehicle_Orders_Index,1,0.623,Leading Indicator,0.583,0.623,0.617,0.581,0.516,0.436,0.351,0.28,0.215,0.145,0.088,0.046,0.023
-Electrical Assemblies,Industrial_Util_Rate_Pct,0,0.682,Coincident,0.682,0.644,0.587,0.5,0.399,0.304,0.221,0.157,0.103,0.045,0.015,-0.013,-0.005
-Electrical Assemblies,Fuel_Price_Index,0,0.329,Coincident,0.329,0.328,0.327,0.321,0.307,0.292,0.278,0.26,0.245,0.231,0.219,0.205,0.211
-Electrical Assemblies,EV_Adoption_Index,0,0.821,Coincident,0.821,0.816,0.812,0.817,0.817,0.815,0.81,0.806,0.797,0.794,0.789,0.782,0.776
-Hydraulic Systems,ISM_Manufacturing_PMI,2,0.479,Leading Indicator,0.385,0.452,0.479,0.456,0.437,0.393,0.356,0.305,0.276,0.208,0.15,0.052,-0.018
-Hydraulic Systems,Auto_Production_YoY_Pct,1,0.48,Leading Indicator,0.447,0.48,0.462,0.427,0.382,0.317,0.237,0.184,0.169,0.172,0.181,0.139,0.091
-Hydraulic Systems,Vehicle_Inventory_Days,3,-0.406,Leading Indicator,-0.355,-0.378,-0.392,-0.406,-0.393,-0.37,-0.324,-0.294,-0.251,-0.228,-0.211,-0.188,-0.146
-Hydraulic Systems,Raw_Material_Cost_Index,3,0.442,Leading Indicator,0.418,0.44,0.433,0.442,0.431,0.405,0.367,0.332,0.267,0.215,0.163,0.112,0.069
-Hydraulic Systems,New_Vehicle_Orders_Index,1,0.775,Leading Indicator,0.723,0.775,0.753,0.701,0.634,0.547,0.464,0.382,0.296,0.231,0.176,0.09,0.028
-Hydraulic Systems,Industrial_Util_Rate_Pct,0,0.727,Coincident,0.727,0.67,0.581,0.463,0.343,0.212,0.117,0.019,-0.059,-0.122,-0.18,-0.258,-0.274
-Hydraulic Systems,Fuel_Price_Index,0,0.449,Coincident,0.449,0.412,0.371,0.327,0.276,0.231,0.191,0.145,0.1,0.067,0.025,-0.014,-0.032
-Hydraulic Systems,EV_Adoption_Index,0,0.6,Coincident,0.6,0.592,0.585,0.592,0.588,0.588,0.581,0.576,0.559,0.557,0.546,0.536,0.524
-Precision Machined Parts,ISM_Manufacturing_PMI,2,0.303,Leading Indicator,0.221,0.287,0.303,0.279,0.243,0.197,0.162,0.132,0.111,0.066,0.016,-0.055,-0.09
-Precision Machined Parts,Auto_Production_YoY_Pct,1,0.65,Leading Indicator,0.609,0.65,0.628,0.571,0.473,0.334,0.212,0.137,0.116,0.1,0.086,0.051,0.025
-Precision Machined Parts,Vehicle_Inventory_Days,4,-0.326,Leading Indicator,-0.171,-0.224,-0.263,-0.312,-0.326,-0.324,-0.298,-0.277,-0.261,-0.265,-0.266,-0.259,-0.237
-Precision Machined Parts,Raw_Material_Cost_Index,6,0.276,Leading Indicator,0.196,0.215,0.226,0.25,0.253,0.267,0.276,0.271,0.259,0.251,0.245,0.243,0.236
-Precision Machined Parts,New_Vehicle_Orders_Index,1,0.675,Leading Indicator,0.628,0.675,0.641,0.592,0.51,0.418,0.336,0.273,0.224,0.179,0.132,0.083,0.058
-Precision Machined Parts,Industrial_Util_Rate_Pct,0,0.774,Coincident,0.774,0.731,0.66,0.549,0.425,0.308,0.224,0.148,0.094,0.028,-0.03,-0.088,-0.094
-Precision Machined Parts,Fuel_Price_Index,0,0.432,Coincident,0.432,0.42,0.399,0.374,0.339,0.313,0.293,0.27,0.258,0.248,0.232,0.221,0.221
-Precision Machined Parts,EV_Adoption_Index,6,0.615,Leading Indicator,0.589,0.582,0.578,0.596,0.6,0.61,0.615,0.609,0.6,0.598,0.593,0.588,0.575
-Powertrain Components,ISM_Manufacturing_PMI,4,0.303,Leading Indicator,0.182,0.252,0.281,0.294,0.303,0.274,0.244,0.213,0.185,0.119,0.052,-0.027,-0.075
-Powertrain Components,Auto_Production_YoY_Pct,3,0.673,Leading Indicator,0.503,0.61,0.65,0.673,0.643,0.527,0.39,0.273,0.195,0.13,0.062,-0.005,-0.029
-Powertrain Components,Vehicle_Inventory_Days,10,-0.356,Leading Indicator,-0.161,-0.207,-0.236,-0.283,-0.308,-0.333,-0.336,-0.334,-0.329,-0.35,-0.356,-0.339,-0.306
-Powertrain Components,Raw_Material_Cost_Index,3,0.315,Leading Indicator,0.294,0.312,0.303,0.315,0.297,0.293,0.289,0.268,0.233,0.236,0.234,0.229,0.238
-Powertrain Components,New_Vehicle_Orders_Index,1,0.678,Leading Indicator,0.611,0.678,0.671,0.667,0.63,0.553,0.451,0.352,0.265,0.181,0.093,-0.002,-0.042
-Powertrain Components,Industrial_Util_Rate_Pct,0,0.759,Coincident,0.759,0.714,0.661,0.585,0.488,0.368,0.257,0.158,0.074,-0.024,-0.11,-0.191,-0.189
-Powertrain Components,Fuel_Price_Index,1,0.43,Leading Indicator,0.428,0.43,0.429,0.42,0.387,0.364,0.332,0.285,0.252,0.23,0.201,0.184,0.18
-Powertrain Components,EV_Adoption_Index,6,0.517,Leading Indicator,0.505,0.494,0.485,0.5,0.503,0.516,0.517,0.507,0.496,0.51,0.511,0.511,0.507
-Thermal Management,ISM_Manufacturing_PMI,12,-0.428,Leading Indicator,0.411,0.425,0.395,0.321,0.251,0.155,0.086,0.017,-0.044,-0.147,-0.245,-0.36,-0.428
-Thermal Management,Auto_Production_YoY_Pct,1,0.695,Leading Indicator,0.636,0.695,0.639,0.515,0.391,0.236,0.103,0.033,-0.0,-0.052,-0.09,-0.143,-0.19
-Thermal Management,Vehicle_Inventory_Days,12,0.159,Leading Indicator,-0.099,-0.113,-0.109,-0.116,-0.1,-0.088,-0.036,-0.006,0.03,0.036,0.062,0.097,0.159
-Thermal Management,Raw_Material_Cost_Index,12,-0.167,Leading Indicator,0.163,0.12,0.053,0.012,-0.036,-0.065,-0.098,-0.105,-0.133,-0.143,-0.146,-0.152,-0.167
-Thermal Management,New_Vehicle_Orders_Index,0,0.616,Coincident,0.616,0.6,0.507,0.402,0.283,0.158,0.048,-0.02,-0.087,-0.17,-0.251,-0.323,-0.363
-Thermal Management,Industrial_Util_Rate_Pct,0,0.47,Coincident,0.47,0.391,0.283,0.163,0.045,-0.083,-0.143,-0.191,-0.229,-0.294,-0.316,-0.36,-0.32
-Thermal Management,Fuel_Price_Index,7,-0.145,Leading Indicator,0.11,0.059,0.003,-0.048,-0.096,-0.13,-0.142,-0.145,-0.133,-0.105,-0.083,-0.065,-0.037
-Thermal Management,EV_Adoption_Index,7,0.425,Leading Indicator,0.362,0.351,0.345,0.367,0.382,0.41,0.415,0.425,0.414,0.423,0.422,0.416,0.399
+Brake & Safety Systems,ISM_Manufacturing_PMI,12,-0.295,Leading Indicator,0.152,0.15,0.107,0.032,-0.022,-0.08,-0.113,-0.148,-0.154,-0.193,-0.234,-0.278,-0.295
+Brake & Safety Systems,Auto_Production_YoY_Pct,1,0.688,Leading Indicator,0.671,0.688,0.612,0.492,0.379,0.273,0.175,0.111,0.09,0.05,0.011,-0.026,-0.075
+Brake & Safety Systems,Vehicle_Inventory_Days,2,-0.263,Leading Indicator,-0.219,-0.248,-0.263,-0.262,-0.236,-0.21,-0.165,-0.136,-0.117,-0.117,-0.12,-0.121,-0.1
+Brake & Safety Systems,Raw_Material_Cost_Index,0,0.122,Coincident,0.122,0.112,0.085,0.07,0.061,0.065,0.05,0.054,0.042,0.037,0.052,0.071,0.077
+Brake & Safety Systems,New_Vehicle_Orders_Index,0,0.558,Coincident,0.558,0.545,0.454,0.342,0.246,0.161,0.082,0.037,0.016,-0.028,-0.055,-0.078,-0.084
+Brake & Safety Systems,Industrial_Util_Rate_Pct,0,0.511,Coincident,0.511,0.448,0.342,0.237,0.159,0.086,0.044,0.024,0.022,-0.015,-0.018,-0.035,-0.01
+Brake & Safety Systems,Fuel_Price_Index,12,0.316,Leading Indicator,0.244,0.221,0.193,0.172,0.164,0.165,0.184,0.209,0.235,0.262,0.286,0.295,0.316
+Brake & Safety Systems,EV_Adoption_Index,0,0.721,Coincident,0.721,0.712,0.704,0.7,0.697,0.693,0.68,0.675,0.661,0.653,0.649,0.638,0.625
+Chassis & Structural,ISM_Manufacturing_PMI,12,-0.375,Leading Indicator,0.048,0.065,0.033,-0.013,-0.054,-0.099,-0.142,-0.174,-0.202,-0.242,-0.295,-0.347,-0.375
+Chassis & Structural,Auto_Production_YoY_Pct,1,0.643,Leading Indicator,0.594,0.643,0.612,0.549,0.483,0.386,0.281,0.204,0.158,0.108,0.059,0.007,-0.037
+Chassis & Structural,Vehicle_Inventory_Days,0,0.052,Coincident,0.052,0.025,-0.001,-0.018,-0.024,-0.017,0.0,0.009,0.008,0.0,-0.016,-0.019,-0.005
+Chassis & Structural,Raw_Material_Cost_Index,8,-0.11,Leading Indicator,-0.012,-0.027,-0.054,-0.071,-0.078,-0.089,-0.103,-0.104,-0.11,-0.109,-0.088,-0.068,-0.035
+Chassis & Structural,New_Vehicle_Orders_Index,1,0.519,Leading Indicator,0.506,0.519,0.454,0.378,0.302,0.217,0.131,0.064,0.011,-0.04,-0.077,-0.113,-0.119
+Chassis & Structural,Industrial_Util_Rate_Pct,0,0.571,Coincident,0.571,0.516,0.43,0.354,0.277,0.207,0.155,0.125,0.095,0.064,0.047,0.027,0.056
+Chassis & Structural,Fuel_Price_Index,12,0.229,Leading Indicator,0.157,0.159,0.153,0.15,0.142,0.139,0.141,0.143,0.15,0.168,0.183,0.199,0.229
+Chassis & Structural,EV_Adoption_Index,11,0.768,Leading Indicator,0.727,0.725,0.727,0.737,0.749,0.752,0.751,0.752,0.752,0.757,0.767,0.768,0.767
+Electrical Assemblies,ISM_Manufacturing_PMI,12,-0.216,Leading Indicator,0.136,0.173,0.186,0.165,0.139,0.094,0.06,0.018,-0.018,-0.073,-0.123,-0.179,-0.216
+Electrical Assemblies,Auto_Production_YoY_Pct,2,0.561,Leading Indicator,0.501,0.554,0.561,0.528,0.48,0.415,0.336,0.262,0.212,0.168,0.145,0.118,0.096
+Electrical Assemblies,Vehicle_Inventory_Days,4,-0.202,Leading Indicator,-0.151,-0.168,-0.179,-0.198,-0.202,-0.198,-0.178,-0.168,-0.156,-0.159,-0.161,-0.158,-0.145
+Electrical Assemblies,Raw_Material_Cost_Index,1,0.212,Leading Indicator,0.199,0.212,0.205,0.21,0.205,0.195,0.171,0.154,0.12,0.102,0.086,0.077,0.068
+Electrical Assemblies,New_Vehicle_Orders_Index,1,0.633,Leading Indicator,0.592,0.633,0.628,0.593,0.529,0.449,0.367,0.288,0.218,0.146,0.088,0.043,0.017
+Electrical Assemblies,Industrial_Util_Rate_Pct,0,0.688,Coincident,0.688,0.648,0.59,0.501,0.398,0.302,0.222,0.146,0.09,0.03,-0.0,-0.029,-0.023
+Electrical Assemblies,Fuel_Price_Index,0,0.337,Coincident,0.337,0.335,0.333,0.328,0.315,0.299,0.285,0.265,0.246,0.23,0.216,0.202,0.204
+Electrical Assemblies,EV_Adoption_Index,0,0.818,Coincident,0.818,0.812,0.809,0.813,0.813,0.811,0.805,0.801,0.792,0.788,0.784,0.777,0.769
+Hydraulic Systems,ISM_Manufacturing_PMI,2,0.474,Leading Indicator,0.378,0.446,0.474,0.452,0.435,0.389,0.36,0.317,0.291,0.218,0.156,0.058,-0.007
+Hydraulic Systems,Auto_Production_YoY_Pct,1,0.481,Leading Indicator,0.444,0.481,0.458,0.417,0.38,0.318,0.243,0.194,0.178,0.165,0.167,0.132,0.088
+Hydraulic Systems,Vehicle_Inventory_Days,3,-0.41,Leading Indicator,-0.353,-0.381,-0.394,-0.41,-0.4,-0.379,-0.333,-0.3,-0.26,-0.243,-0.224,-0.2,-0.154
+Hydraulic Systems,Raw_Material_Cost_Index,3,0.444,Leading Indicator,0.418,0.444,0.433,0.444,0.436,0.413,0.376,0.344,0.28,0.229,0.178,0.126,0.082
+Hydraulic Systems,New_Vehicle_Orders_Index,1,0.77,Leading Indicator,0.715,0.77,0.75,0.702,0.635,0.55,0.469,0.394,0.318,0.243,0.177,0.093,0.034
+Hydraulic Systems,Industrial_Util_Rate_Pct,0,0.732,Coincident,0.732,0.675,0.586,0.472,0.351,0.221,0.128,0.034,-0.038,-0.12,-0.178,-0.26,-0.274
+Hydraulic Systems,Fuel_Price_Index,0,0.454,Coincident,0.454,0.419,0.381,0.339,0.285,0.238,0.199,0.151,0.108,0.074,0.033,-0.006,-0.026
+Hydraulic Systems,EV_Adoption_Index,0,0.593,Coincident,0.593,0.585,0.578,0.585,0.582,0.583,0.577,0.571,0.554,0.552,0.541,0.531,0.518
+Precision Machined Parts,ISM_Manufacturing_PMI,2,0.312,Leading Indicator,0.233,0.299,0.312,0.285,0.249,0.198,0.162,0.13,0.106,0.059,0.008,-0.06,-0.093
+Precision Machined Parts,Auto_Production_YoY_Pct,1,0.652,Leading Indicator,0.607,0.652,0.629,0.57,0.474,0.337,0.214,0.134,0.105,0.084,0.075,0.048,0.025
+Precision Machined Parts,Vehicle_Inventory_Days,4,-0.331,Leading Indicator,-0.171,-0.226,-0.266,-0.317,-0.331,-0.329,-0.303,-0.283,-0.265,-0.269,-0.27,-0.263,-0.239
+Precision Machined Parts,Raw_Material_Cost_Index,6,0.282,Leading Indicator,0.206,0.227,0.231,0.256,0.261,0.276,0.282,0.276,0.258,0.25,0.245,0.244,0.237
+Precision Machined Parts,New_Vehicle_Orders_Index,1,0.686,Leading Indicator,0.639,0.686,0.65,0.598,0.513,0.418,0.334,0.265,0.214,0.169,0.122,0.076,0.054
+Precision Machined Parts,Industrial_Util_Rate_Pct,0,0.782,Coincident,0.782,0.735,0.657,0.543,0.416,0.295,0.212,0.131,0.076,0.012,-0.044,-0.1,-0.101
+Precision Machined Parts,Fuel_Price_Index,0,0.436,Coincident,0.436,0.424,0.405,0.379,0.344,0.318,0.296,0.27,0.257,0.245,0.227,0.215,0.212
+Precision Machined Parts,EV_Adoption_Index,6,0.609,Leading Indicator,0.582,0.575,0.572,0.59,0.595,0.606,0.609,0.6,0.591,0.59,0.586,0.582,0.567
+Powertrain Components,ISM_Manufacturing_PMI,4,0.296,Leading Indicator,0.18,0.251,0.278,0.289,0.296,0.266,0.235,0.202,0.174,0.111,0.047,-0.032,-0.082
+Powertrain Components,Auto_Production_YoY_Pct,3,0.682,Leading Indicator,0.514,0.621,0.661,0.682,0.648,0.532,0.395,0.278,0.195,0.126,0.065,-0.005,-0.042
+Powertrain Components,Vehicle_Inventory_Days,10,-0.359,Leading Indicator,-0.156,-0.202,-0.231,-0.278,-0.305,-0.33,-0.336,-0.337,-0.333,-0.353,-0.359,-0.347,-0.316
+Powertrain Components,Raw_Material_Cost_Index,3,0.316,Leading Indicator,0.295,0.314,0.302,0.316,0.299,0.29,0.286,0.263,0.229,0.233,0.232,0.229,0.238
+Powertrain Components,New_Vehicle_Orders_Index,1,0.682,Leading Indicator,0.615,0.682,0.673,0.667,0.628,0.549,0.448,0.347,0.261,0.176,0.09,-0.001,-0.047
+Powertrain Components,Industrial_Util_Rate_Pct,0,0.764,Coincident,0.764,0.717,0.663,0.584,0.485,0.362,0.251,0.153,0.07,-0.025,-0.106,-0.183,-0.19
+Powertrain Components,Fuel_Price_Index,2,0.433,Leading Indicator,0.425,0.43,0.433,0.426,0.397,0.377,0.344,0.297,0.263,0.237,0.208,0.191,0.184
+Powertrain Components,EV_Adoption_Index,6,0.527,Leading Indicator,0.51,0.499,0.49,0.507,0.511,0.524,0.527,0.517,0.508,0.517,0.517,0.518,0.511
+Thermal Management,ISM_Manufacturing_PMI,1,0.436,Leading Indicator,0.423,0.436,0.404,0.33,0.258,0.16,0.092,0.021,-0.039,-0.144,-0.244,-0.359,-0.43
+Thermal Management,Auto_Production_YoY_Pct,1,0.693,Leading Indicator,0.637,0.693,0.633,0.508,0.381,0.226,0.088,0.017,-0.014,-0.063,-0.101,-0.156,-0.201
+Thermal Management,Vehicle_Inventory_Days,12,0.169,Leading Indicator,-0.106,-0.12,-0.114,-0.121,-0.104,-0.092,-0.038,-0.007,0.03,0.038,0.066,0.105,0.169
+Thermal Management,Raw_Material_Cost_Index,12,-0.173,Leading Indicator,0.168,0.126,0.057,0.016,-0.032,-0.063,-0.097,-0.107,-0.137,-0.146,-0.148,-0.155,-0.173
+Thermal Management,New_Vehicle_Orders_Index,0,0.618,Coincident,0.618,0.601,0.505,0.399,0.278,0.151,0.039,-0.029,-0.096,-0.18,-0.26,-0.334,-0.375
+Thermal Management,Industrial_Util_Rate_Pct,0,0.462,Coincident,0.462,0.38,0.272,0.15,0.03,-0.1,-0.163,-0.21,-0.249,-0.312,-0.334,-0.377,-0.335
+Thermal Management,Fuel_Price_Index,7,-0.16,Leading Indicator,0.106,0.053,-0.005,-0.057,-0.107,-0.144,-0.157,-0.16,-0.15,-0.12,-0.095,-0.079,-0.05
+Thermal Management,EV_Adoption_Index,7,0.409,Leading Indicator,0.344,0.332,0.325,0.347,0.364,0.392,0.398,0.409,0.399,0.408,0.407,0.398,0.381

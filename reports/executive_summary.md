@@ -2,8 +2,8 @@
 
 ## Strategic Outlook (2026-11 to 2028-05)
 
-- **Total 19-Month Projected Portfolio Demand**: **2,343,642 units** across **595 SKUs** and **6 global commercial regions**.
-- **Historical Comparison**: Total unconstrained demand over 2019-2026 was **11,733,326 units**.
+- **Total 19-Month Projected Portfolio Demand**: **2,748,978 units** across **595 SKUs** and **6 global commercial regions**.
+- **Historical Comparison**: Total unconstrained demand over 2019-2026 was **11,628,180 units**.
 - **Technology Transition**: Electric Vehicle (EV) assembly demand is projected to expand significantly, driven by accelerating global adoption indices, while internal combustion (ICE) components plateau.
 
 ## Core Operational Recommendations for Supply Chain Leadership

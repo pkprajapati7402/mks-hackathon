@@ -141,12 +141,31 @@ def run_pipeline(stage: str = "all"):
     # ---------------------------------------------------------
     # STAGE 5: FINAL MULTI-QUANTILE FORECASTING & RECONCILIATION
     # ---------------------------------------------------------
-    print("\n>>> [STAGE 5/6] Training Final Multi-Quantile LightGBM Engine (P10, P50, P90)...")
+    print("\n>>> [STAGE 5/6] Training Final Multi-Quantile Ensemble + CQR + Tree-SHAP...")
     t0 = time.time()
 
     lgb_preds, lgb_meta = train_and_forecast_lgb(
-        train_features, test_features, target_col="Units_Sold_Unconstrained"
+        train_features, test_features, target_col="Units_Sold_Unconstrained",
+        n_estimators=160, compute_shap=True
     )
+
+    # Respect Family Champion Selection when any baseline strictly beat ML on out-of-sample CV
+    if not family_selection.empty:
+        from src.models.baselines import forecast_seasonal_naive, forecast_moving_average
+        from src.models.intermittent import forecast_intermittent_sba
+        hist_base = full_panel[full_panel["Date"] <= "2026-10"].copy()
+        champ_map = dict(zip(family_selection["Product_Family"], family_selection["Selected_Champion_Model"]))
+        for fam, champ in champ_map.items():
+            if champ != "LightGBM P50":
+                fam_mask = test_features["Product_Family"] == fam
+                if fam_mask.any():
+                    if champ == "Seasonal Naive":
+                        alt = forecast_seasonal_naive(hist_base, test_features.loc[fam_mask]).values
+                    elif champ == "Moving Average":
+                        alt = forecast_moving_average(hist_base, test_features.loc[fam_mask]).values
+                    else:
+                        alt = forecast_intermittent_sba(hist_base, test_features.loc[fam_mask]).values
+                    lgb_preds.loc[fam_mask, "P50"] = np.round(0.5 * alt + 0.5 * lgb_preds.loc[fam_mask, "P50"].values)
 
     # Attach predictions to test features for lifecycle constraints
     test_features["P10"] = lgb_preds["P10"].values
@@ -154,16 +173,22 @@ def run_pipeline(stage: str = "all"):
     test_features["P90"] = lgb_preds["P90"].values
 
     # Apply EOL boundaries and cold-start transfer learning
+    hist_base_all = full_panel[full_panel["Date"] <= "2026-10"].copy()
     test_features = apply_lifecycle_and_cold_start(
-        test_features, sku_master_clean, train_features
+        test_features, sku_master_clean, hist_base_all
     )
     lgb_preds["P10"] = test_features["P10"].values
     lgb_preds["P50"] = test_features["P50"].values
     lgb_preds["P90"] = test_features["P90"].values
 
+    # Latest 2026 clean USD unit prices per SKU for Revenue Trend & ABC-XYZ Working Capital projections
+    recent_prices = train_clean[train_clean["Date"] >= "2026-01"].groupby("SKU_ID")["Unit_Price_USD"].median()
+    if recent_prices.empty:
+        recent_prices = train_clean.groupby("SKU_ID")["Unit_Price_USD"].median()
+
     # Hierarchical Reconciliation & Submission Generation
     submission_df, intervals_df, recon_check = reconcile_and_generate_submission(
-        test_features, lgb_preds, raw_test, sku_master_clean
+        test_features, lgb_preds, raw_test, sku_master_clean, sku_prices=recent_prices
     )
 
     print(f"  Stage 5 completed in {time.time() - t0:.2f}s!")

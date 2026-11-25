@@ -109,3 +109,25 @@ def render_view():
                     file_name="customer_ordering_cycles.csv",
                     mime="text/csv"
                 )
+
+        # ABC-XYZ Working Capital Matrix
+        abc_path = OUTPUTS_DIR / "abc_xyz_inventory.csv"
+        if abc_path.exists():
+            with open(abc_path, "rb") as f:
+                st.download_button(
+                    label="💎 Download abc_xyz_inventory.csv (Portfolio Optimizer)",
+                    data=f.read(),
+                    file_name="abc_xyz_inventory.csv",
+                    mime="text/csv"
+                )
+
+        # Master Data Contradictions Register
+        contra_path = REPORTS_DIR / "master_data_contradictions.csv"
+        if contra_path.exists():
+            with open(contra_path, "rb") as f:
+                st.download_button(
+                    label="⚠️ Download master_data_contradictions.csv",
+                    data=f.read(),
+                    file_name="master_data_contradictions.csv",
+                    mime="text/csv"
+                )

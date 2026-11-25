@@ -1,24 +1,24 @@
 """
 Per-Family Model Selection Engine (Workstream 4 Advanced Tier).
-Runs a model tournament per Product Family to select the best forecasting approach.
+Selects champion model minimizing selection-origin WAPE per Product Family, verifies on holdout 2025-03,
+and outputs actionable champion routing table consumed by Stage 5 forecasting.
 """
 
-from typing import Dict, Any, List
-import numpy as np
 import pandas as pd
 from src.config import OUTPUTS_DIR, CANONICAL_PRODUCT_FAMILIES
-from src.models.backtester import compute_wape, compute_bias
+from src.models.backtester import compute_wape
+
 
 def select_best_model_per_family(backtest_preds: pd.DataFrame) -> pd.DataFrame:
     """
-    Evaluates candidate models across selection origins (2023-10, 2024-10) per Product Family.
-    Selects model minimizing backtest WAPE. Holdout origin 2025-03 is evaluated as test check.
+    Evaluates candidate models across selection origins (2023-10, 2024-10) per Product Family,
+    checks generalization on holdout (2025-03), and writes family_model_selection.csv.
     """
     candidates = [
         ("Seasonal Naive", "Pred_Seasonal_Naive"),
         ("Moving Average", "Pred_Moving_Average"),
         ("Intermittent SBA", "Pred_Intermittent_SBA"),
-        ("LightGBM P50", "Pred_LightGBM_P50")
+        ("LightGBM P50", "Pred_LightGBM_P50"),
     ]
 
     selection_df = backtest_preds[backtest_preds["Backtest_Origin"].isin(["2023-10", "2024-10"])].copy()
@@ -28,7 +28,6 @@ def select_best_model_per_family(backtest_preds: pd.DataFrame) -> pd.DataFrame:
     for fam in CANONICAL_PRODUCT_FAMILIES:
         fam_sel = selection_df[selection_df["Product_Family"] == fam]
         fam_hold = holdout_df[holdout_df["Product_Family"] == fam]
-
         if fam_sel.empty:
             continue
 
@@ -45,7 +44,6 @@ def select_best_model_per_family(backtest_preds: pd.DataFrame) -> pd.DataFrame:
                     best_wape = w
                     best_model = m_name
 
-        # Evaluate best model on holdout
         hold_wape = 0.0
         if not fam_hold.empty and best_model:
             col_match = [c[1] for c in candidates if c[0] == best_model][0]
@@ -59,9 +57,10 @@ def select_best_model_per_family(backtest_preds: pd.DataFrame) -> pd.DataFrame:
             "Seasonal_Naive_WAPE": scores.get("Seasonal Naive", 0.0),
             "Moving_Average_WAPE": scores.get("Moving Average", 0.0),
             "Intermittent_SBA_WAPE": scores.get("Intermittent SBA", 0.0),
-            "LightGBM_P50_WAPE": scores.get("LightGBM P50", 0.0)
+            "LightGBM_P50_WAPE": scores.get("LightGBM P50", 0.0),
         })
 
     selection_report = pd.DataFrame(results)
+    OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
     selection_report.to_csv(OUTPUTS_DIR / "family_model_selection.csv", index=False)
     return selection_report

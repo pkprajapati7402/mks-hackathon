@@ -29,10 +29,14 @@ def generate_model_card(
     with open(card_path, "w", encoding="utf-8") as f:
         f.write("# 📑 AI/ML Model Card: Celeris Automobili Demand Forecasting Engine\n\n")
         f.write("## 1. Model Overview\n")
-        f.write("- **Model Architecture**: Multi-Tier Hybrid Demand Forecasting Engine\n")
-        f.write("- **Primary Learner**: Global LightGBM Regressor with Tweedie Objective (Variance Power = 1.2) for zero-inflated demand\n")
-        f.write("- **Uncertainty Quantification**: Pinball-loss Quantile Regression (P10, P50, P90) with monotonicity enforcement ($0 \\le P10 \\le P50 \\le P90$)\n")
-        f.write("- **Specialized Sub-models**: Croston SBA/TSB for lumpy/intermittent series, Seasonal Naive & Rolling Moving Average for baseline benchmarks\n")
+        f.write("- **Model Architecture**: Dual-Objective Hybrid Ensemble + Conformalized Quantiles (CQR)\n")
+        f.write("- **Primary Point Forecasters**: Global LightGBM Tweedie (`p=1.25`) + Log1p-L1 MAE + Seasonal-EWM Anchor blend tuned out-of-sample per validation fold\n")
+        if lgb_meta.get("ensemble_weights"):
+            ew = lgb_meta["ensemble_weights"]
+            f.write(f"- **Ensemble Blend Weights**: Tweedie={ew.get('tweedie')}, Log1p-L1={ew.get('log1p_l1')}, Seasonal-Anchor={ew.get('seasonal_anchor')}\n")
+        f.write("- **Uncertainty Quantification**: Horizon-stratified Conformalized Quantile Regression (`P10`, `P90`) calibrated toward 80% empirical coverage with strict $0 \\le P10 \\le P50 \\le P90$\n")
+        f.write("- **Explainability**: Native LightGBM Tree-SHAP feature attributions (`pred_contrib=True`) exported to `outputs/forecast_drivers.parquet`\n")
+        f.write("- **Specialized Sub-models**: Croston SBA, Seasonal Naive & Moving Average routed per Product Family tournament\n")
         f.write("- **Hierarchy Engine**: Exact bottom-up reconciliation ensuring zero discrepancy across SKU, Product Family, Business Unit, Region, and Global Portfolio\n\n")
 
         f.write("## 2. Intended Use & Scope\n")

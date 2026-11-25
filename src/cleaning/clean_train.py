@@ -11,7 +11,7 @@ import pandas as pd
 from src.config import (
     REGION_MAP, CANONICAL_REGIONS,
     CHANNEL_MAP, CANONICAL_CHANNELS,
-    CANONICAL_CUSTOMERS, PREFIX_TO_FAMILY, FAMILY_TO_BU
+    CANONICAL_CUSTOMERS, PREFIX_TO_FAMILY, FAMILY_TO_BU, REPORTS_DIR
 )
 from src.audit import audit
 
@@ -141,12 +141,37 @@ def clean_train_data(
     dq["T8_skus_normalized"] = int((df["SKU_ID"] != clean_skus).sum())
     df["SKU_ID"] = clean_skus
 
-    # 6. T7: Reconcile Product_Family and Business_Unit from SKU master
+    # 6. T7: Reconcile Product_Family and Business_Unit from SKU master & log contradictions
+    contradictions = []
     sku_to_family = dict(zip(sku_master["SKU_ID"], sku_master["Product_Family"]))
     sku_to_bu = dict(zip(sku_master["SKU_ID"], sku_master["Business_Unit"]))
     df["_prefix"] = df["SKU_ID"].str[:3]
-    df["Product_Family"] = df["SKU_ID"].map(sku_to_family).fillna(df["_prefix"].map(PREFIX_TO_FAMILY))
-    df["Business_Unit"] = df["SKU_ID"].map(sku_to_bu).fillna(df["Product_Family"].map(FAMILY_TO_BU))
+    expected_fam = df["SKU_ID"].map(sku_to_family).fillna(df["_prefix"].map(PREFIX_TO_FAMILY))
+    expected_bu = df["SKU_ID"].map(sku_to_bu).fillna(expected_fam.map(FAMILY_TO_BU))
+
+    fam_mismatch = df["Product_Family"].astype(str).str.strip() != expected_fam.astype(str)
+    bu_mismatch = df["Business_Unit"].astype(str).str.strip() != expected_bu.astype(str)
+    dq["T7_family_mismatches_fixed"] = int(fam_mismatch.sum())
+    dq["T7_bu_mismatches_fixed"] = int(bu_mismatch.sum())
+    for sku_id, cnt in df.loc[fam_mismatch, "SKU_ID"].value_counts().head(25).items():
+        contradictions.append({
+            "Check_Type": "Product_Family_Mismatch",
+            "SKU_ID": sku_id,
+            "Master_Value": sku_to_family.get(sku_id, "Unknown"),
+            "Records_Affected": int(cnt),
+            "Resolution": "Enforced authoritative sku_master Product_Family (Rule T7)"
+        })
+    for sku_id, cnt in df.loc[bu_mismatch, "SKU_ID"].value_counts().head(25).items():
+        contradictions.append({
+            "Check_Type": "Business_Unit_Mismatch",
+            "SKU_ID": sku_id,
+            "Master_Value": sku_to_bu.get(sku_id, "Unknown"),
+            "Records_Affected": int(cnt),
+            "Resolution": "Enforced authoritative sku_master Business_Unit (Rule T7)"
+        })
+
+    df["Product_Family"] = expected_fam
+    df["Business_Unit"] = expected_bu
     df.drop(columns=["_prefix"], inplace=True)
 
     # 7. T9: SKU_Description lookup
@@ -233,20 +258,83 @@ def clean_train_data(
 
     df["Units_Sold"] = numeric_units.fillna(0.0).round().astype(int)
 
-    # 12. A3: High Volume Entry Errors (blazing fast dictionary map)
+    # 12. T12 + A3 Exact Arithmetic & Currency Triangulation (Units * Price == Revenue)
+    # Parse Price and Revenue first so revenue proof resolves exact 10x / 100x unit vs cents vs EUR errors
+    raw_price = pd.to_numeric(
+        df["Unit_Price_USD"].astype(str).str.strip().str.replace(",", "", regex=False),
+        errors="coerce"
+    )
+    raw_rev = pd.to_numeric(
+        df["Revenue_USD"].astype(str).str.strip().str.replace(",", "", regex=False),
+        errors="coerce"
+    )
+    df["Unit_Price_USD"] = raw_price
+
+    # Canonical annual USD price reference (ignoring extreme decimals/cents/EUR)
+    clean_p_mask = raw_price.notna() & (raw_price > 0)
+    gross_sku_med = df.loc[clean_p_mask].groupby("SKU_ID")["Unit_Price_USD"].median().to_dict()
+    clean_p_norm = clean_p_mask & (
+        raw_price / df["SKU_ID"].map(gross_sku_med).fillna(100.0).clip(lower=0.01)
+    ).between(0.75, 1.5)
+    price_map = df.loc[clean_p_norm].groupby(["SKU_ID", "Year"])["Unit_Price_USD"].median().to_dict()
+    sku_price_map = df.loc[clean_p_norm].groupby("SKU_ID")["Unit_Price_USD"].median().to_dict()
+
+    ref_price = np.array([
+        price_map.get((s, y), sku_price_map.get(s, gross_sku_med.get(s, 100.0)))
+        for s, y in zip(df["SKU_ID"], df["Year"])
+    ], dtype=float)
+    # Account for EV-027 legitimate +6% raw-material surcharge in H2 2022 (2022-07..2022-12)
+    is_h2_2022 = df["Date"].between("2022-07", "2022-12").values
+    surcharge_ref = np.where(is_h2_2022, ref_price * 1.06, ref_price)
+
+    units_val = df["Units_Sold"].values.astype(float)
+    prices_val = df["Unit_Price_USD"].values.astype(float)
+    rev_val = raw_rev.values.astype(float)
+
+    # Step 12A: Fix 10x and 100x Unit Entry Errors proven by Revenue / Unit_Price == true units
+    price_is_clean = np.isfinite(prices_val) & (prices_val > 0) & (
+        (np.abs(prices_val / np.maximum(ref_price, 0.01) - 1.0) <= 0.15)
+        | (np.abs(prices_val / np.maximum(surcharge_ref, 0.01) - 1.0) <= 0.15)
+    )
+    rev_ratio = np.where(
+        (units_val > 0) & price_is_clean & np.isfinite(rev_val) & (rev_val > 0),
+        rev_val / np.maximum(units_val * prices_val, 1e-6),
+        1.0
+    )
+    unit_10x_mask = (rev_ratio >= 0.09) & (rev_ratio <= 0.11)
+    unit_100x_mask = (rev_ratio >= 0.009) & (rev_ratio <= 0.011)
+    dq["A3_unit_10x_recovered"] = int(unit_10x_mask.sum())
+    dq["A3_unit_100x_recovered"] = int(unit_100x_mask.sum())
+
+    unit_factor_mask = unit_10x_mask | unit_100x_mask
+    for idx in df.index[unit_factor_mask][:150]:
+        pos = df.index.get_loc(idx)
+        exact_u = int(round(rev_val[pos] / max(prices_val[pos], 0.01)))
+        tag = "A3_10x" if unit_10x_mask[pos] else "A3_100x"
+        audit.log(
+            "train.csv", df.at[idx, "Record_ID"], "Units_Sold",
+            int(units_val[pos]), exact_u, tag,
+            "Recovered exact units via Revenue_USD / Unit_Price_USD arithmetic check"
+        )
+    if unit_factor_mask.any():
+        recovered_exact = np.round(
+            rev_val[unit_factor_mask] / np.maximum(prices_val[unit_factor_mask], 0.01)
+        ).astype(int)
+        df.loc[df.index[unit_factor_mask], "Units_Sold"] = recovered_exact
+        units_val = df["Units_Sold"].values.astype(float)
+
+    # Step 12B: Fallback median guard for any remaining >20x unit spikes without matching revenue
     med_map = df[df["Units_Sold"] > 0].groupby(["SKU_ID", "Year"])["Units_Sold"].median().to_dict()
     sku_med_map = df[df["Units_Sold"] > 0].groupby("SKU_ID")["Units_Sold"].median().to_dict()
     ref_units_med = np.array([
         med_map.get((s, y), sku_med_map.get(s, 10.0))
         for s, y in zip(df["SKU_ID"], df["Year"])
     ], dtype=float)
-
-    units_val = df["Units_Sold"].values
     a3_mask = (units_val > 0) & (ref_units_med > 0) & (units_val > 20.0 * ref_units_med)
-    dq["A3_entry_errors_fixed"] = int(a3_mask.sum())
-    
+    dq["A3_entry_errors_fixed"] = int(a3_mask.sum()) + int(unit_factor_mask.sum())
+
     a3_indices = df.index[a3_mask]
-    for idx in a3_indices:
+    for idx in a3_indices[:100]:
         med_val = int(round(ref_units_med[df.index.get_loc(idx)]))
         raw_u = df.at[idx, "Units_Sold"]
         audit.log(
@@ -254,38 +342,40 @@ def clean_train_data(
             raw_u, med_val, "A3",
             f"Entry error correction: {raw_u / max(1, med_val):.1f}x higher than median ({med_val})"
         )
-    df.loc[a3_indices, "Units_Sold"] = np.round(ref_units_med[a3_mask]).astype(int)
+    if a3_mask.any():
+        df.loc[a3_indices, "Units_Sold"] = np.round(ref_units_med[a3_mask]).astype(int)
 
-    # 13. T12: Price Cleaning (blazing fast dictionary map)
-    df["Unit_Price_USD"] = pd.to_numeric(
-        df["Unit_Price_USD"].astype(str).str.strip().str.replace(",", "", regex=False),
-        errors="coerce"
-    )
-    price_map = df[df["Unit_Price_USD"] > 0].groupby(["SKU_ID", "Year"])["Unit_Price_USD"].median().to_dict()
-    sku_price_map = df[df["Unit_Price_USD"] > 0].groupby("SKU_ID")["Unit_Price_USD"].median().to_dict()
-    ref_price = np.array([
-        price_map.get((s, y), sku_price_map.get(s, 100.0))
-        for s, y in zip(df["SKU_ID"], df["Year"])
-    ], dtype=float)
-
-    prices_val = df["Unit_Price_USD"].values
+    # Step 13. T12: Price Cleaning (cents 100x, decimal 10x, EUR currency ~0.84x, missing)
     price_ratio = prices_val / np.maximum(ref_price, 0.01)
-    t12_mask = np.isnan(prices_val) | (prices_val <= 0) | (price_ratio > 5.0) | (price_ratio < 0.2)
+    cents_mask = np.isfinite(prices_val) & (price_ratio >= 85.0) & (price_ratio <= 115.0)
+    dec_mask = np.isfinite(prices_val) & (price_ratio >= 8.5) & (price_ratio <= 11.5)
+    eur_mask = np.isfinite(prices_val) & (price_ratio >= 0.78) & (price_ratio <= 0.90)
+    other_price_bad = np.isnan(prices_val) | (prices_val <= 0) | ((~cents_mask) & (~dec_mask) & (~eur_mask) & ((price_ratio > 1.25) | (price_ratio < 0.75)))
+    t12_mask = cents_mask | dec_mask | eur_mask | other_price_bad
+
+    dq["T12_cents_100x_fixed"] = int(cents_mask.sum())
+    dq["T12_decimal_10x_fixed"] = int(dec_mask.sum())
+    dq["T12_currency_eur_fixed"] = int(eur_mask.sum())
     dq["T12_prices_repaired"] = int(t12_mask.sum())
-    
-    t12_indices = df.index[t12_mask]
-    for idx in t12_indices[:100]:
+
+    fixed_prices = prices_val.copy()
+    fixed_prices[cents_mask] = np.round(prices_val[cents_mask] / 100.0, 2)
+    fixed_prices[dec_mask] = np.round(prices_val[dec_mask] / 10.0, 2)
+    fixed_prices[eur_mask | other_price_bad] = np.round(surcharge_ref[eur_mask | other_price_bad], 2)
+
+    for idx in df.index[t12_mask][:120]:
         pos = df.index.get_loc(idx)
+        rule_tag = "T12_CENTS" if cents_mask[pos] else ("T12_EUR" if eur_mask[pos] else ("T12_10X" if dec_mask[pos] else "T12"))
         audit.log(
             "train.csv", df.at[idx, "Record_ID"], "Unit_Price_USD",
-            df.at[idx, "Unit_Price_USD"], round(ref_price[pos], 2), "T12",
-            "Repaired abnormal/zero unit price with annual SKU median USD reference"
+            df.at[idx, "Unit_Price_USD"], round(float(fixed_prices[pos]), 2), rule_tag,
+            "Corrected unit price scale/currency anomaly to canonical USD reference"
         )
-    df.loc[t12_indices, "Unit_Price_USD"] = np.round(ref_price[t12_mask], 2)
+    df["Unit_Price_USD"] = np.round(fixed_prices, 2)
 
     # 14. T13: Reconcile Revenue_USD = Units_Sold * Unit_Price_USD
     expected_rev = (df["Units_Sold"] * df["Unit_Price_USD"]).round(2)
-    rev_diff = (pd.to_numeric(df["Revenue_USD"], errors="coerce") - expected_rev).abs() > 1.0
+    rev_diff = (raw_rev - expected_rev).abs() > 1.0
     dq["T13_revenue_reconciled"] = int(rev_diff.sum())
     df["Revenue_USD"] = expected_rev
 
@@ -306,6 +396,30 @@ def clean_train_data(
             df.at[idx, "Units_Sold"], 0, "R5",
             f"Enforced lifecycle boundary: Launch={df.at[idx, '_launch']}, EOL={df.at[idx, '_eol']}, Date={df.at[idx, 'Date']}"
         )
+    if (violates_launch & (df["Units_Sold"] > 0)).any():
+        for sku_id, cnt in df.loc[violates_launch & (df["Units_Sold"] > 0), "SKU_ID"].value_counts().items():
+            contradictions.append({
+                "Check_Type": "Sales_Before_Launch",
+                "SKU_ID": sku_id,
+                "Master_Value": sku_launch.get(sku_id, ""),
+                "Records_Affected": int(cnt),
+                "Resolution": "Zeroed pre-launch demand per Rule 5"
+            })
+    if (violates_eol & (df["Units_Sold"] > 0)).any():
+        for sku_id, cnt in df.loc[violates_eol & (df["Units_Sold"] > 0), "SKU_ID"].value_counts().items():
+            contradictions.append({
+                "Check_Type": "Sales_After_EOL",
+                "SKU_ID": sku_id,
+                "Master_Value": sku_eol.get(sku_id, ""),
+                "Records_Affected": int(cnt),
+                "Resolution": "Zeroed post-EOL demand per Rule 5"
+            })
+    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    pd.DataFrame(contradictions, columns=["Check_Type", "SKU_ID", "Master_Value", "Records_Affected", "Resolution"]).to_csv(
+        REPORTS_DIR / "master_data_contradictions.csv", index=False
+    )
+    dq["master_data_contradictions_groups"] = len(contradictions)
+
     df.loc[r5_mask, "Units_Sold"] = 0
     df.loc[r5_mask, "Revenue_USD"] = 0.0
     df.drop(columns=["_launch", "_eol"], inplace=True)
@@ -320,4 +434,6 @@ def clean_train_data(
     # Sort deterministically
     df = df.sort_values(["Date", "SKU_ID", "Region", "Customer_Name"]).reset_index(drop=True)
     dq["clean_rows"] = len(df)
+    dq["clean_total_units"] = int(df["Units_Sold"].sum())
+    dq["clean_total_revenue_usd"] = round(float(df["Revenue_USD"].sum()), 2)
     return df, dq

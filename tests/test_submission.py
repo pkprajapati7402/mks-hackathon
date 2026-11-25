@@ -49,6 +49,23 @@ def test_submission_format_and_integrity():
     if intervals_path.exists():
         fcst_df = pd.read_parquet(intervals_path)
         assert len(fcst_df) == 58219
-        for col in ["Product_Family", "Business_Unit", "Sales_Channel", "Customer_Name", "Powertrain_Application", "P10", "P50", "P90"]:
+        for col in ["Product_Family", "Business_Unit", "Sales_Channel", "Customer_Name", "Powertrain_Application", "P10", "P50", "P90", "Projected_Revenue_USD"]:
             assert col in fcst_df.columns, f"Missing column {col} in forecast_intervals.parquet"
         assert (fcst_df["P10"] <= fcst_df["P50"]).all() and (fcst_df["P50"] <= fcst_df["P90"]).all()
+
+    # 7. Check Advanced & Extraordinary Differentiator Artifacts
+    for rel_path in [
+        "outputs/forecast_drivers.parquet",
+        "outputs/abc_xyz_inventory.csv",
+        "outputs/backtest_breakdowns.csv",
+        "reports/master_data_contradictions.csv",
+        "reports/cadence_changes.csv",
+    ]:
+        p = PROJECT_ROOT / rel_path
+        assert p.exists(), f"Missing artifact: {rel_path}"
+
+    drv_df = pd.read_parquet(PROJECT_ROOT / "outputs" / "forecast_drivers.parquet")
+    assert len(drv_df) == 58219
+    abc_df = pd.read_csv(PROJECT_ROOT / "outputs" / "abc_xyz_inventory.csv")
+    assert len(abc_df) > 500
+    assert abc_df["ABC_Class"].nunique() == 3 and abc_df["XYZ_Class"].nunique() == 3

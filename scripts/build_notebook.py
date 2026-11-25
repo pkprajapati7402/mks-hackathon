@@ -1,6 +1,7 @@
 """
 Script to build mks_datathon_notebook.ipynb with bulletproof Google Colab (Web + VS Code Extension)
-and Local execution, verified column schemas, and full project integration.
+and Local execution, zero-leakage multi-horizon metrics, Tree-SHAP explainability, ABC-XYZ optimization,
+and Cloudflare Quick Tunnel dashboard launcher.
 """
 
 import json
@@ -20,7 +21,7 @@ notebook = {
             "metadata": {},
             "source": [
                 "# 🏭 Celeris Automobili Industrial: Demand Forecasting & Planning Control Tower\n",
-                "### MKS AIML Hackathon Phase 2: Production End-to-End Enterprise Demand Engine\n",
+                "### MKS AIML Hackathon Phase 2: Super-Expert End-to-End Demand Intelligence Platform\n",
                 "\n",
                 "[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pkprajapati7402/mks-hackathon/blob/main/mks_datathon_notebook.ipynb)\n",
                 "[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)\n",
@@ -29,18 +30,13 @@ notebook = {
                 "[![Submission Integrity](https://img.shields.io/badge/Submission%20Rows-58%2C219%20Valid-success)](#)\n",
                 "\n",
                 "---\n",
-                "### 📌 Executive Overview\n",
-                "This notebook runs the complete enterprise demand forecasting pipeline and S&OP control tower for **Celeris Automobili Industrial**, covering **601 commercial SKUs, 7 product families, 4 sales channels, and 6 global regions** across **November 2026 – May 2028 (19 months)**.\n",
-                "\n",
-                "Works seamlessly in **Google Colab Web**, **VS Code / Antigravity Google Colab Cloud**, and **Local Jupyter/Python**.\n",
-                "\n",
-                "#### 🎯 End-to-End Capabilities:\n",
-                "1. **ERP Data Cleaning & Row Audit**: 15+ vectorized cleaning rules (SKU normalization, customer/channel/region mapping, negative reversals, 2062 year typos, price outlier repair).\n",
-                "2. **Unconstrained Demand Reconstruction**: Proportional customer-level allocation from `inventory_stockouts.csv` to eliminate historical supply bias.\n",
-                "3. **Anomaly Register**: Separates supply shortages, COVID-19 shutdowns, chip shortages, pre-price-hike surges, and August Europe factory dips.\n",
-                "4. **Econometric Feature Store (95 Columns)**: Macro lead/lag drivers (`Auto_Production_YoY_Pct`, `New_Vehicle_Orders_Index`, `ISM_Manufacturing_PMI`), Syntetos-Boylan intermittency (ADI & CV2), and EV vs. ICE powertrain shifts.\n",
-                "5. **Leakage-Free 19-Month Rolling Backtest**: Evaluates Seasonal Naive, Moving Average, Intermittent Croston SBA, and Multi-Quantile LightGBM across `2023-10`, `2024-10`, and `2025-03` (holdout).\n",
-                "6. **Hierarchical Reconciliation & Lifecycle Governance**: Exact bottom-up reconciliation ($\\Delta = 0$) and hard pre-Launch / post-EOL enforcement."
+                "### 📌 Platform Architecture & Differentiators\n",
+                "Built for **Celeris Automobili Industrial** across **601 SKUs, 7 Product Families, 4 Sales Channels, and 6 Global Regions** (`2019-01 → 2028-05`):\n",
+                "1. **Exact Arithmetic & Currency Triangulation (`Units × Price = Revenue`)**: Recovers 10×/100× unit typos, cents entries, and EUR→USD currency mismatches while preserving legitimate H2-2022 6% surcharges (`EV-027`).\n",
+                "2. **Master Data Contradictions & Rule-6 Cadence Shift Audits**: Documents family/BU mismatches, Rule-5 launch/EOL violations, lost accounts, SKU switches, and temporal customer cadence shifts.\n",
+                "3. **Scoped Business Events Engine (`EV-001`..`EV-068`)**: Models open-ended `EV-052` (Helios India line expansion), `EV-062` (Orion NA July–Aug 2027 planned retooling), `EV-033` (LatAm ERP gap), `EV-039` (Red Sea), Ramadan, LNY, and price-hike announcements.\n",
+                "4. **Zero-Leakage Dual-Objective Ensemble + Conformal Quantiles (CQR)**: Blends LightGBM Tweedie + Log1p-L1 + Seasonal-EWM Anchor trained over causal multi-origin snapshots, with horizon-stratified CQR achieving ~80% `[P10, P90]` empirical coverage.\n",
+                "5. **Native Tree-SHAP Explainability & ABC-XYZ Working Capital Optimizer**: Decomposes every SKU-Region forecast into 6 business drivers (`pred_contrib=True`) and optimizes safety stock capital across the 9-cell ABC×XYZ matrix."
             ]
         },
         {
@@ -48,7 +44,7 @@ notebook = {
             "metadata": {},
             "source": [
                 "## 1. Environment Verification & Auto-Setup (Google Colab Cloud & Local)\n",
-                "Detects Colab Web, VS Code Colab Cloud, or Local runtime; clones/syncs the repository into `/content/mks-hackathon`; installs required packages; and configures Plotly & `sys.path`."
+                "Detects Colab Web, VS Code Colab Cloud, or Local runtime; syncs `/content/mks-hackathon`; installs dependencies; and configures Plotly & `sys.path`."
             ]
         },
         {
@@ -141,7 +137,7 @@ notebook = {
             "metadata": {},
             "source": [
                 "## 2. Execute Master Demand Pipeline\n",
-                "Runs the 6-stage pipeline cleanly from raw CSVs to final reconciled predictions (`outputs/submission.csv` & root `submission.csv`). Includes a self-healing path guard even if Cell 2 is executed standalone."
+                "Runs all 6 stages end-to-end: Triangulated Cleaning → Anomaly & Cycle Intelligence → Causal Multi-Horizon Features → Leakage-Free Rolling Backtesting → Hybrid LightGBM + CQR + Tree-SHAP → Hierarchical Reconciliation + ABC-XYZ Matrix."
             ]
         },
         {
@@ -162,7 +158,6 @@ notebook = {
                 "REPO_URL = \"https://github.com/pkprajapati7402/mks-hackathon.git\"\n",
                 "COLAB_REPO = Path(\"/content/mks-hackathon\")\n",
                 "\n",
-                "# Self-healing guard: works even if Cell 2 is executed before Cell 1\n",
                 "if not (Path.cwd() / \"run_pipeline.py\").exists():\n",
                 "    if (COLAB_REPO / \"run_pipeline.py\").exists():\n",
                 "        %cd /content/mks-hackathon\n",
@@ -186,7 +181,6 @@ notebook = {
                 "\n",
                 "from run_pipeline import run_pipeline\n",
                 "\n",
-                "# Execute complete end-to-end pipeline (~60-75 seconds)\n",
                 "run_pipeline(stage=\"all\")"
             ]
         },
@@ -194,8 +188,7 @@ notebook = {
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "## 3. Data Integrity & Anomaly Register Analysis\n",
-                "Inspect the audited file reconciliation report (`reports/data_quality_report.json`) and categorized historical anomalies (`reports/anomaly_register.csv`)."
+                "## 3. Data Integrity, Master Contradictions & 10-Category Anomaly Register"
             ]
         },
         {
@@ -216,37 +209,36 @@ notebook = {
                 PATH_GUARD_CELL,
                 "from src.config import REPORTS_DIR\n",
                 "\n",
-                "# 1. Load Data Quality Report\n",
                 "with open(REPORTS_DIR / \"data_quality_report.json\", \"r\", encoding=\"utf-8\") as f:\n",
                 "    dq_report = json.load(f)\n",
                 "\n",
-                "file_summaries = []\n",
-                "for fname, stats in dq_report.get(\"file_summaries\", {}).items():\n",
-                "    file_summaries.append({\n",
-                "        \"Dataset\": fname,\n",
-                "        \"Raw Rows\": f\"{stats.get('raw_rows', 0):,}\",\n",
-                "        \"Cleaned Rows\": f\"{stats.get('clean_rows', 0):,}\",\n",
-                "        \"Status\": \"Verified Clean ✅\"\n",
-                "    })\n",
+                "train_dq = dq_report.get(\"file_summaries\", {}).get(\"train.csv\", {})\n",
+                "print(f\"Exact Arithmetic & Currency Triangulation (train.csv):\")\n",
+                "print(f\"  - 10x Unit Typos Recovered: {train_dq.get('unit_10x_recovered', 0):,} | 100x Unit Typos: {train_dq.get('unit_100x_recovered', 0):,}\")\n",
+                "print(f\"  - Cents (100x) Prices: {train_dq.get('cents_100x_fixed', 0):,} | Decimal (10x): {train_dq.get('decimal_10x_fixed', 0):,} | EUR->USD: {train_dq.get('currency_eur_fixed', 0):,}\")\n",
+                "\n",
+                "file_summaries = [\n",
+                "    {\"Dataset\": fname, \"Raw Rows\": f\"{stats.get('raw_rows', 0):,}\", \"Cleaned Rows\": f\"{stats.get('clean_rows', 0):,}\", \"Status\": \"Verified Clean ✅\"}\n",
+                "    for fname, stats in dq_report.get(\"file_summaries\", {}).items()\n",
+                "]\n",
                 "display(pd.DataFrame(file_summaries))\n",
                 "\n",
-                "# 2. Inspect Anomaly Register\n",
+                "contra_df = pd.read_csv(REPORTS_DIR / \"master_data_contradictions.csv\")\n",
+                "print(f\"\\nMaster Data vs Transactions Contradictions Resolved: {len(contra_df):,} SKU-Rule groups\")\n",
+                "display(contra_df.head(8))\n",
+                "\n",
                 "anomaly_df = pd.read_csv(REPORTS_DIR / \"anomaly_register.csv\")\n",
                 "print(f\"\\nTotal Anomalies Categorized: {len(anomaly_df):,}\")\n",
-                "print(\"\\nAnomaly Breakdown by Type:\")\n",
                 "display(anomaly_df[\"Anomaly_Type\"].value_counts().to_frame(\"Count\"))\n",
-                "\n",
-                "print(\"\\nSample Flagged Anomalies with Business Context:\")\n",
                 "cols = [c for c in [\"Date\", \"SKU_ID\", \"Region\", \"Customer_Name\", \"Anomaly_Type\", \"Units_Sold\", \"Units_Sold_Unconstrained\", \"Lost_Units\", \"Reason\", \"Action_Taken\"] if c in anomaly_df.columns]\n",
-                "display(anomaly_df[cols].head(10))"
+                "display(anomaly_df[cols].head(8))"
             ]
         },
         {
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "## 4. Econometric Drivers & EV Powertrain Paradigm Shift\n",
-                "Examine macro lead/lag cross-correlations (`reports/macro_lead_lag_analysis.csv`), temporal lag stability (`reports/lag_stability_analysis.csv`), and the EV vs. ICE transition (`reports/ev_shift_analysis.csv`)."
+                "## 4. Econometric Drivers, Rule-6 Ordering Cadence Shifts & EV Shift"
             ]
         },
         {
@@ -267,28 +259,22 @@ notebook = {
                 PATH_GUARD_CELL,
                 "from src.config import REPORTS_DIR\n",
                 "\n",
-                "# 1. Macro Lead/Lag Cross-Correlation Analysis\n",
                 "macro_lag_df = pd.read_csv(REPORTS_DIR / \"macro_lead_lag_analysis.csv\")\n",
-                "print(\"Top Macro Lead/Lag Relationships (Strongest Absolute Correlations):\")\n",
+                "print(\"Top Macro Lead/Lag Relationships:\")\n",
                 "display(macro_lag_df.reindex(macro_lag_df[\"Max_Correlation\"].abs().sort_values(ascending=False).index)[[\n",
                 "    \"Product_Family\", \"Macro_Indicator\", \"Optimal_Lag_Months\", \"Max_Correlation\", \"Relationship\"\n",
-                "]].head(12))\n",
+                "]].head(10))\n",
                 "\n",
-                "# 2. EV vs ICE Powertrain Shift Analysis\n",
+                "cad_changes = pd.read_csv(REPORTS_DIR / \"cadence_changes.csv\")\n",
+                "print(f\"\\nCustomer Ordering-Cycle Shifts Detected (Rule 6, 2019–22 vs 2023–26): {len(cad_changes):,}\")\n",
+                "display(cad_changes[\"Shift_Pattern\"].value_counts().head(8).to_frame(\"Customer-SKU Count\"))\n",
+                "\n",
                 "ev_df = pd.read_csv(REPORTS_DIR / \"ev_shift_analysis.csv\")\n",
-                "print(\"\\nEV vs ICE Powertrain Annual Volume & Portfolio Share:\")\n",
                 "display(ev_df)\n",
-                "\n",
-                "# Visualize EV Transition Trajectory\n",
                 "fig_ev = px.bar(\n",
-                "    ev_df,\n",
-                "    x=\"Year\",\n",
-                "    y=[\"ICE_Volume\", \"EV_Volume\"],\n",
-                "    barmode=\"group\",\n",
-                "    title=\"Powertrain Paradigm Shift: Annual Volume (ICE vs EV Components)\",\n",
-                "    labels={\"value\": \"Annual Unconstrained Units\", \"variable\": \"Powertrain Type\"},\n",
-                "    color_discrete_map={\"ICE_Volume\": \"#EF4444\", \"EV_Volume\": \"#10B981\"},\n",
-                "    template=\"plotly_dark\"\n",
+                "    ev_df, x=\"Year\", y=[\"ICE_Volume\", \"EV_Volume\"], barmode=\"group\",\n",
+                "    title=\"Powertrain Paradigm Shift: Annual Unconstrained Volume (ICE vs EV)\",\n",
+                "    color_discrete_map={\"ICE_Volume\": \"#EF4444\", \"EV_Volume\": \"#10B981\"}, template=\"plotly_dark\"\n",
                 ")\n",
                 "fig_ev.update_layout(paper_bgcolor=\"#1E293B\", plot_bgcolor=\"#0F172A\")\n",
                 "fig_ev.show()"
@@ -298,8 +284,7 @@ notebook = {
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "## 5. Rolling-Origin Backtest Tournament & Champion Selection\n",
-                "19-month out-of-sample backtest results across origins (`2023-10`, `2024-10`, `2025-03` holdout) and per-family model selection."
+                "## 5. Zero-Leakage Rolling-Origin Backtest Tournament & CQR Coverage"
             ]
         },
         {
@@ -321,29 +306,31 @@ notebook = {
                 "from src.config import OUTPUTS_DIR\n",
                 "\n",
                 "metrics_df = pd.read_csv(OUTPUTS_DIR / \"backtest_metrics.csv\")\n",
-                "print(\"Rolling-Origin 19-Month Backtest Performance:\")\n",
+                "print(\"Zero-Leakage Rolling-Origin 19-Month Backtest Performance:\")\n",
                 "display(metrics_df)\n",
                 "\n",
                 "fig_bt = px.bar(\n",
-                "    metrics_df,\n",
-                "    x=\"Origin\",\n",
-                "    y=\"WAPE_Pct\",\n",
-                "    color=\"Model\",\n",
-                "    barmode=\"group\",\n",
+                "    metrics_df, x=\"Origin\", y=\"WAPE_Pct\", color=\"Model\", barmode=\"group\",\n",
                 "    title=\"19-Month Out-of-Sample Backtest WAPE (%) by Origin & Model\",\n",
                 "    template=\"plotly_dark\",\n",
-                "    color_discrete_map={\n",
-                "        \"LightGBM P50\": \"#00E5FF\",\n",
-                "        \"Seasonal Naive\": \"#F59E0B\",\n",
-                "        \"Moving Average\": \"#64748B\",\n",
-                "        \"Intermittent SBA\": \"#A855F7\"\n",
-                "    }\n",
+                "    color_discrete_map={\"LightGBM P50\": \"#00E5FF\", \"Seasonal Naive\": \"#F59E0B\", \"Moving Average\": \"#64748B\", \"Intermittent SBA\": \"#A855F7\"}\n",
                 ")\n",
                 "fig_bt.update_layout(paper_bgcolor=\"#1E293B\", plot_bgcolor=\"#0F172A\", yaxis_title=\"WAPE (%)\")\n",
                 "fig_bt.show()\n",
                 "\n",
+                "bd_df = pd.read_csv(OUTPUTS_DIR / \"backtest_breakdowns.csv\")\n",
+                "hor_df = bd_df[(bd_df[\"Origin\"] == \"2025-03\") & (bd_df[\"Breakdown_Type\"] == \"Horizon\")].copy()\n",
+                "if not hor_df.empty:\n",
+                "    hor_df[\"Horizon_Month\"] = hor_df[\"Group\"].astype(int)\n",
+                "    hor_df = hor_df.sort_values(\"Horizon_Month\")\n",
+                "    fig_h = px.line(\n",
+                "        hor_df, x=\"Horizon_Month\", y=[\"LightGBM_WAPE\", \"Seasonal_Naive_WAPE\", \"Coverage_Pct\"],\n",
+                "        title=\"Holdout 2025-03 Accuracy & Interval Coverage Across Month 1 → Month 19\", template=\"plotly_dark\"\n",
+                "    )\n",
+                "    fig_h.update_layout(paper_bgcolor=\"#1E293B\", plot_bgcolor=\"#0F172A\")\n",
+                "    fig_h.show()\n",
+                "\n",
                 "selection_df = pd.read_csv(OUTPUTS_DIR / \"family_model_selection.csv\")\n",
-                "print(\"\\nProduct Family Champion Model Selection:\")\n",
                 "display(selection_df)"
             ]
         },
@@ -351,8 +338,7 @@ notebook = {
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "## 6. Continuous Demand Timeline & Prediction Intervals ($P10 / P50 / P90$)\n",
-                "Visualizes historical shipped sales, reconstructed unconstrained customer demand, and the 19-month forecast horizon with shaded $P10–P90$ prediction intervals."
+                "## 6. Continuous Horizon (`2019-2028`), Native Tree-SHAP Attribution & ABC-XYZ Matrix"
             ]
         },
         {
@@ -366,6 +352,10 @@ notebook = {
                 "import pandas as pd\n",
                 "import plotly.express as px\n",
                 "from pathlib import Path\n",
+                "try:\n",
+                "    from IPython.display import display\n",
+                "except ImportError:\n",
+                "    display = print\n",
                 PATH_GUARD_CELL,
                 "from src.config import CLEANED_DATA_DIR, OUTPUTS_DIR\n",
                 "from src.dashboard.components import plot_continuous_timeline\n",
@@ -373,45 +363,44 @@ notebook = {
                 "train_df = pd.read_parquet(CLEANED_DATA_DIR / \"unconstrained_demand.parquet\")\n",
                 "fcst_df = pd.read_parquet(OUTPUTS_DIR / \"forecast_intervals.parquet\")\n",
                 "\n",
-                "hist_monthly = train_df.groupby(\"Date\").agg({\n",
-                "    \"Units_Sold\": \"sum\",\n",
-                "    \"Units_Sold_Unconstrained\": \"sum\"\n",
-                "}).reset_index()\n",
-                "\n",
-                "fcst_monthly = fcst_df.groupby(\"Date\").agg({\n",
-                "    \"P10\": \"sum\",\n",
-                "    \"P50\": \"sum\",\n",
-                "    \"P90\": \"sum\",\n",
-                "    \"Units_Sold_Forecast\": \"sum\"\n",
-                "}).reset_index()\n",
+                "hist_monthly = train_df.groupby(\"Date\").agg({\"Units_Sold\": \"sum\", \"Units_Sold_Unconstrained\": \"sum\"}).reset_index()\n",
+                "fcst_monthly = fcst_df.groupby(\"Date\").agg({\"P10\": \"sum\", \"P50\": \"sum\", \"P90\": \"sum\", \"Units_Sold_Forecast\": \"sum\"}).reset_index()\n",
                 "\n",
                 "fig_timeline = plot_continuous_timeline(\n",
-                "    hist_monthly,\n",
-                "    fcst_monthly,\n",
-                "    title=\"Celeris Automobili Continuous Demand Horizon (2019-2028) with P10/P90 Ribbon\"\n",
+                "    hist_monthly, fcst_monthly,\n",
+                "    title=\"Celeris Automobili Continuous Demand Horizon (2019–2028) with Calibrated P10/P90 Ribbon\"\n",
                 ")\n",
                 "fig_timeline.show()\n",
                 "\n",
-                "reg_df = fcst_df.groupby(\"Region\")[\"Units_Sold_Forecast\"].sum().reset_index()\n",
-                "fig_reg = px.pie(\n",
-                "    reg_df,\n",
-                "    names=\"Region\",\n",
-                "    values=\"Units_Sold_Forecast\",\n",
-                "    title=\"19-Month Global Forecast Distribution by Region\",\n",
-                "    color_discrete_sequence=px.colors.sequential.Teal,\n",
-                "    template=\"plotly_dark\",\n",
-                "    hole=0.4\n",
-                ")\n",
-                "fig_reg.update_layout(paper_bgcolor=\"#1E293B\")\n",
-                "fig_reg.show()"
+                "# Verify Month 1..19 continuity (zero Month-13 collapse)\n",
+                "print(\"19-Month Forecast Continuity Check (Units/Month):\")\n",
+                "display(fcst_monthly[[\"Date\", \"P10\", \"Units_Sold_Forecast\", \"P90\"]])\n",
+                "\n",
+                "# Tree-SHAP Business Driver Attribution\n",
+                "drv_path = OUTPUTS_DIR / \"forecast_drivers.parquet\"\n",
+                "if drv_path.exists():\n",
+                "    drv_df = pd.read_parquet(drv_path)\n",
+                "    d_cols = [\"Baseline & Seasonal Level\", \"Macro Economy\", \"EV Transition\", \"Calendar & Price Hikes\", \"Customer & Scoped Events\", \"Catalog & Lifecycle\"]\n",
+                "    drv_abs = pd.DataFrame([{\"Driver\": c, \"Absolute_Units\": drv_df[c].abs().sum(), \"Net_Signed\": drv_df[c].sum()} for c in d_cols if c in drv_df.columns])\n",
+                "    fig_shap = px.bar(drv_abs.sort_values(\"Absolute_Units\"), x=\"Absolute_Units\", y=\"Driver\", orientation=\"h\", color=\"Net_Signed\", color_continuous_scale=\"RdYlGn\", title=\"Native LightGBM Tree-SHAP Driver Attribution Across 58,219 Forecasts\", template=\"plotly_dark\")\n",
+                "    fig_shap.update_layout(paper_bgcolor=\"#1E293B\", plot_bgcolor=\"#0F172A\")\n",
+                "    fig_shap.show()\n",
+                "\n",
+                "# ABC-XYZ Portfolio Working Capital Matrix\n",
+                "abc_path = OUTPUTS_DIR / \"abc_xyz_inventory.csv\"\n",
+                "if abc_path.exists():\n",
+                "    abc_df = pd.read_csv(abc_path)\n",
+                "    abc_mat = abc_df.groupby([\"ABC_Class\", \"XYZ_Class\"])[\"SKU_ID\"].count().unstack(fill_value=0).reindex(index=[\"A\", \"B\", \"C\"], columns=[\"X\", \"Y\", \"Z\"], fill_value=0)\n",
+                "    fig_abc = px.imshow(abc_mat, text_auto=True, color_continuous_scale=\"Teal\", title=\"ABC (Revenue Tier) × XYZ (Demand Variability) Portfolio Matrix (SKU Counts)\", template=\"plotly_dark\")\n",
+                "    fig_abc.update_layout(paper_bgcolor=\"#1E293B\")\n",
+                "    fig_abc.show()"
             ]
         },
         {
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "## 7. Official Competition Submission Verification (58,219 Rows)\n",
-                "Verifies schema, alignment with `student_data/test.csv`, non-negativity, zero nulls, exact bottom-up hierarchical reconciliation ($\\Delta = 0$), and downloads `submission.csv` when running in browser Colab."
+                "## 7. Official Competition Submission Verification (58,219 Rows)"
             ]
         },
         {
@@ -466,7 +455,7 @@ notebook = {
                 "print(\"✅ Alignment: 100% key-aligned with student_data/test.csv.\")\n",
                 "\n",
                 "assert (recon_df[\"Discrepancy\"] == 0).all(), \"Reconciliation discrepancy != 0!\"\n",
-                "print(\"✅ Hierarchy Reconciliation: 0 discrepancy across BU and Region sums.\")\n",
+                "print(\"✅ Hierarchy Reconciliation: 0 discrepancy across BU, Family, and Region sums.\")\n",
                 "\n",
                 "print(f\"\\n📊 Total 19-Month Forecast Demand: {sub_df['Units_Sold_Forecast'].sum():,} units\")\n",
                 "print(f\"   Monthly Average: {sub_df.groupby('Date')['Units_Sold_Forecast'].sum().mean():,.0f} units/month\")\n",
@@ -485,8 +474,8 @@ notebook = {
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "## 8. Launch Interactive 12-View Streamlit Control Tower\n",
-                "Exposes `app.py` cleanly over **Cloudflare Quick Tunnel (`trycloudflare.com`)** so all Streamlit JS modules, Plotly charts, and dark HTML/CSS KPI cards render cleanly with **no password wall** and **no chunk fetch failures**."
+                "## 8. Launch Interactive 14-View Streamlit Control Tower\n",
+                "Exposes `app.py` cleanly over **Cloudflare Quick Tunnel (`trycloudflare.com`)** so all Streamlit JS modules, Plotly charts, Tree-SHAP waterfalls, and ABC-XYZ heatmaps render cleanly with **no password wall**."
             ]
         },
         {
@@ -510,12 +499,10 @@ notebook = {
                 "        %cd /content/mks-hackathon\n",
                 "        os.chdir(\"/content/mks-hackathon\")\n",
                 "\n",
-                "    # 1. Clean up any prior Streamlit / tunnel processes\n",
                 "    subprocess.run([\"pkill\", \"-f\", \"streamlit run\"], check=False)\n",
                 "    subprocess.run([\"pkill\", \"-f\", \"cloudflared\"], check=False)\n",
                 "    time.sleep(1)\n",
                 "\n",
-                "    # 2. Start Streamlit with proxy-safe flags (CORS/XSRF/compression disabled for tunnel)\n",
                 "    st_log = open(\"streamlit.log\", \"w\", encoding=\"utf-8\")\n",
                 "    st_proc = subprocess.Popen(\n",
                 "        [\n",
@@ -531,7 +518,6 @@ notebook = {
                 "        stderr=subprocess.STDOUT,\n",
                 "    )\n",
                 "\n",
-                "    # 3. Wait until Streamlit health endpoint confirms server is listening\n",
                 "    ready = False\n",
                 "    for _ in range(25):\n",
                 "        try:\n",
@@ -547,7 +533,6 @@ notebook = {
                 "        st_log.flush()\n",
                 "        print(Path(\"streamlit.log\").read_text(encoding=\"utf-8\", errors=\"ignore\"))\n",
                 "    else:\n",
-                "        # 4. Launch Cloudflare Quick Tunnel (reliable HTTP/2 ES module & WebSocket streaming)\n",
                 "        cf_bin = Path(\"/tmp/cloudflared\")\n",
                 "        if not cf_bin.exists():\n",
                 "            print(\"📥 Downloading cloudflared tunnel client...\")\n",
@@ -593,7 +578,7 @@ notebook = {
                 "            cf_proc.terminate()\n",
                 "            !npx -y localtunnel --port 8501\n",
                 "else:\n",
-                "    print(\"💻 To run the 12-view Control Tower locally, execute in terminal:\")\n",
+                "    print(\"💻 To run the 14-view Control Tower locally, execute in terminal:\")\n",
                 "    print(\"   python -m streamlit run app.py\")"
             ]
         }
@@ -618,7 +603,6 @@ notebook = {
     "nbformat_minor": 4
 }
 
-# Wait - fix concatenation inside list literals above cleanly
 for cell in notebook["cells"]:
     if cell["cell_type"] == "code":
         fixed_lines = []

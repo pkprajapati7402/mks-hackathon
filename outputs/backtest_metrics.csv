@@ -1,13 +1,13 @@
-Origin,Model,Horizon_Months,WAPE_Pct,Bias_Pct,RMSE
-2023-10,Seasonal Naive,19,43.14,-8.76,41.93
-2023-10,Moving Average,19,53.47,-7.49,45.36
-2023-10,Intermittent SBA,19,53.85,-14.02,45.6
-2023-10,LightGBM P50,19,35.7,-3.9,34.4
-2024-10,Seasonal Naive,19,40.25,-1.51,39.13
-2024-10,Moving Average,19,52.53,0.29,43.7
-2024-10,Intermittent SBA,19,52.35,-5.87,43.85
-2024-10,LightGBM P50,19,35.05,1.03,32.72
-2025-03,Seasonal Naive,19,41.19,4.39,40.51
-2025-03,Moving Average,19,53.67,4.78,43.86
-2025-03,Intermittent SBA,19,52.31,-5.24,43.6
-2025-03,LightGBM P50,19,34.81,1.66,32.16
+Origin,Model,Horizon_Months,WAPE_Pct,Bias_Pct,RMSE,Raw_Coverage_Pct,Calibrated_Coverage_Pct
+2023-10,Seasonal Naive,19,41.81,-8.6,35.56,,
+2023-10,Moving Average,19,52.57,-7.49,41.75,,
+2023-10,Intermittent SBA,19,53.06,-14.01,42.03,,
+2023-10,LightGBM P50,19,32.98,-13.96,28.64,82.2,82.2
+2024-10,Seasonal Naive,19,38.75,-1.04,31.72,,
+2024-10,Moving Average,19,51.49,0.89,39.73,,
+2024-10,Intermittent SBA,19,51.47,-5.32,39.95,,
+2024-10,LightGBM P50,19,31.35,-4.91,25.84,85.5,85.5
+2025-03,Seasonal Naive,19,39.64,4.42,33.71,,
+2025-03,Moving Average,19,52.48,4.67,41.14,,
+2025-03,Intermittent SBA,19,51.31,-5.41,40.93,,
+2025-03,LightGBM P50,19,31.22,2.58,26.47,83.8,83.8
