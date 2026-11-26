@@ -9,7 +9,117 @@ from pathlib import Path
 from typing import Tuple
 import numpy as np
 import pandas as pd
-from src.config import OUTPUTS_DIR, PROJECT_ROOT
+from sklearn.linear_model import Ridge
+from src.config import OUTPUTS_DIR, PROJECT_ROOT, CLEANED_DATA_DIR
+
+
+def apply_macro_wls_reconciliation(
+    forecast_df: pd.DataFrame,
+    history_agg: pd.DataFrame,
+    alpha: float = 0.30,
+    origin_date: str = None,
+    target_col: str = "Units_Sold_Unconstrained",
+) -> pd.DataFrame:
+    """
+    Applies strictly causal Pair-Normalized Top-Down Family Macro WLS Reconciliation.
+    Fits per-family regularized Ridge models on log1p(mean demand per active SKU-Region pair)
+    strictly <= origin_date (excluding acute COVID 2020-03..2020-05), and pulls active positive
+    leaf forecasts smoothly toward top-down macro totals while keeping zeros intact.
+    """
+    if alpha <= 0.0 or forecast_df.empty or history_agg.empty:
+        return forecast_df
+
+    out = forecast_df.copy()
+    hist = history_agg.copy()
+    if origin_date is not None:
+        hist = hist[hist["Date"] <= origin_date]
+    hist = hist[~hist["Date"].astype(str).between("2020-03", "2020-05")].copy()
+    if hist.empty:
+        return out
+
+    macro_cols = [
+        "ISM_Manufacturing_PMI", "Auto_Production_YoY_Pct", "New_Vehicle_Orders_Index",
+        "Industrial_Util_Rate_Pct", "Raw_Material_Cost_Index", "EV_Adoption_Index",
+    ]
+    # Load cleaned macro if absent from history_agg or forecast_df
+    macro_df = None
+    if any(c not in hist.columns or c not in out.columns for c in macro_cols):
+        m_path = CLEANED_DATA_DIR / "macro_indicators.csv"
+        if m_path.exists():
+            macro_df = pd.read_csv(m_path)
+
+    hist["_y"] = pd.to_numeric(hist[target_col], errors="coerce").fillna(0.0).clip(lower=0.0)
+    fam_hist = hist.groupby(["Date", "Product_Family"]).agg(y=("_y", "sum"), cnt=("_y", "count")).reset_index()
+    fam_hist["mean_per_pair"] = fam_hist["y"] / fam_hist["cnt"].clip(lower=1)
+
+    avail_m = [c for c in macro_cols if c in hist.columns]
+    if macro_df is not None:
+        fam_hist = fam_hist.merge(macro_df[["Date"] + [c for c in macro_cols if c in macro_df.columns]], on="Date", how="left")
+    elif avail_m:
+        m_lut = hist[["Date"] + avail_m].drop_duplicates(subset=["Date"])
+        fam_hist = fam_hist.merge(m_lut, on="Date", how="left")
+
+    fam_hist["Month"] = fam_hist["Date"].astype(str).str[5:7].astype(int)
+    fam_hist["t_idx"] = fam_hist["Date"].astype(str).str[:4].astype(int) * 12 + fam_hist["Month"] - (2019 * 12 + 1)
+
+    fut_cnt = out.groupby(["Date", "Product_Family"])["SKU_ID"].count().reset_index(name="fut_cnt")
+    if macro_df is not None:
+        fh_fut = fut_cnt.merge(macro_df[["Date"] + [c for c in macro_cols if c in macro_df.columns]], on="Date", how="left")
+    elif avail_m:
+        m_out = out[["Date"] + [c for c in avail_m if c in out.columns]].drop_duplicates(subset=["Date"])
+        fh_fut = fut_cnt.merge(m_out, on="Date", how="left")
+    else:
+        fh_fut = fut_cnt.copy()
+    fh_fut["Month"] = fh_fut["Date"].astype(str).str[5:7].astype(int)
+
+    x_macro = [c for c in macro_cols[:-1] if c in fam_hist.columns and c in fh_fut.columns]
+
+    def _design(df_in: pd.DataFrame) -> np.ndarray:
+        m_ohe = np.column_stack([(df_in["Month"].values == m).astype(float) for m in range(1, 13)])
+        ev_raw = df_in["EV_Adoption_Index"].fillna(80.0).values if "EV_Adoption_Index" in df_in.columns else np.full(len(df_in), 80.0)
+        ev_s = np.clip((ev_raw - 40.0) / 55.0, 0.0, 1.2)
+        if x_macro:
+            mac_x = df_in[x_macro].fillna(0.0).values / 100.0
+            return np.column_stack([m_ohe, ev_s, mac_x])
+        return np.column_stack([m_ohe, ev_s])
+
+    top_preds = {}
+    for fam in fh_fut["Product_Family"].unique():
+        trf = fam_hist[fam_hist["Product_Family"] == fam].sort_values("Date").tail(48)
+        fuf = fh_fut[fh_fut["Product_Family"] == fam]
+        if len(trf) < 12 or fuf.empty:
+            continue
+        reg = Ridge(alpha=15.0)
+        sw = np.exp(0.03 * (trf["t_idx"].values - trf["t_idx"].max()))
+        reg.fit(_design(trf), np.log1p(trf["mean_per_pair"].values), sample_weight=sw)
+        tp = np.clip(np.expm1(reg.predict(_design(fuf))), 1.0, None) * fuf["fut_cnt"].values
+        for d, v in zip(fuf["Date"].values, tp):
+            top_preds[(d, fam)] = float(v)
+
+    for p50_col, p10_col, p90_col in [
+        ("Pred_LightGBM_P50", "Pred_LightGBM_P10", "Pred_LightGBM_P90"),
+        ("P50", "P10", "P90"),
+    ]:
+        if p50_col not in out.columns:
+            continue
+        bot_sum = out.groupby(["Date", "Product_Family"])[p50_col].transform("sum").clip(lower=1.0).values
+        top_tgt = np.array([top_preds.get((d, f), bs) for d, f, bs in zip(out["Date"], out["Product_Family"], bot_sum)], dtype=float)
+        scale = np.clip((1.0 - alpha) + alpha * (top_tgt / bot_sum), 0.78, 1.22)
+
+        active = out[p50_col].values > 0
+        p50_new = np.where(active, np.round(out[p50_col].values * scale), 0.0)
+        out[p50_col] = p50_new
+        if p10_col in out.columns:
+            p10_new = np.where(active, np.round(out[p10_col].values * scale), 0.0)
+            out[p10_col] = np.clip(np.minimum(p10_new, p50_new), 0.0, None)
+        if p90_col in out.columns:
+            p90_new = np.where(active, np.round(out[p90_col].values * scale), 0.0)
+            out[p90_col] = np.maximum(p90_new, p50_new)
+
+    if "Units_Sold_Forecast" in out.columns and "P50" in out.columns:
+        out["Units_Sold_Forecast"] = out["P50"]
+
+    return out
 
 
 def compute_abc_xyz_matrix(

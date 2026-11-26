@@ -36,7 +36,7 @@ from src.models.backtester import run_rolling_origin_backtest
 from src.models.family_selector import select_best_model_per_family
 from src.models.lightgbm_engine import train_and_forecast_lgb
 from src.models.cold_start import apply_lifecycle_and_cold_start
-from src.models.reconciliation import reconcile_and_generate_submission
+from src.models.reconciliation import reconcile_and_generate_submission, apply_macro_wls_reconciliation
 from src.reports_generator import generate_model_card, generate_executive_summary
 
 def run_pipeline(stage: str = "all"):
@@ -172,10 +172,13 @@ def run_pipeline(stage: str = "all"):
     test_features["P50"] = lgb_preds["P50"].values
     test_features["P90"] = lgb_preds["P90"].values
 
-    # Apply EOL boundaries and cold-start transfer learning
+    # Apply EOL boundaries, Replaces_SKU ramp transfer, and causal Top-Down Macro WLS reconciliation
     hist_base_all = full_panel[full_panel["Date"] <= "2026-10"].copy()
     test_features = apply_lifecycle_and_cold_start(
         test_features, sku_master_clean, hist_base_all
+    )
+    test_features = apply_macro_wls_reconciliation(
+        test_features, hist_base_all, alpha=0.30, origin_date="2026-10"
     )
     lgb_preds["P10"] = test_features["P10"].values
     lgb_preds["P50"] = test_features["P50"].values

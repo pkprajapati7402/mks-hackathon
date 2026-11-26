@@ -5,7 +5,7 @@
 [![LightGBM](https://img.shields.io/badge/LightGBM-4.3%2B-brightgreen)](https://lightgbm.readthedocs.io/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.35%2B-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
-[![Pytest Passing](https://img.shields.io/badge/Pytest-10%2F10%20Passing-success)](https://docs.pytest.org/)
+[![Pytest Passing](https://img.shields.io/badge/Pytest-11%2F11%20Passing-success)](https://docs.pytest.org/)
 [![Reconciliation](https://img.shields.io/badge/Hierarchy%20Discrepancy-0%20Units-blue)](#)
 
 ---
@@ -30,13 +30,13 @@ Evaluated strictly without future leakage across three 19-month rolling origins 
 
 | Origin | Evaluation Window | Seasonal Naive WAPE | HistGB Poisson WAPE | PyTorch Entity-ResNet WAPE | Hurdle Two-Stage WAPE | **Hybrid Ensemble WAPE** | **Ensemble Bias** | **CQR Coverage (80% Target)** | **Avg Pinball Loss** |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **2023-10** | 2023-11 → 2025-05 | 41.81% | 31.37% | 32.06% | 31.80% | **31.09%** | -8.58% | **85.3%** | 4.93 |
-| **2024-10** | 2024-11 → 2026-05 | 38.75% | 30.27% | 29.69% | 30.14% | **29.50%** | -3.94% | **83.1%** | 4.47 |
-| **2025-03** *(Holdout)* | 2025-04 → 2026-10 | 39.64% | 29.96% | 31.70% | 29.69% | **29.76%** | +3.95% | **81.0%** | 4.49 |
+| **2023-10** | 2023-11 → 2025-05 | 41.81% | 31.28% | 32.06% | 31.96% | **30.88%** | -7.16% | **86.7%** | 4.89 |
+| **2024-10** | 2024-11 → 2026-05 | 38.75% | 30.20% | 29.69% | 30.26% | **29.60%** | -2.32% | **84.2%** | 4.47 |
+| **2025-03** *(Holdout)* | 2025-04 → 2026-10 | 39.64% | 29.83% | 31.71% | 30.11% | **29.59%** | +3.10% | **80.1%** | 4.48 |
 
-- **All 7/7 Product Families** select the **Hybrid Ensemble** over Statistical Baselines (`27.67%`–`33.83%` Holdout WAPE across families in [`outputs/family_model_selection.csv`](outputs/family_model_selection.csv)).
-- **19-Month Horizon Continuity (`2025-03`)**: Month 1 WAPE `26.94%`, Month 2 WAPE `26.20%`, and Month 19 WAPE **`28.08%`** (`Bias +1.44%`, Coverage `81.2%`), eliminating horizon-13+ lag collapse.
-- **Competition Submission Summary**: **`2,640,501` P50 units** (`P10: 1,784,912`, `P90: 3,653,707`) across **`58,219` rows** (`$2.246B` USD projected 19-month revenue), with exact **`0` unit discrepancy** across Business Unit, Product Family, and Region totals.
+- **All 7/7 Product Families** select ML/DL Champions (6/7 Hybrid Ensemble, 1/7 PyTorch Entity-ResNet) over Statistical Baselines (`27.83%`–`33.13%` Ensemble Holdout WAPE across families in [`outputs/family_model_selection.csv`](outputs/family_model_selection.csv) & [`outputs/backtest_breakdowns.csv`](outputs/backtest_breakdowns.csv)), while reducing EV Powertrain `2025-03` WAPE to **`31.46%`** (`+6.89%` bias).
+- **19-Month Horizon Continuity (`2025-03`)**: Month 1 WAPE `27.09%`, Month 2 WAPE `26.22%`, and Month 19 WAPE **`27.69%`** (`Bias -3.03%`, Coverage `79.1%`), eliminating horizon-13+ lag collapse.
+- **Competition Submission Summary**: **`2,656,393` P50 units** (`P10: 1,793,049`, `P90: 3,665,808`) across **`58,219` rows** (`$2.261B` USD projected 19-month revenue), with exact **`0` unit discrepancy** across Business Unit, Product Family, and Region totals.
 
 ---
 
@@ -187,7 +187,7 @@ mks-hackathon/
 │   ├── features/
 │   ├── models/
 │   └── dashboard/                   # 14 Streamlit views + shared theme & charts
-├── tests/                           # Pytest suite (10 unit & compliance tests)
+├── tests/                           # Pytest suite (11 unit & compliance tests)
 ├── mks_datathon_notebook.ipynb      # End-to-end Google Colab & local notebook
 ├── app.py                           # Root Streamlit dashboard entrypoint
 ├── run_pipeline.py                  # One-command CLI master runner
@@ -202,4 +202,4 @@ mks-hackathon/
 - [x] **Format & Validity**: `Date, SKU_ID, Region, Units_Sold_Forecast` with non-negative integers and zero nulls.
 - [x] **Exact Reconciliation**: Zero discrepancy (`Delta = 0`) across SKU, Product Family, Business Unit, Region, and Global totals.
 - [x] **Catalog Lifecycle & Unconstrained Target**: Respects `Launch_Date`, `EOL_Date`, and `Replaces_SKU`; forecasts true unconstrained customer demand.
-- [x] **Automated Verification**: `10/10` `pytest` tests and all `14` Streamlit views verified cleanly.
+- [x] **Automated Verification**: `11/11` `pytest` tests and all `14` Streamlit views verified cleanly.

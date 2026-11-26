@@ -54,3 +54,36 @@ def test_lifecycle_rules():
     # NORM-001 should remain 75
     norm_row = adjusted[adjusted["SKU_ID"] == "NORM-001"]
     assert norm_row["Units_Sold_Forecast"].iloc[0] == 75.0
+
+
+def test_cold_start_replaces_sku_ramp():
+    sku_master = pd.DataFrame({
+        "SKU_ID": ["OLD-001", "NEW-001"],
+        "Launch_Date": ["2020-01", "2027-01"],
+        "EOL_Date": ["2027-03", ""],
+        "Replaces_SKU": ["", "OLD-001"],
+    })
+    hist = pd.DataFrame({
+        "SKU_ID": ["OLD-001"] * 3,
+        "Region": ["North America"] * 3,
+        "Product_Family": ["Powertrain Components"] * 3,
+        "Units_Sold_Unconstrained": [100.0, 100.0, 100.0],
+    })
+    fcst = pd.DataFrame({
+        "Date": ["2026-12", "2027-01", "2027-07"],
+        "SKU_ID": ["NEW-001", "NEW-001", "NEW-001"],
+        "Region": ["North America", "North America", "North America"],
+        "Product_Family": ["Powertrain Components"] * 3,
+        "Units_Sold_Forecast": [30.0, 30.0, 30.0],
+        "P10": [20.0, 20.0, 20.0],
+        "P50": [30.0, 30.0, 30.0],
+        "P90": [45.0, 45.0, 45.0],
+    })
+    out = apply_lifecycle_and_cold_start(fcst, sku_master, hist)
+    # Pre-launch (2026-12) must be 0
+    assert out.loc[out["Date"] == "2026-12", "P50"].iloc[0] == 0.0
+    # Launch month m=0 (2027-01): 0.30*30 + 0.70*(100*0.15) = ~20
+    assert 15.0 <= out.loc[out["Date"] == "2027-01", "P50"].iloc[0] <= 25.0
+    # Mature handoff m=6 (2027-07): 0.30*30 + 0.70*(100*1.00) = ~79
+    assert out.loc[out["Date"] == "2027-07", "P50"].iloc[0] >= 75.0
+    assert (out["P10"] <= out["P50"]).all() and (out["P50"] <= out["P90"]).all()

@@ -7,8 +7,8 @@ This report documents the automated data cleaning and quality audit pipeline exe
 
 | File | Raw Rows | Clean Rows | Key Anomalies Addressed |
 |---|---|---|---|
-| `train.csv` | 248,248 | 244,490 | Deduplicated 3,682 records; fixed 2062 typos (30); repaired 37,849 prices; filled 90 stockouts |
-| `sku_master.csv` | 601 | 601 | Repaired 1 Precision Machined Parts BU conflicts |
+| `train.csv` | 248,248 | 244,490 | Deduplicated 3,758 records; fixed 2062 typos (30); repaired 37,849 prices; filled 90 stockouts |
+| `sku_master.csv` | 601 | 601 | Repaired 1 master BU conflict(s) |
 | `macro_indicators.csv` | 114 | 113 | Resolved duplicate 2022-06; repaired 12 fraction percentages and 1 PMI shifts |
 | `events_calendar.csv` | 68 | 68 | Cleaned mixed date formats and parsed Customer/Region composite scopes |
 | `inventory_stockouts.csv` | 5,830 | 5,830 | Standardized keys and verified balance equation across 5,830 stockout records |
@@ -22,7 +22,7 @@ This report documents the automated data cleaning and quality audit pipeline exe
 - **T5 (Region Recovery)**: Mapped region aliases to 6 canonical regions and recovered blank regions via customer historical affinity.
 - **T6 (Sales Channel Mapping)**: Standardized channel labels to 4 canonical categories.
 - **T7 & T8 (SKU Normalization)**: Normalized irregular SKU identifiers to `[PREFIX]-[NNN]` and aligned Product Family / BU strictly with master data.
-- **T10 (Customer Normalization)**: Reconciled 220 noisy ERP customer variants to 12 canonical tier-1 accounts.
+- **T10 (Customer Normalization)**: Reconciled 2,455 noisy ERP customer entries to 12 canonical tier-1 accounts.
 - **T11 & A2 (Units Sold & Stockout Fill)**: Handled returns/reversals, removed thousand-separators, and filled unfulfilled orders from stockout records.
 - **T12 & T13 (Price & Revenue Integrity)**: Repaired currency glitches, zero prices, and 100x pence errors using annual median USD prices; strictly reconciled `Revenue_USD = Units_Sold * Unit_Price_USD`.
 - **R5 (Lifecycle Boundaries)**: Enforced zero sales prior to `Launch_Date` and after `EOL_Date` (Rule 5).

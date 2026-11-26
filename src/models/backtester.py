@@ -15,6 +15,7 @@ from src.models.baselines import forecast_seasonal_naive, forecast_moving_averag
 from src.models.intermittent import forecast_intermittent_sba
 from src.models.lightgbm_engine import train_and_forecast_lgb
 from src.models.cold_start import apply_lifecycle_and_cold_start
+from src.models.reconciliation import apply_macro_wls_reconciliation
 
 
 def compute_wape(actual: np.ndarray, pred: np.ndarray) -> float:
@@ -111,8 +112,9 @@ def run_rolling_origin_backtest(
             if col_src in lgb_preds.columns:
                 test_slice[col_dst] = lgb_preds[col_src].values
 
-        # 4. Enforce catalog lifecycle boundaries (strictly <= origin history)
+        # 4. Enforce catalog lifecycle boundaries + Pair-Norm Top-Down Macro WLS Reconciliation (<= origin)
         test_slice = apply_lifecycle_and_cold_start(test_slice, sku_master, hist_base)
+        test_slice = apply_macro_wls_reconciliation(test_slice, hist_base, alpha=0.30, origin_date=origin, target_col=target_col)
         test_slice["Backtest_Origin"] = origin
         all_preds.append(test_slice)
 

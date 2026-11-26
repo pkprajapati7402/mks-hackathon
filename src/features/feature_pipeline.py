@@ -242,7 +242,13 @@ def attach_strict_causal_features(
 
     mean12 = np.array([w12_m_d.get(k, w24_d.get(k, m_all_d.get(k, np.nan))) for k in keys], dtype=float)
     has_hist = ~np.isnan(mean12)
-    prior_blend = 0.5 * sku_prior + 0.5 * fam_prior
+    rep_prior_arr = np.array([
+        cw12_m_d.get((str(sku_replaces.get(s, "")).strip(), r), c_all_d.get((str(sku_replaces.get(s, "")).strip(), r), np.nan))
+        if (pd.notna(sku_replaces.get(s, "")) and str(sku_replaces.get(s, "")).strip() not in ("", "nan"))
+        else np.nan
+        for s, r in zip(sku_arr, reg_arr)
+    ], dtype=float)
+    prior_blend = np.where(~np.isnan(rep_prior_arr), rep_prior_arr, 0.5 * sku_prior + 0.5 * fam_prior)
     mean12_filled = np.where(has_hist, mean12, prior_blend)
 
     clean12 = np.array([cw12_m_d.get(k, cw24_d.get(k, c_all_d.get(k, np.nan))) for k in keys], dtype=float)
