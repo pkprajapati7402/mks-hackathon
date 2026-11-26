@@ -1,162 +1,148 @@
-# 🏭 Celeris Automobili Industrial: Demand Forecasting & Planning Control Tower
-### MKS AIML Hackathon — Phase 2: Production End-to-End Enterprise Demand Engine
+# Celeris Automobili Industrial: Demand Forecasting & Planning Control Tower
+### MKS AIML Hackathon — Phase 2: End-to-End Demand Forecasting & S&OP Solution
 
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![LightGBM](https://img.shields.io/badge/LightGBM-4.7.0-brightgreen)](https://lightgbm.readthedocs.io/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.42.0-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
-[![Plotly](https://img.shields.io/badge/Plotly-6.0.0-3F4F75?logo=plotly&logoColor=white)](https://plotly.com/)
+[![LightGBM](https://img.shields.io/badge/LightGBM-4.3%2B-brightgreen)](https://lightgbm.readthedocs.io/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.35%2B-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![Pytest Passing](https://img.shields.io/badge/Pytest-10%2F10%20Passing-success)](https://docs.pytest.org/)
-[![Coverage](https://img.shields.io/badge/Hierarchy%20Discrepancy-0%20Units-blue)](#)
-[![Status](https://img.shields.io/badge/Status-Production--Ready-blue)](#)
+[![Reconciliation](https://img.shields.io/badge/Hierarchy%20Discrepancy-0%20Units-blue)](#)
 
 ---
 
-## 📌 Executive Summary
+## Executive Summary
 
-**Celeris Automobili Industrial** is a premier Tier-1 multinational automotive and industrial component manufacturer supplying major global OEMs and distributors across **601 commercial SKUs, 7 distinct product families, 4 sales channels, and 6 global regions** (North America, Europe, Asia Pacific, India, Latin America, Middle East & Africa).
+**Celeris Automobili Industrial** is a Tier-1 multinational automotive and industrial component manufacturer supplying OEMs and distributors across **601 catalog SKUs (595 forecast SKUs), 7 product families, 4 sales channels, and 6 global regions** (North America, Europe, Asia Pacific, India, Latin America, Middle East & Africa).
 
-This repository contains the complete, production-grade **Demand Forecasting Engine and Planning Control Tower Dashboard** built for Phase 2 of the MKS AIML Hackathon. The solution addresses real-world industrial supply chain dynamics:
-- **Historical Supply Distortions**: Pandemics (2020), semiconductor shortages (2021), inflation spikes (2022), unfulfilled stockouts, and pre-price hike buying spikes.
-- **Unconstrained Customer Demand**: Reconstructing true customer order volume from historical stockout logs to avoid carrying forward supply-constrained shortfalls into future production commitments.
-- **Powertrain Paradigm Shift**: Quantifying the accelerating technology transition from internal combustion engines (ICE) to electric vehicle (EV) assemblies.
-- **19-Month Unconstrained Forecast (November 2026 – May 2028)**: Generating exact hierarchical forecasts with prediction intervals ($P10, P50, P90$) for all 58,219 competition test rows.
-- **Interactive S&OP Control Tower Dashboard**: A 12-view executive application integrating history, forecasts, what-if simulations, and procurement buffers.
-
----
-
-## 🏆 Key Performance Benchmarks
-
-### 1. Rolling-Origin 19-Month Backtest Results
-
-Our multi-tier forecasting engine was evaluated over **19-month horizons** across multiple time-series cross-validation origins without lookahead leakage:
-
-| Origin Date | Evaluation Window | Seasonal Naive WAPE | Moving Average WAPE | Intermittent SBA WAPE | **LightGBM P50 WAPE** | **Forecast Bias** | **RMSE** |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **2023-10** | 2023-11 → 2025-05 | 43.14% | 53.47% | 53.85% | **35.70%** | **-3.90%** | 34.40 |
-| **2024-10** | 2024-11 → 2026-05 | 40.25% | 52.53% | 52.35% | **35.05%** | **+1.03%** | 32.72 |
-| **2025-03** *(Holdout)* | 2025-04 → 2026-10 | 41.19% | 53.67% | 52.31% | **34.81%** | **+1.66%** | 32.16 |
-
-> **Key Takeaway**: LightGBM P50 achieves a **34.81% out-of-sample holdout WAPE**, delivering a **+6.38 percentage point lift** over the Seasonal Naive baseline and **+18.86 percentage points** over historical moving averages, while maintaining near-zero bias ($+1.66\%$).
+This repository implements an end-to-end **Demand Forecasting Pipeline and 14-View Interactive Planning Control Tower** for Phase 2 of the MKS AIML Hackathon:
+- **Exact Arithmetic & Currency Triangulation (`Units * Price = Revenue`)**: Standardizes dates, deduplicates on latest `Load_Timestamp`, consolidates all `12` tier-1 customers (`2,455` raw aliases/typos cleaned), and repairs `10x`/`100x` unit typos (`368` rows), cents-scaled prices (`614`), decimal shifts (`385`), and EUR conversions (`498`) while preserving valid H2-2022 `6%` surcharges (`EV-027`).
+- **Unconstrained Demand & Anomaly Intelligence**: Reconstructs true customer request volume from inventory stockouts (`1,200` stockout anomalies among `3,793` categorized events across `12` anomaly categories), logs master-data contradictions (`reports/master_data_contradictions.csv`), and detects temporal Rule-6 customer cadence shifts (`102` transitions).
+- **Causal Multi-Horizon Feature Store**: Builds origin-frozen (`Date <= origin`) spike-despiked levels, bi-monthly (`mod-2`) and quarterly (`mod-3`) ordering-cycle phases, Empirical Bayes seasonal shrinkage, and logistic-diffusion EV saturation elasticities without lookahead leakage.
+- **Multi-Paradigm ML & Deep Learning Ensemble**: Combines **6 heterogeneous learners** via out-of-sample SLSQP WAPE+Bias optimization with calibrated zero-gating (`tau=0.10`), Horizon-Stratified Scaled Conformal Quantiles (`P10`/`P50`/`P90`), native Tree-SHAP attributions, exact `0`-discrepancy hierarchy reconciliation, and ABC-XYZ Newsvendor working-capital sizing.
 
 ---
 
-## 🏗️ Architecture & Pipeline Workstreams
+## Key Performance Benchmarks
+
+### 1. Rolling-Origin 19-Month Backtest Tournament ([`outputs/backtest_metrics.csv`](outputs/backtest_metrics.csv))
+
+Evaluated strictly without future leakage across three 19-month rolling origins (`2023-10`, `2024-10`, and `2025-03` Holdout):
+
+| Origin | Evaluation Window | Seasonal Naive WAPE | HistGB Poisson WAPE | PyTorch Entity-ResNet WAPE | Hurdle Two-Stage WAPE | **Hybrid Ensemble WAPE** | **Ensemble Bias** | **CQR Coverage (80% Target)** | **Avg Pinball Loss** |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **2023-10** | 2023-11 → 2025-05 | 41.81% | 31.37% | 32.06% | 31.80% | **31.09%** | -8.58% | **85.3%** | 4.93 |
+| **2024-10** | 2024-11 → 2026-05 | 38.75% | 30.27% | 29.69% | 30.14% | **29.50%** | -3.94% | **83.1%** | 4.47 |
+| **2025-03** *(Holdout)* | 2025-04 → 2026-10 | 39.64% | 29.96% | 31.70% | 29.69% | **29.76%** | +3.95% | **81.0%** | 4.49 |
+
+- **All 7/7 Product Families** select the **Hybrid Ensemble** over Statistical Baselines (`27.67%`–`33.83%` Holdout WAPE across families in [`outputs/family_model_selection.csv`](outputs/family_model_selection.csv)).
+- **19-Month Horizon Continuity (`2025-03`)**: Month 1 WAPE `26.94%`, Month 2 WAPE `26.20%`, and Month 19 WAPE **`28.08%`** (`Bias +1.44%`, Coverage `81.2%`), eliminating horizon-13+ lag collapse.
+- **Competition Submission Summary**: **`2,640,501` P50 units** (`P10: 1,784,912`, `P90: 3,653,707`) across **`58,219` rows** (`$2.246B` USD projected 19-month revenue), with exact **`0` unit discrepancy** across Business Unit, Product Family, and Region totals.
+
+---
+
+## System Architecture
 
 ```mermaid
 flowchart TD
-    subgraph Data [1. Data Cleaning & Integrity Engine]
-        RawTrain["train.csv (248,248 rows)"] --> CleanTrain["clean_train.py\nRules T1-T15, A2, A3, R5"]
-        RawMaster["sku_master.csv"] --> CleanMaster["clean_sku_master.py\nRules S1-S2"]
-        RawMacro["macro_indicators.csv"] --> CleanMacro["clean_macro.py\nRules M1-M5"]
-        RawEvents["events_calendar.csv"] --> CleanEvents["clean_events.py\nRules E1-E4"]
-        RawStock["inventory_stockouts.csv"] --> CleanStock["clean_stockouts.py\nRules K1-K3"]
+    subgraph Data [1. Data Cleaning & Triangulation]
+        RawTrain["train.csv (248,248 rows)"] --> CleanTrain["clean_train.py\nRules T1-T15, A2, A3, R5, Triangulation"]
+        RawAux["sku_master, macro, events, stockouts"] --> CleanAux["clean_auxiliary.py\nRules S1-S2, M1-M5, E1-E4, K1-K3"]
         CleanTrain --> AuditLog["reports/audit_trail.parquet\n& data_quality_report.json"]
     end
 
-    subgraph Anomalies [2. Anomaly Detection & Unconstrained Demand]
-        CleanTrain --> Reconstruct["unconstrained.py\nProportional Stockout Allocation"]
-        CleanStock --> Reconstruct
-        Reconstruct --> AnomalyReg["anomaly_register.csv\nStructural Breaks, Early Buying, Dips"]
-        Reconstruct --> Cycles["customer_ordering_cycles.py\nCadence, Switches, Lost Accounts"]
+    subgraph Anomalies [2. Unconstrained Demand & Account Dynamics]
+        CleanTrain --> Reconstruct["unconstrained.py\nProportional Stockout Reconstruction"]
+        Reconstruct --> AnomalyReg["detector.py -> anomaly_register.csv\n12 Business & Statistical Categories"]
+        Reconstruct --> Cycles["customer_cycles.py\nCadence Shifts, Switches, Lost Accounts"]
     end
 
-    subgraph Features [3. Feature Store & Macro Drivers]
-        Reconstruct --> FeatureStore["feature_pipeline.py\n95 Comprehensive Features"]
-        CleanMacro --> FeatureStore
-        CleanEvents --> FeatureStore
-        FeatureStore --> LeadLag["macro_lead_lag_analysis.csv\nLags 0-12 Cross-Correlation"]
-        FeatureStore --> EVShift["ev_shift_analysis.csv\nICE vs EV Transition Dynamics"]
+    subgraph Features [3. Strictly Causal Feature Store]
+        Reconstruct --> FeatureStore["feature_pipeline.py\nDespiked Lags, mod-2/3 Phases, EV Diffusion, Scoped Events"]
+        CleanAux --> FeatureStore
+        FeatureStore --> DriverStudies["macro_lead_lag, lag_stability & ev_shift CSVs"]
     end
 
-    subgraph Models [4. Forecasting Engine & Hierarchy]
-        FeatureStore --> Backtest["backtester.py\nRolling Origins 2023-10, 2024-10, 2025-03"]
-        Backtest --> Tournament["family_selector.py\nPer-Family Champion Selection"]
-        Tournament --> FinalLGB["lightgbm_engine.py\nTweedie P50, P10, P90 Quantiles"]
-        FinalLGB --> LifecycleBound["cold_start.py\nEOL Enforced & Replaces_SKU Transfer"]
-        LifecycleBound --> Recon["reconciliation.py\nExact Bottom-Up Reconciliation"]
-        Recon --> SubFile["outputs/submission.csv\n58,219 Rows (0 Discrepancy)"]
+    subgraph Models [4. Multi-Paradigm Ensemble & Reconciliation]
+        FeatureStore --> Backtest["backtester.py\n3x19-Mo Rolling CV, Pinball & Winkler"]
+        Backtest --> Tournament["family_selector.py\nPer-Family Champion Routing"]
+        Tournament --> Ensemble["lightgbm_engine.py\nHurdle + LGBM + HistGB + PyTorch + CQR + Tree-SHAP"]
+        Ensemble --> LifecycleBound["cold_start.py\nLaunch Ramps, Replaces_SKU & EOL Cutoffs"]
+        LifecycleBound --> Recon["reconciliation.py\n0-Discrepancy Sums & ABC-XYZ Matrix"]
     end
 
     subgraph Tower [5. Interactive Control Tower Dashboard]
-        SubFile --> StreamlitApp["app.py\nStreamlit 12-View Control Tower"]
-        Reconstruct --> StreamlitApp
+        Recon --> StreamlitApp["app.py (14 Views, 5 Shared Sidebar Filters)"]
         AnomalyReg --> StreamlitApp
     end
 ```
 
 ---
 
-## 🌟 Super-Expert Features & Innovations
+## Key Technical Capabilities
 
-### Workstream 1: Data Cleaning & Integrity (Core, Advanced & Expert)
-- **100% Rule Compliance**: Enforces Rules T1-T15, S1-S2, M1-M5, E1-E4, A2, A3, and R5.
-- **Authoritative Date Normalization**: Standardizes 667 heterogeneous date formats (`YYYY-MM`, `YYYY-MM-DD`, `MM/YYYY`, `Mon-YYYY`) into ISO `YYYY-MM`, correcting OCR 2062 digit transposition typos back to 2026.
-- **Deterministic Deduplication**: Deduplicates ERP transaction lines on `Record_ID` by preserving the row with the latest `Load_Timestamp`.
-- **Annual Reference Price Reconciliation**: Detects and repairs currency glitches (GBP/EUR exchange rate shifts), 100x pence errors, and zero prices using annual SKU-year median USD prices, ensuring `Revenue_USD = Units_Sold * Unit_Price_USD`.
-- **Sub-10s Execution**: Vectorized dictionary lookups clean all 248,248 rows in just 5.9 seconds.
+### Workstream 1: Data Cleaning & Integrity
+- **Triangulated Price & Unit Repair (`clean_train.py`)**: Cross-checks `Units * Price = Revenue` per line against annual SKU median USD prices (`Rule T12/T13`), cleanly separating real volume surges and valid `EV-027` surcharges from `10x`/`100x` unit typos, cents entries, decimal shifts, and EUR invoices.
+- **Full Entity Standardization**: Standardizes dates (`2062 -> 2026` transposition fix), deduplicates `Record_ID` by latest `Load_Timestamp`, canonicalizes all `12` tier-1 customers (`2,455` variants), enforces `sku_master` Product Family/Business Unit consistency, and zeroes Rule-5 pre-launch/post-EOL violations.
 
-### Workstream 2: Anomaly Detection & Unconstrained Demand (Core, Advanced & Expert)
-- **True Unconstrained Demand Reconstruction**: Reconciles unfulfilled orders from `inventory_stockouts.csv`. Where multiple customer lines share a `(Date, SKU_ID, Region)`, unconstrained demand is proportionally allocated based on baseline shipments.
-- **Comprehensive Anomaly Register**: Categorizes anomalies into Outlier Spikes, Structural Breaks (COVID-19 shutdown, 2021 global chip shortage), Early Buying Surges (November/December volume pull-forward ahead of Jan 1 price hikes), and Holiday Dips (August European summer shutdown, Lunar New Year).
-- **Customer Ordering Dynamics**: Quantifies inter-order arrival cadences (Monthly, Bi-Monthly, Quarterly), flags customer switches between successor components, and identifies dormant accounts.
+### Workstream 2: Anomalies, Stockouts & Account Dynamics
+- **Unconstrained Demand Recovery (`unconstrained.py`)**: Reconstructs lost demand from `inventory_stockouts.csv` across matching `(Date, SKU_ID, Region)` customer lines.
+- **12-Category Anomaly Register (`detector.py`)**: Separates `Stockout Constrained`, `COVID-19`, `Chip Shortage`, `2022 Inflation & Surcharge`, `ERP Migration`, `MEA Opening`, `Early Buying (Pre-Price Hike)`, `European Summer Dip`, `Nexon Strike`, `Red Sea Logistics`, `Helios Line 2 Expansion`, and statistical spikes.
+- **Ordering-Cycle Shifts (`customer_cycles.py`)**: Tracks customer-SKU arrival cadences and pre-2023 vs post-2023 temporal cadence transitions (`reports/cadence_changes.csv`), switches, and dormant accounts.
 
-### Workstream 3: Features & Macro Drivers (Core, Advanced & Expert)
-- **Syntetos-Boylan ADI-CV² Classification**: Partitions all portfolio time-series into Smooth, Intermittent, Erratic, and Lumpy quadrants.
-- **Automotive Calendar Schedules**: Integrates European summer shutdowns, Chinese New Year, Golden Week, Christmas shutdowns, and pre/post-price hike indicators.
-- **Macroeconomic Lead/Lag Analysis**: Computes cross-correlations across lags 0 to 12. Identifies that `New_Vehicle_Orders_Index` leads Powertrain Components by 3 months ($r = 0.68$).
-- **EV Technology Transition**: Interacts `EV_Adoption_Index` with powertrain classifications (`ICE`, `EV`, `Universal`), explicitly capturing surging EV component share and ICE volume plateau.
+### Workstream 3: Causal Feature Store & Drivers
+- **Zero-Leakage Rolling Snapshots (`feature_pipeline.py`)**: Freezes trailing windows, same-calendar-month Empirical Bayes seasonality, causal spike-despiked levels (`clean_ewm`), and ordering-phase indicators (`ym_mod2_nz_rate`, `ym_mod3_nz_rate`, `same_month_nz_rate`) strictly `<= origin_date`.
+- **EV Logistic-Diffusion & Macro Lead/Lag (`ev_transition.py`, `macro_drivers.py`)**: Models EV demand scaling via `exp(0.042 * delta_EV)` anchored at origin with saturation headroom and 12-month adoption velocity alongside macro lead/lag stability checks.
+- **Scoped Calendar Events (`calendar_events.py`)**: Maps `EV-001`..`EV-068` accurately by `Scope_Type` (`Global`, `Region`, `Product_Family`, `Channel`, `Customer|Region`) and `Start_Date..End_Date`, including open-ended `EV-052` and forecast-window `EV-062`.
 
-### Workstream 4: Forecasting & Hierarchical Reconciliation (Core, Advanced & Expert)
-- **Multi-Quantile Forecasting**: Trains LightGBM models for P50 (Tweedie objective with variance power 1.2), P10, and P90 (pinball loss quantile regression) with strict monotonicity enforcement ($0 \le P10 \le P50 \le P90$).
-- **Cold-Start Predecessor Transfer**: Newly launched SKUs with no historical sales inherit scale and seasonality from their predecessor SKU mapped via `Replaces_SKU`.
-- **Catalog Lifecycle Boundaries**: Strictly zeroes demand for dates following announced `EOL_Date` or preceding planned `Launch_Date`.
-- **Exact Hierarchical Reconciliation**: Guarantees zero discrepancy across SKU -> Family -> BU -> Total Portfolio and Region:
-$$\sum_{\text{SKU}} \hat{y} = \hat{y}_{\text{Family}}, \quad \sum_{\text{Family}} \hat{y} = \hat{y}_{\text{BU}}, \quad \sum_{\text{Region}} \hat{y} = \hat{y}_{\text{Total}}$$
-- **Submission Output**: Exactly **58,219 non-negative integer rows** formatted as `Date, SKU_ID, Region, Units_Sold_Forecast`.
-
----
-
-## 🖥️ Interactive Planning Control Tower Dashboard (12 Views)
-
-Built with Streamlit and Plotly, the Control Tower delivers **all 5 Required Views plus all 7 Optional Views**:
-
-1. **🏛️ Executive Overview** *(Required)*: Single seamless continuous timeline bridging history into the 19-month forecast with P10/P50/P90 bands, mix donuts, and headline KPIs.
-2. **🩺 Data Health & Audit** *(Required)*: File-by-file cleaning summary, data health score gauge (99.8%), rule breakdown, and searchable row-level audit trail.
-3. **🔍 Demand Explorer** *(Required)*: Interactive sunburst drilldown (BU ➔ Family ➔ Region), monthly seasonality heatmaps, and ADI-CV² intermittency quadrant scatter.
-4. **🚨 Anomaly Monitor** *(Required)*: Historical timeline scatter with flagged anomalies (COVID, Chip Shortage, Early Buying, Holiday Dips) and searchable Anomaly Register.
-5. **🎯 Forecast Accuracy** *(Required)*: Model tournament leaderboard across origins 2023-10, 2024-10, and 2025-03, bias bar charts, and per-family champion selections.
-6. **🌡️ Macro Lead/Lag Heatmap** *(Optional 1)*: Correlation matrix for 8 indicators across lags 0-12, optimal lead callouts, and temporal lag stability test.
-7. **🎛️ What-If Scenario Simulator** *(Optional 2)*: Real-time slider controls for PMI shocks, raw material spikes, and EV adoption shifts, dynamically redrawing the 19-month portfolio projection.
-8. **📦 Procurement & Safety Stock** *(Optional 3)*: Translates P90 upper quantile forecasts into supplier purchase order schedules and safety buffer sizing ($P90 - P50$).
-9. **🔄 Lifecycle & Transition** *(Optional 4)*: Tracks product launches, EOL phase-outs, and predecessor-to-successor volume handoffs (`Replaces_SKU`).
-10. **⚠️ Stockouts & Lost Sales** *(Optional 5)*: In-depth analysis of historical stockout events, fulfillment rates, lost sales by region, and root causes.
-11. **📋 Planner Exception Center** *(Optional 6)*: Automated prioritized alerts for imminent EOL cutoffs, high uncertainty SKUs ($P90/P10 > 3.0$), and dormant accounts.
-12. **💾 Data Export & Reports** *(Optional 7)*: One-click instant downloads for official `submission.csv`, `anomaly_register.csv`, `data_quality_report.json`, and `model_card.md`.
+### Workstream 4: Multi-Paradigm Ensemble & Optimization
+- **Six-Learner Hybrid Architecture (`lightgbm_engine.py`)**:
+  1. Two-Stage Zero-Inflated Hurdle (`LGBMClassifier * Positive LGBM Tweedie`)
+  2. LightGBM Tweedie Regressor (`p=1.25`)
+  3. LightGBM Multiplicative Log-Ratio Residual (`log1p(y) - log1p(anchor)`)
+  4. Scikit-Learn `HistGradientBoostingRegressor` (`loss="poisson"`)
+  5. PyTorch `TabularDemandResNet` with entity embeddings across `SKU_ID` and categorical attributes
+  6. Empirical Bayes Structural Anchor
+- **SLSQP Meta-Blending & Scaled CQR**: Fits L2-regularized simplex weights and conservative Hurdle cutoff `tau` on a strict zero-overlap temporal holdout, and calibrates `[P10, P90]` bounds per horizon band (`1–6m`, `7–12m`, `13–19m`) targeting ~80% empirical coverage with strict monotonicity ($0 \le P10 \le P50 \le P90$).
+- **Explainability & ABC-XYZ Optimization**: Exports row-level Tree-SHAP attributions (`outputs/forecast_drivers.parquet`) and segments SKUs across the 9-cell ABC×XYZ matrix (`outputs/abc_xyz_inventory.csv`).
 
 ---
 
-## ⚡ Quickstart Guide
+## Interactive Planning Control Tower Dashboard (14 Views)
+
+Built in Streamlit and Plotly sharing all **5 global sidebar filters** (`Product Family`, `SKU ID`, `Sales Region`, `Sales Channel`, `Tier-1 Customer`):
+
+1. **Executive Overview** *(Required)*: Continuous Units and USD Revenue timelines (2019–2028) with P10/P50/P90 uncertainty ribbons, mix breakdowns, and headline KPIs.
+2. **Data Health & Audit** *(Required)*: Before vs after file cleaning tables, issue counts by type, master-data contradictions, and searchable row-level audit log.
+3. **Demand Explorer** *(Required)*: Interactive 4-level hierarchy sunburst (`BU -> Family -> Region -> Customer`), seasonality heatmaps, zero-month histograms, and ADI-CV² quadrant scatter.
+4. **Anomaly Monitor** *(Required)*: Time-series anomaly scatter across all 12 event categories plus customer switch and dormant-account tabs.
+5. **Forecast & Accuracy** *(Required)*: Forecast vs History chart, 9-model multi-origin leaderboard (`WAPE`, `Bias`, `Pinball`, `CQR Coverage`), and Family/Region/Horizon accuracy breakdowns.
+6. **AI Explainability (Tree-SHAP)** *(Additional)*: 6-driver Tree-SHAP waterfall chart decomposition across portfolio and filtered SKUs.
+7. **ABC-XYZ Inventory Optimizer** *(Additional)*: 9-cell Revenue Tier × Variability heatmap and Newsvendor safety-stock & working-capital allocation.
+8. **Macro Lead/Lag Heatmap** *(Optional 1)*: Cross-correlation heatmap across lags 0–12 and pre/post-2022 stability checks.
+9. **What-If Scenario Simulator** *(Optional 2)*: Interactive controls for PMI shocks, raw material inflation, EV acceleration, Export shocks, and Pre-Hike elasticity.
+10. **Procurement & Safety Stock** *(Optional 3)*: P90 buffer procurement quantities and supplier planning views.
+11. **Lifecycle & Transition** *(Optional 4)*: EOL cutoffs, commercial launches, and `Replaces_SKU` ramp-up handoffs.
+12. **Stockouts & Lost Sales** *(Optional 5)*: Fill rates, unfulfilled volume, and shortage root-cause breakdown.
+13. **Planner Exception Center** *(Optional 6)*: Prioritized queue for high-uncertainty SKUs, imminent EOLs, and cadence alerts.
+14. **Data Export & Reports** *(Optional 7)*: Downloads for `submission.csv`, `abc_xyz_inventory.csv`, `master_data_contradictions.csv`, `anomaly_register.csv`, `data_quality_report.json`, and `model_card.md`.
+
+---
+
+## Quickstart Guide
 
 ### 1. Environment Setup
 
 ```bash
-# Clone repository
 git clone https://github.com/pkprajapati7402/mks-hackathon.git
 cd mks-hackathon
-
-# Install required dependencies
 pip install -r requirements.txt
 ```
 
 ### 2. Run the Full End-to-End Pipeline
 
-Execute the complete cleaning, feature engineering, backtesting, forecasting, and report generation pipeline with **one command**:
-
 ```bash
 python run_pipeline.py
 ```
-
-*Execution completes in ~73 seconds on standard CPU hardware.*
 
 ### 3. Launch the Interactive Control Tower Dashboard
 
@@ -164,128 +150,56 @@ python run_pipeline.py
 streamlit run app.py
 ```
 
-Open your browser at `http://localhost:8501` to explore the Control Tower.
-
 ### 4. Run the Automated Test Suite
 
 ```bash
 python -m pytest -v tests/
 ```
 
-*All 10 unit and integration tests pass with 100% pass rate.*
-
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
-```
+```text
 mks-hackathon/
-├── student_data/                    # Raw ERP extracts (read-only input files)
-│   ├── train.csv
-│   ├── test.csv
-│   ├── macro_indicators.csv
-│   ├── sku_master.csv
-│   ├── events_calendar.csv
-│   ├── inventory_stockouts.csv
-│   └── sample_submission.csv
+├── student_data/                    # Raw ERP extracts (input datasets)
 ├── data/
-│   ├── cleaned/                     # Cleaned parquet & csv files
-│   │   ├── clean_train.parquet
-│   │   ├── unconstrained_demand.parquet
-│   │   ├── sku_master.csv
-│   │   ├── macro_indicators.csv
-│   │   ├── events_calendar.csv
-│   │   └── inventory_stockouts.csv
-│   └── features/                    # Feature store panel parquet
-│       ├── train_features.parquet
-│       ├── test_features.parquet
-│       └── full_panel_features.parquet
+│   ├── cleaned/                     # Cleaned parquet and csv tables
+│   └── features/                    # Causal panel feature store parquets
 ├── outputs/
 │   ├── submission.csv               # 58,219-row competition submission
-│   ├── forecast_intervals.parquet   # P10, P50, P90 predictions
-│   ├── backtest_metrics.csv         # WAPE, Bias, RMSE across origins
-│   ├── backtest_predictions.csv     # Out-of-sample backtest predictions
-│   ├── family_model_selection.csv   # Best model per Product Family
-│   └── hierarchical_reconciliation.csv # Hierarchy consistency table (0 discrepancy)
-├── reports/
-│   ├── data_quality_report.json     # Machine-readable DQ report
-│   ├── data_quality_report.md       # Comprehensive markdown audit report
-│   ├── anomaly_register.csv         # Flagged anomalies, reasons & actions
-│   ├── audit_trail.parquet          # Row-level modification audit log
-│   ├── customer_ordering_cycles.csv # Ordering cadence per customer-SKU
-│   ├── lost_accounts.csv            # Dormant accounts (> 6 months inactive)
-│   ├── customer_switches.csv        # SKU handoff instances
-│   ├── macro_lead_lag_analysis.csv  # Cross-correlation matrix (lags 0-12)
-│   ├── lag_stability_analysis.csv   # Temporal lag stability pre/post 2022
-│   ├── ev_shift_analysis.csv        # Powertrain volume and portfolio share
-│   ├── model_card.md                # Standardized AI/ML Model Card
-│   └── executive_summary.md         # C-Suite strategic outlook & recommendations
+│   ├── forecast_intervals.parquet   # P10, P50, P90 predictions & USD revenue
+│   ├── forecast_drivers.parquet     # Tree-SHAP 6-driver attributions
+│   ├── abc_xyz_inventory.csv        # ABC-XYZ Newsvendor working-capital plan
+│   ├── backtest_metrics.csv         # 9-model multi-origin WAPE, Bias, Pinball, CQR
+│   ├── backtest_breakdowns.csv      # Family, Region, Horizon 1-19 accuracy splits
+│   ├── family_model_selection.csv   # Champion model routing per Product Family
+│   └── hierarchical_reconciliation.csv
+├── reports/                         # DQ audits, anomaly register, cycles, Model Card
+├── scripts/
+│   └── build_notebook.py            # Reproducible generator for Colab notebook
 ├── src/
-│   ├── __init__.py
-│   ├── config.py                    # Constants, canonical maps, file paths
-│   ├── audit.py                     # Audit logger for tracking all edits
-│   ├── cleaning/                    # Workstream 1
-│   │   ├── clean_auxiliary.py       # Cleaning for master, macro, events, stockouts
-│   │   ├── clean_train.py           # Rules T1-T15, A2, A3, R5, T4b
-│   │   └── data_quality.py          # DQ report generator
-│   ├── anomalies/                   # Workstream 2
-│   │   ├── unconstrained.py         # True customer demand reconstruction
-│   │   ├── detector.py              # Anomaly detection & Anomaly Register
-│   │   └── customer_cycles.py       # Customer cadence & churn analysis
-│   ├── features/                    # Workstream 3
-│   │   ├── intermittency.py         # ADI & CV2 classification
-│   │   ├── calendar_events.py       # Cyclical seasonality & holiday calendars
-│   │   ├── macro_drivers.py         # Macro lead/lags & stability testing
-│   │   ├── ev_transition.py         # EV vs ICE powertrain interactions
-│   │   └── feature_pipeline.py      # Master feature store builder
-│   ├── models/                      # Workstream 4
-│   │   ├── baselines.py             # Seasonal Naive & Moving Average
-│   │   ├── intermittent.py          # Croston & Syntetos-Boylan (SBA)
-│   │   ├── lightgbm_engine.py       # Global LightGBM (Tweedie P50, P10/P90)
-│   │   ├── cold_start.py            # Replaces_SKU transfer & EOL enforcement
-│   │   ├── backtester.py            # Rolling-origin 19-month backtest
-│   │   ├── family_selector.py       # Family champion model tournament
-│   │   └── reconciliation.py        # Exact hierarchical reconciliation
-│   └── dashboard/                   # Workstream 5
-│       ├── __init__.py
-│       ├── app.py                   # Streamlit Control Tower multi-view application
-│       ├── components.py            # Reusable Plotly charts, KPI cards, theme CSS
-│       └── views/                   # 12 interactive dashboard views
-│           ├── executive.py
-│           ├── data_health.py
-│           ├── demand_explorer.py
-│           ├── anomaly_monitor.py
-│           ├── forecast_accuracy.py
-│           ├── macro_heatmap.py
-│           ├── what_if.py
-│           ├── procurement.py
-│           ├── lifecycle.py
-│           ├── stockouts.py
-│           ├── exceptions.py
-│           └── export_data.py
-├── tests/                           # Automated pytest test suite
-│   ├── test_cleaning.py
-│   ├── test_unconstrained.py
-│   ├── test_features.py
-│   ├── test_models.py
-│   └── test_submission.py
-├── app.py                           # Root Streamlit entrypoint
+│   ├── config.py
+│   ├── audit.py
+│   ├── reports_generator.py
+│   ├── cleaning/
+│   ├── anomalies/
+│   ├── features/
+│   ├── models/
+│   └── dashboard/                   # 14 Streamlit views + shared theme & charts
+├── tests/                           # Pytest suite (10 unit & compliance tests)
+├── mks_datathon_notebook.ipynb      # End-to-end Google Colab & local notebook
+├── app.py                           # Root Streamlit dashboard entrypoint
 ├── run_pipeline.py                  # One-command CLI master runner
-├── requirements.txt                 # Project dependencies
-├── submission.csv                   # Official competition submission file (58,219 rows)
-└── README.md                        # Master production documentation
+└── submission.csv                   # Competition submission copy (58,219 rows)
 ```
 
 ---
 
-## 📜 Compliance & Verification Checklist
+## Compliance Checklist
 
-- [x] **File Format**: `submission.csv` contains exactly **58,219 rows** matching `test.csv`.
-- [x] **Submission Columns**: `Date, SKU_ID, Region, Units_Sold_Forecast`.
-- [x] **Integrity**: Non-negative integers, 0 nulls, 0 blanks.
-- [x] **Reconciliation**: Exact hierarchical bottom-up addition ($\Delta = 0$).
-- [x] **Catalog Boundaries**: Zero demand post-`EOL_Date` and pre-`Launch_Date`.
-- [x] **Unconstrained Target**: Corrected for stockouts; forecasts true unconstrained customer demand.
-- [x] **Test Suite**: 10/10 automated tests passing (`pytest tests/`).
-- [x] **One-Command Pipeline**: Reproducible end-to-end execution via `python run_pipeline.py`.
-- [x] **Full 12 Dashboard Views**: All 5 required views + all 7 optional views implemented with live interactive filters.
+- [x] **Exact Row Count & Keys**: `submission.csv` contains **58,219 rows** matching `student_data/test.csv`.
+- [x] **Format & Validity**: `Date, SKU_ID, Region, Units_Sold_Forecast` with non-negative integers and zero nulls.
+- [x] **Exact Reconciliation**: Zero discrepancy (`Delta = 0`) across SKU, Product Family, Business Unit, Region, and Global totals.
+- [x] **Catalog Lifecycle & Unconstrained Target**: Respects `Launch_Date`, `EOL_Date`, and `Replaces_SKU`; forecasts true unconstrained customer demand.
+- [x] **Automated Verification**: `10/10` `pytest` tests and all `14` Streamlit views verified cleanly.

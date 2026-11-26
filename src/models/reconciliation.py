@@ -44,8 +44,10 @@ def compute_abc_xyz_matrix(
     agg["ABC_Class"] = np.where(agg["Cum_Rev_Pct"] <= 80.0, "A", np.where(agg["Cum_Rev_Pct"] <= 95.0, "B", "C"))
     spread = (agg["P90"] - agg["P10"]) / np.maximum(agg["P50"], 1.0)
     agg["Interval_Spread_Ratio"] = spread.round(3)
-    # Calibrated XYZ thresholds against CQR 19-month interval spread (~0.72..2.20)
-    agg["XYZ_Class"] = np.where(spread <= 0.84, "X", np.where(spread <= 0.92, "Y", "Z"))
+    # Self-calibrating portfolio variability tiers based on empirical P10-P90 spread quantiles (35% X, 40% Y, 25% Z)
+    q_x = float(np.quantile(spread, 0.35)) if len(spread) > 0 else 0.70
+    q_y = float(np.quantile(spread, 0.75)) if len(spread) > 0 else 0.80
+    agg["XYZ_Class"] = np.where(spread <= q_x, "X", np.where(spread <= q_y, "Y", "Z"))
     agg["ABC_XYZ_Segment"] = agg["ABC_Class"] + agg["XYZ_Class"]
 
     # Policy Service Level & Z-score for empirical sigma = (P90 - P10) / 2.563

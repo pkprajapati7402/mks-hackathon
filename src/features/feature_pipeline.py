@@ -415,12 +415,30 @@ def attach_strict_causal_features(
 
     is_ev = (out["Powertrain_Application"].values == "EV") if "Powertrain_Application" in out.columns else np.zeros(len(out), dtype=bool)
     is_ice = (out["Powertrain_Application"].values == "ICE") if "Powertrain_Application" in out.columns else np.zeros(len(out), dtype=bool)
-    ev_mult = np.where(is_ev, np.power(ev_ratio, 1.15), np.where(is_ice, np.power(ev_ratio, -0.25), 1.0))
+    # Empirical logistic-diffusion EV demand multiplier calibrated to actual 2019-2026 mature cohort response
+    ev_mult = np.where(
+        is_ev,
+        np.clip(np.exp(0.042 * ev_delta), 0.70, 2.60),
+        np.where(is_ice, np.clip(np.exp(-0.008 * ev_delta), 0.75, 1.15), 1.0),
+    )
 
     raw_orig_ev = pd.to_numeric(orig_row.get("EV_Adoption_Index", 80.0), errors="coerce")
-    out["ev_adoption_at_origin"] = float(80.0 if pd.isna(raw_orig_ev) else raw_orig_ev)
+    orig_ev_val = float(80.0 if pd.isna(raw_orig_ev) else raw_orig_ev)
+    prior_12m_ev_rows = hist[hist["_months_ago"] == 12]
+    if prior_12m_ev_rows.empty:
+        prior_12m_ev_rows = hist[hist["_months_ago"] >= 10].sort_values("Date").tail(1)
+    if not prior_12m_ev_rows.empty and "EV_Adoption_Index" in prior_12m_ev_rows.columns:
+        raw_p12_ev = pd.to_numeric(prior_12m_ev_rows.iloc[0]["EV_Adoption_Index"], errors="coerce")
+        p12_ev = float(orig_ev_val if pd.isna(raw_p12_ev) else raw_p12_ev)
+    else:
+        p12_ev = orig_ev_val
+
+    ev_idx_cur = pd.to_numeric(out["EV_Adoption_Index"], errors="coerce").fillna(orig_ev_val).values if "EV_Adoption_Index" in out.columns else np.full(len(out), orig_ev_val)
+    out["ev_adoption_at_origin"] = orig_ev_val
     out["ev_adoption_ratio"] = ev_ratio
     out["ev_adoption_delta"] = ev_delta
+    out["ev_velocity_12m_origin"] = orig_ev_val - p12_ev
+    out["ev_saturation_headroom"] = np.maximum(0.0, 95.0 - ev_idx_cur)
     out["ev_demand_multiplier"] = ev_mult
     out["pmi_delta_origin"] = pmi_delta
     out["orders_ratio_origin"] = ord_ratio
