@@ -1,7 +1,5 @@
 """
-Script to build mks_datathon_notebook.ipynb with bulletproof Google Colab (Web + VS Code Extension)
-and Local execution, zero-leakage multi-horizon metrics, Tree-SHAP explainability, ABC-XYZ optimization,
-and Cloudflare Quick Tunnel dashboard launcher.
+Generates mks_datathon_notebook.ipynb with clean, standard formatting for Google Colab and local execution.
 """
 
 import json
@@ -20,31 +18,30 @@ notebook = {
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "# 🏭 Celeris Automobili Industrial: Demand Forecasting & Planning Control Tower\n",
-                "### MKS AIML Hackathon Phase 2: Super-Expert End-to-End Demand Intelligence Platform\n",
+                "# Celeris Automobili Industrial: Demand Forecasting & Planning Control Tower\n",
+                "### MKS AIML Hackathon Phase 2 — End-to-End Demand Forecasting & S&OP Solution\n",
                 "\n",
                 "[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pkprajapati7402/mks-hackathon/blob/main/mks_datathon_notebook.ipynb)\n",
                 "[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)\n",
                 "[![LightGBM](https://img.shields.io/badge/LightGBM-4.3%2B-brightgreen)](https://lightgbm.readthedocs.io/)\n",
-                "[![19-Month Forecast](https://img.shields.io/badge/Forecast%20Horizon-Nov%202026%20--%20May%202028-orange)](#)\n",
-                "[![Submission Integrity](https://img.shields.io/badge/Submission%20Rows-58%2C219%20Valid-success)](#)\n",
+                "[![Forecast Horizon](https://img.shields.io/badge/Horizon-Nov%202026%20--%20May%202028-orange)](#)\n",
                 "\n",
                 "---\n",
-                "### 📌 Platform Architecture & Differentiators\n",
-                "Built for **Celeris Automobili Industrial** across **601 SKUs, 7 Product Families, 4 Sales Channels, and 6 Global Regions** (`2019-01 → 2028-05`):\n",
-                "1. **Exact Arithmetic & Currency Triangulation (`Units × Price = Revenue`)**: Recovers 10×/100× unit typos, cents entries, and EUR→USD currency mismatches while preserving legitimate H2-2022 6% surcharges (`EV-027`).\n",
-                "2. **Master Data Contradictions & Rule-6 Cadence Shift Audits**: Documents family/BU mismatches, Rule-5 launch/EOL violations, lost accounts, SKU switches, and temporal customer cadence shifts.\n",
-                "3. **Scoped Business Events Engine (`EV-001`..`EV-068`)**: Models open-ended `EV-052` (Helios India line expansion), `EV-062` (Orion NA July–Aug 2027 planned retooling), `EV-033` (LatAm ERP gap), `EV-039` (Red Sea), Ramadan, LNY, and price-hike announcements.\n",
-                "4. **Zero-Leakage Dual-Objective Ensemble + Conformal Quantiles (CQR)**: Blends LightGBM Tweedie + Log1p-L1 + Seasonal-EWM Anchor trained over causal multi-origin snapshots, with horizon-stratified CQR achieving ~80% `[P10, P90]` empirical coverage.\n",
-                "5. **Native Tree-SHAP Explainability & ABC-XYZ Working Capital Optimizer**: Decomposes every SKU-Region forecast into 6 business drivers (`pred_contrib=True`) and optimizes safety stock capital across the 9-cell ABC×XYZ matrix."
+                "### Architecture & Core Capabilities\n",
+                "Built for **Celeris Automobili Industrial** covering **601 SKUs, 7 Product Families, 4 Sales Channels, and 6 Regions** (`2019-01` to `2028-05`):\n",
+                "1. **Data Cleaning & Triangulation (`Units * Price = Revenue`)**: Standardizes dates (`2062` typo correction), removes duplicates on latest `Load_Timestamp`, canonicalizes all 12 tier-1 customers, and resolves `10x`/`100x` unit errors, cents prices, and EUR-to-USD mismatches while preserving valid H2-2022 `6%` surcharges (`EV-027`).\n",
+                "2. **Anomaly & Ordering-Cycle Intelligence**: Flags stockouts, structural breaks, pre-hike pull-forward buying, holidays, customer switches, lost accounts, master-data contradictions, and temporal Rule-6 customer cadence shifts (`2019-2022` vs `2023-2026`).\n",
+                "3. **Causal Feature Store & Scoped Events (`EV-001`..`EV-068`)**: Computes strictly causal rolling levels with spike despiking, `mod-2`/`mod-3` ordering phases, Empirical Bayes seasonal shrinkage, origin-relative EV saturation curves, macro lead/lag indicators, and scoped calendar events (`EV-052`, `EV-062`, Ramadan, Lunar New Year, price hikes).\n",
+                "4. **Multi-Paradigm Hybrid Ensemble & Conformal Quantiles (CQR)**: Blends Two-Stage Zero-Inflated Hurdle, LightGBM Tweedie, LightGBM Multiplicative Log-Ratio Residual, `HistGradientBoosting` (Poisson), a `PyTorch` Entity-Embedding Residual Network, and an analytical anchor via out-of-sample SLSQP optimization, with horizon-stratified `[P10, P90]` intervals and exact hierarchy reconciliation.\n",
+                "5. **Explainability & Inventory Planning**: Exports native LightGBM Tree-SHAP feature attributions across 6 business driver groups (`outputs/forecast_drivers.parquet`) and computes an ABC-XYZ safety stock and working-capital matrix (`outputs/abc_xyz_inventory.csv`)."
             ]
         },
         {
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "## 1. Environment Verification & Auto-Setup (Google Colab Cloud & Local)\n",
-                "Detects Colab Web, VS Code Colab Cloud, or Local runtime; syncs `/content/mks-hackathon`; installs dependencies; and configures Plotly & `sys.path`."
+                "## 1. Environment Setup (Google Colab & Local)\n",
+                "Detects Colab or local runtime, syncs the repository in Colab if needed, installs required packages, and configures Plotly and Python paths."
             ]
         },
         {
@@ -53,9 +50,6 @@ notebook = {
             "metadata": {},
             "outputs": [],
             "source": [
-                "# -----------------------------------------------------------------------------\n",
-                "# 1. COLAB CLOUD & LOCAL ENVIRONMENT AUTO-SETUP\n",
-                "# -----------------------------------------------------------------------------\n",
                 "import os\n",
                 "import sys\n",
                 "import shutil\n",
@@ -79,14 +73,14 @@ notebook = {
                 "IN_COLAB = detect_colab()\n",
                 "\n",
                 "if IN_COLAB:\n",
-                "    print(\"⚡ Google Colab Cloud runtime detected.\")\n",
+                "    print(\"Google Colab runtime detected.\")\n",
                 "    if not (Path.cwd() / \"src\").exists():\n",
                 "        if (COLAB_REPO / \".git\").exists() and (COLAB_REPO / \"src\").exists():\n",
-                "            print(f\"🔄 Syncing existing clone at {COLAB_REPO} to latest origin/main...\")\n",
+                "            print(f\"Syncing repository at {COLAB_REPO} to origin/main...\")\n",
                 "            subprocess.run([\"git\", \"-C\", str(COLAB_REPO), \"fetch\", \"-q\", \"origin\", \"main\"], check=False)\n",
                 "            subprocess.run([\"git\", \"-C\", str(COLAB_REPO), \"reset\", \"-q\", \"--hard\", \"origin/main\"], check=False)\n",
                 "        else:\n",
-                "            print(f\"📥 Cloning repository from {REPO_URL}...\")\n",
+                "            print(f\"Cloning repository from {REPO_URL}...\")\n",
                 "            if COLAB_REPO.exists():\n",
                 "                shutil.rmtree(str(COLAB_REPO), ignore_errors=True)\n",
                 "            subprocess.run([\"git\", \"clone\", \"-q\", REPO_URL, str(COLAB_REPO)], check=True)\n",
@@ -96,14 +90,14 @@ notebook = {
                 "        subprocess.run([\"git\", \"fetch\", \"-q\", \"origin\", \"main\"], check=False)\n",
                 "        subprocess.run([\"git\", \"reset\", \"-q\", \"--hard\", \"origin/main\"], check=False)\n",
                 "\n",
-                "    print(\"📦 Verifying/installing production dependencies...\")\n",
+                "    print(\"Installing runtime dependencies...\")\n",
                 "    subprocess.run([\n",
                 "        sys.executable, \"-m\", \"pip\", \"install\", \"-q\",\n",
-                "        \"pyarrow>=15.0.0\", \"lightgbm>=4.3.0\", \"streamlit>=1.35.0\",\n",
+                "        \"pyarrow>=15.0.0\", \"lightgbm>=4.3.0\", \"scipy>=1.13.0\", \"streamlit>=1.35.0\",\n",
                 "        \"plotly>=5.20.0\", \"statsmodels>=0.14.0\", \"scikit-learn>=1.4.0\", \"tabulate>=0.9.0\"\n",
                 "    ], check=True)\n",
                 "else:\n",
-                "    print(f\"💻 Local environment detected: {Path.cwd()}\")\n",
+                "    print(f\"Local runtime detected: {Path.cwd()}\")\n",
                 "\n",
                 "PROJECT_ROOT = Path.cwd().resolve()\n",
                 "if str(PROJECT_ROOT) not in sys.path:\n",
@@ -126,18 +120,15 @@ notebook = {
                 "assert (PROJECT_ROOT / \"run_pipeline.py\").exists(), f\"run_pipeline.py missing in {PROJECT_ROOT}\"\n",
                 "assert (PROJECT_ROOT / \"student_data\" / \"train.csv\").exists(), f\"student_data/train.csv missing in {PROJECT_ROOT}\"\n",
                 "\n",
-                "print(f\"\\n✅ Environment Ready!\")\n",
-                "print(f\"   - Working Dir:     {PROJECT_ROOT}\")\n",
-                "print(f\"   - Python Version:  {sys.version.split()[0]}\")\n",
-                "print(f\"   - Plotly Renderer: {pio.renderers.default}\")"
+                "print(f\"Environment ready | Working Dir: {PROJECT_ROOT} | Python: {sys.version.split()[0]} | Plotly: {pio.renderers.default}\")"
             ]
         },
         {
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "## 2. Execute Master Demand Pipeline\n",
-                "Runs all 6 stages end-to-end: Triangulated Cleaning → Anomaly & Cycle Intelligence → Causal Multi-Horizon Features → Leakage-Free Rolling Backtesting → Hybrid LightGBM + CQR + Tree-SHAP → Hierarchical Reconciliation + ABC-XYZ Matrix."
+                "## 2. Run End-to-End Demand Forecasting Pipeline\n",
+                "Executes all 6 pipeline stages: data cleaning, unconstrained demand reconstruction and anomaly detection, causal feature engineering, rolling-origin backtesting, hybrid multi-model forecasting with CQR & Tree-SHAP, and hierarchy reconciliation."
             ]
         },
         {
@@ -146,9 +137,6 @@ notebook = {
             "metadata": {},
             "outputs": [],
             "source": [
-                "# -----------------------------------------------------------------------------\n",
-                "# 2. EXECUTE MASTER DEMAND FORECASTING PIPELINE\n",
-                "# -----------------------------------------------------------------------------\n",
                 "import os\n",
                 "import sys\n",
                 "import shutil\n",
@@ -158,12 +146,13 @@ notebook = {
                 "REPO_URL = \"https://github.com/pkprajapati7402/mks-hackathon.git\"\n",
                 "COLAB_REPO = Path(\"/content/mks-hackathon\")\n",
                 "\n",
+                "# Ensure repository is available even if Cell 1 was skipped after kernel reset\n",
                 "if not (Path.cwd() / \"run_pipeline.py\").exists():\n",
                 "    if (COLAB_REPO / \"run_pipeline.py\").exists():\n",
                 "        %cd /content/mks-hackathon\n",
                 "        os.chdir(\"/content/mks-hackathon\")\n",
                 "    elif Path(\"/content\").exists() or \"google.colab\" in sys.modules or any(k.startswith(\"COLAB_\") for k in os.environ):\n",
-                "        print(\"⚡ Auto-cloning & configuring repository on Google Colab Cloud...\")\n",
+                "        print(\"Cloning repository on Google Colab...\")\n",
                 "        if COLAB_REPO.exists():\n",
                 "            shutil.rmtree(str(COLAB_REPO), ignore_errors=True)\n",
                 "        subprocess.run([\"git\", \"clone\", \"-q\", REPO_URL, str(COLAB_REPO)], check=True)\n",
@@ -188,7 +177,7 @@ notebook = {
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "## 3. Data Integrity, Master Contradictions & 10-Category Anomaly Register"
+                "## 3. Data Quality Audit, Master Contradictions & Anomaly Register"
             ]
         },
         {
@@ -213,12 +202,12 @@ notebook = {
                 "    dq_report = json.load(f)\n",
                 "\n",
                 "train_dq = dq_report.get(\"file_summaries\", {}).get(\"train.csv\", {})\n",
-                "print(f\"Exact Arithmetic & Currency Triangulation (train.csv):\")\n",
+                "print(\"Arithmetic & Currency Triangulation (train.csv):\")\n",
                 "print(f\"  - 10x Unit Typos Recovered: {train_dq.get('unit_10x_recovered', 0):,} | 100x Unit Typos: {train_dq.get('unit_100x_recovered', 0):,}\")\n",
                 "print(f\"  - Cents (100x) Prices: {train_dq.get('cents_100x_fixed', 0):,} | Decimal (10x): {train_dq.get('decimal_10x_fixed', 0):,} | EUR->USD: {train_dq.get('currency_eur_fixed', 0):,}\")\n",
                 "\n",
                 "file_summaries = [\n",
-                "    {\"Dataset\": fname, \"Raw Rows\": f\"{stats.get('raw_rows', 0):,}\", \"Cleaned Rows\": f\"{stats.get('clean_rows', 0):,}\", \"Status\": \"Verified Clean ✅\"}\n",
+                "    {\"Dataset\": fname, \"Raw Rows\": f\"{stats.get('raw_rows', 0):,}\", \"Cleaned Rows\": f\"{stats.get('clean_rows', 0):,}\", \"Status\": \"Clean\"}\n",
                 "    for fname, stats in dq_report.get(\"file_summaries\", {}).items()\n",
                 "]\n",
                 "display(pd.DataFrame(file_summaries))\n",
@@ -238,7 +227,7 @@ notebook = {
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "## 4. Econometric Drivers, Rule-6 Ordering Cadence Shifts & EV Shift"
+                "## 4. Macroeconomic Drivers, Ordering-Cycle Shifts & EV Transition"
             ]
         },
         {
@@ -260,13 +249,13 @@ notebook = {
                 "from src.config import REPORTS_DIR\n",
                 "\n",
                 "macro_lag_df = pd.read_csv(REPORTS_DIR / \"macro_lead_lag_analysis.csv\")\n",
-                "print(\"Top Macro Lead/Lag Relationships:\")\n",
+                "print(\"Top Macroeconomic Lead/Lag Relationships:\")\n",
                 "display(macro_lag_df.reindex(macro_lag_df[\"Max_Correlation\"].abs().sort_values(ascending=False).index)[[\n",
                 "    \"Product_Family\", \"Macro_Indicator\", \"Optimal_Lag_Months\", \"Max_Correlation\", \"Relationship\"\n",
                 "]].head(10))\n",
                 "\n",
                 "cad_changes = pd.read_csv(REPORTS_DIR / \"cadence_changes.csv\")\n",
-                "print(f\"\\nCustomer Ordering-Cycle Shifts Detected (Rule 6, 2019–22 vs 2023–26): {len(cad_changes):,}\")\n",
+                "print(f\"\\nCustomer Ordering-Cycle Shifts (Rule 6, 2019-2022 vs 2023-2026): {len(cad_changes):,}\")\n",
                 "display(cad_changes[\"Shift_Pattern\"].value_counts().head(8).to_frame(\"Customer-SKU Count\"))\n",
                 "\n",
                 "ev_df = pd.read_csv(REPORTS_DIR / \"ev_shift_analysis.csv\")\n",
@@ -284,7 +273,7 @@ notebook = {
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "## 5. Zero-Leakage Rolling-Origin Backtest Tournament & CQR Coverage"
+                "## 5. Multi-Origin Backtesting & Model Selection"
             ]
         },
         {
@@ -306,7 +295,7 @@ notebook = {
                 "from src.config import OUTPUTS_DIR\n",
                 "\n",
                 "metrics_df = pd.read_csv(OUTPUTS_DIR / \"backtest_metrics.csv\")\n",
-                "print(\"Zero-Leakage Rolling-Origin 19-Month Backtest Performance:\")\n",
+                "print(\"Rolling-Origin 19-Month Backtest Performance:\")\n",
                 "display(metrics_df)\n",
                 "\n",
                 "fig_bt = px.bar(\n",
@@ -329,7 +318,7 @@ notebook = {
                 "    hor_df = hor_df.sort_values(\"Horizon_Month\")\n",
                 "    fig_h = px.line(\n",
                 "        hor_df, x=\"Horizon_Month\", y=[\"LightGBM_WAPE\", \"Seasonal_Naive_WAPE\", \"Coverage_Pct\"],\n",
-                "        title=\"Holdout 2025-03 Accuracy & Interval Coverage Across Month 1 → Month 19\", template=\"plotly_dark\"\n",
+                "        title=\"Holdout 2025-03 Accuracy & Interval Coverage Across Month 1 -> Month 19\", template=\"plotly_dark\"\n",
                 "    )\n",
                 "    fig_h.update_layout(paper_bgcolor=\"#1E293B\", plot_bgcolor=\"#0F172A\")\n",
                 "    fig_h.show()\n",
@@ -342,7 +331,7 @@ notebook = {
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "## 6. Continuous Horizon (`2019-2028`), Native Tree-SHAP Attribution & ABC-XYZ Matrix"
+                "## 6. Continuous Horizon (`2019-2028`), Tree-SHAP Drivers & ABC-XYZ Portfolio"
             ]
         },
         {
@@ -372,30 +361,29 @@ notebook = {
                 "\n",
                 "fig_timeline = plot_continuous_timeline(\n",
                 "    hist_monthly, fcst_monthly,\n",
-                "    title=\"Celeris Automobili Continuous Demand Horizon (2019–2028) with Calibrated P10/P90 Ribbon\"\n",
+                "    title=\"Celeris Automobili Continuous Demand Horizon (2019-2028) with P10/P90 Intervals\"\n",
                 ")\n",
                 "fig_timeline.show()\n",
                 "\n",
-                "# Verify Month 1..19 continuity (zero Month-13 collapse)\n",
-                "print(\"19-Month Forecast Continuity Check (Units/Month):\")\n",
+                "print(\"19-Month Forecast Horizon Summary (Units/Month):\")\n",
                 "display(fcst_monthly[[\"Date\", \"P10\", \"Units_Sold_Forecast\", \"P90\"]])\n",
                 "\n",
-                "# Tree-SHAP Business Driver Attribution\n",
+                "# Native LightGBM Tree-SHAP feature group attributions\n",
                 "drv_path = OUTPUTS_DIR / \"forecast_drivers.parquet\"\n",
                 "if drv_path.exists():\n",
                 "    drv_df = pd.read_parquet(drv_path)\n",
                 "    d_cols = [\"Baseline & Seasonal Level\", \"Macro Economy\", \"EV Transition\", \"Calendar & Price Hikes\", \"Customer & Scoped Events\", \"Catalog & Lifecycle\"]\n",
                 "    drv_abs = pd.DataFrame([{\"Driver\": c, \"Absolute_Units\": drv_df[c].abs().sum(), \"Net_Signed\": drv_df[c].sum()} for c in d_cols if c in drv_df.columns])\n",
-                "    fig_shap = px.bar(drv_abs.sort_values(\"Absolute_Units\"), x=\"Absolute_Units\", y=\"Driver\", orientation=\"h\", color=\"Net_Signed\", color_continuous_scale=\"RdYlGn\", title=\"Native LightGBM Tree-SHAP Driver Attribution Across 58,219 Forecasts\", template=\"plotly_dark\")\n",
+                "    fig_shap = px.bar(drv_abs.sort_values(\"Absolute_Units\"), x=\"Absolute_Units\", y=\"Driver\", orientation=\"h\", color=\"Net_Signed\", color_continuous_scale=\"RdYlGn\", title=\"Tree-SHAP Driver Attribution Across 58,219 Forecasts\", template=\"plotly_dark\")\n",
                 "    fig_shap.update_layout(paper_bgcolor=\"#1E293B\", plot_bgcolor=\"#0F172A\")\n",
                 "    fig_shap.show()\n",
                 "\n",
-                "# ABC-XYZ Portfolio Working Capital Matrix\n",
+                "# ABC-XYZ Inventory Value vs Variability Matrix\n",
                 "abc_path = OUTPUTS_DIR / \"abc_xyz_inventory.csv\"\n",
                 "if abc_path.exists():\n",
                 "    abc_df = pd.read_csv(abc_path)\n",
                 "    abc_mat = abc_df.groupby([\"ABC_Class\", \"XYZ_Class\"])[\"SKU_ID\"].count().unstack(fill_value=0).reindex(index=[\"A\", \"B\", \"C\"], columns=[\"X\", \"Y\", \"Z\"], fill_value=0)\n",
-                "    fig_abc = px.imshow(abc_mat, text_auto=True, color_continuous_scale=\"Teal\", title=\"ABC (Revenue Tier) × XYZ (Demand Variability) Portfolio Matrix (SKU Counts)\", template=\"plotly_dark\")\n",
+                "    fig_abc = px.imshow(abc_mat, text_auto=True, color_continuous_scale=\"Teal\", title=\"ABC (Revenue Tier) x XYZ (Demand Variability) Portfolio Matrix (SKU Counts)\", template=\"plotly_dark\")\n",
                 "    fig_abc.update_layout(paper_bgcolor=\"#1E293B\")\n",
                 "    fig_abc.show()"
             ]
@@ -404,7 +392,7 @@ notebook = {
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "## 7. Official Competition Submission Verification (58,219 Rows)"
+                "## 7. Submission Verification (58,219 Rows)"
             ]
         },
         {
@@ -432,23 +420,20 @@ notebook = {
                 "raw_test = pd.read_csv(RAW_TEST, low_memory=False)\n",
                 "recon_df = pd.read_csv(OUTPUTS_DIR / \"hierarchical_reconciliation.csv\")\n",
                 "\n",
-                "print(\"=\" * 60)\n",
-                "print(\"  OFFICIAL SUBMISSION INTEGRITY CHECKLIST\")\n",
-                "print(\"=\" * 60)\n",
-                "\n",
+                "print(\"Submission Verification Checklist:\")\n",
                 "assert len(sub_df) == 58219, f\"Row count mismatch! Expected 58,219, got {len(sub_df)}\"\n",
-                "print(f\"✅ Row Count: {len(sub_df):,} matches test.csv exactly.\")\n",
+                "print(f\"✅ Row count: {len(sub_df):,} matches test.csv\")\n",
                 "\n",
                 "expected_cols = [\"Date\", \"SKU_ID\", \"Region\", \"Units_Sold_Forecast\"]\n",
                 "assert list(sub_df.columns) == expected_cols, f\"Column mismatch: {list(sub_df.columns)}\"\n",
-                "print(f\"✅ Columns: {list(sub_df.columns)} verified.\")\n",
+                "print(f\"✅ Columns: {list(sub_df.columns)}\")\n",
                 "\n",
                 "assert sub_df.isnull().sum().sum() == 0, \"Null values found!\"\n",
-                "print(\"✅ Null Count: 0 missing or NaN values.\")\n",
+                "print(\"✅ Null count: 0\")\n",
                 "\n",
                 "assert (sub_df[\"Units_Sold_Forecast\"] >= 0).all(), \"Negative forecasts found!\"\n",
                 "assert (sub_df[\"Units_Sold_Forecast\"] == sub_df[\"Units_Sold_Forecast\"].round()).all(), \"Non-integer forecasts found!\"\n",
-                "print(\"✅ Validity: 100% non-negative integers.\")\n",
+                "print(\"✅ Validity: 100% non-negative integers\")\n",
                 "\n",
                 "alignment_diff = (\n",
                 "    (sub_df[\"Date\"] != raw_test[\"Date\"]).sum()\n",
@@ -456,30 +441,28 @@ notebook = {
                 "    + (sub_df[\"Region\"] != raw_test[\"Region\"]).sum()\n",
                 ")\n",
                 "assert alignment_diff == 0, f\"Key alignment mismatch in {alignment_diff} rows!\"\n",
-                "print(\"✅ Alignment: 100% key-aligned with student_data/test.csv.\")\n",
+                "print(\"✅ Alignment: 100% aligned with student_data/test.csv\")\n",
                 "\n",
                 "assert (recon_df[\"Discrepancy\"] == 0).all(), \"Reconciliation discrepancy != 0!\"\n",
-                "print(\"✅ Hierarchy Reconciliation: 0 discrepancy across BU, Family, and Region sums.\")\n",
+                "print(\"✅ Hierarchy reconciliation: 0 discrepancy across BU, Family, and Region sums\")\n",
                 "\n",
-                "print(f\"\\n📊 Total 19-Month Forecast Demand: {sub_df['Units_Sold_Forecast'].sum():,} units\")\n",
-                "print(f\"   Monthly Average: {sub_df.groupby('Date')['Units_Sold_Forecast'].sum().mean():,.0f} units/month\")\n",
+                "print(f\"\\nTotal 19-Month Forecast: {sub_df['Units_Sold_Forecast'].sum():,} units | Monthly Average: {sub_df.groupby('Date')['Units_Sold_Forecast'].sum().mean():,.0f} units\")\n",
                 "display(sub_df.head(10))\n",
                 "\n",
                 "if \"google.colab\" in sys.modules:\n",
                 "    try:\n",
                 "        from google.colab import files\n",
-                "        print(\"\\n⬇️ Triggering download of submission.csv...\")\n",
                 "        files.download(str(sub_path))\n",
                 "    except Exception as exc:\n",
-                "        print(f\"\\nℹ️ Saved at {sub_path.resolve()} (direct browser download unavailable in this client: {exc})\")"
+                "        print(f\"Saved at {sub_path.resolve()} (direct browser download unavailable: {exc})\")"
             ]
         },
         {
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "## 8. Launch Interactive 14-View Streamlit Control Tower\n",
-                "Exposes `app.py` cleanly over **Cloudflare Quick Tunnel (`trycloudflare.com`)** so all Streamlit JS modules, Plotly charts, Tree-SHAP waterfalls, and ABC-XYZ heatmaps render cleanly with **no password wall**."
+                "## 8. Launch Interactive Control Tower Dashboard\n",
+                "Starts the 14-view Streamlit Control Tower and opens a Cloudflare Quick Tunnel URL when running in Google Colab."
             ]
         },
         {
@@ -533,13 +516,13 @@ notebook = {
                 "            time.sleep(1)\n",
                 "\n",
                 "    if not ready:\n",
-                "        print(\"❌ Streamlit failed to start. Log output:\")\n",
+                "        print(\"Streamlit failed to start. Log output:\")\n",
                 "        st_log.flush()\n",
                 "        print(Path(\"streamlit.log\").read_text(encoding=\"utf-8\", errors=\"ignore\"))\n",
                 "    else:\n",
                 "        cf_bin = Path(\"/tmp/cloudflared\")\n",
                 "        if not cf_bin.exists():\n",
-                "            print(\"📥 Downloading cloudflared tunnel client...\")\n",
+                "            print(\"Downloading cloudflared client...\")\n",
                 "            subprocess.run([\n",
                 "                \"wget\", \"-q\",\n",
                 "                \"https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64\",\n",
@@ -566,24 +549,21 @@ notebook = {
                 "                break\n",
                 "\n",
                 "        if tunnel_url:\n",
-                "            print(\"=\" * 72)\n",
-                "            print(\"🚀 CELERIS CONTROL TOWER DASHBOARD READY!\")\n",
-                "            print(f\"🌐 Open Dashboard URL (No Password Required): {tunnel_url}\")\n",
-                "            print(\"=\" * 72)\n",
-                "            print(\"Keep this cell running while using the dashboard; click Stop to shut down.\")\n",
+                "            print(f\"Dashboard URL: {tunnel_url}\")\n",
+                "            print(\"Keep this cell running while using the dashboard; interrupt execution to stop.\")\n",
                 "            try:\n",
                 "                cf_proc.wait()\n",
                 "            except KeyboardInterrupt:\n",
-                "                print(\"\\n🛑 Shutting down tunnel and Streamlit server...\")\n",
+                "                print(\"\\nShutting down tunnel and Streamlit server...\")\n",
                 "                cf_proc.terminate()\n",
                 "                st_proc.terminate()\n",
                 "        else:\n",
-                "            print(\"⚠️ Could not retrieve trycloudflare URL; falling back to localtunnel...\")\n",
+                "            print(\"Could not retrieve trycloudflare URL; falling back to localtunnel...\")\n",
                 "            cf_proc.terminate()\n",
                 "            !npx -y localtunnel --port 8501\n",
                 "else:\n",
-                "    print(\"💻 To run the 14-view Control Tower locally, execute in terminal:\")\n",
-                "    print(\"   python -m streamlit run app.py\")"
+                "    print(\"To launch the 14-view Control Tower locally, run:\")\n",
+                "    print(\"  python -m streamlit run app.py\")"
             ]
         }
     ],
@@ -617,5 +597,4 @@ for cell in notebook["cells"]:
 out_path = Path("mks_datathon_notebook.ipynb")
 with open(out_path, "w", encoding="utf-8") as f:
     json.dump(notebook, f, indent=1)
-
-print(f"Successfully generated {out_path} ({out_path.stat().st_size:,} bytes)")
+print(f"Generated clean {out_path} ({out_path.stat().st_size:,} bytes)")
